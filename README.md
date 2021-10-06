@@ -1,3 +1,3 @@
-# ECG Fronted begins with Create React App
+# ECG Frontend Documentation
 
-Commentate this READ.md as the frontend progress.
+- Commentate this READ.md file as the frontend progresses.
