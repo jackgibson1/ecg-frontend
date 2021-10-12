@@ -6,7 +6,7 @@ const AnimatedTyping = (props) => {
   const { text } = props;
   return (
     <Typing>
-      <span>{text}</span>
+      <h1>{text}</h1>
     </Typing>
   );
 };
