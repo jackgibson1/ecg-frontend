@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Typography } from '@mui/material';
 import HomeHeroLayout from './HomeHeroLayout';
 
-const backgroundImage = 'https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400&q=80';
+const backgroundImage = 'https://ak.picdn.net/shutterstock/videos/1040456972/thumb/1.jpg';
 
 export default function ProductHero() {
   return (
@@ -19,8 +19,8 @@ export default function ProductHero() {
         src={backgroundImage}
         alt="increase priority"
       />
-      <Typography color="inherit" align="center" variant="h2" marked="center">
-        Upgrade your Sundays
+      <Typography color="inherit" align="center" variant="h3" marked="center">
+        Learn ECGs.
       </Typography>
       <Typography
         color="inherit"
@@ -28,7 +28,7 @@ export default function ProductHero() {
         variant="h5"
         sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}
       >
-        Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
+        See the sections.
       </Typography>
       <Button
         color="secondary"
