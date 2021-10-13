@@ -144,7 +144,7 @@ export default function NavigationBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="absolute">
+      <AppBar style={{ background: '#144A63' }} position="absolute">
         <Toolbar>
           <IconButton
             size="large"
@@ -216,7 +216,6 @@ export default function NavigationBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      <Toolbar />
     </Box>
   );
 }

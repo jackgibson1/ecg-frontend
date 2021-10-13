@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Stack, Paper, Typography, Button,
+  Stack, Box, Typography, Button,
 } from '@mui/material';
 
 const backgroundImage = 'https://ak.picdn.net/shutterstock/videos/1040456972/thumb/1.jpg';
@@ -21,14 +21,14 @@ const styles = {
 
 export default function HomeHero() {
   return (
-    <Paper style={styles.paperContainer}>
+    <Box style={styles.paperContainer}>
       <Stack>
         <Typography color="white" align="center" variant="h2" marked="center">
           Learn Electrocardiography.
         </Typography>
         <Button
           size="large"
-          color="secondary"
+          color="primary"
           variant="contained"
           component="a"
           href="/below-section/"
@@ -36,10 +36,10 @@ export default function HomeHero() {
         >
           View sections
         </Button>
-        <Typography variant="body2" color="white" sx={{ mt: 2, alignText: 'center' }}>
+        <Typography variant="body2" align="center" color="white" marked="center" sx={{ mt: 2 }}>
           Discover the learning tools below.
         </Typography>
       </Stack>
-    </Paper>
+    </Box>
   );
 }
