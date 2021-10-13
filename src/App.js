@@ -13,6 +13,7 @@ function App() {
       <Grid item xs={12}>
         <HomeHero />
       </Grid>
+      <hr />
 
     </Grid>
 
