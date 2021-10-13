@@ -1,48 +1,45 @@
-import * as React from 'react';
-import { Button, Typography } from '@mui/material';
-import HomeHeroLayout from './HomeHeroLayout';
+import React from 'react';
+import {
+  Stack, Paper, Typography, Button,
+} from '@mui/material';
 
 const backgroundImage = 'https://ak.picdn.net/shutterstock/videos/1040456972/thumb/1.jpg';
 
-export default function ProductHero() {
+const styles = {
+  paperContainer: {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+    height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+};
+
+export default function HomeHero() {
   return (
-    <HomeHeroLayout
-      sxBackground={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundColor: '#7fc7d9', // Average color of the background image.
-        backgroundPosition: 'center',
-      }}
-    >
-      {/* Increase the network loading priority of the background image. */}
-      <img
-        style={{ display: 'none' }}
-        src={backgroundImage}
-        alt="increase priority"
-      />
-      <Typography color="inherit" align="center" variant="h3" marked="center">
-        Learn ECGs.
-      </Typography>
-      <Typography
-        color="inherit"
-        align="center"
-        variant="h5"
-        sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}
-      >
-        See the sections.
-      </Typography>
-      <Button
-        color="secondary"
-        variant="contained"
-        size="large"
-        component="a"
-        href="/premium-themes/onepirate/sign-up/"
-        sx={{ minWidth: 200 }}
-      >
-        Register
-      </Button>
-      <Typography variant="body2" color="inherit" sx={{ mt: 2 }}>
-        Discover the experience
-      </Typography>
-    </HomeHeroLayout>
+    <Paper style={styles.paperContainer}>
+      <Stack>
+        <Typography color="white" align="center" variant="h2" marked="center">
+          Learn Electrocardiography.
+        </Typography>
+        <Button
+          size="large"
+          color="secondary"
+          variant="contained"
+          component="a"
+          href="/below-section/"
+          sx={{ minWidth: 200, mt: 10 }}
+        >
+          View sections
+        </Button>
+        <Typography variant="body2" color="white" sx={{ mt: 2, alignText: 'center' }}>
+          Discover the learning tools below.
+        </Typography>
+      </Stack>
+    </Paper>
   );
 }
