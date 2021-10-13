@@ -32,7 +32,7 @@ export default function HomeHero() {
           variant="contained"
           component="a"
           href="/below-section/"
-          sx={{ minWidth: 200, mt: 10 }}
+          sx={{ mt: 10 }}
         >
           View sections
         </Button>
