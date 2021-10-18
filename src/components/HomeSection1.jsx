@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Grid, Box } from '@mui/material';
-import animatedImage from '../assets/images/animatedGif1.gif';
+import animatedImage from '../assets/images/animatedHeartResized.gif';
+import animatedImageLg from '../assets/images/animatedGif1.gif';
 
 function HomeSection1() {
   return (
@@ -24,8 +25,12 @@ function HomeSection1() {
         </Box>
       </Grid>
       <Grid item xs={12} md={6} lg={6} spacing={1}>
-        <Box sx={{ paddingLeft: '5%', paddingRight: '5%', paddingTop: '10%' }}>
-          <img src={animatedImage} alt="animated heart" />
+        <Box sx={{ paddingLeft: '5%', paddingRight: '0%', paddingTop: '10%' }}>
+          <picture>
+            <source media="(max-width: 400px)" srcSet={animatedImage} />
+            <source media="(max-width: 1200px)" srcSet={animatedImageLg} />
+            <img src={animatedImageLg} alt="alt text for pic" />
+          </picture>
         </Box>
       </Grid>
     </>
