@@ -4,6 +4,13 @@ import {
 } from '@mui/material';
 import animatedQuiz from '../assets/images/quizzesAnimation.gif';
 
+const information = [
+  { title: 'For everyone', information: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' },
+  { title: 'For everyone', information: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' },
+  { title: 'For everyone', information: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' },
+
+];
+
 function HomeSection2() {
   return (
     <>
@@ -37,39 +44,18 @@ function HomeSection2() {
       <Grid item xs={12} md={6} lg={6} spacing={2}>
         <Box sx={{ paddingLeft: '5%', paddingRight: '5%', paddingTop: '10%' }}>
           <Stack spacing={2}>
-            <Typography variant="h4">
-              <b>
-                For everyone.
-              </b>
-            </Typography>
-            <Typography variant="h6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-              specimen book.
-            </Typography>
-            <Typography variant="h4">
-              <b>
-                Learn by doing.
-              </b>
-            </Typography>
-            <Typography variant="h6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-              specimen book.
-            </Typography>
-            <Typography variant="h4">
-              <b>
-                100s of conditions.
-              </b>
-            </Typography>
-            <Typography variant="h6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-              specimen book.
-            </Typography>
+            {information.map((info) => (
+              <div>
+                <Typography variant="h4">
+                  <b>
+                    {info.title}
+                  </b>
+                </Typography>
+                <Typography variant="h6">
+                  {info.information}
+                </Typography>
+              </div>
+            ))}
           </Stack>
         </Box>
       </Grid>
