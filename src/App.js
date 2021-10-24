@@ -37,9 +37,6 @@ function App() {
         <HomeSection2 />
         <hr style={styles.hr} />
       </Grid>
-      <Grid container item xs={12}>
-        <HomeSection2 />
-      </Grid>
     </Grid>
 
   );
