@@ -5,7 +5,7 @@ import animatedImageLg from '../assets/images/animatedGif1.gif';
 
 function HomeSection1() {
   return (
-    <>
+    <Grid fluid container justify="center">
       <Grid item xs={12} md={6} lg={6} spacing={2}>
         <Box sx={{ paddingLeft: '5%', paddingRight: '5%', paddingTop: '10%' }}>
           <Typography variant="h2" component="div">
@@ -33,7 +33,7 @@ function HomeSection1() {
           </picture>
         </Box>
       </Grid>
-    </>
+    </Grid>
   );
 }
 export default HomeSection1;

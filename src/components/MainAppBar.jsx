@@ -1,30 +1,58 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import { Typography, createTheme } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
+
+const theme = createTheme();
+
+const styles = {
+  navlinks: {
+    marginLeft: theme.spacing(10),
+    display: 'flex',
+  },
+  logo: {
+    flexGrow: '1',
+    cursor: 'pointer',
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'white',
+    fontSize: '20px',
+    marginLeft: theme.spacing(2),
+    '&:hover': {
+      color: 'yellow',
+      borderBottom: '1px solid white',
+    },
+  },
+};
 
 export default function MainAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" style={{ background: '#000000' }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            ECG Learning
+          <Typography variant="h6" component="div" sx={styles.logo}>
+            <Link to="/" style={styles.link}>
+              ECGs
+            </Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <div style={styles.navlinks}>
+            <Link to="/courses" style={styles.link}>
+              Courses
+            </Link>
+            <Link to="/quizzes" style={styles.link}>
+              Quizzes
+            </Link>
+            <Link to="/ask" style={styles.link}>
+              Ask
+            </Link>
+            <Link to="/login" style={styles.link}>
+              Login
+            </Link>
+          </div>
+
         </Toolbar>
       </AppBar>
       <Toolbar />

@@ -13,7 +13,7 @@ const information = [
 
 function HomeSection2() {
   return (
-    <>
+    <Grid fluid container justify="center">
       <Grid item xs={12} md={6} lg={6} spacing={2}>
         <Box sx={{ paddingLeft: '5%', paddingRight: '5%', paddingTop: '10%' }}>
           <Stack spacing={2}>
@@ -59,7 +59,7 @@ function HomeSection2() {
           </Stack>
         </Box>
       </Grid>
-    </>
+    </Grid>
   );
 }
 export default HomeSection2;
