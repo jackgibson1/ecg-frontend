@@ -1,9 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import { Typography, createTheme } from '@mui/material';
+import {
+  Typography, createTheme, useMediaQuery, useTheme,
+} from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
+import DrawerComponent from './Drawer';
 
 const theme = createTheme();
 
@@ -29,6 +32,9 @@ const styles = {
 };
 
 export default function MainAppBar() {
+  const theme2 = useTheme();
+  const isMobile = useMediaQuery(theme2.breakpoints.down('md'));
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" style={{ background: '#000000' }}>
@@ -38,21 +44,24 @@ export default function MainAppBar() {
               ECGs
             </Link>
           </Typography>
-          <div style={styles.navlinks}>
-            <Link to="/courses" style={styles.link}>
-              Courses
-            </Link>
-            <Link to="/quizzes" style={styles.link}>
-              Quizzes
-            </Link>
-            <Link to="/ask" style={styles.link}>
-              Ask
-            </Link>
-            <Link to="/login" style={styles.link}>
-              Login
-            </Link>
-          </div>
-
+          {isMobile ? (
+            <DrawerComponent />
+          ) : (
+            <div style={styles.navlinks}>
+              <Link to="/courses" style={styles.link}>
+                Courses
+              </Link>
+              <Link to="/quizzes" style={styles.link}>
+                Quizzes
+              </Link>
+              <Link to="/ask" style={styles.link}>
+                Ask
+              </Link>
+              <Link to="/login" style={styles.link}>
+                Login
+              </Link>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
       <Toolbar />
