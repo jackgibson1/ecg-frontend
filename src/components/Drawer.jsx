@@ -14,7 +14,7 @@ function DrawerComponent() {
 
   return (
     <>
-      <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
+      <Drawer anchor="top" open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <List>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
