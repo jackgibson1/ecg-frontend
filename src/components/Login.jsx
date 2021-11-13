@@ -1,5 +1,6 @@
+/* eslint-disable */ 
 /* eslint-disable react/no-unescaped-entities */
-import * as React from 'react';
+import React, { useState, useRef } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,6 +14,20 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import Form from 'react-validation/build/form';
+// import Input from 'react-validation/build/input';
+import CheckButton from 'react-validation/build/button';
+import Alert from '@mui/material/Alert';
+
+import AuthService from '../services/auth.service';
+
+function required(value) {
+  if (!value) {
+    return (
+      <Alert severity="error">This field is required!</Alert>
+    );
+  }
+}
 
 function Copyright(props) {
   return (
@@ -31,15 +46,51 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+const Login = (props) => {
+  const form = useRef();
+  const checkBtn = useRef();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const onChangeUsername = (e) => {
+    const usernameT = e.target.value;
+    setUsername(usernameT);
+  };
+
+  const onChangePassword = (e) => {
+    const passwordT = e.target.value;
+    setPassword(passwordT);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    setMessage('');
+    setLoading(true);
+
+    form.current.validateAll();
+
+    if (checkBtn.current.context._errors.length === 0) {
+      AuthService.login(username, password).then(
+        () => {
+          // eslint-disable-next-line react/prop-types
+          props.history.push('/profile');
+          window.location.reload();
+        },
+        (error) => {
+          const resMessage = (error.response && error.response.data
+                && error.response.data.message) || error.message || error.toString();
+
+          setLoading(false);
+          setMessage(resMessage);
+        },
+      );
+    } else {
+      setLoading(false);
+    }
   };
 
   return (
@@ -60,16 +111,19 @@ function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleLogin} ref={form} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
+              id="username"
+              label="Username"
+              name="username"
               autoComplete="email"
               autoFocus
+              value={username}
+              onChange={onChangeUsername}
+              validations={[required]}
             />
             <TextField
               margin="normal"
@@ -111,6 +165,6 @@ function Login() {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
 export default Login;
