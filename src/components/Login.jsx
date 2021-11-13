@@ -1,33 +1,35 @@
-/* eslint-disable */ 
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import CheckButton from 'react-validation/build/button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import Form from 'react-validation/build/form';
-// import Input from 'react-validation/build/input';
-import CheckButton from 'react-validation/build/button';
+// import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+// import TextField from '@mui/material/TextField';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
+import Avatar from '@mui/material/Avatar';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import AuthService from '../services/auth.service';
 
-function required(value) {
+const required = (value) => {
   if (!value) {
     return (
       <Alert severity="error">This field is required!</Alert>
     );
   }
-}
+  return null;
+};
 
 function Copyright(props) {
   return (
@@ -56,13 +58,13 @@ const Login = (props) => {
   const [message, setMessage] = useState('');
 
   const onChangeUsername = (e) => {
-    const usernameT = e.target.value;
-    setUsername(usernameT);
+    const usernameTarget = e.target.value;
+    setUsername(usernameTarget);
   };
 
   const onChangePassword = (e) => {
-    const passwordT = e.target.value;
-    setPassword(passwordT);
+    const passwordTarget = e.target.value;
+    setPassword(passwordTarget);
   };
 
   const handleLogin = (e) => {
@@ -73,6 +75,7 @@ const Login = (props) => {
 
     form.current.validateAll();
 
+    // eslint-disable-next-line no-underscore-dangle
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(username, password).then(
         () => {
@@ -81,8 +84,11 @@ const Login = (props) => {
           window.location.reload();
         },
         (error) => {
-          const resMessage = (error.response && error.response.data
-                && error.response.data.message) || error.message || error.toString();
+          const resMessage = (error.response
+            && error.response.data
+            && error.response.data.message)
+            || error.message
+            || error.toString();
 
           setLoading(false);
           setMessage(resMessage);
@@ -111,59 +117,61 @@ const Login = (props) => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleLogin} ref={form} sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="email"
-              autoFocus
-              value={username}
-              onChange={onChangeUsername}
-              validations={[required]}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#test" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#test" variant="body2">
-                  Don't have an account? Sign Up
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
+
+          <Form onSubmit={handleLogin} ref={form}>
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <Input
+                type="text"
+                className="form-control"
+                name="username"
+                value={username}
+                onChange={onChangeUsername}
+                validations={[required]}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <Input
+                type="password"
+                className="form-control"
+                name="password"
+                value={password}
+                onChange={onChangePassword}
+                validations={[required]}
+              />
+            </div>
+
+            <div className="form-group">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+
+            </div>
+
+            {message && (
+              <div className="form-group">
+                <div className="alert alert-danger" role="alert">
+                  {loading && (
+                  <CircularProgress />
+                  )}
+                  {message}
+                </div>
+              </div>
+            )}
+            <CheckButton style={{ display: 'none' }} ref={checkBtn} />
+          </Form>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+
   );
 };
 
