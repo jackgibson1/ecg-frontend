@@ -31,7 +31,9 @@ const styles = {
   },
 };
 
-export default function MainAppBar() {
+export default function MainAppBar(props) {
+  // eslint-disable-next-line react/prop-types
+  const { currentUser, logOut } = props;
   const theme2 = useTheme();
   const isMobile = useMediaQuery(theme2.breakpoints.down('md'));
 
@@ -57,12 +59,24 @@ export default function MainAppBar() {
               <Link to="/ask" style={styles.link}>
                 Ask
               </Link>
-              <Link to="/login" style={styles.link}>
-                Login
-              </Link>
-              <Link to="/register" style={styles.link}>
-                Register
-              </Link>
+              {currentUser ? (
+                <>
+                  {/* eslint-disable-next-line react/prop-types */}
+                  <Link to="/profile" style={styles.link}>{currentUser.username}</Link>
+                  <a href="/" style={styles.link} onClick={logOut}>Logout</a>
+                </>
+              ) : (
+
+                <>
+                  <Link to="/login" style={styles.link}>
+                    Login
+                  </Link>
+                  <Link to="/register" style={styles.link}>
+                    Register
+                  </Link>
+                </>
+              )}
+
             </div>
           )}
         </Toolbar>
