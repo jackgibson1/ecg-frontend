@@ -11,7 +11,7 @@ import readingCard from '../assets/images/courses/readingCard.jpeg';
 
 const courseDetails = [
   {
-    title: '1. Basic Anatomy & Physiology Of The Heart',
+    title: '1. Anatomy, Blood Flow & Contraction Of The Heart',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image: anatomyCard,
   },
@@ -21,17 +21,22 @@ const courseDetails = [
     image: introductionCard,
   },
   {
-    title: '3. How To Read An ECG',
+    title: '3. Parts Of The ECG Explained',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image: readingCard,
   },
   {
-    title: '4. How To Document An ECG',
+    title: '4. How To Read An ECG',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    image: readingCard,
+  },
+  {
+    title: '5. How To Document An ECG',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image: documentCard,
   },
   {
-    title: '5. Condtions',
+    title: '6. Conditions',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     image: conditionsCard,
   },
