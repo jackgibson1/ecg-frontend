@@ -4,8 +4,10 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import AnatomyDialog from './anatomyDialog';
+// import Fab from '@mui/material/Fab';
+// import NotStartedIcon from '@mui/icons-material/NotStarted';
 import CircularProgressWithLabel from './CircularProgressWithLabel';
 // import theme from './theme';
 
@@ -25,6 +27,8 @@ const styles = {
 // });
 
 export default function CourseCard(props) {
+  const [open, setOpen] = React.useState(false);
+
   // const classes = useStyles();
   // eslint-disable-next-line react/prop-types
   const { image, title, description } = props;
@@ -48,7 +52,11 @@ export default function CourseCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Begin</Button>
+        {/* <Fab color="primary" variant="extended">
+          <NotStartedIcon sx={{ mr: 2 }} />
+          Begin
+        </Fab> */}
+        <AnatomyDialog open={open} setOpen={setOpen} />
         <CircularProgressWithLabel value="50" />
       </CardActions>
 
