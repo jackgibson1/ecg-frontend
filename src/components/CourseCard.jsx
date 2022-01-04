@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import { makeStyles } from '@mui/styles';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -6,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CircularProgressWithLabel from './CircularProgressWithLabel';
+// import theme from './theme';
 
 const styles = {
   media: {
@@ -14,12 +16,24 @@ const styles = {
   },
 };
 
+// const useStyles = makeStyles({
+//   card: {
+//     borderRadius: 20,
+//     boxShadow: 'true',
+//     border: 20,
+//   },
+// });
+
 export default function CourseCard(props) {
+  // const classes = useStyles();
   // eslint-disable-next-line react/prop-types
   const { image, title, description } = props;
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{
+      maxWidth: 345, border: 2, borderRadius: 2, boxShadow: 'true',
+    }}
+    >
       <CardMedia
         // eslint-disable-next-line global-require
         image={image}
@@ -34,10 +48,10 @@ export default function CourseCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Begin</Button>
+        <CircularProgressWithLabel value="50" />
       </CardActions>
-      <CircularProgressWithLabel value="50" />
+
     </Card>
   );
 }
