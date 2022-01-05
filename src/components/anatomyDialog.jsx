@@ -7,13 +7,16 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useHistory } from 'react-router-dom';
+import CourseTimeline from './CourseTimeline';
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
 export default function anatomyDialog(props) {
   const history = useHistory();
-  const { open, setOpen } = props;
+  const {
+    title, description, open, setOpen, sections,
+  } = props;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,7 +33,7 @@ export default function anatomyDialog(props) {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Begin
+        View Course
       </Button>
       <Dialog
         open={open}
@@ -39,16 +42,18 @@ export default function anatomyDialog(props) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>Use Googles location service?</DialogTitle>
+        <DialogTitle sx={{ textAlign: 'center' }}>{title}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
+            {description}
           </DialogContentText>
+          <DialogTitle sx={{ textAlign: 'center' }}>Course Contents</DialogTitle>
+          <CourseTimeline sections={sections} />
+
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={startCourse}>Agree</Button>
+        <DialogActions textAlign="center">
+          <Button onClick={handleClose}>Exit</Button>
+          <Button onClick={startCourse}>Start Course</Button>
         </DialogActions>
       </Dialog>
     </div>

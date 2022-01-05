@@ -18,20 +18,13 @@ const styles = {
   },
 };
 
-// const useStyles = makeStyles({
-//   card: {
-//     borderRadius: 20,
-//     boxShadow: 'true',
-//     border: 20,
-//   },
-// });
-
 export default function CourseCard(props) {
   const [open, setOpen] = React.useState(false);
 
-  // const classes = useStyles();
-  // eslint-disable-next-line react/prop-types
-  const { image, title, description } = props;
+  const {
+    // eslint-disable-next-line react/prop-types
+    image, title, description, sections,
+  } = props;
 
   return (
     <Card sx={{
@@ -56,7 +49,13 @@ export default function CourseCard(props) {
           <NotStartedIcon sx={{ mr: 2 }} />
           Begin
         </Fab> */}
-        <AnatomyDialog open={open} setOpen={setOpen} />
+        <AnatomyDialog
+          title={title}
+          description={description}
+          sections={sections}
+          open={open}
+          setOpen={setOpen}
+        />
         <CircularProgressWithLabel value="50" />
       </CardActions>
 
