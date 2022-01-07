@@ -6,14 +6,15 @@ import introductionCard from '../assets/images/courses/introductionCard.jpeg';
 import readingCard from '../assets/images/courses/readingCard.jpeg';
 
 // Anatomy Course Components
-import Introduction from './courses/anatomy/introduction';
+import AnatomyIntroduction from './courses/anatomy/AnatomyIntroduction';
+import AnatomyOutside from './courses/anatomy/AnatomyOutside';
 
 const courseDetails = [
   {
     title: '1. Anatomy, Blood Flow & Contraction Of The Heart',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sections: ['1. Heart Introduction', '2. Anatomy Outside The Heart', '3. Anatomy Inside The Heart', '4. Blood Flow', '5. Contraction'],
-    components: [<Introduction />],
+    components: [<AnatomyIntroduction />, <AnatomyOutside />],
     path: '/courses/anatomy',
     image: anatomyCard,
   },
@@ -21,7 +22,7 @@ const courseDetails = [
     title: '2. ECG Introduction',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sections: ['1. What is electrocardiography?', '2. History', '3. Medical Uses', '4. Electrocardiographs', '5. Electrodes & Leads', '6. Limb Leads', '7. Augmented Limb Leads', '8. Precordial Limb Leads', '9. Specialised Leads', '10. Lead Locations On An ECG Report', 'Contiguity Of Leads'],
-    components: [<Introduction />],
+    components: [<AnatomyIntroduction />],
     path: '/courses/introduction',
     image: introductionCard,
   },
@@ -29,7 +30,7 @@ const courseDetails = [
     title: '3. Parts Of The ECG Explained',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sections: ['1. What is an ECG', '2. Parts of the ECG Explained', '3. How to read ECG paper', '4. How the 12 lead ECG works', '5. The shape of the ECG waveform', '6. Localising pathology on the ECG', '7. Cardiac Axis'],
-    components: [<Introduction />],
+    components: [<AnatomyIntroduction />],
     path: '/courses/parts',
     image: readingCard,
   },
@@ -37,7 +38,7 @@ const courseDetails = [
     title: '4. How To Read An ECG',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sections: ['1. Confirm Details', '2. Heart Rate', '3. Heart Rythm', '4. Cardiac Axis', '5. P Waves', '6. PR interval', '7. QRS Complex', '8. ST segment', '9. T waves', '10. U Waves', '11. Document Your Interpretation'],
-    components: [<Introduction />],
+    components: [<AnatomyIntroduction />],
     path: '/courses/reading',
     image: readingCard,
   },
@@ -45,7 +46,7 @@ const courseDetails = [
     title: '5. How To Document An ECG',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sections: ['1. Documentation Basics', '2. Beginning Your Entry In The Notes', '3. Documenting the ECG results in the notes', '4. Completing the entry in the notes'],
-    components: [<Introduction />],
+    components: [<AnatomyIntroduction />],
     path: '/courses/documenting',
     image: documentCard,
   },
@@ -53,7 +54,7 @@ const courseDetails = [
     title: '6. Conditions',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sections: ['1. Heart Introduction', '2. Anatomy Outside The Heart', '3. Anatomy Inside The Heart', '4. Blood Flow', '5. Contraction'],
-    components: [<Introduction />],
+    components: [<AnatomyIntroduction />],
     path: '/courses/conditions',
     image: conditionsCard,
   },

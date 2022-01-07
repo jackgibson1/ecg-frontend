@@ -45,7 +45,7 @@ export default function CourseLayout(props) {
             borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%', backgroundImage: `url(${CourseBackground})`, backgroundSize: 'cover',
           }}
           >
-            {course.components[0]}
+            {course.components[1]}
           </Box>
         </Item>
         <NavigationArea>
