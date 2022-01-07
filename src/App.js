@@ -10,7 +10,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
 import AuthService from './services/auth.service';
-import AnatomyCourse from './components/AnatomyCourse';
+import CourseLayout from './components/CourseLayout';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -39,7 +39,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/profile" component={Profile} />
-        <Route path="/courses/anatomy" component={AnatomyCourse} />
+        <Route path={['/courses/anatomy', '/courses/introduction', '/courses/parts', '/courses/reading', '/courses/documenting', '/courses/conditions']} component={CourseLayout} />
       </Switch>
     </Router>
 

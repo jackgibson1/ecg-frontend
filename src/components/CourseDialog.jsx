@@ -12,10 +12,11 @@ import CourseTimeline from './CourseTimeline';
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
-export default function anatomyDialog(props) {
+export default function CourseDialog(props) {
   const history = useHistory();
   const {
-    title, description, open, setOpen, sections,
+    // eslint-disable-next-line react/prop-types
+    title, description, open, setOpen, sections, path,
   } = props;
 
   const handleClickOpen = () => {
@@ -27,7 +28,7 @@ export default function anatomyDialog(props) {
   };
 
   const startCourse = () => {
-    history.push('courses/anatomy');
+    history.push(path);
   };
 
   return (

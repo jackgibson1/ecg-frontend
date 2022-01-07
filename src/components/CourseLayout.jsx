@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
@@ -13,12 +14,15 @@ const Item = styled(Paper)(({ theme }) => ({
   height: '500%',
 }));
 
-export default function AnatomyCourse() {
+export default function CourseLayout(props) {
+  // eslint-disable-next-line react/prop-types
+  const { pathname } = props.location;
+
   return (
     <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} fluid container justify="center">
       <Grid item xs={2}>
         <Item>
-          <CourseContentsList />
+          <CourseContentsList pathname={pathname} />
         </Item>
       </Grid>
       <Grid item xs={10}>
@@ -26,7 +30,9 @@ export default function AnatomyCourse() {
           <Box sx={{
             borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%',
           }}
-          />
+          >
+            Course Components Iterated Here
+          </Box>
         </Item>
       </Grid>
     </Grid>

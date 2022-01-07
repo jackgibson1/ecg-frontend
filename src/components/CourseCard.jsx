@@ -5,7 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import AnatomyDialog from './anatomyDialog';
+import CourseDialog from './CourseDialog';
 // import Fab from '@mui/material/Fab';
 // import NotStartedIcon from '@mui/icons-material/NotStarted';
 import CircularProgressWithLabel from './CircularProgressWithLabel';
@@ -23,7 +23,7 @@ export default function CourseCard(props) {
 
   const {
     // eslint-disable-next-line react/prop-types
-    image, title, description, sections,
+    image, title, description, sections, path,
   } = props;
 
   return (
@@ -49,9 +49,10 @@ export default function CourseCard(props) {
           <NotStartedIcon sx={{ mr: 2 }} />
           Begin
         </Fab> */}
-        <AnatomyDialog
+        <CourseDialog
           title={title}
           description={description}
+          path={path}
           sections={sections}
           open={open}
           setOpen={setOpen}
