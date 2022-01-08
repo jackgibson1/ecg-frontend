@@ -8,13 +8,14 @@ import readingCard from '../assets/images/courses/readingCard.jpeg';
 // Anatomy Course Components
 import AnatomyIntroduction from './courses/anatomy/AnatomyIntroduction';
 import AnatomyOutside from './courses/anatomy/AnatomyOutside';
+import AnatomyInside from './courses/anatomy/AnatomyInside';
 
 const courseDetails = [
   {
     title: '1. Anatomy, Blood Flow & Contraction Of The Heart',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sections: ['1. Heart Introduction', '2. Anatomy Outside The Heart', '3. Anatomy Inside The Heart', '4. Blood Flow', '5. Contraction'],
-    components: [<AnatomyIntroduction />, <AnatomyOutside />],
+    components: [<AnatomyIntroduction />, <AnatomyOutside />, <AnatomyInside />],
     path: '/courses/anatomy',
     image: anatomyCard,
   },
