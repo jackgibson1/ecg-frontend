@@ -48,7 +48,12 @@ export default function AnatomyBloodFlow() {
           </Typography>
         </Grid>
         <Grid item xs={12} align="center">
-          <ProgressStepper counter={counter} handleNext={handleNext} handleBack={handleBack} />
+          <ProgressStepper
+            counter={counter}
+            handleNext={handleNext}
+            handleBack={handleBack}
+            numberOfSections={bloodFlowSections.length}
+          />
         </Grid>
       </Grid>
     </div>

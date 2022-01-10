@@ -6,19 +6,23 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 export default function ProgressStepper(props) {
-  // eslint-disable-next-line react/prop-types
-  const { counter, handleNext, handleBack } = props;
+  const {
+    // eslint-disable-next-line react/prop-types
+    counter, handleNext, handleBack, numberOfSections,
+  } = props;
   const theme = useTheme();
 
   return (
     <MobileStepper
-      variant="progress"
-      steps={7}
+      variant="dots"
+      steps={numberOfSections}
       position="static"
       activeStep={counter}
-      sx={{ maxWidth: 400, flexGrow: 1, borderRadius: 3 }}
+      sx={{
+        maxWidth: 400, flexGrow: 1, borderRadius: 3, backgroundColor: 'transparent',
+      }}
       nextButton={(
-        <Button size="small" onClick={handleNext} disabled={counter === 6}>
+        <Button size="small" onClick={handleNext} disabled={counter === (numberOfSections - 1)}>
           Next
           {theme.direction === 'rtl' ? (
             <KeyboardArrowLeft />
