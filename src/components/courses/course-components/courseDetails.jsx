@@ -1,16 +1,16 @@
 import React from 'react';
-import anatomyCard from '../assets/images/courses/anatomyCard.jpeg';
-import conditionsCard from '../assets/images/courses/conditionsCard.jpeg';
-import documentCard from '../assets/images/courses/documentCard.jpg';
-import introductionCard from '../assets/images/courses/introductionCard.jpeg';
-import readingCard from '../assets/images/courses/readingCard.jpeg';
+import anatomyCard from '../../../assets/images/courses/anatomyCard.jpeg';
+import conditionsCard from '../../../assets/images/courses/conditionsCard.jpeg';
+import documentCard from '../../../assets/images/courses/documentCard.jpg';
+import introductionCard from '../../../assets/images/courses/introductionCard.jpeg';
+import readingCard from '../../../assets/images/courses/readingCard.jpeg';
 
 // Anatomy Course Components
-import AnatomyIntroduction from './courses/anatomy/AnatomyIntroduction';
-import AnatomyOutside from './courses/anatomy/AnatomyOutside';
-import AnatomyInside from './courses/anatomy/AnatomyInside';
-import AnatomyBloodFlow from './courses/anatomy/AnatomyBloodFlow';
-import AnatomyContraction from './courses/anatomy/AnatomyContraction';
+import AnatomyIntroduction from '../anatomy/AnatomyIntroduction';
+import AnatomyOutside from '../anatomy/AnatomyOutside';
+import AnatomyInside from '../anatomy/AnatomyInside';
+import AnatomyBloodFlow from '../anatomy/AnatomyBloodFlow';
+import AnatomyContraction from '../anatomy/AnatomyContraction';
 
 const courseDetails = [
   {

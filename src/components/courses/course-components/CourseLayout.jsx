@@ -1,13 +1,13 @@
 /* eslint-disable react/destructuring-assignment */
-import * as React from 'react';
+import React from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import { ButtonGroup, Button } from '@mui/material';
 import courseDetails from './courseDetails';
 import CourseContentsList from './CourseContentsList';
-import CourseBackground from '../assets/images/courses/coursebackground.jpeg';
+import CourseBackground from '../../../assets/images/courses/coursebackground.jpeg';
+import CourseProgressStepper from './CourseProgressStepper';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -29,8 +29,17 @@ const NavigationArea = styled(Paper)(({ theme }) => ({
 export default function CourseLayout(props) {
   // eslint-disable-next-line react/prop-types
   const { pathname } = props.location;
-
   const course = courseDetails.find((cse) => cse.path === pathname);
+
+  const [activeSection, setActiveSection] = React.useState(0);
+
+  const handleNext = () => {
+    setActiveSection((prevActiveSection) => prevActiveSection + 1);
+  };
+
+  const handleBack = () => {
+    setActiveSection((prevActiveSection) => prevActiveSection - 1);
+  };
 
   return (
     <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} fluid container justify="center">
@@ -45,14 +54,16 @@ export default function CourseLayout(props) {
             borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%', backgroundImage: `url(${CourseBackground})`, backgroundSize: 'cover',
           }}
           >
-            {course.components[4]}
+            {course.components[activeSection]}
           </Box>
         </Item>
         <NavigationArea>
-          <ButtonGroup disableElevation variant="contained">
-            <Button>Previous</Button>
-            <Button>Next</Button>
-          </ButtonGroup>
+          <CourseProgressStepper
+            activeSection={activeSection}
+            handleNext={handleNext}
+            handleBack={handleBack}
+            totalSections={course.components.length}
+          />
         </NavigationArea>
       </Grid>
     </Grid>

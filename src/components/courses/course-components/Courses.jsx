@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CourseCard from './CourseCard';
 import courseDetails from './courseDetails';
-import CourseBackgroundImage from '../assets/images/coursebackground.jpeg';
+import CourseBackgroundImage from '../../../assets/images/coursebackground.jpeg';
 
 function Courses() {
   return (
