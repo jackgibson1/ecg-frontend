@@ -18,10 +18,12 @@ export default function CourseProgressStepper(props) {
       steps={totalSections}
       position="static"
       activeStep={activeSection}
-      sx={{ maxWidth: 400, flexGrow: 1 }}
+      sx={{
+        maxWidth: 400, flexGrow: 1, borderRadius: 3, backgroundColor: 'transparent',
+      }}
       nextButton={(
-        <Button size="small" onClick={handleNext} disabled={activeSection === totalSections - 1}>
-          Next
+        <Button size="small" onClick={handleNext}>
+          {activeSection === totalSections - 1 ? 'Finish' : 'Next'}
           {theme.direction === 'rtl' ? (
             <KeyboardArrowLeft />
           ) : (

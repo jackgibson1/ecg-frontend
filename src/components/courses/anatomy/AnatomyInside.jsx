@@ -39,8 +39,8 @@ const insideStructures = [
   { name: 'Septum', description: 'The thin wall that separates the right side of the side of the heart from the left side.', image: septumImage, beenClicked: false },
   { name: 'Superior Vena Cava', description: 'A large vein that delivers deoxygenated blood from the upper body into the heart.', image: svcImage, beenClicked: false },
   { name: 'Tricuspid Valve', description: '3-leafed valve that prevents blood from flowing backwards from the right ventricle into the right atrium.', image: tricusImage, beenClicked: false },
-  { name: 'Ventricle (Left)', description: 'Lower chamber of the heart that pumps oxygenated blood to the body. The left ventricle has thicker walls than the right ventricle.', image: rightventricleImage, beenClicked: false },
-  { name: 'Ventricle (Right)', description: 'Lower chamber of the heart that pumps deoxygenated blood into the lungs. The right ventricle has thinner walls than the left ventricle.', image: leftventricleImage, beenClicked: false },
+  { name: 'Ventricle (Left)', description: 'Lower chamber of the heart that pumps oxygenated blood to the body. The left ventricle has thicker walls than the right ventricle.', image: leftventricleImage, beenClicked: false },
+  { name: 'Ventricle (Right)', description: 'Lower chamber of the heart that pumps deoxygenated blood into the lungs. The right ventricle has thinner walls than the left ventricle.', image: rightventricleImage, beenClicked: false },
 ];
 
 export default function AnatomyInside() {

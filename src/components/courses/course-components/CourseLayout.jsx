@@ -17,6 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
   height: '500px',
 }));
 
+// eslint-disable-next-line no-unused-vars
 const NavigationArea = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -42,7 +43,7 @@ export default function CourseLayout(props) {
   };
 
   return (
-    <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} fluid container justify="center">
+    <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} fluid container justifyContent="center">
       <Grid item xs={2}>
         <Item>
           <CourseContentsList sections={course.sections} />
@@ -57,14 +58,18 @@ export default function CourseLayout(props) {
             {course.components[activeSection]}
           </Box>
         </Item>
-        <NavigationArea>
+        <Box sx={{
+          borderColor: 'grey.500', border: 2, borderRadius: 5, width: '25%', height: '8%', alignItems: 'center', margin: 'auto', marginTop: '1%',
+        }}
+        >
           <CourseProgressStepper
             activeSection={activeSection}
             handleNext={handleNext}
             handleBack={handleBack}
             totalSections={course.components.length}
           />
-        </NavigationArea>
+        </Box>
+
       </Grid>
     </Grid>
   );
