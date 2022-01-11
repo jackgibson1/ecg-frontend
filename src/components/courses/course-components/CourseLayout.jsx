@@ -33,9 +33,19 @@ export default function CourseLayout(props) {
   const course = courseDetails.find((cse) => cse.path === pathname);
 
   const [activeSection, setActiveSection] = React.useState(0);
+  const [completedSection, setCompletedSection] = React.useState(0);
 
   const handleNext = () => {
+    if (activeSection === course.components.length - 1) {
+      // eslint-disable-next-line react/prop-types
+      props.history.push('/courses');
+      return;
+    }
     setActiveSection((prevActiveSection) => prevActiveSection + 1);
+
+    if (activeSection >= completedSection) {
+      setCompletedSection(activeSection);
+    }
   };
 
   const handleBack = () => {
@@ -46,7 +56,11 @@ export default function CourseLayout(props) {
     <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} container justifyContent="center">
       <Grid item xs={2}>
         <Item>
-          <CourseContentsList sections={course.sections} activeSection={activeSection} />
+          <CourseContentsList
+            sections={course.sections}
+            activeSection={activeSection}
+            completedSection={completedSection}
+          />
         </Item>
       </Grid>
       <Grid item xs={10}>
