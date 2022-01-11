@@ -6,7 +6,6 @@ import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Avatar from '@mui/material/Avatar';
@@ -68,9 +67,7 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
-
-const Register = () => {
+const Register = (props) => {
   const form = useRef();
   const checkBtn = useRef();
 
@@ -106,9 +103,16 @@ const Register = () => {
     // eslint-disable-next-line no-underscore-dangle
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.register(username, email, password).then(
-        (response) => {
-          setMessage(response.data.message);
+        // eslint-disable-next-line no-unused-vars
+        async () => {
+          setMessage('Successfully regsitered');
           setSuccessful(true);
+
+          await new Promise((resolve) => setTimeout(resolve, 3000));
+
+          // eslint-disable-next-line react/prop-types
+          props.history.push('/courses');
+          window.location.reload();
         },
         (error) => {
           const resMessage = (error.response
@@ -125,90 +129,87 @@ const Register = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <img
-              src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-              alt="profile-img"
-              className="profile-img-card"
-            />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign Up
-          </Typography>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <img
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            alt="profile-img"
+            className="profile-img-card"
+          />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign Up
+        </Typography>
 
-          <Form onSubmit={handleRegister} ref={form}>
-            {!successful && (
-              <div>
-                <div className="form-group">
-                  <label htmlFor="username">Username</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="username"
-                    value={username}
-                    onChange={onChangeUsername}
-                    validations={[required, validUsername]}
-                  />
-                </div>
+        <Form onSubmit={handleRegister} ref={form}>
+          {!successful && (
+          <div>
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <Input
+                type="text"
+                className="form-control"
+                name="username"
+                value={username}
+                onChange={onChangeUsername}
+                validations={[required, validUsername]}
+              />
+            </div>
 
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="email"
-                    value={email}
-                    onChange={onChangeEmail}
-                    validations={[required, validEmail]}
-                  />
-                </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <Input
+                type="text"
+                className="form-control"
+                name="email"
+                value={email}
+                onChange={onChangeEmail}
+                validations={[required, validEmail]}
+              />
+            </div>
 
-                <div className="form-group">
-                  <label htmlFor="password">Password</label>
-                  <Input
-                    type="password"
-                    className="form-control"
-                    name="password"
-                    value={password}
-                    onChange={onChangePassword}
-                    validations={[required, validPassword]}
-                  />
-                </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <Input
+                type="password"
+                className="form-control"
+                name="password"
+                value={password}
+                onChange={onChangePassword}
+                validations={[required, validPassword]}
+              />
+            </div>
 
-                <div className="form-group">
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                  >
-                    Sign Up
-                  </Button>
-                </div>
-              </div>
-            )}
+            <div className="form-group">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+            </div>
+          </div>
+          )}
 
-            {message && (
-              <Alert severity={successful ? 'success' : 'error'}>{message}</Alert>
-            )}
-            <CheckButton style={{ display: 'none' }} ref={checkBtn} />
-          </Form>
-        </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container>
-    </ThemeProvider>
-
+          {message && (
+          <Alert severity={successful ? 'success' : 'error'}>{message}</Alert>
+          )}
+          <CheckButton style={{ display: 'none' }} ref={checkBtn} />
+        </Form>
+      </Box>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
+    </Container>
   );
 };
 

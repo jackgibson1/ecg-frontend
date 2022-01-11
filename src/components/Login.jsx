@@ -6,7 +6,6 @@ import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Avatar from '@mui/material/Avatar';
@@ -41,8 +40,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-
-const theme = createTheme();
 
 const Login = (props) => {
   const form = useRef();
@@ -96,73 +93,71 @@ const Login = (props) => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
 
-          <Form onSubmit={handleLogin} ref={form}>
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <Input
-                type="text"
-                className="form-control"
-                name="username"
-                value={username}
-                onChange={onChangeUsername}
-                validations={[required]}
-              />
-            </div>
+        <Form onSubmit={handleLogin} ref={form}>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <Input
+              type="text"
+              className="form-control"
+              name="username"
+              value={username}
+              onChange={onChangeUsername}
+              validations={[required]}
+            />
+          </div>
 
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <Input
-                type="password"
-                className="form-control"
-                name="password"
-                value={password}
-                onChange={onChangePassword}
-                validations={[required]}
-              />
-            </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <Input
+              type="password"
+              className="form-control"
+              name="password"
+              value={password}
+              onChange={onChangePassword}
+              validations={[required]}
+            />
+          </div>
 
-            <div className="form-group">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                {loading && (
-                  <CircularProgress />
-                )}
-                Sign In
-              </Button>
+          <div className="form-group">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              {loading && (
+              <CircularProgress />
+              )}
+              Sign In
+            </Button>
 
-            </div>
+          </div>
 
-            {message && (
-              <Alert severity="error">{message}</Alert>
-            )}
-            <CheckButton style={{ display: 'none' }} ref={checkBtn} />
-          </Form>
-        </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container>
-    </ThemeProvider>
+          {message && (
+          <Alert severity="error">{message}</Alert>
+          )}
+          <CheckButton style={{ display: 'none' }} ref={checkBtn} />
+        </Form>
+      </Box>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
+    </Container>
 
   );
 };

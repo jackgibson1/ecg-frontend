@@ -6,6 +6,7 @@ import {
 } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
+import CssBaseline from '@mui/material/CssBaseline';
 import DrawerComponent from './Drawer';
 
 const theme = createTheme();
@@ -14,6 +15,7 @@ const styles = {
   navlinks: {
     marginLeft: theme.spacing(10),
     display: 'flex',
+    fontFamily: theme.typography,
   },
   logo: {
     flexGrow: '1',
@@ -39,6 +41,7 @@ export default function MainAppBar(props) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <CssBaseline />
       <AppBar position="fixed" style={{ background: '#000000' }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={styles.logo}>
