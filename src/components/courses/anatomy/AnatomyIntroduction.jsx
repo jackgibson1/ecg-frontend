@@ -7,7 +7,7 @@ export default function AnatomyIntroduction() {
   return (
     <div>
       <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Introduction</Typography>
-      <Grid fluid container justify="center">
+      <Grid container justify="center">
         <Grid item xs={6}>
           <Typography variant="h6">Right &nbsp; &nbsp; &nbsp; Left</Typography>
           <img src={heartIntroImage} alt="heart" />

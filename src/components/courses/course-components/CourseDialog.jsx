@@ -52,7 +52,7 @@ export default function CourseDialog(props) {
           <CourseTimeline sections={sections} />
 
         </DialogContent>
-        <DialogActions textAlign="center">
+        <DialogActions>
           <Button onClick={handleClose}>Exit</Button>
           <Button onClick={startCourse}>Start Course</Button>
         </DialogActions>

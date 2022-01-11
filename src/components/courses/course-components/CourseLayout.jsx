@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  height: '500px',
+  height: '520px',
 }));
 
 // eslint-disable-next-line no-unused-vars
@@ -43,10 +43,10 @@ export default function CourseLayout(props) {
   };
 
   return (
-    <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} fluid container justifyContent="center">
+    <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} container justifyContent="center">
       <Grid item xs={2}>
         <Item>
-          <CourseContentsList sections={course.sections} />
+          <CourseContentsList sections={course.sections} activeSection={activeSection} />
         </Item>
       </Grid>
       <Grid item xs={10}>

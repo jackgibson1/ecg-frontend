@@ -13,7 +13,7 @@ function Courses() {
     >
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {courseDetails.map((course) => (
-          <Grid item xs={2} sm={4} md={4}>
+          <Grid item xs={2} sm={4} md={4} key={Math.random()}>
             <CourseCard
               title={course.title}
               description={course.description}

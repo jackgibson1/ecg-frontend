@@ -13,8 +13,8 @@ const information = [
 
 function HomeSection2() {
   return (
-    <Grid fluid container justify="center">
-      <Grid item xs={12} md={6} lg={6} spacing={2}>
+    <Grid container justify="center">
+      <Grid item xs={12} md={6} lg={6}>
         <Box sx={{ paddingLeft: '5%', paddingRight: '5%', paddingTop: '10%' }}>
           <Stack spacing={2}>
             <Typography variant="h2">
@@ -41,11 +41,11 @@ function HomeSection2() {
           </Stack>
         </Box>
       </Grid>
-      <Grid item xs={12} md={6} lg={6} spacing={2}>
+      <Grid item xs={12} md={6} lg={6}>
         <Box sx={{ paddingLeft: '5%', paddingRight: '5%', paddingTop: '10%' }}>
           <Stack spacing={2}>
             {information.map((info) => (
-              <div>
+              <div key={20 * Math.random()}>
                 <Typography variant="h4">
                   <b>
                     {info.title}

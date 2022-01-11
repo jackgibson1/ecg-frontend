@@ -57,7 +57,7 @@ export default function CourseCard(props) {
           open={open}
           setOpen={setOpen}
         />
-        <CircularProgressWithLabel value="50" />
+        <CircularProgressWithLabel value={50} />
       </CardActions>
 
     </Card>

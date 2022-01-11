@@ -25,7 +25,7 @@ const courseDetails = [
   {
     title: '2. ECG Introduction',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    sections: ['1. What is electrocardiography?', '2. History', '3. Medical Uses', '4. Electrocardiographs', '5. Electrodes & Leads', '6. Limb Leads', '7. Augmented Limb Leads', '8. Precordial Limb Leads', '9. Specialised Leads', '10. Lead Locations On An ECG Report', 'Contiguity Of Leads'],
+    sections: ['1. What is electrocardiography?', '2. History', '3. Medical Uses', '4. Electrocardiographs', '5. Electrodes & Leads', '6. Limb Leads', '7. Augmented Limb Leads', '8. Precordial Limb Leads', '9. Specialised Leads', '10. Lead Locations On An ECG Report', '11. Contiguity Of Leads'],
     components: [<AnatomyIntroduction />],
     path: '/courses/introduction',
     image: introductionCard,

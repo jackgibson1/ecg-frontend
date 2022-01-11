@@ -14,7 +14,7 @@ export default function CourseTimeline(props) {
   return (
     <Timeline position="alternate">
       {sections.map((section, index) => (
-        <TimelineItem>
+        <TimelineItem key={Math.random()}>
           <TimelineSeparator>
             <FavoriteIcon variant="outlined" color="primary" />
             { (index !== sections.length - 1) ? (

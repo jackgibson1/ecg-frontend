@@ -5,8 +5,8 @@ import animatedImageLg from '../assets/images/animatedGif1.gif';
 
 function HomeSection1() {
   return (
-    <Grid fluid container justify="center">
-      <Grid item xs={12} md={6} lg={6} spacing={2}>
+    <Grid container justify="center">
+      <Grid item xs={12} md={6} lg={6}>
         <Box sx={{ paddingLeft: '5%', paddingRight: '5%', paddingTop: '10%' }}>
           <Typography variant="h2" component="div">
             <b>
@@ -24,7 +24,7 @@ function HomeSection1() {
           </Typography>
         </Box>
       </Grid>
-      <Grid item xs={12} md={6} lg={6} spacing={1}>
+      <Grid item xs={12} md={6} lg={6}>
         <Box sx={{ paddingLeft: '5%', paddingRight: '0%', paddingTop: '10%' }}>
           <picture>
             <source media="(max-width: 400px)" srcSet={animatedImage} />
