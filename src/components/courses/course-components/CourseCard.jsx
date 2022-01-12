@@ -23,8 +23,11 @@ export default function CourseCard(props) {
 
   const {
     // eslint-disable-next-line react/prop-types
-    image, title, description, sections, path,
+    image, title, description, sections, path, position,
   } = props;
+
+  // eslint-disable-next-line react/prop-types
+  const percentComplete = position === 0 ? 0 : (position / sections.length) * 100;
 
   return (
     <Card sx={{
@@ -57,7 +60,7 @@ export default function CourseCard(props) {
           open={open}
           setOpen={setOpen}
         />
-        <CircularProgressWithLabel value={50} />
+        <CircularProgressWithLabel value={percentComplete} />
       </CardActions>
 
     </Card>

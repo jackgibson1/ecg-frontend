@@ -31,9 +31,16 @@ const logout = () => localStorage.removeItem('user');
 // getCurrentUser(): get stored user information including JWT
 const getCurrentUser = () => JSON.parse(localStorage.getItem('user'));
 
+// redirect to login in page if not signed in
+const isLoggedIn = () => {
+  if (!localStorage.getItem('user')) return false;
+  return true;
+};
+
 export default {
   register,
   login,
   logout,
   getCurrentUser,
+  isLoggedIn,
 };
