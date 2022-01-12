@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
@@ -15,6 +16,7 @@ import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import AuthService from '../services/auth.service';
 
 const required = (value) => {
@@ -42,6 +44,10 @@ function Copyright(props) {
 }
 
 const Login = (props) => {
+  const location = useLocation();
+  console.log(location.state); // determine if redirected
+  const redirected = (typeof location.state !== 'undefined' && location.state.alert);
+
   const form = useRef();
   const checkBtn = useRef();
 
@@ -72,8 +78,12 @@ const Login = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(username, password).then(
         () => {
-          // eslint-disable-next-line react/prop-types
-          props.history.push('/profile');
+          if (redirected) {
+            props.history.push(location.state.from.pathname);
+          } else {
+            props.history.push('/profile');
+          }
+
           window.location.reload();
         },
         (error) => {
@@ -103,6 +113,9 @@ const Login = (props) => {
           alignItems: 'center',
         }}
       >
+        {redirected && (
+          <Alert severity="info">Please sign before accesing!</Alert>
+        )}
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <LockOutlinedIcon />
         </Avatar>

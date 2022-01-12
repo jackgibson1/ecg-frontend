@@ -15,7 +15,7 @@ function Courses(props) {
 
   if (!authService.isLoggedIn()) {
     // eslint-disable-next-line react/prop-types
-    return <Redirect to={{ pathname: '/login', state: { from: props.location } }} />;
+    return <Redirect to={{ pathname: '/login', state: { from: props.location, alert: true } }} />;
   }
 
   useEffect(() => {
