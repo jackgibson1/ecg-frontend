@@ -1,5 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -8,6 +8,7 @@ import courseDetails from './courseDetails';
 import CourseContentsList from './CourseContentsList';
 import CourseBackground from '../../../assets/images/courses/coursebackground.jpeg';
 import CourseProgressStepper from './CourseProgressStepper';
+import UserService from '../../../services/user.service';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -17,39 +18,38 @@ const Item = styled(Paper)(({ theme }) => ({
   height: '520px',
 }));
 
-// eslint-disable-next-line no-unused-vars
-const NavigationArea = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  height: '10%',
-  marginTop: '1%',
-}));
-
 export default function CourseLayout(props) {
   // eslint-disable-next-line react/prop-types
   const { pathname } = props.location;
   const course = courseDetails.find((cse) => cse.path === pathname);
 
-  const [activeSection, setActiveSection] = React.useState(0);
-  const [completedSection, setCompletedSection] = React.useState(0);
+  const [currentSection, setCurrentSection] = React.useState(0);
+  const [completedSections, setCompletedSections] = React.useState(0);
 
-  const handleNext = () => {
-    if (activeSection === course.components.length - 1) {
+  useEffect(() => {
+    UserService.getCoursePosition(course.id).then((res) => {
+      setCurrentSection(res.data.position);
+      setCompletedSections(res.data.position === 0 ? 0 : res.data.position - 1);
+    });
+  }, []);
+
+  const handleNext = async () => {
+    if (currentSection > completedSections) {
+      await UserService.updateCoursePosition(course.id, currentSection + 1).then(() => {
+        setCompletedSections(currentSection);
+      });
+    }
+
+    if (currentSection === course.components.length - 1) {
       // eslint-disable-next-line react/prop-types
       props.history.push('/courses');
       return;
     }
-    setActiveSection((prevActiveSection) => prevActiveSection + 1);
-
-    if (activeSection >= completedSection) {
-      setCompletedSection(activeSection);
-    }
+    setCurrentSection(currentSection + 1);
   };
 
   const handleBack = () => {
-    setActiveSection((prevActiveSection) => prevActiveSection - 1);
+    setCurrentSection((prevCurrentSection) => prevCurrentSection - 1);
   };
 
   return (
@@ -58,8 +58,8 @@ export default function CourseLayout(props) {
         <Item>
           <CourseContentsList
             sections={course.sections}
-            activeSection={activeSection}
-            completedSection={completedSection}
+            currentSection={currentSection}
+            completedSections={completedSections}
           />
         </Item>
       </Grid>
@@ -69,7 +69,7 @@ export default function CourseLayout(props) {
             borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%', backgroundImage: `url(${CourseBackground})`, backgroundSize: 'cover',
           }}
           >
-            {course.components[activeSection]}
+            {course.components[currentSection]}
           </Box>
         </Item>
         <Box sx={{
@@ -77,7 +77,7 @@ export default function CourseLayout(props) {
         }}
         >
           <CourseProgressStepper
-            activeSection={activeSection}
+            currentSection={currentSection}
             handleNext={handleNext}
             handleBack={handleBack}
             totalSections={course.components.length}

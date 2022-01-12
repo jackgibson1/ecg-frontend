@@ -12,8 +12,25 @@ function getAllCoursePositions() {
   return axios.get(`${API_URL}all`, { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
 }
 
+function getCoursePosition(courseId) {
+  return axios.get(`${API_URL}${courseId}`, { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
+}
+
+function updateCoursePosition(courseId, updatedPosition) {
+  const body = { updatedPosition };
+  return axios.put(`${API_URL}${courseId}`, body,
+    {
+      headers: {
+        'x-access-token': authHeader()['x-access-token'],
+        'user-id': authService.getCurrentUser().id,
+      },
+    });
+}
+
 export default {
   getPublicContent,
   getAdminBoard,
   getAllCoursePositions,
+  getCoursePosition,
+  updateCoursePosition,
 };

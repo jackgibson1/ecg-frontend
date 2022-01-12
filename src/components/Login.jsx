@@ -45,7 +45,6 @@ function Copyright(props) {
 
 const Login = (props) => {
   const location = useLocation();
-  console.log(location.state); // determine if redirected
   const redirected = (typeof location.state !== 'undefined' && location.state.alert);
 
   const form = useRef();

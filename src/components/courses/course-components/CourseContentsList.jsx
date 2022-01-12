@@ -11,14 +11,14 @@ import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 
 export default function CourseContentsList(props) {
   // eslint-disable-next-line react/prop-types
-  const { sections, activeSection, completedSection } = props;
+  const { sections, currentSection, completedSections } = props;
 
   function getIcon(index) {
-    if (activeSection === index) {
+    if (currentSection === index) {
       return <ArrowLeftIcon style={{ fill: 'blue' }} />;
-    } if (completedSection >= index) {
+    } if (completedSections >= index) {
       return <CheckCircleIcon style={{ fill: 'green' }} />;
-    } if (completedSection < index) {
+    } if (completedSections < index) {
       return <AssignmentIcon style={{ fill: 'red' }} />;
     }
     return null;
@@ -40,7 +40,11 @@ export default function CourseContentsList(props) {
         {/* eslint-disable-next-line react/prop-types */}
         {sections.map((section, index) => (
           <>
-            <ListItem disabled={activeSection < index} key={Math.random()} disablePadding>
+            <ListItem
+              disabled={completedSections + 1 < index}
+              key={Math.random()}
+              disablePadding
+            >
               <ListItemButton>
                 <ListItemText primary={section} />
               </ListItemButton>
