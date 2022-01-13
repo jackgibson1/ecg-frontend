@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
@@ -10,6 +11,7 @@ import CourseBackground from '../../../assets/images/courses/coursebackground.jp
 import CourseProgressStepper from './CourseProgressStepper';
 import UserService from '../../../services/user.service';
 
+// styled paper used to hold overarching course content
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -19,36 +21,42 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function CourseLayout(props) {
-  // eslint-disable-next-line react/prop-types
+  // get path and find course which matches current path
   const { pathname } = props.location;
   const course = courseDetails.find((cse) => cse.path === pathname);
 
+  // state to track users current position (navigating back and forth through sections)
   const [currentSection, setCurrentSection] = React.useState(0);
+  // state to track user completed sections - used to disable list items in CourseContentsList child
   const [completedSections, setCompletedSections] = React.useState(0);
 
+  // on page render get current course position and set hooks accordingly
   useEffect(() => {
     UserService.getCoursePosition(course.id).then((res) => {
       setCurrentSection(res.data.position);
-      setCompletedSections(res.data.position === 0 ? 0 : res.data.position - 1);
+      setCompletedSections(res.data.position - 1);
     });
   }, []);
 
   const handleNext = async () => {
+    // only update position if completing section for first time
     if (currentSection > completedSections) {
       await UserService.updateCoursePosition(course.id, currentSection + 1).then(() => {
         setCompletedSections(currentSection);
       });
     }
 
+    // if on last section navigate back to courses page
     if (currentSection === course.components.length - 1) {
-      // eslint-disable-next-line react/prop-types
       props.history.push('/courses');
       return;
     }
+    // increment current section
     setCurrentSection(currentSection + 1);
   };
 
   const handleBack = () => {
+    // decrement current section
     setCurrentSection((prevCurrentSection) => prevCurrentSection - 1);
   };
 

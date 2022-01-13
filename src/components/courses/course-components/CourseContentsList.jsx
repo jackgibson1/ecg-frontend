@@ -7,18 +7,15 @@ import ListSubheader from '@mui/material/ListSubheader';
 import Divider from '@mui/material/Divider';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 
 export default function CourseContentsList(props) {
   // eslint-disable-next-line react/prop-types
   const { sections, currentSection, completedSections } = props;
 
   function getIcon(index) {
-    if (currentSection === index) {
-      return <ArrowLeftIcon style={{ fill: 'blue' }} />;
-    } if (completedSections >= index) {
+    if (completedSections >= index) {
       return <CheckCircleIcon style={{ fill: 'green' }} />;
-    } if (completedSections < index) {
+    } if (completedSections <= index) {
       return <AssignmentIcon style={{ fill: 'red' }} />;
     }
     return null;
@@ -41,6 +38,7 @@ export default function CourseContentsList(props) {
         {sections.map((section, index) => (
           <>
             <ListItem
+              selected={currentSection === index}
               disabled={completedSections + 1 < index}
               key={Math.random()}
               disablePadding
@@ -49,7 +47,6 @@ export default function CourseContentsList(props) {
                 <ListItemText primary={section} />
               </ListItemButton>
               {getIcon(index)}
-
             </ListItem>
             <Divider />
           </>

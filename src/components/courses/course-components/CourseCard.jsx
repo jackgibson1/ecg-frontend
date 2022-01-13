@@ -6,10 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CourseDialog from './CourseDialog';
-// import Fab from '@mui/material/Fab';
-// import NotStartedIcon from '@mui/icons-material/NotStarted';
 import CircularProgressWithLabel from './CircularProgressWithLabel';
-// import theme from './theme';
 
 const styles = {
   media: {
@@ -48,10 +45,6 @@ export default function CourseCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        {/* <Fab color="primary" variant="extended">
-          <NotStartedIcon sx={{ mr: 2 }} />
-          Begin
-        </Fab> */}
         <CourseDialog
           title={title}
           description={description}
