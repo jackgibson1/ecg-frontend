@@ -9,6 +9,7 @@ import courseDetails from './courseDetails';
 import CourseContentsList from './CourseContentsList';
 import CourseBackground from '../../../assets/images/courses/coursebackground.jpeg';
 import CourseProgressStepper from './CourseProgressStepper';
+import CourseCompleted from './CourseCompleted';
 import UserService from '../../../services/user.service';
 
 // styled paper used to hold overarching course content
@@ -46,11 +47,6 @@ export default function CourseLayout(props) {
       });
     }
 
-    // if on last section navigate back to courses page
-    if (currentSection === course.components.length - 1) {
-      props.history.push('/courses');
-      return;
-    }
     // increment current section
     setCurrentSection(currentSection + 1);
   };
@@ -77,7 +73,8 @@ export default function CourseLayout(props) {
             borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%', backgroundImage: `url(${CourseBackground})`, backgroundSize: 'cover',
           }}
           >
-            {course.components[currentSection]}
+            {currentSection === course.components.length
+              ? <CourseCompleted course={course} /> : course.components[currentSection]}
           </Box>
         </Item>
         <Box sx={{
@@ -91,7 +88,6 @@ export default function CourseLayout(props) {
             totalSections={course.components.length}
           />
         </Box>
-
       </Grid>
     </Grid>
   );

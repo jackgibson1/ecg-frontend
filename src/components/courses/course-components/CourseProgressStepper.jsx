@@ -9,7 +9,7 @@ export default function CourseProgressStepper(props) {
   const theme = useTheme();
   const {
     // eslint-disable-next-line react/prop-types
-    activeSection, handleNext, handleBack, totalSections,
+    currentSection, handleNext, handleBack, totalSections,
   } = props;
 
   return (
@@ -17,13 +17,14 @@ export default function CourseProgressStepper(props) {
       variant="progress"
       steps={totalSections}
       position="static"
-      activeStep={activeSection}
+      activeStep={currentSection < totalSections ? currentSection : totalSections - 1}
       sx={{
         maxWidth: 400, flexGrow: 1, borderRadius: 3, backgroundColor: 'transparent',
       }}
       nextButton={(
-        <Button size="small" onClick={handleNext}>
-          {activeSection === totalSections - 1 ? 'Finish' : 'Next'}
+        <Button size="small" onClick={handleNext} disabled={currentSection === totalSections}>
+
+          {currentSection >= totalSections - 1 ? 'Finish' : 'Next'}
           {theme.direction === 'rtl' ? (
             <KeyboardArrowLeft />
           ) : (
@@ -32,7 +33,7 @@ export default function CourseProgressStepper(props) {
         </Button>
       )}
       backButton={(
-        <Button size="small" onClick={handleBack} disabled={activeSection === 0}>
+        <Button size="small" onClick={handleBack} disabled={currentSection === 0}>
           {theme.direction === 'rtl' ? (
             <KeyboardArrowRight />
           ) : (

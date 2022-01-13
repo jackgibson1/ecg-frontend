@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,7 +10,6 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function CourseContentsList(props) {
-  // eslint-disable-next-line react/prop-types
   const { sections, currentSection, completedSections } = props;
 
   function getIcon(index) {
