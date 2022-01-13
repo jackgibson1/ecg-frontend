@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -6,7 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import CourseDialog from './CourseDialog';
-import CircularProgressWithLabel from './CircularProgressWithLabel';
+import LinearProgressWithLabel from './LinearProgressWithLabel';
 
 const styles = {
   media: {
@@ -63,7 +65,7 @@ export default function CourseCard(props) {
             />
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '2%' }}>
-            <CircularProgressWithLabel value={percentComplete} />
+            <LinearProgressWithLabel value={percentComplete} />
           </Grid>
         </Grid>
       </CardActions>
