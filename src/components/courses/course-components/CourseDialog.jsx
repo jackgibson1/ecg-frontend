@@ -33,7 +33,7 @@ export default function CourseDialog(props) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleClickOpen} align="center">
         View Course
       </Button>
       <Dialog
