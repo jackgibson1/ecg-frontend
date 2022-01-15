@@ -3,8 +3,9 @@ import {
   Stack, Typography, Button,
 } from '@mui/material';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
+import backgroundImage from '../assets/images/heroimage1.jpg';
 
-const backgroundImage = 'https://ak.picdn.net/shutterstock/videos/1040456972/thumb/1.jpg';
+// const backgroundImage = 'https://ak.picdn.net/shutterstock/videos/1040456972/thumb/1.jpg';
 
 const styles = {
   paperContainer: {
@@ -23,7 +24,7 @@ const styles = {
 export default function HomeHero() {
   return (
     <Stack style={styles.paperContainer}>
-      <Typography color="white" align="center" variant="h2" marked="center">
+      <Typography color="white" align="center" variant="h2" marked="center" sx={{ fontWeight: 'bold' }}>
         Learn Electrocardiography.
       </Typography>
       <Button

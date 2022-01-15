@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,6 +8,7 @@ import {
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
+import ecgLogo from '../assets/images/ecglogo.png';
 import DrawerComponent from './Drawer';
 
 const theme = createTheme();
@@ -45,8 +47,8 @@ export default function MainAppBar(props) {
       <AppBar position="fixed" style={{ background: '#000000' }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={styles.logo}>
-            <Link to="/" style={styles.link}>
-              ECGs
+            <Link to="/">
+              <img src={ecgLogo} alt="logo" style={{ marginTop: '1%' }} width="40px" height="40px" />
             </Link>
           </Typography>
           {isMobile ? (
