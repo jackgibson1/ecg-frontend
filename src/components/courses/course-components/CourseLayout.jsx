@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import { CircularProgress, Typography } from '@mui/material';
 import courseDetails from './courseDetails';
 import CourseContentsList from './CourseContentsList';
 import CourseBackground from '../../../assets/images/courses/coursebackground.jpeg';
@@ -26,6 +27,8 @@ export default function CourseLayout(props) {
   const { pathname } = props.location;
   const course = courseDetails.find((cse) => cse.path === pathname);
 
+  const [loading, setLoading] = useState(true);
+
   // state to track users current position (navigating back and forth through sections)
   const [currentSection, setCurrentSection] = React.useState(0);
   // state to track user completed sections - used to disable list items in CourseContentsList child
@@ -37,6 +40,12 @@ export default function CourseLayout(props) {
       setCurrentSection(res.data.position);
       setCompletedSections(res.data.position - 1);
     });
+
+    const timer = setTimeout(() => setLoading(false), 1500);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   const handleNext = async () => {
@@ -55,6 +64,18 @@ export default function CourseLayout(props) {
     // decrement current section
     setCurrentSection((prevCurrentSection) => prevCurrentSection - 1);
   };
+
+  if (loading) {
+    return (
+      <div style={{
+        display: 'flex', justifyContent: 'center', marginTop: '5%', textAlign: 'center',
+      }}
+      >
+        <CircularProgress sx={{ position: 'absolute' }} />
+        <Typography sx={{ position: 'absolute', marginTop: '5%' }} variant="h3">Loading your course!</Typography>
+      </div>
+    );
+  }
 
   return (
     <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} container justifyContent="center">

@@ -38,11 +38,7 @@ function Courses(props) {
         {courseDetails.map((course, index) => (
           <Grid item xs={2} sm={4} md={4} key={Math.random()}>
             <CourseCard
-              title={course.title}
-              description={course.description}
-              image={course.image}
-              sections={course.sections}
-              path={course.path}
+              course={course}
               position={positions[index].position}
             />
           </Grid>

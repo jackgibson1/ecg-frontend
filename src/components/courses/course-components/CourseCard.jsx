@@ -28,27 +28,25 @@ const styles = {
 };
 
 export default function CourseCard(props) {
-  const [open, setOpen] = React.useState(false);
-
   const {
     // eslint-disable-next-line react/prop-types
-    image, title, description, sections, path, position,
+    course, position,
   } = props;
 
   // eslint-disable-next-line react/prop-types
-  const percentComplete = position === 0 ? 0 : (position / sections.length) * 100;
+  const percentComplete = position === 0 ? 0 : (position / course.sections.length) * 100;
 
   return (
     <Card style={styles.card}>
       <CardMedia>
-        <img src={image} style={styles.media} alt="medic" />
+        <img src={course.image} style={styles.media} alt="medic" />
       </CardMedia>
       <CardContent>
         <Typography gutterBottom variant="h5" align="center">
-          {title}
+          {course.title}
         </Typography>
         <Typography variant="body2" color="text.secondary" align="center">
-          {description}
+          {course.description}
         </Typography>
         <hr />
       </CardContent>
@@ -56,12 +54,8 @@ export default function CourseCard(props) {
         <Grid container justifyContent="center">
           <Grid item xs={12}>
             <CourseDialog
-              title={title}
-              description={description}
-              path={path}
-              sections={sections}
-              open={open}
-              setOpen={setOpen}
+              course={course}
+              position={position}
             />
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '2%' }}>
