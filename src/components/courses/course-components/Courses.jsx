@@ -45,7 +45,6 @@ function Courses(props) {
         ))}
       </Grid>
     </Box>
-
   );
 }
 

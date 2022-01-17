@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainAppBar from './components/MainAppBar';
 import Home from './components/Home';
 import Courses from './components/courses/course-components/Courses';
-import Quizzes from './components/Quizzes';
+import Quizzes from './components/quizzes/quiz-components/Quizzes';
 import Ask from './components/Ask';
 import Login from './components/Login';
 import Register from './components/Register';
