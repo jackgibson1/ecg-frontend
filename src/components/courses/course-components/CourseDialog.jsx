@@ -8,8 +8,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useHistory } from 'react-router-dom';
-import CourseTimeline from './CourseTimeline';
 import userService from '../../../services/user.service';
+import CourseContentsList from './CourseContentsList';
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
@@ -34,7 +34,7 @@ export default function CourseDialog(props) {
   const pushCourse = () => {
     if (position === 0) {
       return <Button onClick={() => history.push(course.path)}>Start Course</Button>;
-    } if (position > 0 && position < course.sections.length - 1) {
+    } if (position > 0 && position <= course.sections.length - 1) {
       return <Button onClick={() => history.push(course.path)}>Resume Course</Button>;
     }
     userService.updateCoursePosition(course.id, 0).then((res) => res);
@@ -58,9 +58,12 @@ export default function CourseDialog(props) {
           <DialogContentText id="alert-dialog-slide-description">
             {course.description}
           </DialogContentText>
-          <DialogTitle sx={{ textAlign: 'center' }}>Course Contents</DialogTitle>
-          <CourseTimeline sections={course.sections} />
-
+          <CourseContentsList
+            sx={{ textAlign: 'center' }}
+            sections={course.sections}
+            currentSection={position}
+            completedSections={position - 1}
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Exit</Button>

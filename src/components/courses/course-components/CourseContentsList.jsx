@@ -27,7 +27,7 @@ export default function CourseContentsList(props) {
         sx={{
           width: '100%',
           maxHeight: 510,
-          maxWidth: 360,
+          maxWidth: '100%',
           position: 'relative',
           overflow: 'auto',
           '& ul': { padding: 0 },
