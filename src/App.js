@@ -11,6 +11,7 @@ import Register from './components/Register';
 import Profile from './components/Profile';
 import AuthService from './services/auth.service';
 import CourseLayout from './components/courses/course-components/CourseLayout';
+import QuizLayout from './components/quizzes/quiz-components/quizLayout';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -34,12 +35,13 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/courses" component={Courses} />
-        <Route path="/quizzes" component={Quizzes} />
+        <Route exact path="/quizzes" component={Quizzes} />
         <Route path="/ask" component={Ask} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/profile" component={Profile} />
         <Route path={['/courses/anatomy', '/courses/introduction', '/courses/parts', '/courses/reading', '/courses/documenting', '/courses/conditions']} component={CourseLayout} />
+        <Route path={['/quizzes/anatomy', '/quizzes/introduction', '/quizzes/parts', '/quizzes/reading', '/quizzes/documenting', '/quizzes/conditions']} component={QuizLayout} />
       </Switch>
     </Router>
 

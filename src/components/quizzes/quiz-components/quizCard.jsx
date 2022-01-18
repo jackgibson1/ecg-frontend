@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
+import QuizDialog from './quizDialog';
 
 const styles = {
   media: {
@@ -45,7 +46,7 @@ export default function QuizCard(props) {
       <CardActions align="center">
         <Grid container justifyContent="center">
           <Grid item xs={12}>
-            Quiz Dialog
+            <QuizDialog quiz={quiz} />
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '2%' }}>
             Completed / Not Completed
