@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { useEffect, useState } from 'react';
@@ -6,6 +7,8 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { CircularProgress, Typography } from '@mui/material';
+import Countdown from 'react-countdown';
+import Container from '@mui/material/Container';
 import QuizBackground from '../../../assets/images/quizzes/quizLayoutbackground.jpeg';
 import quizDetails from './quizDetails';
 import QuizPagination from './quizPagination';
@@ -30,10 +33,14 @@ export default function QuizLayout(props) {
   const quizStorage = JSON.parse(localStorage.getItem('quiz'));
   const [currentQuestion, setCurrentQuestion] = useState(quizStorage.currentQuestion);
 
+  // timer configuration
+  const { timer } = quizStorage;
+  const [stillTime, setStillTime] = useState(true);
+
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
+    const loadingTimer = setTimeout(() => setLoading(false), 1500);
     return () => {
-      clearTimeout(timer);
+      clearTimeout(loadingTimer);
     };
   }, []);
 
@@ -65,6 +72,19 @@ export default function QuizLayout(props) {
             borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%', backgroundImage: `url(${QuizBackground})`, backgroundSize: 'cover',
           }}
           >
+            <Grid sx={{ marginTop: '1%' }} container alignItems="center">
+              <Grid sx={{ marginLeft: '3%' }}>
+                <Typography variant="h6">{`Question ${currentQuestion}`}</Typography>
+              </Grid>
+              {timer && (
+                <Grid sx={{ marginLeft: '70%' }}>
+                  <Countdown
+                    date={Date.now() + (quizStorage.time * 1000)}
+                    onComplete={() => setStillTime(false)}
+                  />
+                </Grid>
+              )}
+            </Grid>
             {quiz.questions[currentQuestion - 1].component}
           </Box>
         </Item>

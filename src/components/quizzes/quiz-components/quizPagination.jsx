@@ -29,7 +29,7 @@ export default function QuizPagination(props) {
       }}
       nextButton={(
         <Button size="small" onClick={handleNext} disabled={currentQuestion === totalQuestions}>
-          Submit Question
+          Next Question
           {theme.direction === 'rtl' ? (
             <KeyboardArrowLeft />
           ) : (

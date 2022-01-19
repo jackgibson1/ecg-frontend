@@ -7,12 +7,15 @@ import introductionCard from '../../../assets/images/courses/introductionCard.jp
 import readingCard from '../../../assets/images/courses/readingCard.jpeg';
 import partsCard from '../../../assets/images/courses/partsCard.jpg';
 
+// importing anatomy quiz questions
+import Question1 from '../anatomy/Question1';
+
 const quizDetails = [
   {
     id: 1,
     title: 'Heart Fundamentals',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    questions: [{ component: <h1>Hello!</h1>, answer: '1' }, { component: <h1>My!</h1>, answer: '1' }, { component: <h1>Name!</h1>, answer: '1' }, { component: <h1>Is!</h1>, answer: '1' }],
+    questions: [{ component: <Question1 />, answer: '1' }, { component: <h1>My!</h1>, answer: '1' }, { component: <h1>Name!</h1>, answer: '1' }, { component: <h1>Is!</h1>, answer: '1' }],
     path: '/quizzes/anatomy',
     image: anatomyCard,
   },
