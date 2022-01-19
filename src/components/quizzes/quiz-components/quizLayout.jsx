@@ -13,6 +13,7 @@ import QuizBackground from '../../../assets/images/quizzes/quizLayoutbackground.
 import quizDetails from './quizDetails';
 import QuizPagination from './quizPagination';
 import QuizQuestionsList from './quizQuestionsList';
+import QuizAnswerButtons from './quizAnswerButtons';
 
 // styled paper used to hold overarching course content
 const Item = styled(Paper)(({ theme }) => ({
@@ -85,7 +86,11 @@ export default function QuizLayout(props) {
                 </Grid>
               )}
             </Grid>
-            {quiz.questions[currentQuestion - 1].component}
+            <Box sx={{ height: '60%', width: '100%' }}>
+              {quiz.questions[currentQuestion - 1].component}
+            </Box>
+
+            <QuizAnswerButtons />
           </Box>
         </Item>
         <Box sx={{
