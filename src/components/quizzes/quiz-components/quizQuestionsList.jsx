@@ -9,18 +9,39 @@ import Divider from '@mui/material/Divider';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-export default function CourseContentsList(props) {
-  const {
-    sections, currentSection, completedSections,
-  } = props;
+export default function QuizQuestionsList(props) {
+  const { totalQuestions, currentQuestion } = props;
 
   function getIcon(index) {
-    if (completedSections >= index) {
+    if (currentQuestion >= index) {
       return <CheckCircleIcon style={{ fill: 'green' }} />;
-    } if (completedSections <= index) {
+    } if (currentQuestion <= index) {
       return <AssignmentIcon style={{ fill: 'red' }} />;
     }
     return null;
+  }
+
+  function displayList() {
+    const listItems = [];
+    for (let i = 0; i < totalQuestions; i += 1) {
+      listItems.push(
+        <>
+          <ListItem
+            selected={(currentQuestion - 1) === i}
+            disabled={currentQuestion < i}
+            key={Math.random()}
+            disablePadding
+          >
+            <ListItemButton>
+              <ListItemText primary={`Question ${i + 1}`} />
+            </ListItemButton>
+            {getIcon(i)}
+          </ListItem>
+          <Divider />
+        </>,
+      );
+    }
+    return listItems;
   }
 
   return (
@@ -36,23 +57,7 @@ export default function CourseContentsList(props) {
         }}
         subheader={<ListSubheader align="left">Course Contents</ListSubheader>}
       >
-        {/* eslint-disable-next-line react/prop-types */}
-        {sections.map((section, index) => (
-          <>
-            <ListItem
-              selected={currentSection === index}
-              disabled={completedSections + 1 < index}
-              key={Math.random()}
-              disablePadding
-            >
-              <ListItemButton>
-                <ListItemText primary={section} />
-              </ListItemButton>
-              {getIcon(index)}
-            </ListItem>
-            <Divider />
-          </>
-        ))}
+        {displayList()}
       </List>
     </nav>
   );

@@ -27,7 +27,7 @@ export default function QuizDialog(props) {
     totalQuestions: quiz.questions.length,
     timer: timerOn,
     ...timerOn && { time: 10 },
-    answer: [],
+    answer: [true, false],
   };
 
   const handleClickOpen = () => {
