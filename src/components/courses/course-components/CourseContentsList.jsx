@@ -18,7 +18,7 @@ export default function CourseContentsList(props) {
     if (completedSections >= index) {
       return <CheckCircleIcon style={{ fill: 'green' }} />;
     } if (completedSections <= index) {
-      return <AssignmentIcon style={{ fill: 'red' }} />;
+      return <AssignmentIcon style={{ fill: 'blue' }} />;
     }
     return null;
   }

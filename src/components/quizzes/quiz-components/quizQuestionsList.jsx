@@ -8,17 +8,21 @@ import ListSubheader from '@mui/material/ListSubheader';
 import Divider from '@mui/material/Divider';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DangerousIcon from '@mui/icons-material/Dangerous';
+import UserService from '../../../services/user.service';
 
 export default function QuizQuestionsList(props) {
   const { totalQuestions, currentQuestion } = props;
 
-  function getIcon(index) {
-    if (currentQuestion >= index) {
+  function getIcon(questionIndex) {
+    const quizStorage = UserService.getLocalQuiz();
+
+    if (typeof quizStorage.answers[questionIndex] === 'undefined') {
+      return <AssignmentIcon style={{ fill: 'blue' }} />;
+    } if (quizStorage.answers[questionIndex]) {
       return <CheckCircleIcon style={{ fill: 'green' }} />;
-    } if (currentQuestion <= index) {
-      return <AssignmentIcon style={{ fill: 'red' }} />;
     }
-    return null;
+    return <DangerousIcon style={{ fill: 'red' }} />;
   }
 
   function displayList() {
@@ -28,7 +32,7 @@ export default function QuizQuestionsList(props) {
         <>
           <ListItem
             selected={(currentQuestion - 1) === i}
-            disabled={currentQuestion < i}
+            disabled={(currentQuestion - 1) < i}
             key={Math.random()}
             disablePadding
           >
@@ -55,7 +59,7 @@ export default function QuizQuestionsList(props) {
           overflow: 'auto',
           '& ul': { padding: 0 },
         }}
-        subheader={<ListSubheader align="left">Course Contents</ListSubheader>}
+        subheader={<ListSubheader align="left">Quiz Questions</ListSubheader>}
       >
         {displayList()}
       </List>

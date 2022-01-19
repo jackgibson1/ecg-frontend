@@ -37,6 +37,14 @@ function completeCourse(courseId) {
     .catch((err) => console.log(err));
 }
 
+function getLocalQuiz() {
+  return JSON.parse(localStorage.getItem('quiz'));
+}
+
+function updateLocalQuiz(quiz) {
+  localStorage.setItem('quiz', JSON.stringify(quiz));
+}
+
 export default {
   getPublicContent,
   getAdminBoard,
@@ -44,4 +52,6 @@ export default {
   getCoursePosition,
   updateCoursePosition,
   completeCourse,
+  getLocalQuiz,
+  updateLocalQuiz,
 };

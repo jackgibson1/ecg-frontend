@@ -69,13 +69,14 @@ export default function QuizLayout(props) {
           </Box>
         </Item>
         <Box sx={{
-          borderColor: 'grey.500', border: 2, borderRadius: 5, width: '40%', height: '8%', alignItems: 'center', margin: 'auto', marginTop: '1%',
+          borderColor: 'grey.500', border: 2, borderRadius: 5, width: '45%', height: '8%', alignItems: 'center', margin: 'auto', marginTop: '1%',
         }}
         >
           <QuizPagination
             currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion}
             totalQuestions={quiz.questions.length}
+            quizStorage={quizStorage}
           />
         </Box>
       </Grid>
