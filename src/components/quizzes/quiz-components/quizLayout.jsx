@@ -14,6 +14,7 @@ import quizDetails from './quizDetails';
 import QuizPagination from './quizPagination';
 import QuizQuestionsList from './quizQuestionsList';
 import QuizAnswerButtons from './quizAnswerButtons';
+import UserService from '../../../services/user.service';
 
 // styled paper used to hold overarching course content
 const Item = styled(Paper)(({ theme }) => ({
@@ -31,7 +32,7 @@ export default function QuizLayout(props) {
   const [loading, setLoading] = useState(true);
 
   // get current position from localstorage
-  const quizStorage = JSON.parse(localStorage.getItem('quiz'));
+  const quizStorage = UserService.getLocalQuiz();
   const [currentQuestion, setCurrentQuestion] = useState(quizStorage.currentQuestion);
 
   // timer configuration
@@ -39,11 +40,12 @@ export default function QuizLayout(props) {
   const [stillTime, setStillTime] = useState(true);
 
   useEffect(() => {
+    setStillTime(true);
     const loadingTimer = setTimeout(() => setLoading(false), 1500);
     return () => {
       clearTimeout(loadingTimer);
     };
-  }, []);
+  }, [currentQuestion]);
 
   if (loading) {
     return (
@@ -90,7 +92,12 @@ export default function QuizLayout(props) {
               {quiz.questions[currentQuestion - 1].component}
             </Box>
 
-            <QuizAnswerButtons />
+            <QuizAnswerButtons
+              quiz={quiz}
+              stillTime={stillTime}
+              quizStorage={quizStorage}
+              currentQuestion={currentQuestion}
+            />
           </Box>
         </Item>
         <Box sx={{
