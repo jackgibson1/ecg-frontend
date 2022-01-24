@@ -9,14 +9,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useHistory } from 'react-router-dom';
 import { Typography } from '@mui/material';
-import QuizTimerSlider from './quizTimerSlider';
+import QuizTimeSelector from './quizTimeSelecter';
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
 export default function QuizDialog(props) {
   const [open, setOpen] = React.useState(false);
-  const [timerOn, setTimerOn] = React.useState(false);
+  const [timer, setTimer] = React.useState({ on: false, seconds: 10 });
 
   const history = useHistory();
   const { quiz } = props;
@@ -25,8 +25,8 @@ export default function QuizDialog(props) {
     id: quiz.id,
     currentQuestion: 1,
     totalQuestions: quiz.questions.length,
-    timer: timerOn,
-    ...timerOn && { time: 10 },
+    timer,
+    ...timer.on && { time: timer.seconds },
     answers: [],
   };
 
@@ -63,7 +63,7 @@ export default function QuizDialog(props) {
           <Typography sx={{ marginTop: '5%' }} variant="h6" align="left">
             Quiz Settings
           </Typography>
-          <QuizTimerSlider timerOn={timerOn} setTimerOn={setTimerOn} />
+          <QuizTimeSelector timer={timer} setTimer={setTimer} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Exit</Button>

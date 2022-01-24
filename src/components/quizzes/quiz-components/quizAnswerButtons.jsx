@@ -12,18 +12,18 @@ import Alert from '@mui/material/Alert';
 import UserService from '../../../services/user.service';
 
 export default function QuizAnswerButtons(props) {
-  const {
-    quiz, quizStorage, currentQuestion, stillTime,
-  } = props;
+  const { quiz, quizStorage, currentQuestion, stillTime } = props;
   const [selectedAnswer, setSelectedAnswer] = React.useState(-1);
   const [error, setError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('');
+  const [submitted, setSubmitted] = React.useState(false);
 
   const { answer } = quiz.questions[currentQuestion - 1];
 
   React.useEffect(() => {
     setError(false);
     setHelperText('');
+    setSubmitted(false);
     setSelectedAnswer(-1);
   }, [currentQuestion]);
 
@@ -35,14 +35,19 @@ export default function QuizAnswerButtons(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (selectedAnswer === answer) {
+    if (selectedAnswer === -1) {
+      setHelperText('Please select an answer first!');
+      setError(true);
+    } else if (selectedAnswer === answer) {
       quizStorage.answers.push(true);
       setHelperText('You got it!');
       setError(false);
+      setSubmitted(true);
     } else {
       quizStorage.answers.push(false);
       setHelperText('Sorry wrong answer!');
       setError(true);
+      setSubmitted(true);
     }
 
     UserService.updateLocalQuiz(quizStorage);
@@ -55,7 +60,7 @@ export default function QuizAnswerButtons(props) {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl error={error}>
-        <FormLabel id="demo-row-radio-buttons-group-label">Answer</FormLabel>
+        <FormLabel id="demo-row-radio-buttons-group-label">Select Answer</FormLabel>
         <RadioGroup
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
@@ -63,15 +68,15 @@ export default function QuizAnswerButtons(props) {
           value={selectedAnswer}
           onChange={handleChange}
         >
-          <FormControlLabel value="1" control={<Radio />} label="1" />
-          <FormControlLabel value="2" control={<Radio />} label="2" />
-          <FormControlLabel value="3" control={<Radio />} label="3" />
-          <FormControlLabel value="4" control={<Radio />} label="4" />
+          <FormControlLabel value="1" control={<Radio />} label="1" disabled={submitted} />
+          <FormControlLabel value="2" control={<Radio />} label="2" disabled={submitted} />
+          <FormControlLabel value="3" control={<Radio />} label="3" disabled={submitted} />
+          <FormControlLabel value="4" control={<Radio />} label="4" disabled={submitted} />
         </RadioGroup>
-        <FormHelperText>{helperText}</FormHelperText>
-        <Button type="submit" variant="outlined" disabled={helperText !== ''}>
+        <Button type="submit" variant="outlined" disabled={submitted}>
           Submit Answer
         </Button>
+        <FormHelperText>{helperText}</FormHelperText>
       </FormControl>
     </form>
   );
