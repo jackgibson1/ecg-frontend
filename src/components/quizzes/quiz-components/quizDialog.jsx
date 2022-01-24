@@ -26,7 +26,6 @@ export default function QuizDialog(props) {
     currentQuestion: 1,
     totalQuestions: quiz.questions.length,
     timer,
-    ...timer.on && { time: timer.seconds },
     answers: [],
   };
 

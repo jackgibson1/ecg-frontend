@@ -15,7 +15,7 @@ const quizDetails = [
     id: 1,
     title: 'Heart Fundamentals',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    questions: [{ component: <Question1 />, answer: '1' }, { component: <h1>My!</h1>, answer: '1' }, { component: <h1>Name!</h1>, answer: '1' }, { component: <h1>Is!</h1>, answer: '1' }],
+    questions: [{ component: <Question1 />, answer: '1' }, { component: <h1>My!</h1>, answer: '2' }, { component: <h1>Name!</h1>, answer: '3' }, { component: <h1>Is!</h1>, answer: '4' }],
     path: '/quizzes/anatomy',
     image: anatomyCard,
   },

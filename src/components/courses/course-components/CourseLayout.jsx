@@ -5,13 +5,13 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import { CircularProgress, Typography } from '@mui/material';
 import courseDetails from './courseDetails';
 import CourseContentsList from './CourseContentsList';
 import CourseBackground from '../../../assets/images/courses/coursebackground.jpeg';
 import CourseProgressStepper from './CourseProgressStepper';
 import CourseCompleted from './CourseCompleted';
 import UserService from '../../../services/user.service';
+import LoadingPage from '../../LoadingPage';
 
 // styled paper used to hold overarching course content
 const Item = styled(Paper)(({ theme }) => ({
@@ -65,17 +65,7 @@ export default function CourseLayout(props) {
     setCurrentSection((prevCurrentSection) => prevCurrentSection - 1);
   };
 
-  if (loading) {
-    return (
-      <div style={{
-        display: 'flex', justifyContent: 'center', marginTop: '5%', textAlign: 'center',
-      }}
-      >
-        <CircularProgress sx={{ position: 'absolute' }} />
-        <Typography sx={{ position: 'absolute', marginTop: '5%' }} variant="h3">Loading your course!</Typography>
-      </div>
-    );
-  }
+  if (loading) return <LoadingPage text="Course" />;
 
   return (
     <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} container justifyContent="center">
