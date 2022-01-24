@@ -8,7 +8,6 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import Countdown from 'react-countdown';
-import Container from '@mui/material/Container';
 import QuizBackground from '../../../assets/images/quizzes/quizLayoutbackground.jpeg';
 import quizDetails from './quizDetails';
 import QuizPagination from './quizPagination';
@@ -124,6 +123,7 @@ export default function QuizLayout(props) {
             setCurrentQuestion={setCurrentQuestion}
             totalQuestions={quiz.questions.length}
             quizStorage={quizStorage}
+            submitted={answerSubmitted}
           />
         </Box>
       </Grid>

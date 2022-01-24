@@ -8,7 +8,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 export default function QuizPagination(props) {
   const {
-    currentQuestion, setCurrentQuestion, totalQuestions, quizStorage,
+    currentQuestion, setCurrentQuestion, totalQuestions, quizStorage, submitted,
   } = props;
   const theme = useTheme();
 
@@ -28,7 +28,7 @@ export default function QuizPagination(props) {
         maxWidth: 400, flexGrow: 1, borderRadius: 3, backgroundColor: 'transparent', marginLeft: '1%',
       }}
       nextButton={(
-        <Button size="small" onClick={handleNext} disabled={currentQuestion === totalQuestions}>
+        <Button size="small" onClick={handleNext} disabled={!submitted}>
           Next Question
           {theme.direction === 'rtl' ? (
             <KeyboardArrowLeft />

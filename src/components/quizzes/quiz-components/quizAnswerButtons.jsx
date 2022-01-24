@@ -93,7 +93,7 @@ export default function QuizAnswerButtons(props) {
           <FormControlLabel sx={(submitted && answer === '3') && styles.radioButtonCorrect} value="3" control={<Radio />} label="3" disabled={submitted} />
           <FormControlLabel sx={(submitted && answer === '4') && styles.radioButtonCorrect} value="4" control={<Radio />} label="4" disabled={submitted} />
         </RadioGroup>
-        <Button type="submit" variant="outlined" disabled={submitted}>
+        <Button type="submit" variant="contained" disabled={submitted}>
           Submit Answer
         </Button>
         <FormHelperText>{helperText}</FormHelperText>
