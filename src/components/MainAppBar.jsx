@@ -32,7 +32,7 @@ const styles = {
     fontSize: '20px',
     marginLeft: theme.spacing(2),
     '&:hover': {
-      color: 'yellow',
+      color: '#EE3233',
       borderBottom: '1px solid white',
     },
   },

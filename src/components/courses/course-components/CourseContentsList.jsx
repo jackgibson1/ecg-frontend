@@ -11,7 +11,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function CourseContentsList(props) {
   const {
-    sections, currentSection, completedSections,
+    sections, currentSection, completedSections, overflow,
   } = props;
 
   function getIcon(index) {
@@ -31,7 +31,7 @@ export default function CourseContentsList(props) {
           maxHeight: 510,
           maxWidth: '100%',
           position: 'relative',
-          overflow: 'auto',
+          overflow: overflow ? 'auto' : '',
           '& ul': { padding: 0 },
         }}
         subheader={<ListSubheader align="left">Course Contents</ListSubheader>}

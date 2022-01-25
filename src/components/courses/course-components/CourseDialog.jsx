@@ -10,6 +10,9 @@ import Slide from '@mui/material/Slide';
 import { useHistory } from 'react-router-dom';
 import userService from '../../../services/user.service';
 import CourseContentsList from './CourseContentsList';
+import CourseRating from './CourseRating';
+import CourseTimeAndUpdated from './CourseTimeAndUpdated';
+import CoursePeopleFor from './CoursePeopleFor';
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
@@ -18,10 +21,7 @@ export default function CourseDialog(props) {
   const [open, setOpen] = React.useState(false);
 
   const history = useHistory();
-  const {
-    // eslint-disable-next-line react/prop-types
-    course, position,
-  } = props;
+  const { course, position } = props;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -43,7 +43,7 @@ export default function CourseDialog(props) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen} align="center">
+      <Button sx={{ backgroundColor: '#A3D6F5', color: '#EE3233', textShadow: 'black', marginBottom: '2%' }} variant="contained" onClick={handleClickOpen} align="center">
         View Course
       </Button>
       <Dialog
@@ -53,8 +53,16 @@ export default function CourseDialog(props) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle sx={{ textAlign: 'center' }}>{course.title}</DialogTitle>
+        <DialogTitle sx={{ textAlign: 'center', textDecoration: 'underline' }}>{course.title}</DialogTitle>
         <DialogContent>
+          <CourseRating />
+          <CourseTimeAndUpdated
+            lastUpdated={course.lastUpdated}
+            timeToComplete={course.timeToComplete}
+          />
+          <DialogTitle sx={{ textAlign: 'center' }}>Who Is This Course For?</DialogTitle>
+          <CoursePeopleFor whoFor={course.whoFor} />
+          <DialogTitle sx={{ textAlign: 'center' }}>About</DialogTitle>
           <DialogContentText id="alert-dialog-slide-description">
             {course.description}
           </DialogContentText>
@@ -63,6 +71,7 @@ export default function CourseDialog(props) {
             sections={course.sections}
             currentSection={position}
             completedSections={position - 1}
+            overflow={false}
           />
         </DialogContent>
         <DialogActions>

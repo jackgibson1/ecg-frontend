@@ -75,6 +75,7 @@ export default function CourseLayout(props) {
             sections={course.sections}
             currentSection={currentSection}
             completedSections={completedSections}
+            overflow
           />
         </Item>
       </Grid>

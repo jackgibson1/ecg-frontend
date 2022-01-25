@@ -6,8 +6,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import CourseDialog from './CourseDialog';
+import CourseRating from './CourseRating';
 import LinearProgressWithLabel from './LinearProgressWithLabel';
 
 const styles = {
@@ -24,6 +25,7 @@ const styles = {
     '&:hover': {
       boxShadow: '0 16px 70px -12.125px rgba(0,0,0,0.3)',
     },
+    backgroundColor: '#F0ECEB',
   },
 };
 
@@ -42,13 +44,16 @@ export default function CourseCard(props) {
         <img src={course.image} style={styles.media} alt="medic" />
       </CardMedia>
       <CardContent>
-        <Typography gutterBottom variant="h5" align="center">
+        <Typography sx={{ textDecoration: 'underline' }} gutterBottom variant="h5" align="center">
           {course.title}
         </Typography>
+        <Box sx={{ marginTop: 1, marginBottom: 1, marginLeft: 6 }}>
+          <CourseRating />
+        </Box>
         <Typography variant="body2" color="text.secondary" align="center">
           {course.description}
         </Typography>
-        <hr />
+        <LinearProgressWithLabel value={percentComplete} />
       </CardContent>
       <CardActions align="center">
         <Grid container justifyContent="center">
@@ -57,9 +62,6 @@ export default function CourseCard(props) {
               course={course}
               position={position}
             />
-          </Grid>
-          <Grid item xs={12} sx={{ marginTop: '2%' }}>
-            <LinearProgressWithLabel value={percentComplete} />
           </Grid>
         </Grid>
       </CardActions>
