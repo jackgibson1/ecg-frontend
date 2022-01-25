@@ -16,7 +16,8 @@ function CourseCompleted(props) {
       <Grid item xs={6} sx={{ marginTop: '2%', textAlign: 'left', paddingLeft: '5%' }}>
         <Box>
           <Typography style={{ textDecoration: 'underline' }} variant="h5">Details</Typography>
-          <Typography variant="body1">{`The following course is now completed: ${course.title}`}</Typography>
+          <Typography variant="body1" sx={{ marginTop: '1%' }}>{`The following course is now completed: ${course.title}`}</Typography>
+          <Typography variant="body1" sx={{ marginTop: '1%' }}>Please rate how much you enjoyed this course:</Typography>
           <CourseRating readOnly={false} />
         </Box>
       </Grid>
