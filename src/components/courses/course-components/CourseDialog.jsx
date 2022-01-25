@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
+import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,11 +9,13 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useHistory } from 'react-router-dom';
+import ExploreIcon from '@mui/icons-material/Explore';
 import userService from '../../../services/user.service';
 import CourseContentsList from './CourseContentsList';
 import CourseRating from './CourseRating';
 import CourseTimeAndUpdated from './CourseTimeAndUpdated';
 import CoursePeopleFor from './CoursePeopleFor';
+import AnimatedTracing from '../../../assets/images/courses/courseImage.png';
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
@@ -43,7 +46,7 @@ export default function CourseDialog(props) {
 
   return (
     <div>
-      <Button sx={{ backgroundColor: '#A3D6F5', color: '#EE3233', marginBottom: '2%', ':hover': { color: '#FFFFFF' } }} variant="contained" onClick={handleClickOpen} align="center">
+      <Button sx={{ color: '#EE3233', marginBottom: '2%' }} variant="outlined" onClick={handleClickOpen} align="center" endIcon={<ExploreIcon />}>
         View Course
       </Button>
       <Dialog
@@ -55,11 +58,18 @@ export default function CourseDialog(props) {
       >
         <DialogTitle sx={{ textAlign: 'center', textDecoration: 'underline' }}>{course.title}</DialogTitle>
         <DialogContent>
-          <CourseRating readOnly />
-          <CourseTimeAndUpdated
-            lastUpdated={course.lastUpdated}
-            timeToComplete={course.timeToComplete}
-          />
+          <Grid container>
+            <Grid item>
+              <CourseRating readOnly />
+              <CourseTimeAndUpdated
+                lastUpdated={course.lastUpdated}
+                timeToComplete={course.timeToComplete}
+              />
+            </Grid>
+            <Grid item sx={{ paddingLeft: 15 }}>
+              <img src={AnimatedTracing} height="100" width="100" alt="medic" />
+            </Grid>
+          </Grid>
           <DialogTitle sx={{ textAlign: 'center' }}>Who Is This Course For?</DialogTitle>
           <CoursePeopleFor whoFor={course.whoFor} />
           <DialogTitle sx={{ textAlign: 'center' }}>About</DialogTitle>

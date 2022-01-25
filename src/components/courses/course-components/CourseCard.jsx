@@ -4,7 +4,6 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-// import { useStyles, makeStyles } from '@mui/styles';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Grid, Box } from '@mui/material';
@@ -39,31 +38,33 @@ export default function CourseCard(props) {
 
   return (
     <Card style={styles.card}>
-      <CardMedia>
-        <img src={course.image} style={styles.media} alt="medic" />
-      </CardMedia>
-      <CardContent>
-        <Typography sx={{ textDecoration: 'underline' }} gutterBottom variant="h5" align="center">
-          {course.title}
-        </Typography>
-        <Box sx={{ marginTop: 1, marginBottom: 1, marginLeft: 6 }}>
-          <CourseRating readOnly />
-        </Box>
-        <Typography variant="body2" color="text.secondary" align="center">
-          {course.description}
-        </Typography>
-        <LinearProgressWithLabel value={percentComplete} />
-      </CardContent>
-      <CardActions align="center">
-        <Grid container justifyContent="center">
-          <Grid item xs={12}>
-            <CourseDialog
-              course={course}
-              position={position}
-            />
+      <Box sx={{ ':hover': { backgroundColor: '#EAEAEA' } }}>
+        <CardMedia>
+          <img src={course.image} style={styles.media} alt="medic" />
+        </CardMedia>
+        <CardContent>
+          <Typography sx={{ textDecoration: 'underline' }} gutterBottom variant="h5" align="center">
+            {course.title}
+          </Typography>
+          <Box sx={{ marginTop: 1, marginBottom: 1, marginLeft: 6 }}>
+            <CourseRating readOnly />
+          </Box>
+          <Typography variant="body2" color="text.secondary" align="center">
+            {course.description}
+          </Typography>
+          <LinearProgressWithLabel value={percentComplete} />
+        </CardContent>
+        <CardActions align="center">
+          <Grid container justifyContent="center">
+            <Grid item xs={12}>
+              <CourseDialog
+                course={course}
+                position={position}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      </CardActions>
+        </CardActions>
+      </Box>
 
     </Card>
   );
