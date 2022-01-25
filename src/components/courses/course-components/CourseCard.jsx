@@ -4,6 +4,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+// import { useStyles, makeStyles } from '@mui/styles';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Grid, Box } from '@mui/material';
@@ -18,14 +19,12 @@ const styles = {
   },
   card: {
     maxWidth: 350,
-    borderRadius: 20,
+    borderRadius: 10,
     margin: 'auto',
     transition: '0.3s',
     boxShadow: '0 8px 40px -12px rgba(0,0,0,1)',
-    '&:hover': {
-      boxShadow: '0 16px 70px -12.125px rgba(0,0,0,0.3)',
-    },
-    backgroundColor: '#F0ECEB',
+    backgroundColor: 'white',
+    border: 50,
   },
 };
 

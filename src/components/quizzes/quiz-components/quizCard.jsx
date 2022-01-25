@@ -16,7 +16,7 @@ const styles = {
   },
   card: {
     maxWidth: 350,
-    borderRadius: 20,
+    borderRadius: 10,
     margin: 'auto',
     transition: '0.3s',
     boxShadow: '0 8px 40px -12px rgba(0,0,0,1)',
