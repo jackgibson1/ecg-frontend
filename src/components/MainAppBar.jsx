@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -5,6 +7,7 @@ import Box from '@mui/material/Box';
 import {
   Typography, createTheme, useMediaQuery, useTheme,
 } from '@mui/material';
+import { withStyles } from '@mui/styles';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -35,7 +38,7 @@ const styles = {
   },
 };
 
-export default function MainAppBar(props) {
+function MainAppBar(props) {
   // eslint-disable-next-line react/prop-types
   const { currentUser, logOut } = props;
   const theme2 = useTheme();
@@ -55,28 +58,28 @@ export default function MainAppBar(props) {
             <DrawerComponent />
           ) : (
             <div style={styles.navlinks}>
-              <Link to="/courses" style={styles.link}>
+              <Link to="/courses" className={props.classes.link}>
                 Courses
               </Link>
-              <Link to="/quizzes" style={styles.link}>
+              <Link to="/quizzes" className={props.classes.link}>
                 Quizzes
               </Link>
-              <Link to="/ask" style={styles.link}>
+              <Link to="/ask" className={props.classes.link}>
                 Ask
               </Link>
               {currentUser ? (
                 <>
                   {/* eslint-disable-next-line react/prop-types */}
-                  <Link to="/profile" style={styles.link}>{currentUser.username}</Link>
-                  <a href="/" style={styles.link} onClick={logOut}>Logout</a>
+                  <Link to="/profile" className={props.classes.link}>{currentUser.username}</Link>
+                  <a href="/" className={props.classes.link} onClick={logOut}>Logout</a>
                 </>
               ) : (
 
                 <>
-                  <Link to="/login" style={styles.link}>
+                  <Link to="/login" className={props.classes.link}>
                     Login
                   </Link>
-                  <Link to="/register" style={styles.link}>
+                  <Link to="/register" className={props.classes.link}>
                     Register
                   </Link>
                 </>
@@ -90,3 +93,5 @@ export default function MainAppBar(props) {
     </Box>
   );
 }
+
+export default withStyles(styles)(MainAppBar);
