@@ -63,7 +63,7 @@ export default function DelayingAppearance(props) {
           </Fade>
         )}
       </Box>
-      <Button onClick={handleClickQuery} sx={{ m: 2 }}>
+      <Button sx={{ backgroundColor: '#A3D6F5', color: '#EE3233', borderRadius: 3, m: 2 }} onClick={handleClickQuery}>
         {query === 'idle' && 'Complete Course'}
       </Button>
       <CreditEarnedModal open={openModal} setOpen={setOpenModal} />

@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import React from 'react';
 
 // importing course card images
@@ -27,6 +28,7 @@ const courseDetails = [
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     lastUpdated: '25/01/2022',
     timeToComplete: '10 minutes',
+    references: [`[1] “Heart Physiology,” Utoronto.ca, 2015. https://pie.med.utoronto.ca/heart_physiology/ (accessed Jan. 25, 2022).`, `[2] “Vasculature of the Heart - TeachMeAnatomy,” Teachmeanatomy.info, 2013. https://teachmeanatomy.info/thorax/organs/heart/heart-vasculature/ (accessed Jan. 25, 2022).`],
     image: anatomyCard,
   },
   {

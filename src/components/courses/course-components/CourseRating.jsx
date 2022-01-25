@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -15,7 +16,9 @@ const StyledRating = styled(Rating)({
   },
 });
 
-export default function CourseRating() {
+export default function CourseRating(props) {
+  const { readOnly } = props;
+
   return (
     <Box
       sx={{
@@ -25,7 +28,7 @@ export default function CourseRating() {
       }}
     >
       <StyledRating
-        readOnly
+        readOnly={readOnly}
         defaultValue={3}
         getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
         precision={0.5}

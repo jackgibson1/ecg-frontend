@@ -55,7 +55,7 @@ export default function CourseDialog(props) {
       >
         <DialogTitle sx={{ textAlign: 'center', textDecoration: 'underline' }}>{course.title}</DialogTitle>
         <DialogContent>
-          <CourseRating />
+          <CourseRating readOnly />
           <CourseTimeAndUpdated
             lastUpdated={course.lastUpdated}
             timeToComplete={course.timeToComplete}

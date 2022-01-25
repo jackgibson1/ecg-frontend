@@ -48,7 +48,7 @@ export default function CourseCard(props) {
           {course.title}
         </Typography>
         <Box sx={{ marginTop: 1, marginBottom: 1, marginLeft: 6 }}>
-          <CourseRating />
+          <CourseRating readOnly />
         </Box>
         <Typography variant="body2" color="text.secondary" align="center">
           {course.description}
