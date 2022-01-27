@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import { Typography, Grid, Box } from '@mui/material';
-import DelayAppearanceButton from './DelayAppearanceButton';
-import CourseRating from './CourseRating';
+import CourseCompleteButton from './CourseCompleteButton';
+import CourseRatingUser from './CourseRatingUser';
 import authService from '../../../services/auth.service';
 
 function CourseCompleted(props) {
   const { course } = props;
+  const [userRating, setUserRating] = useState(0);
+
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -18,7 +20,7 @@ function CourseCompleted(props) {
           <Typography style={{ textDecoration: 'underline' }} variant="h5">Details</Typography>
           <Typography variant="body1" sx={{ marginTop: '1%' }}>{`The following course is now completed: ${course.title}`}</Typography>
           <Typography variant="body1" sx={{ marginTop: '1%' }}>Please rate how much you enjoyed this course:</Typography>
-          <CourseRating readOnly={false} />
+          <CourseRatingUser userRating={userRating} setUserRating={setUserRating} />
         </Box>
       </Grid>
       <Grid item xs={6} sx={{ marginTop: '2%', textAlign: 'left' }}>
@@ -30,7 +32,7 @@ function CourseCompleted(props) {
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <DelayAppearanceButton courseId={course.id} />
+        <CourseCompleteButton courseId={course.id} userRating={userRating} />
       </Grid>
     </Grid>
   );

@@ -8,7 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Grid, Box } from '@mui/material';
 import CourseDialog from './CourseDialog';
-import CourseRating from './CourseRating';
+import CourseRatingAverage from './CourseRatingAverage';
 import LinearProgressWithLabel from './LinearProgressWithLabel';
 
 const styles = {
@@ -47,7 +47,7 @@ export default function CourseCard(props) {
             {course.title}
           </Typography>
           <Box sx={{ marginTop: 1, marginBottom: 1, marginLeft: 6 }}>
-            <CourseRating readOnly rating={rating} />
+            <CourseRatingAverage rating={rating} />
           </Box>
           <Typography variant="body2" color="text.secondary" align="center">
             {course.description}

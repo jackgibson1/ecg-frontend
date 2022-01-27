@@ -17,13 +17,7 @@ const StyledRating = styled(Rating)({
 });
 
 export default function CourseRating(props) {
-  const { readOnly, rating } = props;
-
-  // useffect which makes api call
-  // 1. if readonly is true get average rating for course
-  // 2. if readonly false, check if rating has been made
-  // if true set readonly to true and display message
-  // if false allow user to set rating
+  const { rating } = props;
 
   return (
     <Box
@@ -34,7 +28,7 @@ export default function CourseRating(props) {
       }}
     >
       <StyledRating
-        readOnly={readOnly}
+        readOnly
         defaultValue={typeof rating === 'undefined' ? 0 : rating.rating}
         getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
         precision={0.5}

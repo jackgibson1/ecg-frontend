@@ -12,7 +12,7 @@ import { useHistory } from 'react-router-dom';
 import ExploreIcon from '@mui/icons-material/Explore';
 import userService from '../../../services/user.service';
 import CourseContentsList from './CourseContentsList';
-import CourseRating from './CourseRating';
+import CourseRatingAverage from './CourseRatingAverage';
 import CourseTimeAndUpdated from './CourseTimeAndUpdated';
 import CoursePeopleFor from './CoursePeopleFor';
 import AnimatedTracing from '../../../assets/images/courses/courseImage.png';
@@ -68,7 +68,7 @@ export default function CourseDialog(props) {
         <DialogContent>
           <Grid container>
             <Grid item>
-              <CourseRating readOnly rating={rating} />
+              <CourseRatingAverage rating={rating} />
               <CourseTimeAndUpdated
                 lastUpdated={course.lastUpdated}
                 timeToComplete={course.timeToComplete}

@@ -16,11 +16,13 @@ function getAllCourseRatings() {
 }
 
 function submitCourseRating(courseId, rating) {
+  const accesstoken = authHeader()['x-access-token'];
+  const userid = authService.getCurrentUser().id;
   return axios.post(`${API_URL}/ratings/submit`, { courseId, rating },
     {
       headers: {
-        'x-access-token': authHeader()['x-access-token'],
-        'user-id': authService.getCurrentUser().id,
+        'x-access-token': accesstoken,
+        'user-id': userid,
       },
     });
 }
