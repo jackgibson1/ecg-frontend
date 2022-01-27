@@ -34,14 +34,22 @@ export default function CourseDialog(props) {
     setOpen(false);
   };
 
+  const restartCourse = () => {
+    userService.updateCoursePosition(course.id, 0).then((res) => res);
+  };
+
   const pushCourse = () => {
     if (position === 0) {
       return <Button onClick={() => history.push(course.path)}>Start Course</Button>;
     } if (position > 0 && position <= course.sections.length - 1) {
       return <Button onClick={() => history.push(course.path)}>Resume Course</Button>;
     }
-    userService.updateCoursePosition(course.id, 0).then((res) => res);
-    return <Button onClick={() => history.push(course.path)}>Restart Course</Button>;
+
+    return (
+      <Button onClick={() => { history.push(course.path); restartCourse(); }}>
+        Restart Course
+      </Button>
+    );
   };
 
   return (

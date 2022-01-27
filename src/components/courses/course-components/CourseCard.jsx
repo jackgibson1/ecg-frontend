@@ -30,7 +30,7 @@ const styles = {
 export default function CourseCard(props) {
   const {
     // eslint-disable-next-line react/prop-types
-    course, position,
+    course, position, rating,
   } = props;
 
   // eslint-disable-next-line react/prop-types
@@ -47,7 +47,7 @@ export default function CourseCard(props) {
             {course.title}
           </Typography>
           <Box sx={{ marginTop: 1, marginBottom: 1, marginLeft: 6 }}>
-            <CourseRating readOnly />
+            <CourseRating readOnly rating={rating} />
           </Box>
           <Typography variant="body2" color="text.secondary" align="center">
             {course.description}

@@ -17,7 +17,7 @@ const StyledRating = styled(Rating)({
 });
 
 export default function CourseRating(props) {
-  const { readOnly } = props;
+  const { readOnly, rating } = props;
 
   // useffect which makes api call
   // 1. if readonly is true get average rating for course
@@ -35,14 +35,14 @@ export default function CourseRating(props) {
     >
       <StyledRating
         readOnly={readOnly}
-        defaultValue={3}
+        defaultValue={typeof rating === 'undefined' ? 0 : rating.rating}
         getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
         precision={0.5}
         icon={<FavoriteIcon fontSize="inherit" />}
         emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
       />
       <Box>
-        <Typography sx={{ ml: 2 }} style={{ color: '#808080' }} variant="body">(11 Reviews)</Typography>
+        <Typography sx={{ ml: 2 }} style={{ color: '#808080' }} variant="body">{`(${typeof rating === 'undefined' ? 0 : rating.totalRatings} Reviews)`}</Typography>
       </Box>
     </Box>
   );

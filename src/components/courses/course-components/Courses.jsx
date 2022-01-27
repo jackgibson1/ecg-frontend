@@ -8,10 +8,12 @@ import courseDetails from './courseDetails';
 import CourseBackgroundImage from '../../../assets/images/courses/coursebackground.jpg';
 import authService from '../../../services/auth.service';
 import UserService from '../../../services/user.service';
+import CourseService from '../../../services/course.service';
 
 function Courses(props) {
   const [isLoading, setLoading] = useState(true);
   const [positions, setPositions] = useState([]);
+  const [ratings, setRatings] = useState([]);
 
   if (!authService.isLoggedIn()) {
     // eslint-disable-next-line react/prop-types
@@ -19,10 +21,19 @@ function Courses(props) {
   }
 
   useEffect(() => {
-    UserService.getAllCoursePositions().then((res) => {
-      setPositions(res.data);
-      setLoading(false);
-    });
+    Promise.all([UserService.getAllCoursePositions(), CourseService.getAllCourseRatings()])
+      .then((resolvedPromises) => {
+        const coursePositions = resolvedPromises[0];
+        const courseRatings = resolvedPromises[1];
+
+        setPositions(coursePositions.data);
+        setRatings(courseRatings.data);
+        console.log(courseRatings.data);
+        setLoading(false);
+      }).catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      });
   }, []);
 
   if (isLoading) {
@@ -40,6 +51,7 @@ function Courses(props) {
             <CourseCard
               course={course}
               position={positions[index].position}
+              rating={ratings[index]}
             />
           </Grid>
         ))}
