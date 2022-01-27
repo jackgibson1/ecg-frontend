@@ -58,6 +58,7 @@ export default function CourseCard(props) {
           <Grid container justifyContent="center">
             <Grid item xs={12}>
               <CourseDialog
+                rating={rating}
                 course={course}
                 position={position}
               />

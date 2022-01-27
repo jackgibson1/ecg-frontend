@@ -28,7 +28,6 @@ function Courses(props) {
 
         setPositions(coursePositions.data);
         setRatings(courseRatings.data);
-        console.log(courseRatings.data);
         setLoading(false);
       }).catch((err) => {
         // eslint-disable-next-line no-console

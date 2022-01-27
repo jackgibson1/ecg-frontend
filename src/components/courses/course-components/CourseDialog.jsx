@@ -24,7 +24,7 @@ export default function CourseDialog(props) {
   const [open, setOpen] = React.useState(false);
 
   const history = useHistory();
-  const { course, position } = props;
+  const { course, position, rating } = props;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,19 +34,19 @@ export default function CourseDialog(props) {
     setOpen(false);
   };
 
-  const restartCourse = () => {
-    userService.updateCoursePosition(course.id, 0).then((res) => res);
+  const restartCourse = async () => {
+    await userService.updateCoursePosition(course.id, 0).then((res) => res);
   };
 
   const pushCourse = () => {
     if (position === 0) {
-      return <Button onClick={() => history.push(course.path)}>Start Course</Button>;
+      return <Button onClick={() => history.push(course.path, { process: 'Starting your course!' })}>Start Course</Button>;
     } if (position > 0 && position <= course.sections.length - 1) {
-      return <Button onClick={() => history.push(course.path)}>Resume Course</Button>;
+      return <Button onClick={() => history.push(course.path, { process: 'Resuming your course!' })}>Resume Course</Button>;
     }
 
     return (
-      <Button onClick={() => { history.push(course.path); restartCourse(); }}>
+      <Button onClick={async () => { await restartCourse(); history.push(course.path, { process: 'Restarting your course!' }); }}>
         Restart Course
       </Button>
     );
@@ -68,7 +68,7 @@ export default function CourseDialog(props) {
         <DialogContent>
           <Grid container>
             <Grid item>
-              <CourseRating readOnly />
+              <CourseRating readOnly rating={rating} />
               <CourseTimeAndUpdated
                 lastUpdated={course.lastUpdated}
                 timeToComplete={course.timeToComplete}

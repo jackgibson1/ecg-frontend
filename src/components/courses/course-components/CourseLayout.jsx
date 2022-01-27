@@ -24,7 +24,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function CourseLayout(props) {
   // get path and find course which matches current path
-  const { pathname } = props.location;
+  const { pathname, state } = props.location;
   const course = courseDetails.find((cse) => cse.path === pathname);
 
   const [loading, setLoading] = useState(true);
@@ -65,7 +65,13 @@ export default function CourseLayout(props) {
     setCurrentSection((prevCurrentSection) => prevCurrentSection - 1);
   };
 
-  if (loading) return <LoadingPage text="Course" />;
+  if (loading) {
+    let text = 'Loading';
+    if (typeof state !== 'undefined') {
+      text = state.process;
+    }
+    return <LoadingPage text={text} />;
+  }
 
   return (
     <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} container justifyContent="center">
