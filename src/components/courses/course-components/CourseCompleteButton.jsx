@@ -21,23 +21,11 @@ export default function CourseCompleteButton(props) {
   const [completeCourseResponse, setCompleteCourseResponse] = React.useState('');
   const [submitRatingResponse, setSubmitRatingResponse] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
-  const timerRef = React.useRef();
-
-  React.useEffect(
-    () => () => {
-      clearTimeout(timerRef.current);
-    },
-    [],
-  );
 
   const handleClickQuery = () => {
     if (userRating === 0) {
       setQuery('norating');
       return;
-    }
-
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
     }
 
     if (query === 'success') {
@@ -48,7 +36,7 @@ export default function CourseCompleteButton(props) {
 
     setQuery('progress');
 
-    timerRef.current = window.setTimeout(() => {
+    window.setTimeout(() => {
       Promise.all(
         [
           UserService.completeCourse(courseId),
@@ -62,7 +50,7 @@ export default function CourseCompleteButton(props) {
           setOpenModal(true);
           setCompleteCourseResponse(<Alert severity="success">Successfully completed course and earned a credit!</Alert>);
         } else {
-          setCompleteCourseResponse(<Alert severity="success">Successfully completed course! (Note you only earn credits for new courses/quizzes!)</Alert>);
+          setCompleteCourseResponse(<Alert severity="success">Successfully completed course again! (Note you only earn credits for new courses/quizzes!)</Alert>);
         }
 
         if (submittedRating.data.success) {
