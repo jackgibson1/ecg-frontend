@@ -30,6 +30,7 @@ export default function CourseContentsList(props) {
           width: '100%',
           maxHeight: 510,
           maxWidth: '100%',
+          paddingRight: '1%',
           position: 'relative',
           overflow: overflow ? 'auto' : '',
           '& ul': { padding: 0 },

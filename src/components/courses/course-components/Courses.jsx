@@ -9,6 +9,7 @@ import CourseBackgroundImage from '../../../assets/images/courses/coursebackgrou
 import authService from '../../../services/auth.service';
 import UserService from '../../../services/user.service';
 import CourseService from '../../../services/course.service';
+import LoadingPage from '../../LoadingPage';
 
 function Courses(props) {
   const [isLoading, setLoading] = useState(true);
@@ -36,7 +37,7 @@ function Courses(props) {
   }, []);
 
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <LoadingPage text="Loading all courses" />;
   }
 
   return (

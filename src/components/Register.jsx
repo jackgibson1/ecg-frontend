@@ -105,7 +105,7 @@ const Register = (props) => {
       AuthService.register(username, email, password).then(
         // eslint-disable-next-line no-unused-vars
         async () => {
-          setMessage('Successfully regsitered');
+          setMessage('Successfully registered');
           setSuccessful(true);
 
           await new Promise((resolve) => setTimeout(resolve, 3000));

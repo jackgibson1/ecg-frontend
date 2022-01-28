@@ -33,9 +33,9 @@ const courseDetails = [
   },
   {
     id: 2,
-    title: 'What Is An ECG?',
+    title: 'Understanding An ECG?',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    sections: ['1. What is electrocardiography?', '2. History', '3. Medical Uses', '4. Electrocardiographs', '5. Electrodes & Leads', '6. Limb Leads', '7. Augmented Limb Leads', '8. Precordial Limb Leads', '9. Specialised Leads', '10. Lead Locations On An ECG Report', '11. Contiguity Of Leads'],
+    sections: ['1. Introduction', '2. What is a P wave?', '3. What is a PR interval?', '4. What is a QRS complex?', '5. What is an ST segment?', '6. What is a T wave?', '7. What is an RR interval?', '8. What is a QT interval?', '9. Everything together', '10. Reading ECG paper', '11. Example ECG', '12. How The 12 Lead ECG works', '13. Electrodes', '14. Chest electrodes', '15. Limb electrodes', '16. Leads', '17. Chest leads', '18. Other leads', '19. The shape of the ECG waveform (1)', "20. The shape of the ECG waveform (2)", "21. Localising pathology on the ECG", "22. Cardiac axis", "23. Normal Cardiac Axis", "23. Right Axis Deviation", "24. Left Axis Deviation"],
     components: [<AnatomyIntroduction />],
     path: '/courses/introduction',
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
