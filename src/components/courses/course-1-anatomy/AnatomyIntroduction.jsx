@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
-import heartIntroImage from '../../../assets/images/courses/anatomy/introduction.png';
+import heartIntroImage from '../../../assets/images/courses/course-1-anatomy/introduction.png';
 
 export default function AnatomyIntroduction() {
   return (

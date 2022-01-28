@@ -33,8 +33,7 @@ function completeCourse(courseId) {
         'x-access-token': authHeader()['x-access-token'],
         'user-id': authService.getCurrentUser().id,
       },
-    }).then((res) => res)
-    .catch((err) => console.log(err));
+    }).then((res) => res);
 }
 
 function getLocalQuiz() {

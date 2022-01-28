@@ -17,7 +17,7 @@ import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-import AuthService from '../services/auth.service';
+import AuthService from '../../services/auth.service';
 
 const required = (value) => {
   if (!value) {

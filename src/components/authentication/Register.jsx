@@ -14,7 +14,7 @@ import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
 import { isEmail } from 'validator';
 
-import AuthService from '../services/auth.service';
+import AuthService from '../../services/auth.service';
 
 const required = (value) => {
   if (!value) {

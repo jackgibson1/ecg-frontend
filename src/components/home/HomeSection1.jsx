@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Grid, Box } from '@mui/material';
-import animatedImage from '../assets/images/animatedHeartResized.gif';
-import animatedImageLg from '../assets/images/animatedGif1.gif';
+import animatedImage from '../../assets/images/home/animatedHeartResized.gif';
+import animatedImageLg from '../../assets/images/home/animatedGif1.gif';
 
 function HomeSection1() {
   return (

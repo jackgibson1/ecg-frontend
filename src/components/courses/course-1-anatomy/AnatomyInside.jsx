@@ -5,23 +5,23 @@ import Button from '@mui/material/Button';
 import React, { useState } from 'react';
 
 // import all inside images
-import aotraImage from '../../../assets/images/courses/anatomy/inside/aorta.png';
-import aorticValveImage from '../../../assets/images/courses/anatomy/inside/aorticvalve.png';
-import arteriesImage from '../../../assets/images/courses/anatomy/inside/arteriestohead.png';
-import leftAtriumImage from '../../../assets/images/courses/anatomy/inside/atriumleft.png';
-import rightAtriumImage from '../../../assets/images/courses/anatomy/inside/atriumright.png';
-import insideHeartImage from '../../../assets/images/courses/anatomy/inside/insideheart.png';
-import ivcImage from '../../../assets/images/courses/anatomy/inside/ivc.png';
-import lungsImage from '../../../assets/images/courses/anatomy/inside/lungs.png';
-import mitralImage from '../../../assets/images/courses/anatomy/inside/mitralvalve.png';
-import pulmonaryValveImage from '../../../assets/images/courses/anatomy/inside/pulmonaryvalve.png';
-import pulmonaryArteriesImage from '../../../assets/images/courses/anatomy/inside/pulmonaryarteries.png';
-import pulmonaryVeinsImage from '../../../assets/images/courses/anatomy/inside/pulmonaryveins.png';
-import septumImage from '../../../assets/images/courses/anatomy/inside/septum.png';
-import svcImage from '../../../assets/images/courses/anatomy/inside/svc.png';
-import tricusImage from '../../../assets/images/courses/anatomy/inside/tricuspidvalve.png';
-import rightventricleImage from '../../../assets/images/courses/anatomy/inside/ventricleright.png';
-import leftventricleImage from '../../../assets/images/courses/anatomy/inside/ventricleleft.png';
+import aotraImage from '../../../assets/images/courses/course-1-anatomy/inside/aorta.png';
+import aorticValveImage from '../../../assets/images/courses/course-1-anatomy/inside/aorticvalve.png';
+import arteriesImage from '../../../assets/images/courses/course-1-anatomy/inside/arteriestohead.png';
+import leftAtriumImage from '../../../assets/images/courses/course-1-anatomy/inside/atriumleft.png';
+import rightAtriumImage from '../../../assets/images/courses/course-1-anatomy/inside/atriumright.png';
+import insideHeartImage from '../../../assets/images/courses/course-1-anatomy/inside/insideheart.png';
+import ivcImage from '../../../assets/images/courses/course-1-anatomy/inside/ivc.png';
+import lungsImage from '../../../assets/images/courses/course-1-anatomy/inside/lungs.png';
+import mitralImage from '../../../assets/images/courses/course-1-anatomy/inside/mitralvalve.png';
+import pulmonaryValveImage from '../../../assets/images/courses/course-1-anatomy/inside/pulmonaryvalve.png';
+import pulmonaryArteriesImage from '../../../assets/images/courses/course-1-anatomy/inside/pulmonaryarteries.png';
+import pulmonaryVeinsImage from '../../../assets/images/courses/course-1-anatomy/inside/pulmonaryveins.png';
+import septumImage from '../../../assets/images/courses/course-1-anatomy/inside/septum.png';
+import svcImage from '../../../assets/images/courses/course-1-anatomy/inside/svc.png';
+import tricusImage from '../../../assets/images/courses/course-1-anatomy/inside/tricuspidvalve.png';
+import rightventricleImage from '../../../assets/images/courses/course-1-anatomy/inside/ventricleright.png';
+import leftventricleImage from '../../../assets/images/courses/course-1-anatomy/inside/ventricleleft.png';
 
 const insideStructures = [
   { name: 'Inside Heart', description: 'The view of the entire inner heart anatomy.', image: insideHeartImage, beenClicked: true },

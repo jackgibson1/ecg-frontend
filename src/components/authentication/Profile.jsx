@@ -7,7 +7,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
-import AuthService from '../services/auth.service';
+import AuthService from '../../services/auth.service';
 
 function Copyright(props) {
   return (

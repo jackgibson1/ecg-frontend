@@ -2,19 +2,22 @@
 import React from 'react';
 
 // importing course card images
-import anatomyCard from '../../../assets/images/courses/anatomyCard.jpeg';
-import conditionsCard from '../../../assets/images/courses/conditionsCard.jpeg';
-import documentCard from '../../../assets/images/courses/documentCard.jpg';
-import introductionCard from '../../../assets/images/courses/introductionCard.jpg';
-import readingCard from '../../../assets/images/courses/readingCard.jpeg';
-import partsCard from '../../../assets/images/courses/partsCard.jpg';
+import anatomyCard from '../../../assets/images/courses/cards/anatomyCard.jpeg';
+import conditionsCard from '../../../assets/images/courses/cards/conditionsCard.jpeg';
+import documentCard from '../../../assets/images/courses/cards/documentCard.jpg';
+import introductionCard from '../../../assets/images/courses/cards/introductionCard.jpg';
+import readingCard from '../../../assets/images/courses/cards/readingCard.jpeg';
+import partsCard from '../../../assets/images/courses/cards/partsCard.jpg';
 
-// Anatomy Course Components
-import AnatomyIntroduction from '../anatomy/AnatomyIntroduction';
-import AnatomyOutside from '../anatomy/AnatomyOutside';
-import AnatomyInside from '../anatomy/AnatomyInside';
-import AnatomyBloodFlow from '../anatomy/AnatomyBloodFlow';
-import AnatomyContraction from '../anatomy/AnatomyContraction';
+// (1) Anatomy Course Components
+import AnatomyIntroduction from '../course-1-anatomy/AnatomyIntroduction';
+import AnatomyOutside from '../course-1-anatomy/AnatomyOutside';
+import AnatomyInside from '../course-1-anatomy/AnatomyInside';
+import AnatomyBloodFlow from '../course-1-anatomy/AnatomyBloodFlow';
+import AnatomyContraction from '../course-1-anatomy/AnatomyContraction';
+
+// (2) Understanding ECG Course Components
+import UnderstandingIntroduction from '../course-2-understanding/UnderstandingIntroduction';
 
 const courseDetails = [
   {
@@ -36,8 +39,8 @@ const courseDetails = [
     title: 'Understanding An ECG?',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sections: ['1. Introduction', '2. What is a P wave?', '3. What is a PR interval?', '4. What is a QRS complex?', '5. What is an ST segment?', '6. What is a T wave?', '7. What is an RR interval?', '8. What is a QT interval?', '9. Everything together', '10. Reading ECG paper', '11. Example ECG', '12. How The 12 Lead ECG works', '13. Electrodes', '14. Chest electrodes', '15. Limb electrodes', '16. Leads', '17. Chest leads', '18. Other leads', '19. The shape of the ECG waveform (1)', "20. The shape of the ECG waveform (2)", "21. Localising pathology on the ECG", "22. Cardiac axis", "23. Normal Cardiac Axis", "23. Right Axis Deviation", "24. Left Axis Deviation"],
-    components: [<AnatomyIntroduction />],
-    path: '/courses/introduction',
+    components: [<UnderstandingIntroduction />],
+    path: '/courses/understanding',
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     lastUpdated: '25/01/2022',
     timeToComplete: '30 minutes',

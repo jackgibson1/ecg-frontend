@@ -1,11 +1,11 @@
 import React from 'react';
 // importing quiz images
-import anatomyCard from '../../../assets/images/courses/anatomyCard.jpeg';
-import conditionsCard from '../../../assets/images/courses/conditionsCard.jpeg';
-import documentCard from '../../../assets/images/courses/documentCard.jpg';
-import introductionCard from '../../../assets/images/courses/introductionCard.jpg';
-import readingCard from '../../../assets/images/courses/readingCard.jpeg';
-import partsCard from '../../../assets/images/courses/partsCard.jpg';
+import anatomyCard from '../../../assets/images/courses/cards/anatomyCard.jpeg';
+import conditionsCard from '../../../assets/images/courses/cards/conditionsCard.jpeg';
+import documentCard from '../../../assets/images/courses/cards/documentCard.jpg';
+import introductionCard from '../../../assets/images/courses/cards/introductionCard.jpg';
+import readingCard from '../../../assets/images/courses/cards/readingCard.jpeg';
+import partsCard from '../../../assets/images/courses/cards/partsCard.jpg';
 
 // importing anatomy quiz questions
 import Question1 from '../anatomy/Question1';

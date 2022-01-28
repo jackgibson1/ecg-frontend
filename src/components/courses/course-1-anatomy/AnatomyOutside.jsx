@@ -3,19 +3,19 @@
 import { Grid, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
-import heartIntroImage from '../../../assets/images/courses/anatomy/introduction.png';
+import heartIntroImage from '../../../assets/images/courses/course-1-anatomy/introduction.png';
 
 // import all outside images
-import aotraImage from '../../../assets/images/courses/anatomy/outside/aorta.png';
-import arteriesImage from '../../../assets/images/courses/anatomy/outside/arteriestoheadarms.png';
-import ivcImage from '../../../assets/images/courses/anatomy/outside/inferiorvenacava.png';
-import leftAtriumImage from '../../../assets/images/courses/anatomy/outside/leftatrium.png';
-import leftVentricleImage from '../../../assets/images/courses/anatomy/outside/leftventricle.png';
-import lungsImage from '../../../assets/images/courses/anatomy/outside/lungs.png';
-import pulmonaryImage from '../../../assets/images/courses/anatomy/outside/pulmonaryarteries.png';
-import rightAtriumImage from '../../../assets/images/courses/anatomy/outside/rightatrium.png';
-import rightVentricleImage from '../../../assets/images/courses/anatomy/outside/rightventricle.png';
-import svcImage from '../../../assets/images/courses/anatomy/outside/superiorvenacava.png';
+import aotraImage from '../../../assets/images/courses/course-1-anatomy/outside/aorta.png';
+import arteriesImage from '../../../assets/images/courses/course-1-anatomy/outside/arteriestoheadarms.png';
+import ivcImage from '../../../assets/images/courses/course-1-anatomy/outside/inferiorvenacava.png';
+import leftAtriumImage from '../../../assets/images/courses/course-1-anatomy/outside/leftatrium.png';
+import leftVentricleImage from '../../../assets/images/courses/course-1-anatomy/outside/leftventricle.png';
+import lungsImage from '../../../assets/images/courses/course-1-anatomy/outside/lungs.png';
+import pulmonaryImage from '../../../assets/images/courses/course-1-anatomy/outside/pulmonaryarteries.png';
+import rightAtriumImage from '../../../assets/images/courses/course-1-anatomy/outside/rightatrium.png';
+import rightVentricleImage from '../../../assets/images/courses/course-1-anatomy/outside/rightventricle.png';
+import svcImage from '../../../assets/images/courses/course-1-anatomy/outside/superiorvenacava.png';
 
 const outsideStructures = [
   { name: 'Outside Heart', description: 'The view of the entire outer heart anatomy.', image: heartIntroImage, beenClicked: true },

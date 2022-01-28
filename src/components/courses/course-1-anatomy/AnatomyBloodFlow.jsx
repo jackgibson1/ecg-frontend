@@ -6,12 +6,12 @@ import Button from '@mui/material/Button';
 import ProgressStepper from './ProgressStepper';
 
 // import all bloodfloow animations
-import completeBloodFlowAnimation from '../../../assets/images/courses/anatomy/bloodflow/bloodflowintro.gif';
-import stepOneAnimation from '../../../assets/images/courses/anatomy/bloodflow/step1flow.gif';
-import stepTwoAnimation from '../../../assets/images/courses/anatomy/bloodflow/step2flow.gif';
-import stepThreeAnimation from '../../../assets/images/courses/anatomy/bloodflow/step3flow.gif';
-import stepFourAnimation from '../../../assets/images/courses/anatomy/bloodflow/step4flow.gif';
-import stepFiveAnimation from '../../../assets/images/courses/anatomy/bloodflow/step5flow.gif';
+import completeBloodFlowAnimation from '../../../assets/images/courses/course-1-anatomy/bloodflow/bloodflowintro.gif';
+import stepOneAnimation from '../../../assets/images/courses/course-1-anatomy/bloodflow/step1flow.gif';
+import stepTwoAnimation from '../../../assets/images/courses/course-1-anatomy/bloodflow/step2flow.gif';
+import stepThreeAnimation from '../../../assets/images/courses/course-1-anatomy/bloodflow/step3flow.gif';
+import stepFourAnimation from '../../../assets/images/courses/course-1-anatomy/bloodflow/step4flow.gif';
+import stepFiveAnimation from '../../../assets/images/courses/course-1-anatomy/bloodflow/step5flow.gif';
 
 const bloodFlowSections = [
   { name: 'Introduction', description: 'Blood enters the right side of the heart first. From there it is pumped to the lungs to absorb oxygen. The blood is then returned to the heart, but this time to the left side. Then it is pumped into the aorta, and from there to the rest of the body. Press the arrow button to see each step in the flow of blood through the heart and lungs.', image: completeBloodFlowAnimation, beenViewed: true },

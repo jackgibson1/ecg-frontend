@@ -88,7 +88,7 @@ export default function CourseLayout(props) {
       <Grid item xs={10}>
         <Item>
           <Box sx={{
-            borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%', backgroundImage: `url(${CourseBackground})`, backgroundSize: 'cover',
+            borderColor: 'grey.500', border: 5, borderRadius: 10, width: '100%', height: '100%', backgroundImage: `url(${CourseBackground})`, backgroundSize: 'cover', paddingRight: '1%',
           }}
           >
             {currentSection === course.components.length

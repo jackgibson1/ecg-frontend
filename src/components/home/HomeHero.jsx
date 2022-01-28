@@ -3,9 +3,7 @@ import {
   Stack, Typography, Button,
 } from '@mui/material';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
-import backgroundImage from '../assets/images/heroimage1.jpg';
-
-// const backgroundImage = 'https://ak.picdn.net/shutterstock/videos/1040456972/thumb/1.jpg';
+import backgroundImage from '../../assets/images/home/heroimage1.jpg';
 
 const styles = {
   paperContainer: {

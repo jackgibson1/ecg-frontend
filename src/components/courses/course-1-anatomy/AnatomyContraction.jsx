@@ -5,11 +5,11 @@ import React, { useState } from 'react';
 import ProgressStepper from './ProgressStepper';
 
 // import all contraction animations
-import completeContractionAnimation from '../../../assets/images/courses/anatomy/contraction/contractionintro.gif';
-import stepOneAnimation from '../../../assets/images/courses/anatomy/contraction/step1contraction.gif';
-import stepTwoAnimation from '../../../assets/images/courses/anatomy/contraction/step2contraction.gif';
-import stepThreeAnimation from '../../../assets/images/courses/anatomy/contraction/step3contraction.gif';
-import stepFourAnimation from '../../../assets/images/courses/anatomy/contraction/step4contraction.gif';
+import completeContractionAnimation from '../../../assets/images/courses/course-1-anatomy/contraction/contractionintro.gif';
+import stepOneAnimation from '../../../assets/images/courses/course-1-anatomy/contraction/step1contraction.gif';
+import stepTwoAnimation from '../../../assets/images/courses/course-1-anatomy/contraction/step2contraction.gif';
+import stepThreeAnimation from '../../../assets/images/courses/course-1-anatomy/contraction/step3contraction.gif';
+import stepFourAnimation from '../../../assets/images/courses/course-1-anatomy/contraction/step4contraction.gif';
 
 const contractionSections = [
   { name: 'Introduction', description: 'The physical "beating" of the heart is what pushes the blood around the body. This is really the action of two separate coordinated pumps: the right side of the heart and the left side of the heart. Each pump has its own atrium, ventricle, inlet valve and outlet valve. The right side of the heart receives blood from the body and pumps it to the lungs. The left side of the heart receives blood from the lungs and pumps it to the rest of the body. Press the next button to see each step in how the heart pumps blood.', image: completeContractionAnimation, beenViewed: true },
