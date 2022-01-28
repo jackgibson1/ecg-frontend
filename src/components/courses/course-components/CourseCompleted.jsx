@@ -8,6 +8,7 @@ import authService from '../../../services/auth.service';
 
 function CourseCompleted(props) {
   const { course } = props;
+  const [query, setQuery] = useState('idle');
   const [userRating, setUserRating] = useState(0);
 
   return (
@@ -20,7 +21,10 @@ function CourseCompleted(props) {
           <Typography style={{ textDecoration: 'underline' }} variant="h5">Details</Typography>
           <Typography variant="body1" sx={{ marginTop: '1%' }}>{`The following course is now completed: ${course.title}`}</Typography>
           <Typography variant="body1" sx={{ marginTop: '1%' }}>Please rate how much you enjoyed this course:</Typography>
-          <CourseRatingUser userRating={userRating} setUserRating={setUserRating} />
+          <CourseRatingUser
+            userRating={userRating}
+            setUserRating={setUserRating}
+          />
         </Box>
       </Grid>
       <Grid item xs={6} sx={{ marginTop: '2%', textAlign: 'left' }}>
@@ -32,7 +36,12 @@ function CourseCompleted(props) {
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <CourseCompleteButton courseId={course.id} userRating={userRating} />
+        <CourseCompleteButton
+          courseId={course.id}
+          userRating={userRating}
+          query={query}
+          setQuery={setQuery}
+        />
       </Grid>
     </Grid>
   );
