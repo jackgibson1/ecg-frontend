@@ -6,7 +6,7 @@ import { Box, Grid } from '@mui/material';
 import authService from '../../../services/auth.service';
 import QuizCard from './quizCard';
 import quizDetails from './quizDetails';
-import QuizBackgroundImage from '../../../assets/images/quizBackground.jpg';
+import QuizBackgroundImage from '../../../assets/images/quizzes/quizBackground.jpg';
 
 function Quizzes(props) {
   if (!authService.isLoggedIn()) {
