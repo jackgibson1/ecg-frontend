@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  height: '540px',
+  height: '535px',
 }));
 
 export default function CourseLayout(props) {
@@ -74,7 +74,7 @@ export default function CourseLayout(props) {
   }
 
   return (
-    <Grid sx={{ paddingTop: '1%', paddingLeft: '0%', paddingRight: '0%' }} container justifyContent="center">
+    <Grid sx={{ paddingTop: '1%', paddingLeft: '0%', paddingRight: '1%' }} container justifyContent="center">
       <Grid item xs={2}>
         <Item>
           <CourseContentsList
