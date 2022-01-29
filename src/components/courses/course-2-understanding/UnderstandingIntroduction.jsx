@@ -9,7 +9,11 @@ export default function UnderstandingIntroduction() {
       <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>What is an ECG?</Typography>
       <Grid container justify="center">
         <Grid item xs={6}>
-          <img src={NormalSR} style={{ height: '300px', width: '500px', borderRadius: 10, marginTop: '5%' }} alt="normalsr" />
+          <figure>
+            <img src={NormalSR} style={{ height: '300px', width: '500px', borderRadius: 10, marginTop: '5%' }} alt="normalsr" />
+            <figcaption>ECG - Normal Sinus Rythm</figcaption>
+          </figure>
+
         </Grid>
         <Grid item xs={6}>
           <Typography variant="h6" sx={{ marginTop: '4%' }}>Introductory Overview</Typography>
