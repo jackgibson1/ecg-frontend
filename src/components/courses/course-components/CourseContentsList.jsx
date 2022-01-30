@@ -35,7 +35,11 @@ export default function CourseContentsList(props) {
           overflow: overflow ? 'auto' : '',
           '& ul': { padding: 0 },
         }}
-        subheader={<ListSubheader align="left">{`Course Contents (${sections.length}) `}</ListSubheader>}
+        subheader={(
+          <ListSubheader align="left">
+            {`Course Contents (${sections.length}) `}
+          </ListSubheader>
+)}
       >
         {/* eslint-disable-next-line react/prop-types */}
         {sections.map((section, index) => (
