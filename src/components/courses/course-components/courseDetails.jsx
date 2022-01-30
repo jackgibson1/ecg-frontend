@@ -25,6 +25,7 @@ import UnderstandingThreeSegments from '../course-2-understanding/UnderstandingT
 import UnderstandingFourIntervals from '../course-2-understanding/UnderstandingFourIntervals';
 import UnderstandingFiveFourThree from '../course-2-understanding/UnderstandingFiveFourThree';
 import UnderstandingElectricalHeart from '../course-2-understanding/UnderstandingElectricalHeart';
+import UnderstandingReadingGraph from '../course-2-understanding/UnderstandingReadingGraph';
 
 const courseDetails = [
   {
@@ -45,11 +46,12 @@ const courseDetails = [
     id: 2,
     title: 'Understanding An ECG',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    sections: ['1. Introduction', '2. ECG Waves', '3. Five Basic Waveforms', '4. Segments Vs Intervals', '5. Three Basic Segments', '6. Four Sets Of Intervals', '7. 5-4-3 Rule For ECG Components', '8. Putting It All Together', '9. Everything together', '10. Reading ECG paper', '11. Example ECG', '12. How The 12 Lead ECG works', '13. Electrodes', '14. Chest electrodes', '15. Limb electrodes', '16. Leads', '17. Chest leads', '18. Other leads', '19. The shape of the ECG waveform (1)', "20. The shape of the ECG waveform (2)", "21. Localising pathology on the ECG", "22. Cardiac axis", "23. Normal Cardiac Axis", "23. Right Axis Deviation", "24. Left Axis Deviation"],
+    sections: ['1. Introduction', '2. ECG Waves', '3. Five Basic Waveforms', '4. Segments Vs Intervals', '5. Three Basic Segments', '6. Four Sets Of Intervals', '7. 5-4-3 Rule For ECG Components', '8. Electrical Impulse Travelling Through The Heart', '9. How To Read ECG Paper', '10. Reading ECG paper', '11. Example ECG', '12. How The 12 Lead ECG works', '13. Electrodes', '14. Chest electrodes', '15. Limb electrodes', '16. Leads', '17. Chest leads', '18. Other leads', '19. The shape of the ECG waveform (1)', "20. The shape of the ECG waveform (2)", "21. Localising pathology on the ECG", "22. Cardiac axis", "23. Normal Cardiac Axis", "23. Right Axis Deviation", "24. Left Axis Deviation"],
     components: [<UnderstandingIntroduction />, <UnderstandingWaves />,
       <UnderstandingBasicWaves />, <UnderstandingSegmentsVsIntervals />,
       <UnderstandingThreeSegments />, <UnderstandingFourIntervals />,
-      <UnderstandingFiveFourThree />, <UnderstandingElectricalHeart />],
+      <UnderstandingFiveFourThree />, <UnderstandingElectricalHeart />,
+      <UnderstandingReadingGraph />],
     path: '/courses/understanding',
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     lastUpdated: '25/01/2022',
