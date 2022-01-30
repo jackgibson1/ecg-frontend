@@ -3,7 +3,7 @@
 import { Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import ProgressStepper from './ProgressStepper';
+import ProgressStepper from '../course-components/ProgressStepper';
 
 // import all bloodfloow animations
 import completeBloodFlowAnimation from '../../../assets/images/courses/course-1-anatomy/bloodflow/bloodflowintro.gif';

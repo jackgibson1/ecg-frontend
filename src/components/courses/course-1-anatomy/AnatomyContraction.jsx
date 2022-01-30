@@ -2,7 +2,7 @@
 /* eslint-disable object-curly-newline */
 import { Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import ProgressStepper from './ProgressStepper';
+import ProgressStepper from '../course-components/ProgressStepper';
 
 // import all contraction animations
 import completeContractionAnimation from '../../../assets/images/courses/course-1-anatomy/contraction/contractionintro.gif';

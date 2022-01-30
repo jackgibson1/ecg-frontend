@@ -25,7 +25,7 @@ import leftventricleImage from '../../../assets/images/courses/course-1-anatomy/
 
 const insideStructures = [
   { name: 'Inside Heart', description: 'The view of the entire inner heart anatomy.', image: insideHeartImage, beenClicked: true },
-  { name: 'Aotra', description: 'The largest artery in the body. The aorta carries oxygen-rich blood away from the heart, to the rest of the body.', image: aotraImage, beenClicked: false },
+  { name: 'Aorta', description: 'The largest artery in the body. The aorta carries oxygen-rich blood away from the heart, to the rest of the body.', image: aotraImage, beenClicked: false },
   { name: 'Aortic Valve', description: '3-leafed valve that prevents blood from flowing backwards from the aorta into the left ventricle.', image: aorticValveImage, beenClicked: false },
   { name: 'Arteries To Head & Arms', description: 'The brachiocephalic trunk, the left common carotid artery, and the left subclavian artery carry blood upwards.', image: arteriesImage, beenClicked: false },
   { name: 'Atrium (Left)', description: 'Thin-walled upper chamber of the heart that receives oxygenated blood from the lungs.', image: leftAtriumImage, beenClicked: false },
