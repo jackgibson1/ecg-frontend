@@ -65,6 +65,10 @@ export default function CourseLayout(props) {
     setCurrentSection((prevCurrentSection) => prevCurrentSection - 1);
   };
 
+  const handleClickSection = (section) => {
+    setCurrentSection(section);
+  };
+
   if (loading) {
     let text = 'Loading';
     if (typeof state !== 'undefined') {
@@ -81,6 +85,7 @@ export default function CourseLayout(props) {
             sections={course.sections}
             currentSection={currentSection}
             completedSections={completedSections}
+            handleClickSection={handleClickSection}
             overflow
           />
         </Item>

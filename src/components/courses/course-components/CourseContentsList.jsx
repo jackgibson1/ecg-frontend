@@ -11,7 +11,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function CourseContentsList(props) {
   const {
-    sections, currentSection, completedSections, overflow,
+    sections, currentSection, completedSections, overflow, handleClickSection,
   } = props;
 
   function getIcon(index) {
@@ -49,6 +49,11 @@ export default function CourseContentsList(props) {
               disabled={completedSections + 1 < index}
               key={Math.random()}
               disablePadding
+              onClick={() => {
+                if (overflow) {
+                  handleClickSection(index);
+                }
+              }}
             >
               <ListItemButton>
                 <ListItemText primary={section} />
