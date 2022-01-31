@@ -68,11 +68,13 @@ const Register = (props) => {
   const onChangeEmail = (e) => {
     const emailTarget = e.target.value;
     setEmail(emailTarget);
+    setFieldValid((prevField) => ({ ...prevField, emailValid: true }));
   };
 
   const onChangePassword = (e) => {
     const passwordTarget = e.target.value;
     setPassword(passwordTarget);
+    setFieldValid((prevField) => ({ ...prevField, passValid: true }));
   };
 
   const handleRegister = (e) => {
