@@ -18,6 +18,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import CircularProgress from '@mui/material/CircularProgress';
 import AuthService from '../../services/auth.service';
 
 function checkAllValid(username, email, password, setFieldValid) {
@@ -94,10 +95,10 @@ const Register = (props) => {
     AuthService.register(username, email, password).then(
       // eslint-disable-next-line no-unused-vars
       async () => {
-        setMessage('Successfully registered');
+        setMessage('Successfully registered!');
         setSuccessful(true);
 
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
         // eslint-disable-next-line react/prop-types
         props.history.push('/courses');
@@ -189,10 +190,23 @@ const Register = (props) => {
           )}
         </Form>
         {message && (
-          <Alert sx={{ marginTop: '3%' }} severity={successful ? 'success' : 'error'}>{message}</Alert>
+          <>
+            <Alert sx={{ marginTop: '3%' }} severity={successful ? 'success' : 'error'}>{message}</Alert>
+            {successful && (
+            <>
+              <Typography sx={{ marginTop: '4%' }} variant="body1">
+                You are now being redirected.
+              </Typography>
+              <CircularProgress sx={{ marginTop: '4%' }} />
+            </>
+            )}
+          </>
+
         )}
       </Box>
-      <AlreadyAccount sx={{ mt: 6, mb: 4 }} />
+      {!successful && (
+        <AlreadyAccount sx={{ mt: 6, mb: 4 }} />
+      )}
     </Container>
   );
 };

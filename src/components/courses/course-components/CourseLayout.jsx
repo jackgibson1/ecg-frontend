@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import courseDetails from './courseDetails';
 import CourseContentsList from './CourseContentsList';
-import CourseBackground from '../../../assets/images/courses/coursebackground.jpeg';
+import CourseBackground from '../../../assets/images/courses/courseBG.jpeg';
 import CourseProgressStepper from './CourseProgressStepper';
 import CourseCompleted from './CourseCompleted';
 import UserService from '../../../services/user.service';
