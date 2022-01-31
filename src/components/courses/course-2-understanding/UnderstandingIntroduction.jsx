@@ -10,7 +10,7 @@ export default function UnderstandingIntroduction() {
       <Grid container justify="center">
         <Grid item xs={6}>
           <figure>
-            <img src={NormalSR} style={{ height: '300px', width: '500px', borderRadius: 10, marginTop: '5%' }} alt="normalsr" />
+            <img src={NormalSR} style={{ height: '300px', width: '500px', border: '5px solid #FF0000', borderRadius: 10, marginTop: '5%' }} alt="normalsr" />
             <figcaption>ECG - Normal Sinus Rythm</figcaption>
           </figure>
 

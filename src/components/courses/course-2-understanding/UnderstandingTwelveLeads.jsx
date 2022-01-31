@@ -4,19 +4,25 @@ import React from 'react';
 import ecgLead from '../../../assets/images/courses/course-2-understanding/ecglead.jpeg';
 import ecgElectrodes from '../../../assets/images/courses/course-2-understanding/ecgelectrodes.jpeg';
 
+const styles = {
+  figure: { display: 'inline-block', textAlign: 'left' },
+  image: { height: '250px', width: '500px', border: '5px solid #FF0000', borderRadius: 10, marginTop: '1%' },
+};
+
 export default function UnderstandingTwelveLeads() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>How The 12-Lead ECG Works</Typography>
+      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>How The 12-Lead ECG Works (1)</Typography>
       <Grid container justify="left">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }}>
-          <Typography variant="body1" align="left" sx={{ marginTop: '2%' }}>
+          <Typography variant="h5" align="left" sx={{ fontWeight: 'bold' }}>Electrodes Vs Leads</Typography>
+          <Typography variant="body1" align="left">
             It is important to understand the difference between an ECG electrode and an ECG lead:
           </Typography>
         </Grid>
         <Grid item xs={6}>
-          <figure>
-            <img src={ecgElectrodes} style={{ height: '250px', width: '500px', borderRadius: 10, marginTop: '1%' }} alt="normalsr" />
+          <figure style={styles.figure}>
+            <img src={ecgElectrodes} style={styles.image} alt="normalsr" />
             <figcaption>
               An ECG
               {' '}
@@ -28,8 +34,8 @@ export default function UnderstandingTwelveLeads() {
           </figure>
         </Grid>
         <Grid item xs={6}>
-          <figure>
-            <img src={ecgLead} style={{ height: '250px', width: '500px', borderRadius: 10, marginTop: '1%' }} alt="normalsr" />
+          <figure style={styles.figure}>
+            <img src={ecgLead} style={styles.image} alt="normalsr" />
             <figcaption>
               An ECG
               {' '}
@@ -42,7 +48,8 @@ export default function UnderstandingTwelveLeads() {
         </Grid>
         <Grid item xs={12} sx={{ paddingLeft: '6%' }}>
           <Typography variant="body1" align="left">
-            - A 12-lead ECG records 12 leads, producing 12 separate graphs on a piece of ECG paper.
+            - A 12-lead ECG records 12 leads, producing 12 separate graphs on a piece of
+            ECG paper (shown above in the right diagram).
           </Typography>
           <Typography variant="body1" align="left" sx={{ marginTop: '1%' }}>
             - Only 10 physical electrodes are attached to the patient, to generate the 12 leads.

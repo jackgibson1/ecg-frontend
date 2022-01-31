@@ -31,7 +31,7 @@ export default function UnderstandingReadingGraph() {
             <li style={{ marginTop: '2%' }}>5 large squares = 1 second</li>
           </ul>
           <Typography variant="h6" align="left" sx={{ marginTop: '1%' }}>A Normal ECG:</Typography>
-          <img src={NormalECGImage} style={{ height: '220px', width: '500px', borderRadius: 10, marginTop: '1%' }} alt="ecg graph paper" />
+          <img src={NormalECGImage} style={{ height: '180px', width: '500px', borderRadius: 10, marginTop: '1%' }} alt="ecg graph paper" />
         </Grid>
       </Grid>
     </div>

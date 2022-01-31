@@ -10,7 +10,7 @@ export default function UnderstandingWaves() {
       <Grid container justify="center">
         <Grid item xs={6}>
           <figure>
-            <img src={WaveGif} style={{ height: '300px', width: '500px', borderRadius: 10, marginTop: '5%' }} alt="normalsr" />
+            <img src={WaveGif} style={{ height: '300px', width: '500px', border: '5px solid #FF0000', borderRadius: 20, marginTop: '5%' }} alt="normalsr" />
             <figcaption>The electrical energy travelling through the heart.</figcaption>
           </figure>
         </Grid>
