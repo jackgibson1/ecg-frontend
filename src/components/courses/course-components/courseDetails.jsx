@@ -28,6 +28,7 @@ import UnderstandingElectricalHeart from '../course-2-understanding/Understandin
 import UnderstandingReadingGraph from '../course-2-understanding/UnderstandingReadingGraph';
 import UnderstandingTwelveLeads from '../course-2-understanding/UnderstandingTwelveLeads';
 import UnderstandingElectrodes from '../course-2-understanding/UnderstandingElectrodes';
+import UnderstandingLeads from '../course-2-understanding/UnderstandingLeads';
 
 const courseDetails = [
   {
@@ -54,7 +55,7 @@ const courseDetails = [
       <UnderstandingThreeSegments />, <UnderstandingFourIntervals />,
       <UnderstandingFiveFourThree />, <UnderstandingElectricalHeart />,
       <UnderstandingReadingGraph />, <UnderstandingTwelveLeads />,
-      <UnderstandingElectrodes />],
+      <UnderstandingElectrodes />, <UnderstandingLeads />],
     path: '/courses/understanding',
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     lastUpdated: '25/01/2022',
