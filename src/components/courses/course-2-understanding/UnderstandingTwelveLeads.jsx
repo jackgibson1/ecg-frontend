@@ -53,6 +53,7 @@ export default function UnderstandingTwelveLeads() {
           </Typography>
           <Typography variant="body1" align="left" sx={{ marginTop: '1%' }}>
             - Only 10 physical electrodes are attached to the patient, to generate the 12 leads.
+            Click next to learn more aboout electrode placement.
           </Typography>
         </Grid>
       </Grid>
