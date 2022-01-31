@@ -7,15 +7,17 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
 import { isEmail } from 'validator';
 import TextField from '@mui/material/TextField';
 import { Stack } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LockIcon from '@mui/icons-material/Lock';
+import EmailIcon from '@mui/icons-material/Email';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-
 import AuthService from '../../services/auth.service';
 
 function checkAllValid(username, email, password, setFieldValid) {
@@ -34,17 +36,15 @@ function checkAllValid(username, email, password, setFieldValid) {
   return { valid: true };
 }
 
-function Copyright(props) {
+function AlreadyAccount(props) {
   return (
   // eslint-disable-next-line react/jsx-props-no-spreading
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        Electrocardiography
-      </Link>
+      Already have an account?
       {' '}
-      {new Date().getFullYear()}
-      .
+      <Link color="inherit" href="/login">
+        Login here.
+      </Link>
     </Typography>
   );
 }
@@ -127,7 +127,7 @@ const Register = (props) => {
           alignItems: 'center',
         }}
       >
-        <PersonAddAltIcon sx={{ transform: 'scale(3)', marginBottom: '5%' }} />
+        <PersonAddAltIcon sx={{ transform: 'scale(3)', marginBottom: '10%' }} />
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
@@ -138,12 +138,26 @@ const Register = (props) => {
             <TextField
               required
               label="Username"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircleIcon />
+                  </InputAdornment>
+                ),
+              }}
               onChange={onChangeUsername}
               error={!fieldValid.nameValid}
             />
             <TextField
               required
               label="Email"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailIcon />
+                  </InputAdornment>
+                ),
+              }}
               onChange={onChangeEmail}
               error={!fieldValid.emailValid}
             />
@@ -151,6 +165,13 @@ const Register = (props) => {
             <TextField
               required
               label="Password"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                ),
+              }}
               onChange={onChangePassword}
               error={!fieldValid.passValid}
               type="password"
@@ -171,7 +192,7 @@ const Register = (props) => {
           <Alert sx={{ marginTop: '3%' }} severity={successful ? 'success' : 'error'}>{message}</Alert>
         )}
       </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
+      <AlreadyAccount sx={{ mt: 6, mb: 4 }} />
     </Container>
   );
 };

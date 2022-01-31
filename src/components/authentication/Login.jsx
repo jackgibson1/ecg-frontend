@@ -1,44 +1,33 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Form from 'react-validation/build/form';
-import Input from 'react-validation/build/input';
-import CheckButton from 'react-validation/build/button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import Avatar from '@mui/material/Avatar';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
-
+import { TextField, Stack } from '@mui/material';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import LoginIcon from '@mui/icons-material/Login';
+import InputAdornment from '@mui/material/InputAdornment';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LockIcon from '@mui/icons-material/Lock';
 import AuthService from '../../services/auth.service';
 
-const required = (value) => {
-  if (!value) {
-    return (
-      <Alert severity="error">This field is required!</Alert>
-    );
-  }
-  return null;
-};
-
-function Copyright(props) {
+function NoAccount(props) {
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
+  // eslint-disable-next-line react/jsx-props-no-spreading
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        Electrocardiography
-      </Link>
+      Don&apos;t have an account yet?
       {' '}
-      {new Date().getFullYear()}
-      .
+      <Link color="inherit" href="/register">
+        Register here.
+      </Link>
     </Typography>
   );
 }
@@ -46,9 +35,6 @@ function Copyright(props) {
 const Login = (props) => {
   const location = useLocation();
   const redirected = (typeof location.state !== 'undefined' && location.state.alert);
-
-  const form = useRef();
-  const checkBtn = useRef();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -58,47 +44,40 @@ const Login = (props) => {
   const onChangeUsername = (e) => {
     const usernameTarget = e.target.value;
     setUsername(usernameTarget);
+    setMessage('');
   };
 
   const onChangePassword = (e) => {
     const passwordTarget = e.target.value;
     setPassword(passwordTarget);
+    setMessage('');
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    setMessage('');
     setLoading(true);
 
-    form.current.validateAll();
+    AuthService.login(username, password).then(
+      () => {
+        if (redirected) {
+          props.history.push(location.state.from.pathname);
+        } else {
+          props.history.push('/profile');
+        }
 
-    // eslint-disable-next-line no-underscore-dangle
-    if (checkBtn.current.context._errors.length === 0) {
-      AuthService.login(username, password).then(
-        () => {
-          if (redirected) {
-            props.history.push(location.state.from.pathname);
-          } else {
-            props.history.push('/profile');
-          }
+        window.location.reload();
+      },
+      (error) => {
+        const resMessage = (error.response
+          && error.response.data
+          && error.response.data.message)
+          || error.message
+          || error.toString();
 
-          window.location.reload();
-        },
-        (error) => {
-          const resMessage = (error.response
-            && error.response.data
-            && error.response.data.message)
-            || error.message
-            || error.toString();
-
-          setLoading(false);
-          setMessage(resMessage);
-        },
-      );
-    } else {
-      setLoading(false);
-    }
+        setLoading(false);
+        setMessage(resMessage);
+      },
+    );
   };
 
   return (
@@ -115,39 +94,41 @@ const Login = (props) => {
         {redirected && (
           <Alert severity="info">Please sign before accesing!</Alert>
         )}
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <LockOutlinedIcon />
-        </Avatar>
+        <LoginIcon sx={{ transform: 'scale(3)', marginBottom: '10%' }} />
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
 
-        <Form onSubmit={handleLogin} ref={form}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <Input
-              type="text"
-              className="form-control"
-              name="username"
-              value={username}
+        <Form onSubmit={handleLogin}>
+          <Stack spacing={2} sx={{ marginTop: '5%' }}>
+            <TextField
+              required
+              label="Username"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircleIcon />
+                  </InputAdornment>
+                ),
+              }}
               onChange={onChangeUsername}
-              validations={[required]}
+              error={message === 'User Not found.'}
             />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <Input
-              type="password"
-              className="form-control"
-              name="password"
-              value={password}
+            <TextField
+              required
+              label="Password"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                ),
+              }}
               onChange={onChangePassword}
-              validations={[required]}
+              error={message === 'Invalid Password!'}
+              type="password"
             />
-          </div>
 
-          <div className="form-group">
             <Button
               type="submit"
               fullWidth
@@ -159,16 +140,13 @@ const Login = (props) => {
               )}
               Sign In
             </Button>
-
-          </div>
-
-          {message && (
-          <Alert severity="error">{message}</Alert>
-          )}
-          <CheckButton style={{ display: 'none' }} ref={checkBtn} />
+          </Stack>
         </Form>
+        {message && (
+          <Alert sx={{ marginTop: '3%' }} severity="error">{message}</Alert>
+        )}
       </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
+      <NoAccount sx={{ mt: 6, mb: 4 }} />
     </Container>
 
   );
