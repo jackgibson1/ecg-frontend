@@ -1,24 +1,14 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import Form from 'react-validation/build/form';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Alert from '@mui/material/Alert';
+import { Typography, Container, Button, CssBaseline, Alert, Box, Link, TextField, Stack, InputAdornment, CircularProgress } from '@mui/material';
 import { isEmail } from 'validator';
-import TextField from '@mui/material/TextField';
-import { Stack } from '@mui/material';
-import InputAdornment from '@mui/material/InputAdornment';
+import ReCAPTCHA from 'react-google-recaptcha';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-import CircularProgress from '@mui/material/CircularProgress';
 import AuthService from '../../services/auth.service';
 
 function checkAllValid(username, email, password, setFieldValid) {
@@ -54,11 +44,24 @@ const Register = (props) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [captchaSuccess, setCaptchaSuccess] = useState(false);
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState('');
   const [fieldValid, setFieldValid] = useState(
     { nameValid: true, emailValid: true, passValid: true },
   );
+
+  const onChangeCaptcha = (value) => {
+    if (!value) {
+      setCaptchaSuccess(false);
+    } else {
+      AuthService.verifyCaptchaToken(value).then((res) => {
+        if (res) setCaptchaSuccess(true);
+        else setCaptchaSuccess(false);
+      });
+    }
+  };
 
   const onChangeUsername = (e) => {
     const usernameTarget = e.target.value;
@@ -178,11 +181,17 @@ const Register = (props) => {
               type="password"
             />
 
+            <ReCAPTCHA
+              sitekey={process.env.REACT_APP_CAPTCHA_KEY}
+              onChange={onChangeCaptcha}
+            />
+
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              disabled={!captchaSuccess}
             >
               Sign Up
             </Button>

@@ -37,10 +37,16 @@ const isLoggedIn = () => {
   return true;
 };
 
+// verfiy captcha token
+const verifyCaptchaToken = (responseToken) => axios.post(`${API_URL}verifycaptcha`, {
+  responseToken,
+}).then((res) => res.data);
+
 export default {
   register,
   login,
   logout,
   getCurrentUser,
   isLoggedIn,
+  verifyCaptchaToken,
 };
