@@ -32,6 +32,9 @@ import UnderstandingLeads from '../course-2-understanding/UnderstandingLeads';
 import UnderstandingTwelveLeadVideo from '../course-2-understanding/UnderstandingTwelveLeadVideo';
 import UnderstandingWaveformOne from '../course-2-understanding/UnderstandingWaveformOne';
 import UnderstandingWaveformTwo from '../course-2-understanding/UnderstandingWaveformTwo';
+import UnderstandingPathology from '../course-2-understanding/UnderstandingPathology';
+import UnderstandingCardiacAxis from '../course-2-understanding/UnderstandingCardiacAxis';
+import UnderstandingNormalAxis from '../course-2-understanding/UnderstandingNormalAxis';
 
 const courseDetails = [
   {
@@ -60,7 +63,8 @@ const courseDetails = [
       <UnderstandingReadingGraph />, <UnderstandingTwelveLeads />,
       <UnderstandingElectrodes />, <UnderstandingLeads />,
       <UnderstandingTwelveLeadVideo />, <UnderstandingWaveformOne />,
-      <UnderstandingWaveformTwo />],
+      <UnderstandingWaveformTwo />, <UnderstandingPathology />,
+      <UnderstandingCardiacAxis />, <UnderstandingNormalAxis />],
     path: '/courses/understanding',
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     lastUpdated: '25/01/2022',
