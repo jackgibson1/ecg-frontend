@@ -12,7 +12,7 @@ const styles = {
 export default function UnderstandingTwelveLeads() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>How The 12-Lead ECG Works (1)</Typography>
+      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>How The 12-Lead ECG Works (1/4)</Typography>
       <Grid container justify="left">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }}>
           <Typography variant="h5" align="left" sx={{ fontWeight: 'bold' }}>Electrodes Vs Leads</Typography>
