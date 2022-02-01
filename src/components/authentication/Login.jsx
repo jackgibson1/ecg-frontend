@@ -3,20 +3,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import Form from 'react-validation/build/form';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Alert from '@mui/material/Alert';
-import CircularProgress from '@mui/material/CircularProgress';
-import { TextField, Stack } from '@mui/material';
+import { Typography, Container, Button, CssBaseline, Box, Link, Alert, CircularProgress, TextField, Stack, IconButton } from '@mui/material';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import LoginIcon from '@mui/icons-material/Login';
 import InputAdornment from '@mui/material/InputAdornment';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import AuthService from '../../services/auth.service';
 
 function NoAccount(props) {
@@ -40,6 +34,7 @@ const Login = (props) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const onChangeUsername = (e) => {
     const usernameTarget = e.target.value;
@@ -123,10 +118,20 @@ const Login = (props) => {
                     <LockIcon />
                   </InputAdornment>
                 ),
+                endAdornment: (
+                  <IconButton
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label="toggle password visibility"
+                  >
+                    <InputAdornment position="end">
+                      {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                    </InputAdornment>
+                  </IconButton>
+                ),
               }}
               onChange={onChangePassword}
               error={message === 'Invalid Password!'}
-              type="password"
+              type={showPassword ? '' : 'password'}
             />
 
             <Button
