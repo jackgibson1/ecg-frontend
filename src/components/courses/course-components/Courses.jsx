@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CourseCard from './CourseCard';
@@ -15,11 +14,6 @@ function Courses(props) {
   const [isLoading, setLoading] = useState(true);
   const [positions, setPositions] = useState([]);
   const [ratings, setRatings] = useState([]);
-
-  if (!authService.isLoggedIn()) {
-    // eslint-disable-next-line react/prop-types
-    return <Redirect to={{ pathname: '/login', state: { from: props.location, alert: true } }} />;
-  }
 
   useEffect(() => {
     Promise.all([UserService.getAllCoursePositions(), CourseService.getAllCourseRatings()])

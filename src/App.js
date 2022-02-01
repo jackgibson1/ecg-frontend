@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import MainAppBar from './components/MainAppBar';
 import Home from './components/home/Home';
 import Courses from './components/courses/course-components/Courses';
@@ -20,6 +21,13 @@ function App() {
     AuthService.logout();
   };
 
+  const isLoggedIn = (component, path) => {
+    if (AuthService.isLoggedIn()) {
+      return component;
+    }
+    return <Redirect to={{ pathname: '/login', state: { from: path, alert: true } }} />;
+  };
+
   useEffect(() => {
     const user = AuthService.getCurrentUser();
 
@@ -33,14 +41,14 @@ function App() {
       <MainAppBar currentUser={currentUser} logOut={logOut} />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/courses" component={Courses} />
-        <Route exact path="/quizzes" component={Quizzes} />
+        <Route exact path="/courses" render={() => isLoggedIn(<Courses />, '/courses')} />
+        <Route exact path="/quizzes" render={() => isLoggedIn(<Quizzes />, '/quizzes')} />
         <Route path="/ask" component={Ask} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/profile" component={Profile} />
-        <Route path={['/courses/anatomy', '/courses/understanding', '/courses/parts', '/courses/reading', '/courses/documenting', '/courses/conditions']} component={CourseLayout} />
-        <Route path={['/quizzes/anatomy', '/quizzes/introduction', '/quizzes/parts', '/quizzes/reading', '/quizzes/documenting', '/quizzes/conditions']} component={QuizLayout} />
+        <Route path="/profile" render={() => isLoggedIn(<Profile />, '/profile')} />
+        <Route path={['/courses/anatomy', '/courses/understanding', '/courses/parts', '/courses/reading', '/courses/documenting', '/courses/conditions']} render={() => isLoggedIn(<CourseLayout />, '/courses')} />
+        <Route path={['/quizzes/anatomy', '/quizzes/introduction', '/quizzes/parts', '/quizzes/reading', '/quizzes/documenting', '/quizzes/conditions']} render={() => isLoggedIn(<QuizLayout />, '/quizzes')} />
       </Switch>
     </Router>
 

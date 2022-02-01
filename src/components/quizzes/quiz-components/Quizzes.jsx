@@ -1,19 +1,11 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { Box, Grid } from '@mui/material';
-// import quizDetails from './quizDetails';
-import authService from '../../../services/auth.service';
 import QuizCard from './quizCard';
 import quizDetails from './quizDetails';
 import QuizBackgroundImage from '../../../assets/images/quizzes/quizBackground.jpg';
 
-function Quizzes(props) {
-  if (!authService.isLoggedIn()) {
-    // eslint-disable-next-line react/prop-types
-    return <Redirect to={{ pathname: '/login', state: { from: props.location, alert: true } }} />;
-  }
-
+function Quizzes() {
   return (
     <Box sx={{
       paddingTop: '2%', paddingLeft: '2%', paddingBottom: '2%', backgroundImage: `url(${QuizBackgroundImage})`, backgroundSize: 'cover',
