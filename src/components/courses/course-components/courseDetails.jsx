@@ -35,6 +35,9 @@ import UnderstandingWaveformTwo from '../course-2-understanding/UnderstandingWav
 import UnderstandingPathology from '../course-2-understanding/UnderstandingPathology';
 import UnderstandingCardiacAxis from '../course-2-understanding/UnderstandingCardiacAxis';
 import UnderstandingNormalAxis from '../course-2-understanding/UnderstandingNormalAxis';
+import UnderstandingRightAxis from '../course-2-understanding/UnderstandingRightAxis';
+import UnderstandingLeftAxis from '../course-2-understanding/UnderstandingLeftAxis';
+import UnderstandingCardiacVideo from '../course-2-understanding/UnderstandingCardiacVideo';
 
 const courseDetails = [
   {
@@ -48,14 +51,16 @@ const courseDetails = [
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     lastUpdated: '25/01/2022',
     timeToComplete: '10 minutes',
-    references: [`[1] “Heart Physiology,” Utoronto.ca, 2015. https://pie.med.utoronto.ca/heart_physiology/ (accessed Jan. 25, 2022).`, `[2] “Vasculature of the Heart - TeachMeAnatomy,” Teachmeanatomy.info, 2013. https://teachmeanatomy.info/thorax/organs/heart/heart-vasculature/ (accessed Jan. 25, 2022).`],
+    references: [`[1] “Heart Physiology,” Utoronto.ca, 2015. https://pie.med.utoronto.ca/heart_physiology/ (accessed Jan. 25, 2022).`,
+      `[2] “Vasculature of the Heart - TeachMeAnatomy,” Teachmeanatomy.info, 2013. https://teachmeanatomy.info/thorax/organs/heart/heart-vasculature/ (accessed Jan. 25, 2022).`,
+    ],
     image: anatomyCard,
   },
   {
     id: 2,
     title: 'Understanding An ECG',
     description: "This course covers the basics of electrocardiography. You'll learn what an ECG is, fundamental heart rhythms, waveforms, the cardiac axis, and the various components that make up an ECG trace.",
-    sections: ['1. Introduction', '2. ECG Waves', '3. Five Basic Waveforms', '4. Segments Vs Intervals', '5. Three Basic Segments', '6. Four Sets Of Intervals', '7. 5-4-3 Rule For ECG Components', '8. Electrical Impulse Travelling Through The Heart', '9. How To Read ECG Paper', '10. Electrodes Vs Leads', '11. Electrodes', '12. Leads', '13. 12-Lead ECG Video Summary', '14. Waveform Shape (1)', '15. Waveform Shape (2)', '16. Localising Pathology On The ECG', '17. Cardiac Axis', '18. Normal Cardiac Axis', '19. Right Axis Deviation', "20. Left Axis Deviation", "21. Summary"],
+    sections: ['1. Introduction', '2. ECG Waves', '3. Five Basic Waveforms', '4. Segments Vs Intervals', '5. Three Basic Segments', '6. Four Sets Of Intervals', '7. 5-4-3 Rule For ECG Components', '8. Electrical Impulse Travelling Through The Heart', '9. How To Read ECG Paper', '10. Electrodes Vs Leads', '11. Electrodes', '12. Leads', '13. 12-Lead ECG Video Summary', '14. Waveform Shape (1)', '15. Waveform Shape (2)', '16. Localising Pathology On The ECG', '17. Cardiac Axis', '18. Normal Cardiac Axis', '19. Right Axis Deviation', "20. Left Axis Deviation", "21. Cardiac Axis Summary Video"],
     components: [<UnderstandingIntroduction />, <UnderstandingWaves />,
       <UnderstandingBasicWaves />, <UnderstandingSegmentsVsIntervals />,
       <UnderstandingThreeSegments />, <UnderstandingFourIntervals />,
@@ -64,11 +69,19 @@ const courseDetails = [
       <UnderstandingElectrodes />, <UnderstandingLeads />,
       <UnderstandingTwelveLeadVideo />, <UnderstandingWaveformOne />,
       <UnderstandingWaveformTwo />, <UnderstandingPathology />,
-      <UnderstandingCardiacAxis />, <UnderstandingNormalAxis />],
+      <UnderstandingCardiacAxis />, <UnderstandingNormalAxis />,
+      <UnderstandingRightAxis />, <UnderstandingLeftAxis />,
+      <UnderstandingCardiacVideo />],
     path: '/courses/understanding',
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     lastUpdated: '25/01/2022',
     timeToComplete: '30 minutes',
+    references: [`[1] “Heart Physiology,” Utoronto.ca, 2015.`,
+      `[2] “Goldberger’s Clinical Electrocardiography A Simplified Approach” Ary L. Goldberger, 2018.`,
+      `[3] J. Seladi-Schulman, “Understanding Sinus Rhythm,” Healthline, Nov. 11, 2021.`,
+      `[4] “Electrocardiogram (EKG) Components and Intervals,” Alberta.ca, 2019.`,
+      `[5] “Understanding an ECG | ECG Interpretation | Geeky Medics,” Geeky Medics, Mar. 05, 2011.`,
+    ],
     image: introductionCard,
   },
   {
