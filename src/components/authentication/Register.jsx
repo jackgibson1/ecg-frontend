@@ -2,12 +2,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import Form from 'react-validation/build/form';
-import { Typography, Container, Button, CssBaseline, Alert, Box, Link, TextField, Stack, InputAdornment, CircularProgress } from '@mui/material';
+import { Typography, Container, Button, CssBaseline, Alert, Box, Link, TextField, Stack, InputAdornment, CircularProgress, IconButton } from '@mui/material';
 import { isEmail } from 'validator';
 import ReCAPTCHA from 'react-google-recaptcha';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import EmailIcon from '@mui/icons-material/Email';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import AuthService from '../../services/auth.service';
 
@@ -51,6 +53,7 @@ const Register = (props) => {
   const [fieldValid, setFieldValid] = useState(
     { nameValid: true, emailValid: true, passValid: true },
   );
+  const [showPassword, setShowPassword] = useState(false);
 
   const onChangeCaptcha = (value) => {
     if (!value) {
@@ -59,6 +62,8 @@ const Register = (props) => {
       AuthService.verifyCaptchaToken(value).then((res) => {
         if (res) setCaptchaSuccess(true);
         else setCaptchaSuccess(false);
+      }).catch((err) => {
+        setMessage(err.message);
       });
     }
   };
@@ -175,10 +180,20 @@ const Register = (props) => {
                     <LockIcon />
                   </InputAdornment>
                 ),
+                endAdornment: (
+                  <IconButton
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label="toggle password visibility"
+                  >
+                    <InputAdornment position="end">
+                      {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                    </InputAdornment>
+                  </IconButton>
+                ),
               }}
               onChange={onChangePassword}
               error={!fieldValid.passValid}
-              type="password"
+              type={showPassword ? '' : 'password'}
             />
 
             <ReCAPTCHA
