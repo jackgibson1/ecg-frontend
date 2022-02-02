@@ -32,7 +32,7 @@ export default function QuizCard(props) {
   const [openDialog, setOpenDialog] = React.useState(false);
 
   React.useEffect(() => {
-    if (cameFromCourse.cameFromCourse && cameFromCourse.quizId === quiz.id) {
+    if (cameFromCourse) {
       setOpenDialog(true);
     }
   }, []);
