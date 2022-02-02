@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -8,7 +7,6 @@ import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
-import Alert from '@mui/material/Alert';
 import UserService from '../../../services/user.service';
 
 const styles = {
@@ -21,7 +19,7 @@ const styles = {
 
 export default function QuizAnswerButtons(props) {
   const {
-    quiz, quizStorage, currentQuestion, stillTime, submitted, setSubmitted, alreadyAnswered,
+    quiz, quizStorage, currentQuestion, submitted, setSubmitted,
   } = props;
   const [selectedAnswer, setSelectedAnswer] = React.useState(-1);
   const [error, setError] = React.useState(false);
@@ -61,25 +59,6 @@ export default function QuizAnswerButtons(props) {
 
     UserService.updateLocalQuiz(quizStorage);
   };
-
-  if (alreadyAnswered) {
-    return (
-      <Alert sx={{ marginLeft: '5%', marginRight: '5%' }} variant="filled" severity="info">Question already finished!</Alert>
-    );
-  }
-
-  if (!stillTime) {
-    if (typeof UserService.getLocalQuiz().answers[currentQuestion - 1] === 'undefined') {
-      console.log(stillTime);
-      console.log('called');
-      quizStorage.answers.push(false);
-      UserService.updateLocalQuiz(quizStorage);
-    }
-
-    return (
-      <Alert sx={{ marginLeft: '5%', marginRight: '5%' }} variant="filled" severity="error">You have ran out of time!</Alert>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit}>

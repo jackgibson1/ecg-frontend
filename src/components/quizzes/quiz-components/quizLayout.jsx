@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Typography, LinearProgress, Stack } from '@mui/material';
 import Countdown from 'react-countdown';
+import Alert from '@mui/material/Alert';
 import QuizBackground from '../../../assets/images/quizzes/quizLayoutbackground.jpeg';
 import quizDetails from './quizDetails';
 import QuizPagination from './quizPagination';
@@ -63,6 +64,31 @@ export default function QuizLayout(props) {
     return <LinearProgress color="success" sx={{ height: '20px', width: '60%', border: 3, borderRadius: 2, marginTop: '1%', marginLeft: '35%' }} variant="determinate" value={(seconds * 100) / totalTime} />;
   };
 
+  const countDownComplete = () => {
+    setStillTime(false);
+    setAnswerSubmitted(true);
+    quizStorage.answers.push(false);
+    UserService.updateLocalQuiz(quizStorage);
+  };
+
+  const renderComponent = () => {
+    if (alreadyAnswered) {
+      return <Alert sx={{ marginLeft: '5%', marginRight: '5%' }} variant="filled" severity="info">Question already finished!</Alert>;
+    }
+    if (!stillTime) {
+      return <Alert sx={{ marginLeft: '5%', marginRight: '5%' }} variant="filled" severity="error">You have ran out of time!</Alert>;
+    }
+    return (
+      <QuizAnswerButtons
+        quiz={quiz}
+        quizStorage={quizStorage}
+        currentQuestion={currentQuestion}
+        submitted={answerSubmitted}
+        setSubmitted={setAnswerSubmitted}
+      />
+    );
+  };
+
   if (loading) return <LoadingPage text="Quiz" />;
 
   return (
@@ -90,25 +116,18 @@ export default function QuizLayout(props) {
                 && (
                 <Countdown
                   date={Date.now() + (timer.seconds * 1000)}
-                  onComplete={() => { setStillTime(false); setAnswerSubmitted(true); }}
+                  onComplete={() => countDownComplete()}
                   renderer={renderCountdown}
                 />
                 )}
               </Box>
             </Stack>
-            <Box sx={{ height: '65%', width: '100%' }}>
+            <Box sx={{ height: '60%', width: '100%' }}>
               {quiz.questions[currentQuestion - 1].component}
             </Box>
 
-            <QuizAnswerButtons
-              quiz={quiz}
-              stillTime={stillTime}
-              quizStorage={quizStorage}
-              currentQuestion={currentQuestion}
-              submitted={answerSubmitted}
-              setSubmitted={setAnswerSubmitted}
-              alreadyAnswered={alreadyAnswered}
-            />
+            {renderComponent()}
+
           </Box>
         </Item>
         <Box sx={{
