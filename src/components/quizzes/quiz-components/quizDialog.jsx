@@ -15,11 +15,10 @@ import QuizTimeSelector from './quizTimeSelecter';
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
 export default function QuizDialog(props) {
-  const [open, setOpen] = React.useState(false);
   const [timer, setTimer] = React.useState({ on: false, seconds: 10 });
 
   const history = useHistory();
-  const { quiz } = props;
+  const { quiz, open, handleClickOpen, handleClose } = props;
 
   const localStorageQuiz = {
     id: quiz.id,
@@ -29,18 +28,14 @@ export default function QuizDialog(props) {
     answers: [],
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const startOnClick = () => {
     history.push(quiz.path);
     localStorage.setItem('quiz', JSON.stringify(localStorageQuiz));
   };
+
+  // React.useEffect(() => {
+  //   if (quiz.id === 1) setOpen(true);
+  // }, []);
 
   return (
     <div>

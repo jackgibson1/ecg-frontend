@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
@@ -27,7 +28,22 @@ const styles = {
 };
 
 export default function QuizCard(props) {
-  const { quiz } = props;
+  const { quiz, cameFromCourse } = props;
+  const [openDialog, setOpenDialog] = React.useState(false);
+
+  React.useEffect(() => {
+    if (cameFromCourse.cameFromCourse && cameFromCourse.quizId === quiz.id) {
+      setOpenDialog(true);
+    }
+  }, []);
+
+  const handleClickOpenDialog = () => {
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   return (
     <Card style={styles.card}>
@@ -46,7 +62,12 @@ export default function QuizCard(props) {
       <CardActions align="center">
         <Grid container justifyContent="center">
           <Grid item xs={12}>
-            <QuizDialog quiz={quiz} />
+            <QuizDialog
+              quiz={quiz}
+              open={openDialog}
+              handleClickOpen={handleClickOpenDialog}
+              handleClose={handleCloseDialog}
+            />
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '2%' }}>
             Completed / Not Completed

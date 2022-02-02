@@ -1,15 +1,23 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Typography, Grid, Box } from '@mui/material';
+import { Typography, Grid, Box, Button } from '@mui/material';
+import QuizIcon from '@mui/icons-material/Quiz';
 import CourseCompleteButton from './CourseCompleteButton';
 import CourseRatingUser from './CourseRatingUser';
 import authService from '../../../services/auth.service';
 
 function CourseCompleted(props) {
-  const { course } = props;
+  const { course, history } = props;
   const [query, setQuery] = useState('idle');
   const [userRating, setUserRating] = useState(0);
+
+  const pushQuiz = () => {
+    history.push({
+      pathname: '/quizzes',
+      state: { cameFromCourse: true, quizId: course.id },
+    });
+  };
 
   return (
     <Grid container>
@@ -25,6 +33,17 @@ function CourseCompleted(props) {
             userRating={userRating}
             setUserRating={setUserRating}
           />
+          <Typography variant="body1" sx={{ marginTop: '10px' }}>Feel free to now complete a Quiz on this topic (please claim credit before navigating to Quiz!):</Typography>
+          <Button
+            variant="outlined"
+            color="error"
+            sx={{ marginTop: '10px' }}
+            startIcon={<QuizIcon />}
+            disabled={query !== 'success'}
+            onClick={() => pushQuiz()}
+          >
+            {`${course.id}. ${course.title} Quiz`}
+          </Button>
         </Box>
       </Grid>
       <Grid item xs={6} sx={{ marginTop: '10px', textAlign: 'left', height: '300px' }}>

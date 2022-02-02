@@ -97,7 +97,8 @@ export default function CourseLayout(props) {
           }}
           >
             {currentSection === course.components.length
-              ? <CourseCompleted course={course} /> : course.components[currentSection]}
+              ? <CourseCompleted course={course} history={props.history} />
+              : course.components[currentSection]}
           </Box>
         </Item>
         <Box sx={{
