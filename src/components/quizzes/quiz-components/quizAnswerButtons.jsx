@@ -70,6 +70,8 @@ export default function QuizAnswerButtons(props) {
 
   if (!stillTime) {
     if (typeof UserService.getLocalQuiz().answers[currentQuestion - 1] === 'undefined') {
+      console.log(stillTime);
+      console.log('called');
       quizStorage.answers.push(false);
       UserService.updateLocalQuiz(quizStorage);
     }

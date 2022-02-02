@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import { Typography, LinearProgress, Stack } from '@mui/material';
 import Countdown from 'react-countdown';
 import QuizBackground from '../../../assets/images/quizzes/quizLayoutbackground.jpeg';
 import quizDetails from './quizDetails';
@@ -24,15 +24,6 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
   height: '520px',
 }));
-
-// create custom hook to check if current question increases
-const usePrevious = (value) => {
-  const ref = React.useRef();
-  React.useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-};
 
 export default function QuizLayout(props) {
   // get path and find quiz which matches current path
@@ -67,10 +58,15 @@ export default function QuizLayout(props) {
     };
   }, [currentQuestion]);
 
+  const renderCountdown = ({ seconds }) => {
+    const totalTime = timer.seconds;
+    return <LinearProgress color="success" sx={{ height: '20px', width: '60%', border: 3, borderRadius: 2, marginTop: '1%', marginLeft: '35%' }} variant="determinate" value={(seconds * 100) / totalTime} />;
+  };
+
   if (loading) return <LoadingPage text="Quiz" />;
 
   return (
-    <Grid sx={{ paddingTop: '2%', paddingLeft: '2%', paddingRight: '2%' }} container justifyContent="center">
+    <Grid sx={{ paddingTop: '2%' }} container justifyContent="center">
       <Grid item xs={2}>
         <Item>
           <QuizQuestionsList
@@ -85,21 +81,22 @@ export default function QuizLayout(props) {
             borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%', backgroundImage: `url(${QuizBackground})`, backgroundSize: 'cover',
           }}
           >
-            <Grid sx={{ marginTop: '1%' }} container alignItems="center">
-              <Grid sx={{ marginLeft: '3%' }}>
-                <Typography variant="h6">{`Question ${currentQuestion}`}</Typography>
-              </Grid>
-              {timer.on && !answerSubmitted
+            <Stack sx={{ marginTop: '1%' }} direction="row">
+              <Box sx={{ width: '50%', textAlign: 'left', marginLeft: '2%' }}>
+                <Typography sx={{ fontWeight: 'bold' }} variant="h6">{`Question ${currentQuestion}`}</Typography>
+              </Box>
+              <Box sx={{ width: '50%' }}>
+                {timer.on && !answerSubmitted
                 && (
-                <Grid sx={{ marginLeft: '70%' }}>
-                  <Countdown
-                    date={Date.now() + (timer.seconds * 1000)}
-                    onComplete={() => { setStillTime(false); setAnswerSubmitted(true); }}
-                  />
-                </Grid>
+                <Countdown
+                  date={Date.now() + (timer.seconds * 1000)}
+                  onComplete={() => { setStillTime(false); setAnswerSubmitted(true); }}
+                  renderer={renderCountdown}
+                />
                 )}
-            </Grid>
-            <Box sx={{ height: '60%', width: '100%' }}>
+              </Box>
+            </Stack>
+            <Box sx={{ height: '65%', width: '100%' }}>
               {quiz.questions[currentQuestion - 1].component}
             </Box>
 
