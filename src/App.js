@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useEffect, useState } from 'react';
@@ -41,14 +42,14 @@ function App() {
       <MainAppBar currentUser={currentUser} logOut={logOut} />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/courses" render={() => isLoggedIn(<Courses />, '/courses')} />
-        <Route exact path="/quizzes" render={() => isLoggedIn(<Quizzes />, '/quizzes')} />
+        <Route exact path="/courses" render={(props) => isLoggedIn(<Courses {...props} />, '/courses')} />
+        <Route exact path="/quizzes" render={(props) => isLoggedIn(<Quizzes {...props} />, '/quizzes')} />
         <Route path="/ask" component={Ask} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/profile" render={() => isLoggedIn(<Profile />, '/profile')} />
-        <Route path={['/courses/anatomy', '/courses/understanding', '/courses/parts', '/courses/reading', '/courses/documenting', '/courses/conditions']} render={() => isLoggedIn(<CourseLayout />, '/courses')} />
-        <Route path={['/quizzes/anatomy', '/quizzes/introduction', '/quizzes/parts', '/quizzes/reading', '/quizzes/documenting', '/quizzes/conditions']} render={() => isLoggedIn(<QuizLayout />, '/quizzes')} />
+        <Route path="/profile" render={(props) => isLoggedIn(<Profile {...props} />, '/profile')} />
+        <Route path={['/courses/anatomy', '/courses/understanding', '/courses/parts', '/courses/reading', '/courses/documenting', '/courses/conditions']} render={(props) => isLoggedIn(<CourseLayout {...props} />, '/courses')} />
+        <Route path={['/quizzes/anatomy', '/quizzes/introduction', '/quizzes/parts', '/quizzes/reading', '/quizzes/documenting', '/quizzes/conditions']} render={(props) => isLoggedIn(<QuizLayout {...props} />, '/quizzes')} />
       </Switch>
     </Router>
 
