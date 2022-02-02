@@ -67,15 +67,14 @@ export default function CourseCompleteButton(props) {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Box sx={{ height: 40 }}>
+      <Box>
         {query === 'success' ? (
-          <Stack sx={{ width: '100%', mt: 13 }} spacing={2} direction="row">
+          <Stack sx={{ width: '100%' }} spacing={2} direction="row">
             <Typography>{submitRatingResponse}</Typography>
             <Typography>{completeCourseResponse}</Typography>
           </Stack>
         ) : (
           <Fade
-            sx={{ m: 15 }}
             in={query === 'progress'}
             style={{
               transitionDelay: query === 'progress' ? '10ms' : '0ms',
@@ -87,12 +86,12 @@ export default function CourseCompleteButton(props) {
         )}
       </Box>
       {(query === 'idle' || query === 'norating') && (
-      <Button sx={{ borderRadius: 3, mt: 15 }} color="success" variant="contained" onClick={handleClickQuery} endIcon={<CheckIcon />}>
+      <Button sx={{ borderRadius: 3 }} color="success" variant="contained" onClick={handleClickQuery} endIcon={<CheckIcon />}>
         Get Credit
       </Button>
       )}
       {query === 'success' && (
-      <Button sx={{ borderRadius: 3, mt: 15 }} variant="contained" onClick={handleClickQuery} endIcon={<GridViewIcon />}>
+      <Button sx={{ borderRadius: 3, mt: '10px' }} variant="contained" onClick={handleClickQuery} endIcon={<GridViewIcon />}>
         Back To Courses
       </Button>
       )}

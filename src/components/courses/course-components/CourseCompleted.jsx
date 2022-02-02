@@ -14,28 +14,28 @@ function CourseCompleted(props) {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Typography variant="h3" sx={{ marginTop: '2%' }}>{`Congratulations ${authService.getCurrentUser().username}!`}</Typography>
+        <Typography variant="h3" sx={{ marginTop: '10px' }}>{`Congratulations ${authService.getCurrentUser().username}!`}</Typography>
       </Grid>
-      <Grid item xs={6} sx={{ marginTop: '2%', textAlign: 'left', paddingLeft: '5%' }}>
+      <Grid item xs={6} sx={{ marginTop: '10px', textAlign: 'left', paddingLeft: '5%' }}>
         <Box>
           <Typography style={{ textDecoration: 'underline' }} variant="h5">Details</Typography>
-          <Typography variant="body1" sx={{ marginTop: '1%' }}>{`The following course is now completed: ${course.title}`}</Typography>
-          <Typography variant="body1" sx={{ marginTop: '1%' }}>Please rate how much you enjoyed this course:</Typography>
+          <Typography variant="body1" sx={{ marginTop: '10px' }}>{`The following course is now completed: ${course.title}`}</Typography>
+          <Typography variant="body1" sx={{ marginTop: '10px' }}>Please rate how much you enjoyed this course:</Typography>
           <CourseRatingUser
             userRating={userRating}
             setUserRating={setUserRating}
           />
         </Box>
       </Grid>
-      <Grid item xs={6} sx={{ marginTop: '2%', textAlign: 'left' }}>
+      <Grid item xs={6} sx={{ marginTop: '10px', textAlign: 'left', height: '300px' }}>
         <Box>
           <Typography style={{ textDecoration: 'underline' }} variant="h5">References</Typography>
           {course.references.map((refer) => (
-            <Typography varaint="body1" sx={{ marginTop: '1%' }}>{refer}</Typography>
+            <Typography varaint="body1" sx={{ marginTop: '5px' }}>{refer}</Typography>
           ))}
         </Box>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} sx={{ height: '300px' }}>
         <CourseCompleteButton
           courseId={course.id}
           userRating={userRating}
