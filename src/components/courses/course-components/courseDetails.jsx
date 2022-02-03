@@ -87,7 +87,7 @@ const courseDetails = [
   {
     id: 3,
     title: 'Parts Of The ECG Explained',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    description: 'This course has not yet been implemented due to time constraints. All demonstrable functionality can be found within the first two courses; heart fundamentals & understanding an ECG. Will be completed if product goes to market.',
     sections: [{ title: "Section Not Implemented", component: <UnderstandingIntroduction /> }],
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     path: '/courses/parts',
@@ -98,7 +98,7 @@ const courseDetails = [
   {
     id: 4,
     title: 'How To Read An ECG',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    description: 'This course has not yet been implemented due to time constraints. All demonstrable functionality can be found within the first two courses; heart fundamentals & understanding an ECG. Will be completed if product goes to market.',
     sections: [{ title: "Section Not Implemented", component: <UnderstandingIntroduction /> }],
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     path: '/courses/reading',
@@ -109,7 +109,7 @@ const courseDetails = [
   {
     id: 5,
     title: 'How To Document An ECG',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    description: 'This course has not yet been implemented due to time constraints. All demonstrable functionality can be found within the first two courses; heart fundamentals & understanding an ECG. Will be completed if product goes to market.',
     sections: [{ title: "Section Not Implemented", component: <UnderstandingIntroduction /> }],
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     path: '/courses/documenting',
@@ -120,7 +120,7 @@ const courseDetails = [
   {
     id: 6,
     title: 'Conditions',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    description: 'This course has not yet been implemented due to time constraints. All demonstrable functionality can be found within the first two courses; heart fundamentals & understanding an ECG. Will be completed if product goes to market.',
     sections: [{ title: "Section Not Implemented", component: <UnderstandingIntroduction /> }],
     whoFor: ['GPs', 'Foundation Doctors', 'Practice Nurses', 'Medical Students'],
     path: '/courses/conditions',

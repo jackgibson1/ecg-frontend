@@ -8,8 +8,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useHistory } from 'react-router-dom';
-import { Typography } from '@mui/material';
+import { Grid } from '@mui/material';
+import QuizIcon from '@mui/icons-material/Quiz';
 import QuizTimeSelector from './quizTimeSelecter';
+import QuizDifficultyRating from './QuizDifficultyRating';
+import QuizDialogImage from '../../../assets/images/quizzes/quizDialogImage1.png';
+import QuizTopDialogContent from './QuizTopDialogContent';
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
@@ -33,13 +37,16 @@ export default function QuizDialog(props) {
     localStorage.setItem('quiz', JSON.stringify(localStorageQuiz));
   };
 
-  // React.useEffect(() => {
-  //   if (quiz.id === 1) setOpen(true);
-  // }, []);
-
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen} align="center">
+      <Button
+        sx={{ color: '#EE3233', marginBottom: '4%' }}
+        variant="outlined"
+        onClick={handleClickOpen}
+        align="center"
+        endIcon={<QuizIcon />}
+        disabled={quiz.id >= 2 && quiz.id <= 6}
+      >
         Setup Quiz
       </Button>
       <Dialog
@@ -50,13 +57,22 @@ export default function QuizDialog(props) {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle sx={{ textAlign: 'center' }}>{`${quiz.title} Quiz`}</DialogTitle>
+        <Grid container>
+          <Grid item>
+            <QuizDifficultyRating difficulty={quiz.difficulty} />
+            <QuizTopDialogContent
+              lastUpdated={quiz.lastUpdated}
+              totalQuestions={quiz.questions.length}
+            />
+          </Grid>
+          <Grid item sx={{ paddingLeft: 15 }}>
+            <img src={QuizDialogImage} height="100" width="100" alt="medic" />
+          </Grid>
+        </Grid>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
+          <DialogContentText sx={{ marginBottom: '2%' }}>
             {quiz.description}
           </DialogContentText>
-          <Typography sx={{ marginTop: '5%' }} variant="h6" align="left">
-            Quiz Settings
-          </Typography>
           <QuizTimeSelector timer={timer} setTimer={setTimer} />
         </DialogContent>
         <DialogActions>

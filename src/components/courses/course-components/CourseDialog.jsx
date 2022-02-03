@@ -15,7 +15,7 @@ import CourseContentsList from './CourseContentsList';
 import CourseRatingAverage from './CourseRatingAverage';
 import CourseTimeAndUpdated from './CourseTimeAndUpdated';
 import CoursePeopleFor from './CoursePeopleFor';
-import AnimatedTracing from '../../../assets/images/courses/courseImage.png';
+import CourseDialogImage from '../../../assets/images/courses/courseImage.png';
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
@@ -82,7 +82,7 @@ export default function CourseDialog(props) {
               />
             </Grid>
             <Grid item sx={{ paddingLeft: 15 }}>
-              <img src={AnimatedTracing} height="100" width="100" alt="medic" />
+              <img src={CourseDialogImage} height="100" width="100" alt="medic" />
             </Grid>
           </Grid>
           <DialogTitle sx={{ textAlign: 'center' }}>Who Is This Course For?</DialogTitle>
