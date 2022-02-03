@@ -96,9 +96,9 @@ export default function CourseLayout(props) {
             borderColor: 'grey.500', border: 5, borderRadius: 10, width: '100%', height: '100%', backgroundImage: `url(${CourseBackground})`, backgroundSize: 'cover', paddingRight: '1%',
           }}
           >
-            {currentSection === course.components.length
+            {currentSection === course.sections.length
               ? <CourseCompleted course={course} history={props.history} />
-              : course.components[currentSection]}
+              : course.sections[currentSection].component }
           </Box>
         </Item>
         <Box sx={{
@@ -109,7 +109,7 @@ export default function CourseLayout(props) {
             currentSection={currentSection}
             handleNext={handleNext}
             handleBack={handleBack}
-            totalSections={course.components.length}
+            totalSections={course.sections.length}
           />
         </Box>
       </Grid>

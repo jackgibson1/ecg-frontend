@@ -81,7 +81,7 @@ export default function CourseContentsList(props) {
               }}
             >
               <ListItemButton>
-                <ListItemText primary={section} />
+                <ListItemText primary={section.title} />
               </ListItemButton>
               {getIcon(index)}
             </ListItem>

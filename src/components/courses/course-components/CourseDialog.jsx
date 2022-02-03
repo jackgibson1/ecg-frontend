@@ -54,7 +54,14 @@ export default function CourseDialog(props) {
 
   return (
     <div>
-      <Button sx={{ color: '#EE3233', marginBottom: '2%' }} variant="outlined" onClick={handleClickOpen} align="center" endIcon={<ExploreIcon />}>
+      <Button
+        sx={{ color: '#EE3233', marginBottom: '2%' }}
+        variant="outlined"
+        onClick={handleClickOpen}
+        align="center"
+        endIcon={<ExploreIcon />}
+        disabled={course.id >= 3 && course.id <= 6}
+      >
         View Course
       </Button>
       <Dialog
