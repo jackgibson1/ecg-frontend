@@ -108,33 +108,31 @@ export default function QuizLayout(props) {
             borderColor: 'grey.500', border: 5, borderRadius: 5, width: '100%', height: '100%', backgroundImage: `url(${QuizBackground})`, backgroundSize: 'cover',
           }}
           >
-            <Stack sx={{ marginTop: '1%' }} direction="row">
-              <Box sx={{ width: '50%', textAlign: 'left', marginLeft: '2%' }}>
-                <Typography sx={{ fontWeight: 'bold' }} variant="h6">{`Question ${currentQuestion}`}</Typography>
-              </Box>
-              <Box sx={{ width: '50%' }}>
-                {timer.on && !answerSubmitted && currentQuestion <= quiz.questions.length
-                && (
-                <Countdown
-                  date={Date.now() + (timer.seconds * 1000)}
-                  onComplete={() => countDownComplete()}
-                  renderer={renderCountdown}
-                />
-                )}
-              </Box>
-            </Stack>
-            <Box sx={{ height: '100%', width: '100%' }}>
-              {currentQuestion > quiz.questions.length ? (
-                <QuizComplete />
-              ) : (
-                <>
-                  <Box sx={{ height: '60%', width: '100%' }}>
-                    {quiz.questions[currentQuestion - 1].component}
+            {currentQuestion > quiz.questions.length ? (
+              <QuizComplete />
+            ) : (
+              <>
+                <Stack sx={{ marginTop: '1%' }} direction="row">
+                  <Box sx={{ width: '50%', textAlign: 'left', marginLeft: '2%' }}>
+                    <Typography sx={{ fontWeight: 'bold' }} variant="h6">{`Question ${currentQuestion}`}</Typography>
                   </Box>
-                  {renderComponent()}
-                </>
-              )}
-            </Box>
+                  <Box sx={{ width: '50%' }}>
+                    {timer.on && !answerSubmitted && currentQuestion <= quiz.questions.length
+                      && (
+                        <Countdown
+                          date={Date.now() + (timer.seconds * 1000)}
+                          onComplete={() => countDownComplete()}
+                          renderer={renderCountdown}
+                        />
+                      )}
+                  </Box>
+                </Stack>
+                <Box sx={{ height: '60%', width: '100%' }}>
+                  {quiz.questions[currentQuestion - 1].component}
+                </Box>
+                {renderComponent()}
+              </>
+            )}
           </Box>
         </Item>
         <Box sx={{
