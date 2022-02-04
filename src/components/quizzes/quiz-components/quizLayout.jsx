@@ -109,7 +109,7 @@ export default function QuizLayout(props) {
           }}
           >
             {currentQuestion > quiz.questions.length ? (
-              <QuizComplete />
+              <QuizComplete history={props.history} />
             ) : (
               <>
                 <Stack sx={{ marginTop: '1%' }} direction="row">

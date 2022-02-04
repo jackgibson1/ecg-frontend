@@ -55,7 +55,7 @@ export default function CourseDialog(props) {
   return (
     <div>
       <Button
-        sx={{ color: '#EE3233', marginBottom: '2%' }}
+        sx={{ color: '#EE3233', marginBottom: '2%', boxShadow: '0 8px 40px -12px rgba(0,0,0,1)' }}
         variant="outlined"
         onClick={handleClickOpen}
         align="center"
