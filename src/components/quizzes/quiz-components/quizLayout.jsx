@@ -16,6 +16,7 @@ import QuizQuestionsList from './quizQuestionsList';
 import QuizAnswerButtons from './quizAnswerButtons';
 import UserService from '../../../services/user.service';
 import LoadingPage from '../../LoadingPage';
+import QuizComplete from './QuizComplete';
 
 // styled paper used to hold overarching course content
 const Item = styled(Paper)(({ theme }) => ({
@@ -112,7 +113,7 @@ export default function QuizLayout(props) {
                 <Typography sx={{ fontWeight: 'bold' }} variant="h6">{`Question ${currentQuestion}`}</Typography>
               </Box>
               <Box sx={{ width: '50%' }}>
-                {timer.on && !answerSubmitted
+                {timer.on && !answerSubmitted && currentQuestion <= quiz.questions.length
                 && (
                 <Countdown
                   date={Date.now() + (timer.seconds * 1000)}
@@ -122,16 +123,22 @@ export default function QuizLayout(props) {
                 )}
               </Box>
             </Stack>
-            <Box sx={{ height: '60%', width: '100%' }}>
-              {quiz.questions[currentQuestion - 1].component}
+            <Box sx={{ height: '100%', width: '100%' }}>
+              {currentQuestion > quiz.questions.length ? (
+                <QuizComplete />
+              ) : (
+                <>
+                  <Box sx={{ height: '60%', width: '100%' }}>
+                    {quiz.questions[currentQuestion - 1].component}
+                  </Box>
+                  {renderComponent()}
+                </>
+              )}
             </Box>
-
-            {renderComponent()}
-
           </Box>
         </Item>
         <Box sx={{
-          borderColor: 'grey.500', border: 2, borderRadius: 5, width: '45%', height: '8%', alignItems: 'center', margin: 'auto', marginTop: '1%',
+          borderColor: 'grey.500', border: 2, borderRadius: 5, width: '40%', height: '8%', alignItems: 'center', margin: 'auto', marginTop: '1%',
         }}
         >
           <QuizPagination

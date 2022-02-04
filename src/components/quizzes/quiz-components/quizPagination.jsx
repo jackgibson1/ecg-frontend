@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
 import Button from '@mui/material/Button';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import NextPlanIcon from '@mui/icons-material/NextPlan';
 
 export default function QuizPagination(props) {
   const {
     currentQuestion, setCurrentQuestion, totalQuestions, quizStorage, submitted,
   } = props;
-  const theme = useTheme();
 
   const handleNext = () => {
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
@@ -21,22 +18,19 @@ export default function QuizPagination(props) {
   return (
     <MobileStepper
       variant="progress"
-      steps={totalQuestions}
+      steps={totalQuestions + 1}
       position="static"
-      activeStep={currentQuestion - 1}
+      activeStep={currentQuestion <= totalQuestions ? currentQuestion - 1 : totalQuestions}
       sx={{
-        maxWidth: 400, flexGrow: 1, borderRadius: 3, backgroundColor: 'transparent', marginLeft: '1%',
+        maxWidth: 400, borderRadius: 3, backgroundColor: 'transparent', marginLeft: '5%',
       }}
-      nextButton={(
-        <Button size="small" onClick={handleNext} disabled={!submitted}>
-          Next Question
-          {theme.direction === 'rtl' ? (
-            <KeyboardArrowLeft />
-          ) : (
-            <KeyboardArrowRight />
-          )}
-        </Button>
-      )}
+      nextButton={
+        (
+          <Button size="small" onClick={handleNext} disabled={!submitted} variant="outlined" endIcon={<NextPlanIcon />}>
+            {currentQuestion >= totalQuestions ? 'Complete Quiz' : 'Next Question'}
+          </Button>
+      )
+    }
     />
   );
 }
