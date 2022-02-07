@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import CourseBackgroundImage from '../../../assets/images/courses/earnedCredit.gif';
+import CourseBackgroundImage from '../assets/images/courses/earnedCredit.gif';
 
 const style = {
   position: 'absolute',
@@ -21,7 +21,7 @@ const style = {
   backgroundPosition: 'center center',
 };
 
-export default function BasicModal(props) {
+export default function CreditEarnedModal(props) {
   // eslint-disable-next-line react/prop-types
   const { open, setOpen } = props;
   const handleClose = () => setOpen(false);

@@ -12,7 +12,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import GridViewIcon from '@mui/icons-material/GridView';
 import UserService from '../../../services/user.service';
 import CourseService from '../../../services/course.service';
-import CreditEarnedModal from './CreditEarnedModal';
+import CreditEarnedModal from '../../CreditEarnedModal';
 
 export default function CourseCompleteButton(props) {
   const history = useHistory();
