@@ -23,7 +23,7 @@ const quizDetails = [
   },
   {
     id: 2,
-    title: 'ECG Introduction',
+    title: 'Understanding An ECG',
     description: 'This quiz has not yet been implemented due to time constraints. All demonstrable functionality can be found within the first quiz.',
     questions: [{ component: <h1>Hello!</h1>, answer: '1' }],
     path: '/quizzes/introduction',

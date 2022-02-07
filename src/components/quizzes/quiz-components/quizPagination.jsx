@@ -10,6 +10,9 @@ export default function QuizPagination(props) {
   } = props;
 
   const handleNext = () => {
+    if (currentQuestion === totalQuestions) {
+      console.log('api call');
+    }
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     quizStorage.currentQuestion = currentQuestion + 1;
     localStorage.setItem('quiz', JSON.stringify(quizStorage));
