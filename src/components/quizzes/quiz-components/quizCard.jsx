@@ -4,7 +4,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -13,19 +12,7 @@ import { Grid, Box } from '@mui/material';
 import QuizDialog from './quizDialog';
 import QuizDifficultyRating from './QuizDifficultyRating';
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    right: -4,
-    top: 1,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: '4px',
-  },
-}));
-
 const styles = {
-  badge: {
-    margin: 'auto',
-  },
   media: {
     height: 200,
     width: '100%',
@@ -58,12 +45,8 @@ export default function QuizCard(props) {
   };
 
   return (
-    <StyledBadge
-      badgeContent="Complete"
-      color="success"
-    >
+    <Badge badgeContent="Completed" color="success">
       <Card style={styles.card}>
-
         <Box sx={{ ':hover': { backgroundColor: '#EAEAEA' } }}>
           <CardMedia>
             <img src={quiz.image} style={styles.media} alt="medic" />
@@ -92,7 +75,6 @@ export default function QuizCard(props) {
           </CardActions>
         </Box>
       </Card>
-    </StyledBadge>
-
+    </Badge>
   );
 }

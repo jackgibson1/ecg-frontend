@@ -21,9 +21,9 @@ function Quizzes(props) {
       paddingTop: '2%', paddingLeft: '2%', paddingBottom: '2%', backgroundImage: `url(${QuizBackgroundImage})`, backgroundSize: 'cover',
     }}
     >
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} justify="center">
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {quizDetails.map((quiz) => (
-          <Grid item xs={2} sm={4} md={4} key={Math.random()}>
+          <Grid item xs={2} sm={4} md={4} key={Math.random()} style={{ textAlign: 'center' }}>
             <QuizCard
               quiz={quiz}
               cameFromCourse={cameFromCourse.cameFromCourse && quiz.id === cameFromCourse.quizId}
