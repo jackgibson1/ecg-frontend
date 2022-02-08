@@ -66,7 +66,6 @@ export default function CourseCard(props) {
           </Grid>
         </CardActions>
       </Box>
-
     </Card>
   );
 }
