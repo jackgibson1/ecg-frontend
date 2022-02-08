@@ -37,7 +37,7 @@ function Courses(props) {
   }, []);
 
   if (isLoading) {
-    return <LoadingPage text="Loading all courses" />;
+    return <LoadingPage text="Loading all courses..." />;
   }
 
   return (

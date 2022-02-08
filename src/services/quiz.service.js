@@ -7,12 +7,18 @@ const API_URL = 'http://localhost:8080/api';
 
 function getQuizScore(quizId) {
   const accesstoken = authHeader()['x-access-token'];
-  return axios.get(`${API_URL}/quizscores/${quizId}`, { headers: { 'x-access-token': accesstoken } });
+  return axios.get(`${API_URL}/quizscores/${quizId}`, { headers: {
+    'x-access-token': accesstoken,
+    'user-id': authService.getCurrentUser().id,
+  } });
 }
 
 function getAllQuizScores() {
   const accesstoken = authHeader()['x-access-token'];
-  return axios.get(`${API_URL}/allquizscores`, { headers: { 'x-access-token': accesstoken } });
+  return axios.get(`${API_URL}/allquizscores`, { headers: {
+    'x-access-token': accesstoken,
+    'user-id': authService.getCurrentUser().id,
+  } });
 }
 
 function updateCourseScore(quizId, score) {

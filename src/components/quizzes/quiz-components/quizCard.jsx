@@ -4,6 +4,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -26,8 +27,17 @@ const styles = {
   },
 };
 
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: 30,
+    top: 5,
+    border: `1px solid ${theme.palette.background.paper}`,
+    padding: '0 10px',
+  },
+}));
+
 export default function QuizCard(props) {
-  const { quiz, cameFromCourse } = props;
+  const { quiz, cameFromCourse, bestScore } = props;
   const [openDialog, setOpenDialog] = React.useState(false);
 
   React.useEffect(() => {
@@ -45,7 +55,10 @@ export default function QuizCard(props) {
   };
 
   return (
-    <Badge badgeContent="Not Started" color="error">
+    <StyledBadge
+      badgeContent={bestScore > -1 ? `BEST SCORE: ${bestScore}/${quiz.questions.length}` : 'NOT COMPLETED'}
+      color={bestScore > -1 ? 'success' : 'error'}
+    >
       <Card style={styles.card}>
         <Box sx={{ ':hover': { backgroundColor: '#EAEAEA' } }}>
           <CardMedia>
@@ -75,6 +88,6 @@ export default function QuizCard(props) {
           </CardActions>
         </Box>
       </Card>
-    </Badge>
+    </StyledBadge>
   );
 }
