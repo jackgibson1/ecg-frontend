@@ -27,8 +27,17 @@ function submitCourseRating(courseId, rating) {
     });
 }
 
+function getAllCourseCompletions() {
+  const accesstoken = authHeader()['x-access-token'];
+  return axios.get(`${API_URL}/allcoursecompletions`, { headers: {
+    'x-access-token': accesstoken,
+    'user-id': authService.getCurrentUser().id,
+  } });
+}
+
 export default {
   getCourseRating,
   getAllCourseRatings,
   submitCourseRating,
+  getAllCourseCompletions,
 };

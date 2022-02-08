@@ -45,7 +45,7 @@ export default function QuizCard(props) {
   };
 
   return (
-    <Badge badgeContent="Completed" color="success">
+    <Badge badgeContent="Not Started" color="error">
       <Card style={styles.card}>
         <Box sx={{ ':hover': { backgroundColor: '#EAEAEA' } }}>
           <CardMedia>
