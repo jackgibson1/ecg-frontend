@@ -7,7 +7,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Grid, Box } from '@mui/material';
-import Tooltip from '@mui/material/Tooltip';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import CourseDialog from './CourseDialog';
@@ -32,10 +31,10 @@ const styles = {
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
-    right: 30,
+    right: 35,
     top: 5,
     border: `1px solid ${theme.palette.background.paper}`,
-    padding: '0 10px',
+    padding: '10px 10px',
   },
 }));
 
@@ -50,22 +49,14 @@ export default function CourseCard(props) {
 
   return (
     <StyledBadge
-      badgeContent={completion.completed ? 'COMPLETED' : 'NOT COMPLETED'}
+      badgeContent={completion.completed ? `COMPLETED - ${new Date(completion.firstCompletionDate).toLocaleDateString()}` : 'NOT COMPLETED'}
       color={completion.completed ? 'success' : 'error'}
     >
       <Card style={styles.card}>
         <Box sx={{ ':hover': { backgroundColor: '#EAEAEA' } }}>
-          <Tooltip
-            title={completion.completed
-              ? `Course successfully completed on ${new Date(completion.firstCompletionDate).toLocaleDateString()}`
-              : 'Course has not been completed.'}
-            placement="top"
-            arrow
-          >
-            <CardMedia>
-              <img src={course.image} style={styles.media} alt="medic" />
-            </CardMedia>
-          </Tooltip>
+          <CardMedia>
+            <img src={course.image} style={styles.media} alt="medic" />
+          </CardMedia>
           <CardContent>
             <Typography sx={{ textDecoration: 'underline' }} gutterBottom variant="h5" align="center">
               {course.title}

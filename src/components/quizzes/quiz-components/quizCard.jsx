@@ -32,7 +32,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     right: 30,
     top: 5,
     border: `1px solid ${theme.palette.background.paper}`,
-    padding: '0 10px',
+    padding: '10px 10px',
   },
 }));
 
