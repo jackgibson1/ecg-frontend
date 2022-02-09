@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useRef } from 'react';
 import HomeHero from './HomeHero';
@@ -17,14 +19,14 @@ const styles = {
   },
 };
 
-function Home() {
+function Home(props) {
   const scrollRef = useRef(null);
   return (
     <>
       <HomeHero scrollRef={scrollRef} />
-      <HomeSection1 scrollRef={scrollRef} />
+      <HomeSection1 scrollRef={scrollRef} history={props.history} />
       <hr style={styles.hr} />
-      <HomeSection2 />
+      <HomeSection2 history={props.history} />
       <hr style={styles.hr} />
     </>
   );

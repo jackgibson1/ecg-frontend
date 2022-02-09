@@ -53,7 +53,7 @@ const quizDetails = [
   },
   {
     id: 5,
-    title: 'ECG Introduction',
+    title: 'How To Document An ECG',
     description: 'This quiz has not yet been implemented due to time constraints. All demonstrable functionality can be found within the first quiz.',
     questions: [{ component: <h1>Hello!</h1>, answer: '1' }],
     path: '/quizzes/documenting',
@@ -63,7 +63,7 @@ const quizDetails = [
   },
   {
     id: 6,
-    title: 'ECG Introduction',
+    title: 'Conditions',
     description: 'This quiz has not yet been implemented due to time constraints. All demonstrable functionality can be found within the first quiz.',
     questions: [{ component: <h1>Hello!</h1>, answer: '1' }],
     path: '/quizzes/introduction',

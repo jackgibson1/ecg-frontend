@@ -23,7 +23,7 @@ export default function HomeHero(props) {
   const { scrollRef } = props;
   return (
     <Stack style={styles.paperContainer}>
-      <Typography color="white" align="center" variant="h2" marked="center" sx={{ fontWeight: 'bold', marginTop: '15%' }}>
+      <Typography color="white" align="center" variant="h2" marked="center" sx={{ fontWeight: 'bold', marginTop: '30vh' }}>
         Learn Electrocardiography.
       </Typography>
       <Button
