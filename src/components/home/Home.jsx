@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useRef } from 'react';
 import HomeHero from './HomeHero';
 import HomeSection1 from './HomeSection1';
 import HomeSection2 from './HomeSection2';
@@ -17,10 +18,11 @@ const styles = {
 };
 
 function Home() {
+  const scrollRef = useRef(null);
   return (
     <>
-      <HomeHero />
-      <HomeSection1 />
+      <HomeHero scrollRef={scrollRef} />
+      <HomeSection1 scrollRef={scrollRef} />
       <hr style={styles.hr} />
       <HomeSection2 />
       <hr style={styles.hr} />

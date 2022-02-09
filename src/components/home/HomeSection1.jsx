@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Typography, Grid, Box } from '@mui/material';
-import animatedImage from '../../assets/images/home/animatedHeartResized.gif';
-import animatedImageLg from '../../assets/images/home/animatedGif1.gif';
+import animatedPQRST from '../../assets/images/courses/course-2-understanding/waves.gif';
 
-function HomeSection1() {
+function HomeSection1(props) {
+  const { scrollRef } = props;
   return (
-    <Grid id="middle" container justify="center">
-      <Grid item xs={12} md={6} lg={6}>
-        <Box sx={{ paddingLeft: '5%', paddingRight: '5%', paddingTop: '10%' }}>
+    <Grid ref={scrollRef} container>
+      <Grid item xs={12} lg={7}>
+        <Box sx={{ marginLeft: '5%', marginTop: '10%' }}>
           <Typography variant="h2" component="div">
             <b>
               Learn
@@ -24,13 +25,9 @@ function HomeSection1() {
           </Typography>
         </Box>
       </Grid>
-      <Grid item xs={12} md={6} lg={6}>
-        <Box sx={{ paddingLeft: '5%', paddingRight: '0%', paddingTop: '10%' }}>
-          <picture>
-            <source media="(max-width: 400px)" srcSet={animatedImage} />
-            <source media="(max-width: 1200px)" srcSet={animatedImageLg} />
-            <img src={animatedImageLg} alt="alt text for pic" />
-          </picture>
+      <Grid item xs={12} lg={5}>
+        <Box sx={{ paddingTop: '10%' }}>
+          <img src={animatedPQRST} alt="Animated heart showing PQRST wave" height="300px" width="500px" />
         </Box>
       </Grid>
     </Grid>
