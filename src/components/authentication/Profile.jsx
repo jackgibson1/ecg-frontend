@@ -1,10 +1,11 @@
 import React from 'react';
 
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import EmailIcon from '@mui/icons-material/Email';
 
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import AuthService from '../../services/auth.service';
@@ -34,7 +35,6 @@ const Profile = () => {
           marginTop: 8,
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
           border: 1,
           borderRadius: 5,
           boxShadow: 15,
@@ -43,40 +43,34 @@ const Profile = () => {
           width: '60%',
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <AccountBoxIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          {currentUser.username}
-          {' '}
-          Profile
-        </Typography>
-        <Typography component="body1" variant="body1" sx={{ mt: 2 }}>
-          JWT Token:
-          {' '}
-          {currentUser.accessToken.substring(0, 20)}
-        </Typography>
-        <Typography component="body1" variant="body1" sx={{ mt: 2 }}>
-          Id:
-          {' '}
-          {currentUser.id}
-        </Typography>
-        <Typography component="body1" variant="body1" sx={{ mt: 2 }}>
-          Email:
-          {' '}
-          {currentUser.email}
-        </Typography>
-
-        <Typography component="body1" variant="body1" sx={{ mt: 2 }}>
-          Authorities:
-          {' '}
-          <ul>
-            {currentUser.roles
-          // eslint-disable-next-line react/no-array-index-key
-          && currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-          </ul>
-        </Typography>
-
+        <Box sx={{ margin: 'auto', marginTop: '10%' }}>
+          <AccountCircleIcon sx={{ transform: 'scale(3)', marginLeft: '25%' }} />
+          <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', marginTop: '40%' }}>
+            {currentUser.username}
+          </Typography>
+        </Box>
+        <Box sx={{ display: 'flex', marginTop: 2, marginLeft: 2 }}>
+          <EmailIcon />
+          <Box>
+            <Typography sx={{ ml: 1 }} variant="body">
+              {' '}
+              Email:
+              {' '}
+              {currentUser.email}
+            </Typography>
+          </Box>
+        </Box>
+        <Box sx={{ display: 'flex', marginTop: 2, marginLeft: 2 }}>
+          <AssignmentIndIcon />
+          <Box>
+            <Typography sx={{ ml: 1 }} variant="body">
+              {' '}
+              Privileges:
+              {' '}
+              {currentUser.roles.map((role) => ` ${role} `)}
+            </Typography>
+          </Box>
+        </Box>
       </Box>
 
       <Copyright sx={{ mt: 8, mb: 4 }} />
