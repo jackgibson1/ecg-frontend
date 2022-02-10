@@ -28,13 +28,19 @@ const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container>
       <Box
         sx={{
           marginTop: 8,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          border: 1,
+          borderRadius: 5,
+          boxShadow: 15,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: '60%',
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
