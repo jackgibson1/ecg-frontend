@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import AuthService from '../../services/auth.service';
 import UserService from '../../services/user.service';
+import CourseTable from './CourseTable';
 
 function Copyright(props) {
   return (
@@ -121,6 +122,7 @@ const Profile = () => {
           }}
         >
           <Typography sx={{ ml: 1, fontWeight: 'bold' }} variant="body">Completed Courses:</Typography>
+          <CourseTable />
         </Box>
       </Box>
       <Copyright sx={{ mt: 8, mb: 4 }} />
