@@ -8,6 +8,14 @@ const API_URL = 'http://localhost:8080/api';
 const getPublicContent = () => axios.get(`${API_URL}all`, { headers: authHeader() });
 const getAdminBoard = () => axios.get(`${API_URL}admin`, { headers: authHeader() });
 
+function getDateCreated() {
+  return axios.get(`${API_URL}/datecreated`, { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
+}
+
+function getCredits() {
+  return axios.get(`${API_URL}/credits`, { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
+}
+
 function getAllCoursePositions() {
   return axios.get(`${API_URL}/position/all`, { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
 }
@@ -45,6 +53,8 @@ function updateLocalQuiz(quiz) {
 }
 
 export default {
+  getDateCreated,
+  getCredits,
   getPublicContent,
   getAdminBoard,
   getAllCoursePositions,
