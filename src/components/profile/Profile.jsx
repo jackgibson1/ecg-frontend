@@ -14,7 +14,7 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import AuthService from '../../services/auth.service';
 import UserService from '../../services/user.service';
-import CourseTable from './CourseTable';
+import ProfileTab from './ProfileTab';
 
 function Copyright(props) {
   return (
@@ -115,15 +115,7 @@ const Profile = () => {
           </Box>
           <Rating readOnly defaultValue={userCredits} max={12} sx={{ marginLeft: 1 }} />
         </Box>
-        <Box
-          sx={{
-            marginTop: 3,
-            marginLeft: 4,
-          }}
-        >
-          <Typography sx={{ ml: 1, fontWeight: 'bold' }} variant="body">Completed Courses:</Typography>
-          <CourseTable />
-        </Box>
+        <ProfileTab />
       </Box>
       <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>

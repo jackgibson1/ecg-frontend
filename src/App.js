@@ -10,7 +10,7 @@ import Quizzes from './components/quizzes/quiz-components/Quizzes';
 import Ask from './components/forum/Ask';
 import Login from './components/authentication/Login';
 import Register from './components/authentication/Register';
-import Profile from './components/authentication/Profile';
+import Profile from './components/profile/Profile';
 import AuthService from './services/auth.service';
 import CourseLayout from './components/courses/course-components/CourseLayout';
 import QuizLayout from './components/quizzes/quiz-components/quizLayout';
