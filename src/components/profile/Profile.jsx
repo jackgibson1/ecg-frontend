@@ -11,25 +11,9 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import AuthService from '../../services/auth.service';
 import UserService from '../../services/user.service';
 import ProfileTab from './ProfileTab';
-
-function Copyright(props) {
-  return (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        Electrocardiography
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
-    </Typography>
-  );
-}
 
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
@@ -113,7 +97,7 @@ const Profile = () => {
           <Box>
             <Typography sx={{ ml: 1, fontWeight: 'bold' }} variant="body">Credits:</Typography>
           </Box>
-          <Rating readOnly defaultValue={userCredits} max={12} sx={{ marginLeft: 1 }} />
+          <Rating readOnly value={userCredits} max={12} sx={{ marginLeft: 1 }} />
         </Box>
         {AuthService.getCurrentUser().roles.includes('ROLE_ADMIN') ? (
           <h1>Admin View</h1>
@@ -121,7 +105,6 @@ const Profile = () => {
           <ProfileTab />
         )}
       </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
   );
 };

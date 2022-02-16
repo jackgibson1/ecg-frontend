@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 import CourseCard from './CourseCard';
 import courseDetails from './courseDetails';
 import CourseBackgroundImage from '../../../assets/images/courses/coursebackground.jpg';
-import UserService from '../../../services/user.service';
 import CourseService from '../../../services/course.service';
 import LoadingPage from '../../LoadingPage';
 
@@ -17,7 +16,7 @@ function Courses(props) {
 
   useEffect(() => {
     Promise.all([
-      UserService.getAllCoursePositions(),
+      CourseService.getAllCoursePositions(),
       CourseService.getAllCourseRatings(),
       CourseService.getAllCourseCompletions(),
     ])

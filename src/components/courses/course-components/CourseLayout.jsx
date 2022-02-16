@@ -10,7 +10,7 @@ import CourseContentsList from './CourseContentsList';
 import CourseBackground from '../../../assets/images/courses/courseBG.jpeg';
 import CourseProgressStepper from './CourseProgressStepper';
 import CourseCompleted from './CourseCompleted';
-import UserService from '../../../services/user.service';
+import CourseService from '../../../services/course.service';
 import LoadingPage from '../../LoadingPage';
 
 // styled paper used to hold overarching course content
@@ -36,7 +36,7 @@ export default function CourseLayout(props) {
 
   // on page render get current course position and set hooks accordingly
   useEffect(() => {
-    UserService.getCoursePosition(course.id).then((res) => {
+    CourseService.getCoursePosition(course.id).then((res) => {
       setCurrentSection(res.data.position);
       setCompletedSections(res.data.position - 1);
     });
@@ -51,7 +51,7 @@ export default function CourseLayout(props) {
   const handleNext = async () => {
     // only update position if completing section for first time
     if (currentSection > completedSections) {
-      await UserService.updateCoursePosition(course.id, currentSection + 1).then(() => {
+      await CourseService.updateCoursePosition(course.id, currentSection + 1).then(() => {
         setCompletedSections(currentSection);
       });
     }

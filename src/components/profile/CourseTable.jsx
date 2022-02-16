@@ -108,7 +108,6 @@ export default function CourseTable(props) {
     QuizService.getAllQuizScores()
       .then((res) => {
         const quizCompletions = [];
-        console.log(res.data);
 
         for (const qz of res.data) {
           const quizName = QuizDetails.find((quiz) => qz.quizId === quiz.id).title;
@@ -120,7 +119,6 @@ export default function CourseTable(props) {
             bestScore: qz.score > -1 ? qz.score : 'N/A',
           });
         }
-        console.log(quizCompletions);
         setQuizRows(quizCompletions);
       });
   }, []);

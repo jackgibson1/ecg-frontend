@@ -10,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import CheckIcon from '@mui/icons-material/Check';
 import GridViewIcon from '@mui/icons-material/GridView';
-import UserService from '../../../services/user.service';
 import CourseService from '../../../services/course.service';
 import CreditEarnedModal from '../../CreditEarnedModal';
 
@@ -39,7 +38,7 @@ export default function CourseCompleteButton(props) {
     window.setTimeout(() => {
       Promise.all(
         [
-          UserService.completeCourse(courseId),
+          CourseService.completeCourse(courseId),
           CourseService.submitCourseRating(courseId, userRating),
         ],
       ).then((resolvedPromises) => {

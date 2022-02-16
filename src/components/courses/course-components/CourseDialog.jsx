@@ -10,7 +10,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useHistory } from 'react-router-dom';
 import ExploreIcon from '@mui/icons-material/Explore';
-import userService from '../../../services/user.service';
+import CourseService from '../../../services/course.service';
 import CourseContentsList from './CourseContentsList';
 import CourseRatingAverage from './CourseRatingAverage';
 import CourseTimeAndUpdated from './CourseTimeAndUpdated';
@@ -35,7 +35,7 @@ export default function CourseDialog(props) {
   };
 
   const restartCourse = async () => {
-    await userService.updateCoursePosition(course.id, 0).then((res) => res);
+    await CourseService.updateCoursePosition(course.id, 0).then((res) => res);
   };
 
   const pushCourse = () => {
