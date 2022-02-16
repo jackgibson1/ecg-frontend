@@ -115,7 +115,11 @@ const Profile = () => {
           </Box>
           <Rating readOnly defaultValue={userCredits} max={12} sx={{ marginLeft: 1 }} />
         </Box>
-        <ProfileTab />
+        {AuthService.getCurrentUser().roles.includes('ROLE_ADMIN') ? (
+          <h1>Admin View</h1>
+        ) : (
+          <ProfileTab />
+        )}
       </Box>
       <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
