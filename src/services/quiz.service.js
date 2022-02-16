@@ -1,3 +1,8 @@
+/*
+ * Quiz services including API calls and localstorage interactions
+ * quiz scores (stored in DB via API), getting and updating local quiz (localstorage)
+*/
+
 import axios from 'axios';
 import authService from './auth.service';
 import authHeader from './auth-header';

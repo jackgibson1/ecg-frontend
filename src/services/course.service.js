@@ -1,3 +1,8 @@
+/*
+ * Quiz services for interacting with the API
+ * course ratings, course positions and course completions
+*/
+
 import axios from 'axios';
 import authService from './auth.service';
 import authHeader from './auth-header';
