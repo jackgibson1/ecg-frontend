@@ -7,7 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
-import UserService from '../../../services/user.service';
+import QuizService from '../../../services/quiz.service';
 
 const styles = {
   radioButtonCorrect: {
@@ -57,7 +57,7 @@ export default function QuizAnswerButtons(props) {
       setSubmitted(true);
     }
 
-    UserService.updateLocalQuiz(quizStorage);
+    QuizService.updateLocalQuiz(quizStorage);
   };
 
   return (

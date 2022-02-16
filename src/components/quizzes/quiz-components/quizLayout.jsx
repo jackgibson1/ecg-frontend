@@ -14,7 +14,7 @@ import quizDetails from './quizDetails';
 import QuizPagination from './quizPagination';
 import QuizQuestionsList from './quizQuestionsList';
 import QuizAnswerButtons from './quizAnswerButtons';
-import UserService from '../../../services/user.service';
+import QuizService from '../../../services/quiz.service';
 import LoadingPage from '../../LoadingPage';
 import QuizComplete from './QuizComplete';
 
@@ -34,7 +34,7 @@ export default function QuizLayout(props) {
   const [loading, setLoading] = useState(true);
 
   // get current position from localstorage
-  const quizStorage = UserService.getLocalQuiz();
+  const quizStorage = QuizService.getLocalQuiz();
   const [currentQuestion, setCurrentQuestion] = useState(quizStorage.currentQuestion);
 
   // timer configuration
@@ -44,7 +44,7 @@ export default function QuizLayout(props) {
   const [alreadyAnswered, setAlreadyAnswered] = React.useState(false);
 
   useEffect(() => {
-    if (typeof UserService.getLocalQuiz().answers[currentQuestion - 1] !== 'undefined') {
+    if (typeof QuizService.getLocalQuiz().answers[currentQuestion - 1] !== 'undefined') {
       setAlreadyAnswered(true);
       setAnswerSubmitted(true);
     } else {
@@ -69,7 +69,7 @@ export default function QuizLayout(props) {
     setStillTime(false);
     setAnswerSubmitted(true);
     quizStorage.answers.push(false);
-    UserService.updateLocalQuiz(quizStorage);
+    QuizService.updateLocalQuiz(quizStorage);
   };
 
   const renderComponent = () => {

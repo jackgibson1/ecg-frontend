@@ -2,8 +2,7 @@ import axios from 'axios';
 import authService from './auth.service';
 import authHeader from './auth-header';
 
-// will eventually change to env variable
-const API_URL = 'http://localhost:8080/api';
+const API_URL = process.env.REACT_APP_API_URL;
 
 // get rating for respective course
 function getCourseRating(courseId) {
@@ -32,7 +31,8 @@ function submitCourseRating(courseId, rating) {
 
 // get position for provided course
 function getCoursePosition(courseId) {
-  return axios.get(`${API_URL}/course/position/${courseId}`, { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
+  return axios.get(`${API_URL}/course/position/${courseId}`,
+    { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
 }
 
 // updated position for provided courseId
@@ -49,7 +49,8 @@ function updateCoursePosition(courseId, updatedPosition) {
 
 // get list of all positions for all courses
 function getAllCoursePositions() {
-  return axios.get(`${API_URL}/course/positions/all`, { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
+  return axios.get(`${API_URL}/course/positions/all`,
+    { headers: { 'x-access-token': authHeader()['x-access-token'], 'user-id': authService.getCurrentUser().id } });
 }
 
 // save course completions - checks if users earns credit or not

@@ -4,7 +4,6 @@ import MobileStepper from '@mui/material/MobileStepper';
 import Button from '@mui/material/Button';
 import NextPlanIcon from '@mui/icons-material/NextPlan';
 import CreditEarnedModal from '../../CreditEarnedModal';
-import UserService from '../../../services/user.service';
 import QuizService from '../../../services/quiz.service';
 
 export default function QuizPagination(props) {
@@ -15,9 +14,9 @@ export default function QuizPagination(props) {
 
   const handleNext = () => {
     if (currentQuestion === totalQuestions) {
-      const quiz = UserService.getLocalQuiz();
+      const quiz = QuizService.getLocalQuiz();
       const totalCorrect = quiz.answers.filter((x) => x === true).length;
-      QuizService.updateCourseScore(quiz.id, totalCorrect).then((res) => {
+      QuizService.updateQuizScore(quiz.id, totalCorrect).then((res) => {
         if (res.data.creditEarned) {
           setOpenModal(true);
         }

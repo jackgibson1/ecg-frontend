@@ -2,14 +2,14 @@
 import React from 'react';
 import { Grid, Typography, Alert, Box, Button } from '@mui/material';
 import QuizIcon from '@mui/icons-material/Quiz';
-import UserService from '../../../services/user.service';
+import QuizService from '../../../services/quiz.service';
 import AuthService from '../../../services/auth.service';
 import quizDetails from './quizDetails';
 
 export default function QuizComplete(props) {
   const { history } = props;
   // eslint-disable-next-line no-unused-vars
-  const quiz = UserService.getLocalQuiz();
+  const quiz = QuizService.getLocalQuiz();
   const totalCorrect = quiz.answers.filter((x) => x === true).length;
   const quizName = quizDetails.find((quizDetail) => quizDetail.id === quiz.id).title;
 

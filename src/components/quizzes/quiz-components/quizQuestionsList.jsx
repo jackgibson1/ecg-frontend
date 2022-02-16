@@ -9,13 +9,13 @@ import Divider from '@mui/material/Divider';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DangerousIcon from '@mui/icons-material/Dangerous';
-import UserService from '../../../services/user.service';
+import QuizService from '../../../services/quiz.service';
 
 export default function QuizQuestionsList(props) {
   const { totalQuestions, currentQuestion } = props;
 
   function getIcon(questionIndex) {
-    const quizStorage = UserService.getLocalQuiz();
+    const quizStorage = QuizService.getLocalQuiz();
 
     if (typeof quizStorage.answers[questionIndex] === 'undefined') {
       return <AssignmentIcon style={{ fill: 'blue' }} />;
