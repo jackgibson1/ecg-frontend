@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -140,11 +141,11 @@ const Login = (props) => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              {loading && (
-              <CircularProgress />
-              )}
               Sign In
             </Button>
+            {loading && (
+              <CircularProgress />
+            )}
           </Stack>
         </Form>
         {message && (
