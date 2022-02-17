@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import AuthService from '../../services/auth.service';
 import UserService from '../../services/user.service';
 import ProfileTab from './ProfileTab';
+import AdminUserTable from './AdminUserTable';
 
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
@@ -34,15 +35,16 @@ const Profile = () => {
     <Container>
       <Box
         sx={{
-          marginTop: 8,
+          marginTop: 3,
+          marginBottom: 3,
           display: 'flex',
           flexDirection: 'column',
           border: 1,
-          borderRadius: 5,
-          boxShadow: 15,
+          borderRadius: 3,
+          boxShadow: 10,
           marginLeft: 'auto',
           marginRight: 'auto',
-          width: '70%',
+          width: '90%',
         }}
       >
         <Box sx={{ display: 'flex', marginTop: 7, marginLeft: 'auto', marginRight: 'auto' }}>
@@ -102,6 +104,7 @@ const Profile = () => {
         {AuthService.getCurrentUser().roles.includes('ROLE_ADMIN') ? (
           <Box sx={{ marginTop: '2%', marginBottom: '2%' }}>
             <Typography sx={{ fontWeight: 'bold' }} align="center" variant="h6">Administrator User Overview</Typography>
+            <AdminUserTable />
           </Box>
         ) : (
           <ProfileTab />
