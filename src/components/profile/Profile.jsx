@@ -100,7 +100,9 @@ const Profile = () => {
           <Rating readOnly value={userCredits} max={12} sx={{ marginLeft: 1 }} />
         </Box>
         {AuthService.getCurrentUser().roles.includes('ROLE_ADMIN') ? (
-          <h1>Admin View</h1>
+          <Box sx={{ marginTop: '2%', marginBottom: '2%' }}>
+            <Typography sx={{ fontWeight: 'bold' }} align="center" variant="h6">Administrator User Overview</Typography>
+          </Box>
         ) : (
           <ProfileTab />
         )}
