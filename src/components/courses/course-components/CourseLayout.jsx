@@ -2,6 +2,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
+import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -20,6 +21,24 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
   height: '530px',
+  borderRadius: 20,
+  marginLeft: '5px',
+  marginRight: '5px',
+}));
+
+// eslint-disable-next-line no-unused-vars
+const CourseItem = styled(Box)(({ theme }) => ({
+  borderLeft: 10,
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.primary,
+  height: '530px',
+  borderRadius: 20,
+  width: '100%',
+  backgroundImage: `url(${CourseBackground})`,
+  backgroundSize: 'cover',
+  paddingRight: '1%',
 }));
 
 export default function CourseLayout(props) {
@@ -78,9 +97,9 @@ export default function CourseLayout(props) {
   }
 
   return (
-    <Grid sx={{ paddingTop: '1%', paddingLeft: '0%', paddingRight: '1%' }} container justifyContent="center">
+    <Grid sx={{ paddingTop: '1%', paddingRight: '0.5%' }} container justifyContent="center">
       <Grid item xs={2}>
-        <Item>
+        <Item sx={{ boxShadow: 10, border: 1, borderColor: 'blue' }}>
           <CourseContentsList
             sections={course.sections}
             currentSection={currentSection}
@@ -89,20 +108,16 @@ export default function CourseLayout(props) {
             overflow
           />
         </Item>
+        <Alert severity="success" sx={{ boxShadow: 10, borderRadius: 5, marginTop: '3%', marginLeft: '5px', marginRight: '5px' }}>Progress auto saves.</Alert>
       </Grid>
       <Grid item xs={10}>
-        <Item>
-          <Box sx={{
-            borderColor: 'grey.500', border: 5, borderRadius: 10, width: '100%', height: '100%', backgroundImage: `url(${CourseBackground})`, backgroundSize: 'cover', paddingRight: '1%',
-          }}
-          >
-            {currentSection === course.sections.length
-              ? <CourseCompleted course={course} history={props.history} />
-              : course.sections[currentSection].component }
-          </Box>
-        </Item>
+        <CourseItem sx={{ boxShadow: 10, border: 1, borderColor: 'red' }}>
+          {currentSection === course.sections.length
+            ? <CourseCompleted course={course} history={props.history} />
+            : course.sections[currentSection].component }
+        </CourseItem>
         <Box sx={{
-          borderColor: 'grey.500', border: 2, borderRadius: 5, width: '25%', height: '8%', alignItems: 'center', margin: 'auto', marginTop: '1%',
+          border: 1, borderRadius: 2, width: '25%', height: '8%', margin: 'auto', marginTop: '1%', boxShadow: 10,
         }}
         >
           <CourseProgressStepper
@@ -111,6 +126,7 @@ export default function CourseLayout(props) {
             handleBack={handleBack}
             totalSections={course.sections.length}
           />
+
         </Box>
       </Grid>
     </Grid>

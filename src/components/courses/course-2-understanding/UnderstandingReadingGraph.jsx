@@ -25,10 +25,10 @@ export default function UnderstandingReadingGraph() {
         <Grid item xs={6}>
           <Typography variant="h6" align="left" sx={{ marginTop: '2%' }}>Key Points</Typography>
           <ul style={{ textAlign: 'left' }}>
-            <li style={{ marginTop: '2%' }}>Each small square represents 0.04 seconds</li>
-            <li style={{ marginTop: '2%' }}>Each large square represents 0.2 seconds</li>
-            <li style={{ marginTop: '2%' }}>Each small square represents 0.04 seconds</li>
-            <li style={{ marginTop: '2%' }}>5 large squares = 1 second</li>
+            <li style={{ marginTop: '10px' }}>Each small square represents 0.04 seconds</li>
+            <li style={{ marginTop: '10px' }}>Each large square represents 0.2 seconds</li>
+            <li style={{ marginTop: '10px' }}>Each small square represents 0.04 seconds</li>
+            <li style={{ marginTop: '10px' }}>5 large squares = 1 second</li>
           </ul>
           <Typography variant="h6" align="left" sx={{ marginTop: '1%' }}>A Normal ECG:</Typography>
           <img src={NormalECGImage} style={{ height: '180px', width: '500px', borderRadius: 10, marginTop: '1%' }} alt="ecg graph paper" />

@@ -19,7 +19,7 @@ export default function CourseProgressStepper(props) {
       position="static"
       activeStep={currentSection < totalSections ? currentSection : totalSections - 1}
       sx={{
-        maxWidth: 400, flexGrow: 1, borderRadius: 3, backgroundColor: 'transparent',
+        backgroundColor: 'transparent',
       }}
       nextButton={(
         <Button size="small" onClick={handleNext} disabled={currentSection === totalSections}>
