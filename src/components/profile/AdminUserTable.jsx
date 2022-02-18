@@ -1,9 +1,9 @@
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { useConfirm } from 'material-ui-confirm';
 import AdminService from '../../services/admin.service';
 
 const userColumns = [
@@ -58,9 +58,11 @@ const userColumns = [
 ];
 
 export default function AdminUserTable() {
+  const confirm = useConfirm();
   // eslint-disable-next-line react/prop-types
   const [userRows, setUserRows] = useState([]);
   const [selectedUsers, setSelectedUsers] = React.useState([]);
+  const [deletions, setDeletions] = React.useState(0);
 
   useEffect(() => {
     AdminService.getAllUsers()
@@ -81,7 +83,21 @@ export default function AdminUserTable() {
         }
         setUserRows(users);
       });
-  }, []);
+  }, [deletions]);
+
+  const handleClick = () => {
+    confirm({ description: 'You are permentely deleting this user.' })
+      .then(() => {
+        AdminService.deleteUser(selectedUsers[0]).then((res) => {
+          if (res.data.success) {
+            setSelectedUsers([]);
+            // increment deletions to ensure useEffect is called again
+            setDeletions((prev) => prev + 1);
+          }
+        }).catch(() => console.log('Error when trying to delete user.'));
+      })
+      .catch(() => setSelectedUsers([]));
+  };
 
   return (
     <div style={{ height: 500, width: '95%', marginTop: '2%', marginBottom: '7%', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
@@ -102,6 +118,7 @@ export default function AdminUserTable() {
         align="center"
         endIcon={<DeleteForeverIcon />}
         disabled={selectedUsers.length === 0}
+        onClick={handleClick}
       >
         Delete Selected User
       </Button>

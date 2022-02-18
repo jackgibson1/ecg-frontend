@@ -11,6 +11,7 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import { ConfirmProvider } from 'material-ui-confirm';
 import AuthService from '../../services/auth.service';
 import UserService from '../../services/user.service';
 import ProfileTab from './ProfileTab';
@@ -104,7 +105,9 @@ const Profile = () => {
         {AuthService.getCurrentUser().roles.includes('ROLE_ADMIN') ? (
           <Box sx={{ marginTop: '2%', marginBottom: '2%' }}>
             <Typography sx={{ fontWeight: 'bold' }} align="center" variant="h6">Administrator User Overview</Typography>
-            <AdminUserTable />
+            <ConfirmProvider>
+              <AdminUserTable />
+            </ConfirmProvider>
           </Box>
         ) : (
           <ProfileTab />

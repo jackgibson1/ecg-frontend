@@ -18,7 +18,7 @@ function getAllUsers() {
 }
 
 function deleteUser(userId) {
-  return axios.get(`${API_URL}/admin/delete-user`,
+  return axios.delete(`${API_URL}/admin/delete-user`,
     { headers: {
       'x-access-token': authHeader()['x-access-token'],
       'admin-user-id': authService.getCurrentUser().id,
