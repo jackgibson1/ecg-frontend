@@ -11,7 +11,7 @@ function getDateCreated() {
 }
 
 function getCredits() {
-  return api.get('/user/credits', { 'user-id': authService.getCurrentUser().id });
+  return api.get('/user/credits', { headers: { 'user-id': authService.getCurrentUser().id } });
 }
 
 export default {
