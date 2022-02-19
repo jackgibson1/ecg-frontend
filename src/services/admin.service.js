@@ -2,7 +2,7 @@
  * Admin services for interacting with the API
  * get all users, delete user, reset all stats for user, delete post and delete comment
 */
-import axios from 'axios';
+import api from './api';
 import authService from './auth.service';
 import authHeader from './auth-header';
 
