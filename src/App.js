@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
@@ -25,16 +24,13 @@ const theme = createTheme({
   },
 });
 
-function HistoryFunctionForAxiosInterceptors(props) {
-  const history = useHistory();
-  SetupInterceptors(history);
-  return <></>;
-}
-
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
 
-  const logOut = () => AuthService.logout();
+  const logOut = () => {
+    AuthService.logout();
+    setCurrentUser(undefined);
+  };
 
   const isLoggedIn = (component, path) => {
     if (AuthService.isLoggedIn()) return component;
@@ -45,6 +41,12 @@ function App() {
     const user = AuthService.getCurrentUser();
     if (user) setCurrentUser(user);
   }, []);
+
+  function HistoryFunctionForAxiosInterceptors() {
+    const history = useHistory();
+    SetupInterceptors(history, logOut);
+    return <></>;
+  }
 
   return (
     <ThemeProvider theme={theme}>

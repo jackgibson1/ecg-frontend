@@ -56,7 +56,6 @@ const Login = (props) => {
     AuthService.login(username, password).then(
       () => {
         if (redirected) {
-          console.log(location.state.from);
           props.history.push(location.state.from);
         } else {
           props.history.push('/profile');

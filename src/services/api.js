@@ -14,7 +14,7 @@ const instance = axios.create({
   },
 });
 
-export const SetupInterceptors = (history) => {
+export const SetupInterceptors = (history, logOut) => {
   instance.interceptors.request.use(
     (config) => {
       const token = TokenService.getLocalAccessToken();
@@ -45,12 +45,11 @@ export const SetupInterceptors = (history) => {
             TokenService.updateLocalAccessToken(accessToken);
             return instance(originalConfig);
           } catch (_error) {
-            TokenService.removeUser();
-            history.push({
+            await history.push({
               pathname: '/login',
               state: { from: window.location.pathname, alert: true, message: 'Session has expired! Please log in again.' },
             });
-
+            logOut();
             Promise.reject(_error);
           }
         }
