@@ -14,42 +14,50 @@ const instance = axios.create({
   },
 });
 
-instance.interceptors.request.use(
-  (config) => {
-    const token = TokenService.getLocalAccessToken();
-    if (token) {
+export const SetupInterceptors = (history) => {
+  instance.interceptors.request.use(
+    (config) => {
+      const token = TokenService.getLocalAccessToken();
+      if (token) {
       // eslint-disable-next-line no-param-reassign
-      config.headers['x-access-token'] = token;
-    }
-    return config;
-  },
-  (error) => {
-    Promise.reject(error);
-  },
-);
+        config.headers['x-access-token'] = token;
+      }
+      return config;
+    },
+    (error) => {
+      Promise.reject(error);
+    },
+  );
 
-instance.interceptors.response.use(
-  (res) => res,
-  async (err) => {
-    const originalConfig = err.config;
-    if (originalConfig.url !== '/auth/signin' && err.response) {
+  instance.interceptors.response.use(
+    (res) => res,
+    async (err) => {
+      const originalConfig = err.config;
+      if (originalConfig.url !== '/auth/signin' && err.response) {
       // Access Token was expired
-      if (err.response.status === 401 && !originalConfig._retry) {
-        originalConfig._retry = true;
-        try {
-          const rs = await instance.post('/auth/refreshtoken', {
-            refreshToken: TokenService.getLocalRefreshToken(),
-          });
-          const { accessToken } = rs.data;
-          TokenService.updateLocalAccessToken(accessToken);
-          return instance(originalConfig);
-        } catch (_error) {
-          console.log('REFRESH EXPIRED!');
-          Promise.reject(_error);
+        if (err.response.status === 401 && !originalConfig._retry) {
+          originalConfig._retry = true;
+          try {
+            const rs = await instance.post('/auth/refreshtoken', {
+              refreshToken: TokenService.getLocalRefreshToken(),
+            });
+            const { accessToken } = rs.data;
+            TokenService.updateLocalAccessToken(accessToken);
+            return instance(originalConfig);
+          } catch (_error) {
+            TokenService.removeUser();
+            history.push({
+              pathname: '/login',
+              state: { from: window.location.pathname, alert: true, message: 'Session has expired! Please log in again.' },
+            });
+
+            Promise.reject(_error);
+          }
         }
       }
-    }
-    return Promise.reject(err);
-  },
-);
+      return Promise.reject(err);
+    },
+  );
+};
+
 export default instance;

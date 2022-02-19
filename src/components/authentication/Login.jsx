@@ -56,6 +56,7 @@ const Login = (props) => {
     AuthService.login(username, password).then(
       () => {
         if (redirected) {
+          console.log(location.state.from);
           props.history.push(location.state.from);
         } else {
           props.history.push('/profile');
@@ -88,7 +89,9 @@ const Login = (props) => {
         }}
       >
         {redirected && (
-          <Alert sx={{ marginBottom: '8%' }} severity="info">Please sign before accessing!</Alert>
+          <Alert sx={{ marginBottom: '8%' }} severity="info">
+            {location.state.message}
+          </Alert>
         )}
         <LoginIcon sx={{ transform: 'scale(3)', marginBottom: '10%' }} />
         <Typography component="h1" variant="h5">

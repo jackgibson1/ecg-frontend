@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material';
 import MainAppBar from './components/MainAppBar';
 import Home from './components/home/Home';
@@ -13,6 +15,7 @@ import Login from './components/authentication/Login';
 import Register from './components/authentication/Register';
 import Profile from './components/profile/Profile';
 import AuthService from './services/auth.service';
+import { SetupInterceptors } from './services/api';
 import CourseLayout from './components/courses/course-components/CourseLayout';
 import QuizLayout from './components/quizzes/quiz-components/quizLayout';
 
@@ -22,6 +25,12 @@ const theme = createTheme({
   },
 });
 
+function HistoryFunctionForAxiosInterceptors(props) {
+  const history = useHistory();
+  SetupInterceptors(history);
+  return <></>;
+}
+
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
 
@@ -29,7 +38,7 @@ function App() {
 
   const isLoggedIn = (component, path) => {
     if (AuthService.isLoggedIn()) return component;
-    return <Redirect to={{ pathname: '/login', state: { from: path, alert: true } }} />;
+    return <Redirect to={{ pathname: '/login', state: { from: path, alert: true, message: 'Please login before accessing!' } }} />;
   };
 
   useEffect(() => {
@@ -40,6 +49,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+        <HistoryFunctionForAxiosInterceptors />
         <MainAppBar currentUser={currentUser} logOut={logOut} />
         <Switch>
           <Route exact path="/" component={Home} />
