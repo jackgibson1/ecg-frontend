@@ -4,28 +4,19 @@
 */
 import api from './api';
 import authService from './auth.service';
-import authHeader from './auth-header';
-
-const API_URL = process.env.REACT_APP_API_URL;
 
 function getAllUsers() {
-  return axios.get(`${API_URL}/admin/all-users`,
-    { headers: {
-      'x-access-token': authHeader()['x-access-token'],
-      'admin-user-id': authService.getCurrentUser().id,
-    },
+  return api.get('/admin/all-users',
+    {
+      headers: { 'admin-user-id': authService.getCurrentUser().id },
     });
 }
 
 function deleteUser(userId) {
-  return axios.delete(`${API_URL}/admin/delete-user`,
-    { headers: {
-      'x-access-token': authHeader()['x-access-token'],
-      'admin-user-id': authService.getCurrentUser().id,
-    },
-    data: {
-      userId,
-    },
+  return api.delete('/admin/delete-user',
+    {
+      headers: { 'admin-user-id': authService.getCurrentUser().id },
+      data: { userId },
     });
 }
 

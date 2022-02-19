@@ -3,38 +3,31 @@
  * quiz scores (stored in DB via API), getting and updating local quiz (localstorage)
 */
 
-import axios from 'axios';
+import api from './api';
 import authService from './auth.service';
-import authHeader from './auth-header';
-
-const API_URL = process.env.REACT_APP_API_URL;
 
 // get users score for provided quiz (from API)
 function getQuizScore(quizId) {
-  const accesstoken = authHeader()['x-access-token'];
-  return axios.get(`${API_URL}/quiz/score/${quizId}`, { headers: {
-    'x-access-token': accesstoken,
-    'user-id': authService.getCurrentUser().id,
-  } });
+  return api.get(`/quiz/score/${quizId}`,
+    { headers: {
+      'user-id': authService.getCurrentUser().id,
+    } });
 }
 
 // get list of all quiz scores for a user (from API)
 function getAllQuizScores() {
-  const accesstoken = authHeader()['x-access-token'];
-  return axios.get(`${API_URL}/quiz/scores/all`, { headers: {
-    'x-access-token': accesstoken,
-    'user-id': authService.getCurrentUser().id,
-  } });
+  return api.get('/quiz/scores/all',
+    { headers: {
+      'user-id': authService.getCurrentUser().id,
+    } });
 }
 
 // update quiz score for provided quiz (from API)
 function updateQuizScore(quizId, score) {
-  const accesstoken = authHeader()['x-access-token'];
   const userid = authService.getCurrentUser().id;
-  return axios.put(`${API_URL}/quiz/score`, { quizId, score },
+  return api.put('/quiz/score', { quizId, score },
     {
       headers: {
-        'x-access-token': accesstoken,
         'user-id': userid,
       },
     });

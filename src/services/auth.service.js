@@ -1,23 +1,21 @@
 // Authentication service uses Axios for HTTP requests and LocalStorage for user information
-import axios from 'axios';
-
-const API_URL = 'http://localhost:8080/api/auth/';
+import api from './api';
+import TokenService from './token.service';
 
 // login(): POST {username, password} & save JWT to Local Storage
-const login = (username, password) => axios.post(`${API_URL}signin`, {
+const login = (username, password) => api.post('/auth/signin', {
   username,
   password,
 })
   .then((response) => {
     if (response.data.accessToken) {
-      localStorage.setItem('user', JSON.stringify(response.data));
+      TokenService.setUser(response.data);
     }
-
     return response.data;
   });
 
 // register(): POST {username, email, password}
-const register = (username, email, password) => axios.post(`${API_URL}signup`, {
+const register = (username, email, password) => api.post('/auth/signup', {
   username,
   email,
   password,
@@ -26,10 +24,10 @@ const register = (username, email, password) => axios.post(`${API_URL}signup`, {
 });
 
 // logout(): remove JWT form Local Storage
-const logout = () => localStorage.removeItem('user');
+const logout = () => TokenService.removeUser();
 
 // getCurrentUser(): get stored user information including JWT
-const getCurrentUser = () => JSON.parse(localStorage.getItem('user'));
+const getCurrentUser = () => TokenService.getUser();
 
 // redirect to login in page if not signed in
 const isLoggedIn = () => {
@@ -38,7 +36,7 @@ const isLoggedIn = () => {
 };
 
 // verfiy captcha token
-const verifyCaptchaToken = (responseToken) => axios.post(`${API_URL}verifycaptcha`, {
+const verifyCaptchaToken = (responseToken) => api.post('/auth/verifycaptcha', {
   responseToken,
 }).then((res) => res.data);
 
