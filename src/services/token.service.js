@@ -1,3 +1,8 @@
+/*
+ * All services related to JWT token and refresh token
+ * also includes getting , setting and removing user from local storage
+*/
+
 const getLocalRefreshToken = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   return user?.refreshToken;

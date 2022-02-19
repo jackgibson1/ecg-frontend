@@ -1,6 +1,6 @@
 /*
  * User services
- * get when user account was created and user credits
+ * Includes when user account was created and user credits
 */
 
 import api from './api';

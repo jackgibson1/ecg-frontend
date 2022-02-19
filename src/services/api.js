@@ -44,6 +44,7 @@ instance.interceptors.response.use(
           TokenService.updateLocalAccessToken(accessToken);
           return instance(originalConfig);
         } catch (_error) {
+          console.log('REFRESH EXPIRED!');
           Promise.reject(_error);
         }
       }
