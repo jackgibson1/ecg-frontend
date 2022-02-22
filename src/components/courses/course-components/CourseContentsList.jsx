@@ -82,7 +82,7 @@ export default function CourseContentsList(props) {
         open={open}
         onClose={handleClose}
       >
-        <Box sx={styles.courseContentsList.m}>
+        <Box sx={styles.courseContentsList.modal}>
           <Typography variant="h6" component="h2">
             You haven&apos;t yet completed this section!
           </Typography>
