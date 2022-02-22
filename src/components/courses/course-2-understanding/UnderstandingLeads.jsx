@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable max-len */
-/* eslint-disable react/no-unescaped-entities */
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import Box from '@mui/material/Box';
@@ -8,17 +5,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import chestLeads from '../../../assets/images/courses/course-2-understanding/chestLeads.png';
 import otherLeads from '../../../assets/images/courses/course-2-understanding/otherLeads.png';
-
-const styles = {
-  figure: { display: 'inline-block', textAlign: 'left' },
-  image: { height: '250px', width: '600px', border: '2px solid #FF0000', borderRadius: 5, marginTop: '1%' },
-};
+import { styles } from '../styles';
 
 const tabOutputs = [
   (
     <>
       <Grid item xs={7}>
-        <img src={chestLeads} style={styles.image} alt="normalsr" />
+        <img src={chestLeads} style={styles.understandingLeads.image} alt="Graph showing the leads produced by the chest electrodes" />
       </Grid>
       <Grid item xs={5} sx={{ paddingLeft: '2%' }}>
         <Typography variant="h6" align="left">
@@ -51,7 +44,7 @@ const tabOutputs = [
         </ol>
       </Grid>
       <Grid item xs={7}>
-        <img src={otherLeads} style={styles.image} alt="normalsr" />
+        <img src={otherLeads} style={styles.understandingLeads.image} alt="Diagram showing the remaining leads produced by the electrodes." />
       </Grid>
     </>
   ),
@@ -65,7 +58,7 @@ export default function UnderstandingLeads() {
   };
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>How The 12-Lead ECG Works (3/4)</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>How The 12-Lead ECG Works (3/4)</Typography>
       <Grid container justify="left">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }}>
           <Typography variant="h5" align="left" sx={{ fontWeight: 'bold' }}><u>Leads</u></Typography>

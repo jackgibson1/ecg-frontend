@@ -3,13 +3,14 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import WaveformImage from '../../../assets/images/courses/course-2-understanding/waveform2.png';
+import { styles } from '../styles';
 
 export default function UnderstandingWaveformTwo() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', marginBottom: '0.5%', fontWeight: 'bold' }}>The Shape Of The ECG Waveform (2/2)</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>The Shape Of The ECG Waveform (2/2)</Typography>
       <Grid container justify="center">
-        <Grid item xs={6} sx={{ marginTop: '10px', paddingLeft: '2%' }} align="left">
+        <Grid item xs={6} sx={styles.understandingWaveformTwo.gridLeft} align="left">
           <Typography variant="h6" sx={{ fontWeight: 'bold' }} align="left">Does the height of the wave mean anything?</Typography>
           <ul style={{ marginBottom: '3%' }}>
             <li style={{ marginBottom: '2%' }}>
@@ -40,8 +41,8 @@ export default function UnderstandingWaveformTwo() {
           </ul>
         </Grid>
         <Grid item xs={6} sx={{ marginTop: '10px' }}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={WaveformImage} style={{ height: '250px', width: '400px', border: '2px solid #FF0000', borderRadius: 10, marginBottom: '2%' }} alt="normalsr" />
+          <figure style={styles.understandingWaveformTwo.figure}>
+            <img src={WaveformImage} style={styles.understandingWaveformTwo.image} alt="normalsr" />
             <figcaption>
               As a depolarization wavefront (or mean electrical vector) moves toward a positive
               electrode, it creates a positive deflection on the ECG in the corresponding lead.

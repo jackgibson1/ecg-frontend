@@ -1,15 +1,14 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/no-unescaped-entities */
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import WaveformImage from '../../../assets/images/courses/course-2-understanding/waveform1.jpeg';
+import { styles } from '../styles';
 
 export default function UnderstandingWaveformOne() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', marginBottom: '0.5%', fontWeight: 'bold' }}>The Shape Of The ECG Waveform (1/2)</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>The Shape Of The ECG Waveform (1/2)</Typography>
       <Grid container justify="center">
-        <Grid item xs={6} sx={{ marginTop: '10px', paddingLeft: '2%' }} align="left">
+        <Grid item xs={6} sx={styles.understandingWaveformOne.gridLeft} align="left">
           <Typography variant="h6" sx={{ fontWeight: 'bold' }} align="left">Explaining the graph shapes:</Typography>
           <ul>
             <li style={{ marginBottom: '2%' }}>
@@ -43,7 +42,7 @@ export default function UnderstandingWaveformOne() {
         </Grid>
         <Grid item xs={6} sx={{ marginTop: '10px' }}>
           <figure>
-            <img src={WaveformImage} style={{ height: '300px', width: '400px', border: '2px solid #FF0000', borderRadius: 10, marginTop: '5%' }} alt="normalsr" />
+            <img src={WaveformImage} style={styles.understandingWaveformOne.image} alt="normalsr" />
             <figcaption>
               Since the direction of atrial depolarization is almost exactly parallel to the axis
               of lead II (which is from RA to LL), a positive-going deflection (P wave) would

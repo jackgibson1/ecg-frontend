@@ -1,18 +1,13 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import ecgLead from '../../../assets/images/courses/course-2-understanding/ecglead.jpeg';
 import ecgElectrodes from '../../../assets/images/courses/course-2-understanding/ecgelectrodes.jpeg';
-
-const styles = {
-  figure: { display: 'inline-block', textAlign: 'left' },
-  image: { height: '250px', width: '500px', border: '5px solid #FF0000', borderRadius: 10, marginTop: '1%' },
-};
+import { styles } from '../styles';
 
 export default function UnderstandingTwelveLeads() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>How The 12-Lead ECG Works (1/4)</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>How The 12-Lead ECG Works (1/4)</Typography>
       <Grid container justify="left">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }}>
           <Typography variant="h5" align="left" sx={{ fontWeight: 'bold' }}>Electrodes Vs Leads</Typography>
@@ -21,8 +16,8 @@ export default function UnderstandingTwelveLeads() {
           </Typography>
         </Grid>
         <Grid item xs={6}>
-          <figure style={styles.figure}>
-            <img src={ecgElectrodes} style={styles.image} alt="normalsr" />
+          <figure style={styles.understandingTwelveLeads.figure}>
+            <img src={ecgElectrodes} style={styles.understandingTwelveLeads.image} alt="normalsr" />
             <figcaption>
               An ECG
               {' '}
@@ -34,8 +29,8 @@ export default function UnderstandingTwelveLeads() {
           </figure>
         </Grid>
         <Grid item xs={6}>
-          <figure style={styles.figure}>
-            <img src={ecgLead} style={styles.image} alt="normalsr" />
+          <figure style={styles.understandingTwelveLeads.figure}>
+            <img src={ecgLead} style={styles.understandingTwelveLeads.image} alt="normalsr" />
             <figcaption>
               An ECG
               {' '}

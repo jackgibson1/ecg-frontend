@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable max-len */
-/* eslint-disable react/no-unescaped-entities */
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import Box from '@mui/material/Box';
@@ -8,11 +5,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import chestElectrodes from '../../../assets/images/courses/course-2-understanding/chestelectrodes.jpeg';
 import limbElectrodes from '../../../assets/images/courses/course-2-understanding/limbelectrodes.png';
-
-const styles = {
-  figure: { display: 'inline-block', textAlign: 'left' },
-  image: { height: '220px', width: '500px', border: '2px solid #FF0000', borderRadius: 5, marginTop: '1%' },
-};
+import { styles } from '../styles';
 
 const tabOutputs = [
   (
@@ -31,7 +24,7 @@ const tabOutputs = [
         </ol>
       </Grid>
       <Grid item xs={7}>
-        <img src={chestElectrodes} style={styles.image} alt="normalsr" />
+        <img src={chestElectrodes} style={styles.understandingElectrodes.image} alt="Diagram showing the positioning of the left electrodes" />
       </Grid>
     </>
   ),
@@ -63,7 +56,7 @@ export default function UnderstandingElectrodes() {
   };
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>How The 12-Lead ECG Works (2/4)</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>How The 12-Lead ECG Works (2/4)</Typography>
       <Grid container justify="left">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }}>
           <Typography variant="h5" align="left" sx={{ fontWeight: 'bold' }}><u>Electrodes</u></Typography>

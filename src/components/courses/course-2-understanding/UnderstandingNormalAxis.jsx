@@ -4,11 +4,12 @@ import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import NormalAxisImage from '../../../assets/images/courses/course-2-understanding/normalaxis1.jpeg';
 import AllAxisImage from '../../../assets/images/courses/course-2-understanding/allaxis.png';
+import { styles } from '../styles';
 
 export default function UnderstandingNormalAxis() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Normal Cardiac Axis</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Normal Cardiac Axis</Typography>
       <Grid container justify="center">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }} align="left">
           <Typography variant="h6" align="left">
@@ -36,16 +37,16 @@ export default function UnderstandingNormalAxis() {
           </ul>
         </Grid>
         <Grid item xs={6}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={NormalAxisImage} style={{ height: '230px', width: '400px', border: '2px solid #FF0000', borderRadius: 10 }} alt="normalsr" />
+          <figure style={styles.understandingNormal.figure}>
+            <img src={NormalAxisImage} style={styles.understandingNormal.image} alt="normalsr" />
             <figcaption>
               Diagram highlighting normal cardiac axis.
             </figcaption>
           </figure>
         </Grid>
         <Grid item xs={6}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={AllAxisImage} style={{ height: '230px', width: '400px', border: '2px solid #FF0000', borderRadius: 10 }} alt="normalsr" />
+          <figure style={styles.understandingNormal.figure}>
+            <img src={AllAxisImage} style={styles.understandingNormal.image} alt="normalsr" />
             <figcaption>
               All cardiac axes.
             </figcaption>

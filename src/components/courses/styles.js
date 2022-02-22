@@ -37,6 +37,7 @@ export const styles = {
       boxShadow: 10,
     },
   },
+
   courseContentsList: {
     modal: {
       position: 'absolute',
@@ -52,11 +53,20 @@ export const styles = {
       p: 4,
     },
   },
+
   sectionTitle: {
     marginTop: '2%',
     fontWeight: 'bold',
     textDecoration: 'underline',
   },
+
+  sectionStepper: {
+    maxWidth: 400,
+    flexGrow: 1,
+    borderRadius: 3,
+    backgroundColor: 'transparent',
+  },
+
   understandingIntroduction: {
     image: {
       height: '300px',
@@ -66,6 +76,7 @@ export const styles = {
       marginTop: '7%',
     },
   },
+
   understandingWaves: {
     image: {
       height: '300px',
@@ -74,14 +85,16 @@ export const styles = {
       paddingRight: '5%',
     },
   },
+
   understandingBasicWaves: {
     image: {
       height: '300px',
       width: '500px',
       borderRadius: 10,
-      marginTop: '5%',
+      marginTop: '7%',
     },
   },
+
   understandingSegmentsVsIntervals: {
     image: {
       height: '250px',
@@ -93,6 +106,105 @@ export const styles = {
       marginBottom: '1%',
       paddingLeft: '2%',
     },
+  },
+
+  understandingThreeSegments: {
+    image: {
+      height: '150px',
+      width: '900px',
+      borderRadius: 10,
+    },
+  },
+
+  understandingFourIntervals: {
+    numberList: {
+      marginTop: '1%',
+      paddingLeft: '2%',
+    },
+  },
+
+  understandingFiveFourThree: {
+    title: {
+      marginTop: '1%',
+      fontWeight: 'bold',
+    },
+    paraList: {
+      marginTop: '1%',
+      marginLeft: '2%',
+    },
+    image: {
+      height: '350px',
+      width: '500px',
+      borderRadius: 10,
+      marginTop: '1%',
+    },
+  },
+
+  understandingElectrical: {
+    steps: {
+      marginTop: '15%',
+      fontWeight: 'bold',
+    },
+  },
+
+  understandingReading: {
+    imageLeft: {
+      height: '300px',
+      width: '500px',
+      borderRadius: 10,
+      marginTop: '1%',
+    },
+    imageRight: {
+      height: '180px',
+      width: '500px',
+      borderRadius: 10,
+      marginTop: '1%',
+    },
+  },
+
+  understandingTwelveLeads: {
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '250px', width: '500px', borderRadius: 10, boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', marginTop: '1%' },
+  },
+
+  understandingElectrodes: {
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '220px', width: '500px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 5, marginTop: '1%' },
+  },
+
+  understandingLeads: {
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '250px', width: '600px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 5, marginTop: '1%' },
+  },
+  understandingWaveformOne: {
+    gridLeft: { marginTop: '10px', paddingLeft: '2%' },
+    image: { height: '300px', width: '400px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10, marginTop: '5%' },
+  },
+  understandingWaveformTwo: {
+    gridLeft: { marginTop: '10px', paddingLeft: '2%' },
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '250px', width: '400px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10, marginBottom: '2%' },
+  },
+  understandingPathology: {
+    gridLeft: { marginTop: '10px', paddingLeft: '2%' },
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '250px', width: '400px', borderRadius: 10, marginBottom: '2%', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)' },
+  },
+  understandingCardiac: {
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '250px', width: '400px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10 },
+  },
+  understandingNormal: {
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '230px', width: '400px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10 },
+  },
+  understandingRight: {
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '230px', width: '400px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10 },
+  },
+  understandingLeft: {
+    figure: { display: 'inline-block', textAlign: 'left' },
+    image: { height: '270px', width: '500px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10 },
   },
 };
 

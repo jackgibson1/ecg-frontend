@@ -2,11 +2,12 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import pqrstRepeat from '../../../assets/images/courses/course-2-understanding/pqrst-repeat.png';
+import { styles } from '../styles';
 
 export default function UnderstandingThreeSegments() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '2%', fontWeight: 'bold', textDecoration: 'underline' }}>The Three Basic Segments</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>The Three Basic Segments</Typography>
       <Grid container justify="left">
         <Grid item xs={12} sx={{ marginLeft: '2%' }}>
           <Typography variant="body1" align="left" sx={{ marginTop: '2%' }}>
@@ -40,7 +41,7 @@ export default function UnderstandingThreeSegments() {
         </Grid>
         <Grid item xs={12}>
           <figure>
-            <img src={pqrstRepeat} style={{ height: '150px', width: '900px', borderRadius: 10, marginTop: '0%' }} alt="normalsr" />
+            <img src={pqrstRepeat} style={styles.understandingThreeSegments.image} alt="normalsr" />
             <figcaption>
               The basic cardiac cycle (P–QRS–T) normally repeats itself again and again.
             </figcaption>

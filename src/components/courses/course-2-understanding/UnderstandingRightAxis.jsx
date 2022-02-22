@@ -3,11 +3,12 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import RightAxisImage from '../../../assets/images/courses/course-2-understanding/rightaxis.jpeg';
+import { styles } from '../styles';
 
 export default function UnderstandingRightAxis() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Right Axis Deviation</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Right Axis Deviation</Typography>
       <Grid container justify="center">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }} align="left">
           <Typography variant="h6" align="left">
@@ -32,8 +33,8 @@ export default function UnderstandingRightAxis() {
           </ul>
         </Grid>
         <Grid item xs={12}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={RightAxisImage} style={{ height: '230px', width: '400px', border: '2px solid #FF0000', borderRadius: 10 }} alt="normalsr" />
+          <figure style={styles.understandingRight.figure}>
+            <img src={RightAxisImage} style={styles.understandingRight.image} alt="normalsr" />
             <figcaption>
               Diagram showing right axis deviation.
             </figcaption>

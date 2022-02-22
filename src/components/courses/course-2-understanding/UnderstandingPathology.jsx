@@ -4,13 +4,14 @@ import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import PathologyImage from '../../../assets/images/courses/course-2-understanding/pathology.jpeg';
 import PathologyImage2 from '../../../assets/images/courses/course-2-understanding/pathology2.png';
+import { styles } from '../styles';
 
 export default function UnderstandingPathology() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', marginBottom: '0.5%', fontWeight: 'bold' }}>Localising Pathology On The ECG</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Localising Pathology On The ECG</Typography>
       <Grid container justify="center">
-        <Grid item xs={12} sx={{ marginTop: '10px', paddingLeft: '2%' }} align="left">
+        <Grid item xs={12} sx={styles.understandingPathology.gridLeft} align="left">
           <Typography variant="h6" align="left">
             Which Leads Represent Which Area Of The Heart?
           </Typography>
@@ -28,16 +29,16 @@ export default function UnderstandingPathology() {
           </ul>
         </Grid>
         <Grid item xs={6}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={PathologyImage} style={{ height: '250px', width: '400px', border: '2px solid #FF0000', borderRadius: 10, marginBottom: '2%' }} alt="normalsr" />
+          <figure style={styles.understandingPathology.figure}>
+            <img src={PathologyImage} style={styles.understandingPathology.image} alt="Table showing views of heart and their leads." />
             <figcaption>
               Views of the heart and their leads.
             </figcaption>
           </figure>
         </Grid>
         <Grid item xs={6}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={PathologyImage2} style={{ height: '250px', width: '400px', border: '2px solid #FF0000', borderRadius: 10, marginBottom: '2%' }} alt="normalsr" />
+          <figure style={styles.understandingPathology.figure}>
+            <img src={PathologyImage2} style={styles.understandingPathology.image} alt="Visual illustration of heart plane." />
             <figcaption>
               Diagram illustrating how all 12 leads are generated.
             </figcaption>

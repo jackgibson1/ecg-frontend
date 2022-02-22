@@ -1,11 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
+import { styles } from '../styles';
 
 export default function UnderstandingIntroduction() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', marginBottom: '0.5%', fontWeight: 'bold' }}>How The 12-Lead ECG Works (4/4)</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>How The 12-Lead ECG Works (4/4)</Typography>
       <Typography variant="body" sx={{ fontWeight: 'bold' }}>This short 3 minute video summarises all our learnings so far:</Typography>
       <Grid container justify="center">
         <Grid item xs={12} sx={{ marginTop: '10px' }}>

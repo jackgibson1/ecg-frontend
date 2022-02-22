@@ -4,11 +4,12 @@ import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import CardiacAxisImage1 from '../../../assets/images/courses/course-2-understanding/cardiacaxis1.png';
 import CardiacAxisImage2 from '../../../assets/images/courses/course-2-understanding/cardiacaxis2.jpeg';
+import { styles } from '../styles';
 
 export default function UnderstandingCardiacAxis() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Cardiac Axis</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Cardiac Axis</Typography>
       <Grid container justify="center">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }} align="left">
           <Typography variant="h6" align="left">
@@ -36,16 +37,16 @@ export default function UnderstandingCardiacAxis() {
           </ul>
         </Grid>
         <Grid item xs={6}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={CardiacAxisImage1} style={{ height: '250px', width: '400px', border: '2px solid #FF0000', borderRadius: 10 }} alt="normalsr" />
+          <figure style={styles.understandingCardiac.figure}>
+            <img src={CardiacAxisImage1} style={styles.understandingCardiac.image} alt="Electrical pulse travelling through the heart." />
             <figcaption>
               The electrical activity travelling through the heart.
             </figcaption>
           </figure>
         </Grid>
         <Grid item xs={6}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={CardiacAxisImage2} style={{ height: '250px', width: '400px', border: '2px solid #FF0000', borderRadius: 10 }} alt="normalsr" />
+          <figure style={styles.understandingCardiac.figure}>
+            <img src={CardiacAxisImage2} style={styles.understandingCardiac.image} alt="normalsr" />
             <figcaption>
               Cardiac axis diagram.
             </figcaption>

@@ -4,6 +4,7 @@ import MobileStepper from '@mui/material/MobileStepper';
 import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import { styles } from '../styles';
 
 export default function ProgressStepper(props) {
   const {
@@ -18,9 +19,7 @@ export default function ProgressStepper(props) {
       steps={numberOfSections}
       position="static"
       activeStep={counter}
-      sx={{
-        maxWidth: 400, flexGrow: 1, borderRadius: 3, backgroundColor: 'transparent',
-      }}
+      sx={styles.sectionStepper}
       nextButton={(
         <Button size="small" onClick={handleNext} disabled={counter === (numberOfSections - 1)}>
           Next

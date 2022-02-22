@@ -3,11 +3,12 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import LeftAxisImage from '../../../assets/images/courses/course-2-understanding/leftaxis.jpeg';
+import { styles } from '../styles';
 
 export default function UnderstandingLeftAxis() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Left Axis Deviation</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Left Axis Deviation</Typography>
       <Grid container justify="center">
         <Grid item xs={12} sx={{ paddingLeft: '2%' }} align="left">
           <Typography variant="h6" align="left">
@@ -28,8 +29,8 @@ export default function UnderstandingLeftAxis() {
           </ul>
         </Grid>
         <Grid item xs={12}>
-          <figure style={{ display: 'inline-block', textAlign: 'left' }}>
-            <img src={LeftAxisImage} style={{ height: '270px', width: '500px', border: '2px solid #FF0000', borderRadius: 10 }} alt="normalsr" />
+          <figure style={styles.understandingLeft.figure}>
+            <img src={LeftAxisImage} style={styles.understandingLeft.image} alt="normalsr" />
             <figcaption>
               Diagram showing left axis deviation.
             </figcaption>

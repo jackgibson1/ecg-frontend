@@ -3,6 +3,7 @@
 import { Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import ProgressStepper from '../course-components/ProgressStepper';
+import { styles } from '../styles';
 
 // import all ecg heart animations
 import summary from '../../../assets/images/courses/course-2-understanding/wave-summary/summary.gif';
@@ -35,13 +36,13 @@ export default function UnderstandingElectricalHeart() {
 
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>The Electrical Impulse Travelling Through The Heart</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>The Electrical Impulse Travelling Through The Heart</Typography>
       <Grid fluid container justify="center">
         <Grid item xs={6}>
-          <img src={ecgSections[counter].image} height="400" alt="heart" />
+          <img src={ecgSections[counter].image} height="380" alt="heart" style={{ marginTop: '3%' }} />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="h6" sx={{ marginTop: '15%', fontWeight: 'bold' }}>{ecgSections[counter].name}</Typography>
+          <Typography variant="h6" sx={styles.understandingElectrical.steps}>{ecgSections[counter].name}</Typography>
           <Typography variant="body1" align="left">
             {ecgSections[counter].description}
           </Typography>

@@ -36,7 +36,7 @@ export default function UnderstandingWaves() {
       <Typography variant="h5" sx={styles.sectionTitle}>Five Basic Waveforms</Typography>
       <Grid container>
         <Grid item xs={6} sx={{ paddingLeft: '2%' }}>
-          <Typography variant="h6" sx={{ marginTop: '4%' }}>The Five Basic Waveforms</Typography>
+          <Typography variant="h6" sx={{ marginTop: '7%' }}>The Five Basic Waveforms</Typography>
           <Typography sx={{ marginTop: '2%' }} variant="body1" align="left">
             Click on each of the waveforms to find out more:
           </Typography>
