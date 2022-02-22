@@ -2,14 +2,15 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import mainComponents from '../../../assets/images/courses/course-2-understanding/majorecgcomponents.png';
+import { styles } from '../styles';
 
 export default function UnderstandingSegmentsVsIntervals() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>ECG Segments Vs ECG Intervals</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>ECG Segments Vs ECG Intervals</Typography>
       <Grid container justify="center">
         <Grid item xs={12}>
-          <Typography variant="body1" align="left" sx={{ marginTop: '2%', marginBottom: '1%', paddingLeft: '2%' }}>
+          <Typography variant="body1" align="left" sx={styles.understandingSegmentsVsIntervals.paraOne}>
             ECG interpretation also requires careful assessment
             of the time within and between various waveforms.
             Segments are defined as the portions of the ECG
@@ -20,8 +21,8 @@ export default function UnderstandingSegmentsVsIntervals() {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <img src={mainComponents} style={{ height: '250px', width: '900px', borderRadius: 10, marginTop: '0%' }} alt="normalsr" />
-          <Typography variant="body1" align="left" sx={{ marginTop: '0%', paddingLeft: '2%' }}>
+          <img src={mainComponents} style={styles.understandingSegmentsVsIntervals.image} alt="normalsr" />
+          <Typography variant="body1" align="left" sx={{ paddingLeft: '2%' }}>
             The above diagram shows the major components of the ECG graph. These can be grouped
             into 5 waveforms (P, QRS, ST, T, and U), 4 intervals (RR, PR, QRS, and QT) and 3
             segments (PR, ST, and TP). Note that the ST can be considered as both a waveform

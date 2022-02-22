@@ -2,20 +2,21 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import WaveGif from '../../../assets/images/courses/course-2-understanding/waves.gif';
+import { styles } from '../styles';
 
 export default function UnderstandingWaves() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>What is an ECG wave?</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>What is an ECG wave?</Typography>
       <Grid container justify="center">
         <Grid item xs={6}>
           <figure>
-            <img src={WaveGif} style={{ height: '300px', width: '500px', border: '5px solid #FF0000', borderRadius: 20, marginTop: '5%' }} alt="normalsr" />
+            <img src={WaveGif} style={styles.understandingWaves.image} alt="normalsr" />
             <figcaption>The electrical energy travelling through the heart.</figcaption>
           </figure>
         </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h6" sx={{ marginTop: '4%' }}>How are these waves produced?</Typography>
+        <Grid item xs={6} sx={{ paddingRight: '2%' }}>
+          <Typography variant="h6" sx={{ marginTop: '7%' }}>How are these waves produced?</Typography>
           <Typography variant="body1" align="left">
             The ECG measures the electrical activity of the heart. This electrical activity
             controls the heart beat. Special cells called pacemakers release bursts of

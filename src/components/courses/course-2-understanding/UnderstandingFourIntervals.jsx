@@ -5,7 +5,7 @@ import React from 'react';
 export default function UnderstandingFourIntervals() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>The Four Sets Of Intervals</Typography>
+      <Typography variant="h5" sx={{ marginTop: '2%', fontWeight: 'bold', textDecoration: 'underline' }}>The Four Sets Of Intervals</Typography>
       <Grid container justify="left">
         <Grid item xs={12} sx={{ marginLeft: '2%' }}>
           <Typography variant="body1" align="left" sx={{ marginTop: '2%' }}>

@@ -4,6 +4,7 @@ import React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import FiveWaveforms from '../../../assets/images/courses/course-2-understanding/fivewaveforms.png';
+import { styles } from '../styles';
 
 const waveforms = [{
   name: 'P wave - atrial depolarisation',
@@ -32,7 +33,7 @@ export default function UnderstandingWaves() {
 
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Five Basic Waveforms</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Five Basic Waveforms</Typography>
       <Grid container>
         <Grid item xs={6} sx={{ paddingLeft: '2%' }}>
           <Typography variant="h6" sx={{ marginTop: '4%' }}>The Five Basic Waveforms</Typography>
@@ -41,7 +42,7 @@ export default function UnderstandingWaves() {
           </Typography>
           <Stack sx={{ marginTop: '1%' }} spacing={1}>
             {waveforms.map((wv, index) => (
-              <Button variant={wv.description === selectedWave ? 'contained' : 'outlined'} onClick={() => setSelectedWave(wv.description)}>{`${(index + 1)}. ${wv.name}`}</Button>
+              <Button sx={{ boxShadow: 5 }} variant={wv.description === selectedWave ? 'contained' : 'outlined'} onClick={() => setSelectedWave(wv.description)}>{`${(index + 1)}. ${wv.name}`}</Button>
             ))}
           </Stack>
           <Typography sx={{ marginTop: '2%' }} variant="body1" align="left">
@@ -50,7 +51,7 @@ export default function UnderstandingWaves() {
         </Grid>
         <Grid item xs={6}>
           <figure>
-            <img src={FiveWaveforms} style={{ height: '300px', width: '500px', borderRadius: 10, marginTop: '5%' }} alt="normalsr" />
+            <img src={FiveWaveforms} style={styles.understandingBasicWaves.image} alt="normalsr" />
             <figcaption>
               The P wave represents atrial depolarization. The PR
               interval is the time from initial stimulation of the atria to initial

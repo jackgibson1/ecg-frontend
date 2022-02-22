@@ -6,7 +6,7 @@ import pqrstRepeat from '../../../assets/images/courses/course-2-understanding/p
 export default function UnderstandingThreeSegments() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>The Three Basic Segments</Typography>
+      <Typography variant="h5" sx={{ marginTop: '2%', fontWeight: 'bold', textDecoration: 'underline' }}>The Three Basic Segments</Typography>
       <Grid container justify="left">
         <Grid item xs={12} sx={{ marginLeft: '2%' }}>
           <Typography variant="body1" align="left" sx={{ marginTop: '2%' }}>

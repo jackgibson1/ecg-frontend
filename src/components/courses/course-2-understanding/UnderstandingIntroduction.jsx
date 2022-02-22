@@ -2,21 +2,21 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import NormalSR from '../../../assets/images/courses/course-2-understanding/normalsr.gif';
+import { styles } from '../styles';
 
 export default function UnderstandingIntroduction() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>What is an ECG?</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>What is an ECG?</Typography>
       <Grid container justify="center">
         <Grid item xs={6}>
           <figure>
-            <img src={NormalSR} style={{ height: '300px', width: '500px', border: '5px solid #FF0000', borderRadius: 10, marginTop: '5%' }} alt="normalsr" />
+            <img src={NormalSR} style={styles.understandingIntroduction.image} alt="normalsr" />
             <figcaption>ECG - Normal Sinus Rythm</figcaption>
           </figure>
-
         </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h6" sx={{ marginTop: '4%' }}>Introductory Overview</Typography>
+        <Grid item xs={6} sx={{ paddingRight: '2%' }}>
+          <Typography variant="h6" sx={{ marginTop: '7%' }}>Introductory Overview</Typography>
           <Typography variant="body1" align="left">
             An electrocardiogram is referred to as an ECG. It is used to discover and pinpoint
             disease by recording the electrical activity of the heart from various perspectives.

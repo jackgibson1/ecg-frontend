@@ -49,7 +49,9 @@ export default function CourseContentsList(props) {
       <List
         sx={{
           width: '100%',
-          maxHeight: 510,
+          height: '48vh',
+          minHeight: '510px',
+          maxHeight: 680,
           maxWidth: '100%',
           paddingRight: '3%',
           position: 'relative',
