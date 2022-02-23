@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Typography, Grid, Box, Button } from '@mui/material';
 import QuizIcon from '@mui/icons-material/Quiz';

@@ -5,34 +5,23 @@ import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { styles } from '../styles';
 
 export default function CourseRating(props) {
   const { lastUpdated, timeToComplete } = props;
 
   return (
     <>
-      <Box
-        sx={{
-          '& > legend': { mt: 2 },
-          display: 'flex',
-          marginTop: 2,
-        }}
-      >
+      <Box sx={styles.courseTimeAndUpdated.box}>
         <CalendarTodayIcon />
         <Box>
-          <Typography sx={{ ml: 2 }} style={{ color: '#808080' }} variant="body">{`Last Updated: ${lastUpdated}`}</Typography>
+          <Typography sx={styles.courseTimeAndUpdated.text} variant="body">{`Last Updated: ${lastUpdated}`}</Typography>
         </Box>
       </Box>
-      <Box
-        sx={{
-          '& > legend': { mt: 2 },
-          display: 'flex',
-          marginTop: 2,
-        }}
-      >
+      <Box sx={styles.courseTimeAndUpdated.box}>
         <AccessTimeIcon />
         <Box>
-          <Typography sx={{ ml: 2 }} style={{ color: '#808080' }} variant="body">{`${timeToComplete} (approx)`}</Typography>
+          <Typography sx={styles.courseTimeAndUpdated.text} variant="body">{`${timeToComplete} (approx)`}</Typography>
         </Box>
       </Box>
     </>

@@ -1,4 +1,4 @@
-/* eslint-disable quotes */
+/* eslint-disable  */
 import React from 'react';
 
 // importing course card images
@@ -39,7 +39,7 @@ import UnderstandingRightAxis from '../course-2-understanding/UnderstandingRight
 import UnderstandingLeftAxis from '../course-2-understanding/UnderstandingLeftAxis'; // 20
 import UnderstandingCardiacVideo from '../course-2-understanding/UnderstandingCardiacVideo'; // 21
 
-const courseDetails = [
+const CourseDetails = [
   {
     id: 1,
     title: 'Heart Fundamentals',
@@ -130,4 +130,4 @@ const courseDetails = [
   },
 ];
 
-export default courseDetails;
+export default CourseDetails;

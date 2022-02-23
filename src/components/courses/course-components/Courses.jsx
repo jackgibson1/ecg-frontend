@@ -1,14 +1,12 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import { Box, Grid } from '@mui/material';
 import CourseCard from './CourseCard';
-import courseDetails from './courseDetails';
-import CourseBackgroundImage from '../../../assets/images/courses/coursebackground.jpg';
+import courseDetails from './CourseDetails';
 import CourseService from '../../../services/course.service';
 import LoadingPage from '../../LoadingPage';
+import { styles } from '../styles';
 
-function Courses(props) {
+function Courses() {
   const [isLoading, setLoading] = useState(true);
   const [positions, setPositions] = useState([]);
   const [ratings, setRatings] = useState([]);
@@ -30,7 +28,6 @@ function Courses(props) {
         setCompletions(courseCompletions.data);
         setLoading(false);
       }).catch((err) => {
-        // eslint-disable-next-line no-console
         console.log(err);
       });
   }, []);
@@ -40,10 +37,7 @@ function Courses(props) {
   }
 
   return (
-    <Box sx={{
-      paddingTop: '2%', paddingLeft: '2%', paddingBottom: '2%', backgroundImage: `url(${CourseBackgroundImage})`, backgroundSize: 'cover',
-    }}
-    >
+    <Box sx={styles.coursePage.outerBox}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {courseDetails.map((course, index) => (
           <Grid item xs={2} sm={4} md={4} key={Math.random()} sx={{ textAlign: 'center' }}>
@@ -54,7 +48,6 @@ function Courses(props) {
               completion={completions[index]}
             />
           </Grid>
-
         ))}
       </Grid>
     </Box>

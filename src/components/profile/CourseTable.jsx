@@ -1,12 +1,11 @@
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import CourseService from '../../services/course.service';
 import QuizService from '../../services/quiz.service';
-import CourseDetails from '../courses/course-components/courseDetails';
+import CourseDetails from '../courses/course-components/CourseDetails';
 import QuizDetails from '../quizzes/quiz-components/quizDetails';
 
 const courseColumns = [
@@ -82,7 +81,6 @@ const quizColumns = [
 ];
 
 export default function CourseTable(props) {
-  // eslint-disable-next-line react/prop-types
   const { isCourseTable } = props;
   const [courseRows, setCourseRows] = useState([]);
   const [quizRows, setQuizRows] = useState([]);

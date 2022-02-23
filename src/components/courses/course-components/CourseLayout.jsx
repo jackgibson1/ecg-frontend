@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import courseDetails from './courseDetails';
+import CourseDetails from './CourseDetails';
 import CourseContentsList from './CourseContentsList';
 import CourseProgressStepper from './CourseProgressStepper';
 import CourseCompleted from './CourseCompleted';
@@ -15,7 +15,7 @@ import { CourseContentsLayout, CourseSectionLayout, styles } from '../styles';
 export default function CourseLayout(props) {
   // get path and find course which matches current path
   const { pathname, state } = props.location;
-  const course = courseDetails.find((cse) => cse.path === pathname);
+  const course = CourseDetails.find((cse) => cse.path === pathname);
   const [loading, setLoading] = useState(true);
 
   // state to track users current position (navigating back and forth through sections)

@@ -32,26 +32,15 @@ export default function CourseContentsList(props) {
   }
 
   return (
-    <nav aria-label="main mailbox folders">
+    <nav>
       <List
-        sx={{
-          width: '100%',
-          height: '48vh',
-          minHeight: '510px',
-          maxHeight: 680,
-          maxWidth: '100%',
-          paddingRight: '3%',
-          position: 'relative',
-          overflow: overflow ? 'auto' : '',
-          '& ul': { padding: 0 },
-        }}
+        sx={Object.assign(styles.courseContentsList.list, { overflow: overflow ? 'auto' : '' })}
         subheader={(
           <ListSubheader align="left">
             {`Course Contents (${sections.length}) `}
           </ListSubheader>
-)}
+      )}
       >
-        {/* eslint-disable-next-line react/prop-types */}
         {sections.map((section, index) => (
           <>
             <ListItem
