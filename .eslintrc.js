@@ -24,5 +24,6 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'max-len': 'off',
     'react/no-unescaped-entities': 'off',
+    'react/prop-types': 'off',
   },
 };

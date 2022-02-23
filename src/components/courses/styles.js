@@ -19,6 +19,18 @@ export const styles = {
   sectionTitle: { marginTop: '2%', fontWeight: 'bold', textDecoration: 'underline' },
   sectionStepper: { maxWidth: 400, flexGrow: 1, borderRadius: 3, backgroundColor: 'transparent' },
 
+  /* COURSE COMPLETION */
+  courseCompleted: {
+    leftGrid: { marginTop: '10px', textAlign: 'left', paddingLeft: '5%' },
+    rightGrid: { marginTop: '10px', textAlign: 'left', height: '300px' },
+  },
+  courseRatingUser: {
+    box: { '& > legend': { mt: 2 }, display: 'flex', textAlign: 'center' },
+  },
+  courseCompletedButton: {
+    box: { display: 'flex', flexDirection: 'column', alignItems: 'center' },
+    backToCourses: { borderRadius: 3, mt: '10px' },
+  },
   /* UNDERSTANDING COURSE */
   understandingIntroduction: {
     image: { height: '300px', width: '500px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10, marginTop: '7%' },

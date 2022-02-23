@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { styles } from '../styles';
 
 const StyledRating = styled(Rating)({
   '& .MuiRating-iconFilled': {
@@ -19,13 +20,7 @@ export default function CourseUserRating(props) {
   const { userRating, setUserRating } = props;
 
   return (
-    <Box
-      sx={{
-        '& > legend': { mt: 2 },
-        display: 'flex',
-        textAlign: 'center',
-      }}
-    >
+    <Box sx={styles.courseRatingUser.box}>
       <StyledRating
         value={userRating}
         onChange={(event, newValue) => {

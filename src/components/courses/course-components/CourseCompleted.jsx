@@ -6,6 +6,7 @@ import QuizIcon from '@mui/icons-material/Quiz';
 import CourseCompleteButton from './CourseCompleteButton';
 import CourseRatingUser from './CourseRatingUser';
 import authService from '../../../services/auth.service';
+import { styles } from '../styles';
 
 function CourseCompleted(props) {
   const { course, history } = props;
@@ -24,7 +25,7 @@ function CourseCompleted(props) {
       <Grid item xs={12}>
         <Typography variant="h3" sx={{ marginTop: '10px' }}>{`Congratulations ${authService.getCurrentUser().username}!`}</Typography>
       </Grid>
-      <Grid item xs={6} sx={{ marginTop: '10px', textAlign: 'left', paddingLeft: '5%' }}>
+      <Grid item xs={6} sx={styles.courseCompleted.leftGrid}>
         <Box>
           <Typography style={{ textDecoration: 'underline' }} variant="h5">Details</Typography>
           <Typography variant="body1" sx={{ marginTop: '10px' }}>{`The following course is now completed: ${course.title}`}</Typography>
@@ -34,19 +35,12 @@ function CourseCompleted(props) {
             setUserRating={setUserRating}
           />
           <Typography variant="body1" sx={{ marginTop: '10px' }}>Feel free to now complete a Quiz on this topic (please claim credit before navigating to Quiz!):</Typography>
-          <Button
-            variant="outlined"
-            color="error"
-            sx={{ marginTop: '10px' }}
-            startIcon={<QuizIcon />}
-            disabled={query !== 'success'}
-            onClick={() => pushQuiz()}
-          >
+          <Button variant="outlined" color="error" sx={{ marginTop: '10px' }} startIcon={<QuizIcon />} disabled={query !== 'success'} onClick={() => pushQuiz()}>
             {`${course.id}. ${course.title} Quiz`}
           </Button>
         </Box>
       </Grid>
-      <Grid item xs={6} sx={{ marginTop: '10px', textAlign: 'left', height: '300px' }}>
+      <Grid item xs={6} sx={styles.courseCompleted.rightGrid}>
         <Box>
           <Typography style={{ textDecoration: 'underline' }} variant="h5">References</Typography>
           {course.references.map((refer) => (

@@ -22,7 +22,6 @@ const style = {
 };
 
 export default function CreditEarnedModal(props) {
-  // eslint-disable-next-line react/prop-types
   const { open, setOpen } = props;
   const handleClose = () => setOpen(false);
 
@@ -30,14 +29,12 @@ export default function CreditEarnedModal(props) {
     <Modal
       open={open}
       onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <Typography sx={{ fontWeight: 'bold' }} id="modal-modal-title" variant="h6" component="h2" textAlign="center">
+        <Typography sx={{ fontWeight: 'bold' }} variant="h6" component="h2" textAlign="center">
           You have earned 1 credit!
         </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2, fontWeight: 'bold' }} textAlign="center">
+        <Typography sx={{ mt: 2, fontWeight: 'bold' }} textAlign="center">
           Continue completing courses and quizzes to earn more credits!
         </Typography>
       </Box>

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Fade from '@mui/material/Fade';
@@ -12,10 +11,10 @@ import CheckIcon from '@mui/icons-material/Check';
 import GridViewIcon from '@mui/icons-material/GridView';
 import CourseService from '../../../services/course.service';
 import CreditEarnedModal from '../../CreditEarnedModal';
+import { styles } from '../styles';
 
 export default function CourseCompleteButton(props) {
   const history = useHistory();
-  // eslint-disable-next-line react/prop-types
   const { courseId, userRating, query, setQuery } = props;
   const [completeCourseResponse, setCompleteCourseResponse] = React.useState('');
   const [submitRatingResponse, setSubmitRatingResponse] = React.useState('');
@@ -28,7 +27,6 @@ export default function CourseCompleteButton(props) {
     }
 
     if (query === 'success') {
-      // eslint-disable-next-line react/prop-types
       history.push('/courses');
       return;
     }
@@ -65,7 +63,7 @@ export default function CourseCompleteButton(props) {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Box sx={styles.courseCompletedButton.box}>
       <Box>
         {query === 'success' ? (
           <Stack sx={{ width: '100%' }} spacing={2} direction="row">
@@ -90,7 +88,7 @@ export default function CourseCompleteButton(props) {
       </Button>
       )}
       {query === 'success' && (
-      <Button sx={{ borderRadius: 3, mt: '10px' }} variant="contained" onClick={handleClickQuery} endIcon={<GridViewIcon />}>
+      <Button sx={styles.courseCompletedButton.backToCourses} variant="contained" onClick={handleClickQuery} endIcon={<GridViewIcon />}>
         Back To Courses
       </Button>
       )}
