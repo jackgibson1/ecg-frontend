@@ -3,6 +3,7 @@
 import { Grid, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
+import { styles } from '../styles';
 
 // import all inside images
 import aotraImage from '../../../assets/images/courses/course-1-anatomy/inside/aorta.png';
@@ -53,14 +54,14 @@ export default function AnatomyInside() {
 
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Anatomy Inside The Heart</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Anatomy Inside The Heart</Typography>
       <Grid fluid container justify="center">
         <Grid item xs={6}>
           <Typography variant="h6">Right &nbsp; &nbsp; &nbsp; Left</Typography>
           <img src={selectedArea.image} alt="heart" />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="h6">Anatomy Inside</Typography>
+          <Typography sx={{ marginTop: '3%' }} variant="h6">Anatomy Inside</Typography>
           <Typography variant="body1" align="left">
             Select the name of the part of the heart or blood vessel from the list
             below to see a picture and a description of what it does:
@@ -71,7 +72,7 @@ export default function AnatomyInside() {
             ))}
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '1%' }}>
-            <Typography variant="body1" align="center" sx={{ marginTop: '2%', fontWeight: 'bold' }}>
+            <Typography variant="body1" align="center" sx={styles.anatomyInside.selectedName}>
               {selectedArea.name}
             </Typography>
             <Typography variant="body1" align="center" sx={{ marginTop: '1%' }}>
@@ -79,7 +80,6 @@ export default function AnatomyInside() {
             </Typography>
           </Grid>
         </Grid>
-
       </Grid>
     </div>
   );

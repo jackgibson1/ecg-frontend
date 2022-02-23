@@ -2,11 +2,12 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import heartIntroImage from '../../../assets/images/courses/course-1-anatomy/introduction.png';
+import { styles } from '../styles';
 
 export default function AnatomyIntroduction() {
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Introduction</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Introduction</Typography>
       <Grid container justify="center">
         <Grid item xs={6}>
           <Typography variant="h6">Right &nbsp; &nbsp; &nbsp; Left</Typography>

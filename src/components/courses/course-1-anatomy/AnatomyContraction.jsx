@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable object-curly-newline */
 import { Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import ProgressStepper from '../course-components/ProgressStepper';
+import { styles } from '../styles';
 
 // import all contraction animations
 import completeContractionAnimation from '../../../assets/images/courses/course-1-anatomy/contraction/contractionintro.gif';
@@ -22,24 +21,18 @@ const contractionSections = [
 
 export default function AnatomyBloodFlow() {
   const [counter, setCounter] = useState(0);
-
-  const handleNext = () => {
-    setCounter((prevCounter) => prevCounter + 1);
-  };
-
-  const handleBack = () => {
-    setCounter((prevCounter) => prevCounter - 1);
-  };
+  const handleNext = () => setCounter((prevCounter) => prevCounter + 1);
+  const handleBack = () => setCounter((prevCounter) => prevCounter - 1);
 
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Contraction Of The Heart</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Contraction Of The Heart</Typography>
       <Grid fluid container justify="center">
         <Grid item xs={6}>
           <img src={contractionSections[counter].image} height="400" alt="heart" />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="h6" sx={{ marginTop: '15%', fontWeight: 'bold' }}>{contractionSections[counter].name}</Typography>
+          <Typography variant="h6" sx={styles.anatomyBloodFlow.sectionName}>{contractionSections[counter].name}</Typography>
           <Typography variant="body1" align="left">
             {contractionSections[counter].description}
           </Typography>

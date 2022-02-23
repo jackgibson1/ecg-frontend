@@ -12,6 +12,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import AuthService from '../../services/auth.service';
+import { styles } from './styles';
 
 function checkAllValid(username, email, password, setFieldValid) {
   if (!isEmail(email)) {
@@ -31,7 +32,6 @@ function checkAllValid(username, email, password, setFieldValid) {
 
 function AlreadyAccount(props) {
   return (
-  // eslint-disable-next-line react/jsx-props-no-spreading
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       Already have an account?
       {' '}
@@ -46,7 +46,6 @@ const Register = (props) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // eslint-disable-next-line no-unused-vars
   const [captchaSuccess, setCaptchaSuccess] = useState(false);
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState('');
@@ -88,10 +87,8 @@ const Register = (props) => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-
     setMessage('');
     setSuccessful(false);
-
     const isValid = checkAllValid(username, email, password, setFieldValid);
     if (!isValid.valid) {
       setSuccessful(false);
@@ -99,16 +96,11 @@ const Register = (props) => {
       return;
     }
 
-    // eslint-disable-next-line no-underscore-dangle
     AuthService.register(username, email, password).then(
-      // eslint-disable-next-line no-unused-vars
       async () => {
         setMessage('Successfully registered!');
         setSuccessful(true);
-
         await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        // eslint-disable-next-line react/prop-types
         props.history.push('/courses');
         window.location.reload();
       },
@@ -128,19 +120,11 @@ const Register = (props) => {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <PersonAddAltIcon sx={{ transform: 'scale(3)', marginBottom: '10%' }} />
+      <Box sx={styles.register.outerBox}>
+        <PersonAddAltIcon sx={styles.register.signupIcon} />
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
-
         <Form onSubmit={handleRegister}>
           {!successful && (
           <Stack spacing={2} sx={{ marginTop: '5%' }}>
@@ -170,7 +154,6 @@ const Register = (props) => {
               onChange={onChangeEmail}
               error={!fieldValid.emailValid}
             />
-
             <TextField
               required
               label="Password"
@@ -181,10 +164,7 @@ const Register = (props) => {
                   </InputAdornment>
                 ),
                 endAdornment: (
-                  <IconButton
-                    onClick={() => setShowPassword(!showPassword)}
-                    aria-label="toggle password visibility"
-                  >
+                  <IconButton onClick={() => setShowPassword(!showPassword)}>
                     <InputAdornment position="end">
                       {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                     </InputAdornment>
@@ -205,7 +185,7 @@ const Register = (props) => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={styles.register.button}
               disabled={!captchaSuccess}
             >
               Sign Up
@@ -229,7 +209,7 @@ const Register = (props) => {
         )}
       </Box>
       {!successful && (
-        <AlreadyAccount sx={{ mt: 6, mb: 4 }} />
+        <AlreadyAccount sx={styles.register.alreadyAccount} />
       )}
     </Container>
   );

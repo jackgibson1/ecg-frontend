@@ -1,9 +1,9 @@
-/* eslint-disable object-curly-newline */
 /* eslint-disable react/no-unescaped-entities */
 import { Grid, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
 import heartIntroImage from '../../../assets/images/courses/course-1-anatomy/introduction.png';
+import { styles } from '../styles';
 
 // import all outside images
 import aotraImage from '../../../assets/images/courses/course-1-anatomy/outside/aorta.png';
@@ -41,7 +41,7 @@ export default function Outside() {
 
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Anatomy Outside The Heart</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Anatomy Outside The Heart</Typography>
       <Grid fluid container justify="center">
         <Grid item xs={6}>
           <Typography variant="h6">Right &nbsp; &nbsp; &nbsp; Left</Typography>
@@ -64,7 +64,7 @@ export default function Outside() {
             ))}
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '1%' }}>
-            <Typography variant="body1" align="center" sx={{ marginTop: '2%', fontWeight: 'bold' }}>
+            <Typography variant="body1" align="center" sx={styles.anatomyInside.selectedName}>
               {selectedArea.name}
             </Typography>
             <Typography variant="body1" align="center" sx={{ marginTop: '1%' }}>

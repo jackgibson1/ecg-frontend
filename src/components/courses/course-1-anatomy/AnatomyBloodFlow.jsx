@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable object-curly-newline */
 import { Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
 import ProgressStepper from '../course-components/ProgressStepper';
+import { styles } from '../styles';
 
 // import all bloodfloow animations
 import completeBloodFlowAnimation from '../../../assets/images/courses/course-1-anatomy/bloodflow/bloodflowintro.gif';
@@ -25,24 +23,18 @@ const bloodFlowSections = [
 
 export default function AnatomyBloodFlow() {
   const [counter, setCounter] = useState(0);
-
-  const handleNext = () => {
-    setCounter((prevCounter) => prevCounter + 1);
-  };
-
-  const handleBack = () => {
-    setCounter((prevCounter) => prevCounter - 1);
-  };
+  const handleNext = () => setCounter((prevCounter) => prevCounter + 1);
+  const handleBack = () => setCounter((prevCounter) => prevCounter - 1);
 
   return (
     <div>
-      <Typography variant="h5" sx={{ marginTop: '1%', fontWeight: 'bold' }}>Blood Flow Through The Heart</Typography>
+      <Typography variant="h5" sx={styles.sectionTitle}>Blood Flow Through The Heart</Typography>
       <Grid fluid container justify="center">
         <Grid item xs={6}>
           <img src={bloodFlowSections[counter].image} height="400" alt="heart" />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="h6" sx={{ marginTop: '15%', fontWeight: 'bold' }}>{bloodFlowSections[counter].name}</Typography>
+          <Typography variant="h6" sx={styles.anatomyBloodFlow.sectionName}>{bloodFlowSections[counter].name}</Typography>
           <Typography variant="body1" align="left">
             {bloodFlowSections[counter].description}
           </Typography>

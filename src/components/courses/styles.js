@@ -60,6 +60,7 @@ export const styles = {
     box: { display: 'flex', flexDirection: 'column', alignItems: 'center' },
     backToCourses: { borderRadius: 3, mt: '10px' },
   },
+
   /* UNDERSTANDING COURSE */
   understandingIntroduction: {
     image: { height: '300px', width: '500px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10, marginTop: '7%' },
@@ -133,6 +134,14 @@ export const styles = {
   understandingLeft: {
     figure: { display: 'inline-block', textAlign: 'left' },
     image: { height: '270px', width: '500px', boxShadow: '7px 7px 7px rgb(0 0 0 / 0.5)', borderRadius: 10 },
+  },
+
+  /* ANATOMY COURSE */
+  anatomyBloodFlow: {
+    sectionName: { marginTop: '15%', fontWeight: 'bold' },
+  },
+  anatomyInside: {
+    selectedName: { marginTop: '2%', fontWeight: 'bold' },
   },
 };
 
