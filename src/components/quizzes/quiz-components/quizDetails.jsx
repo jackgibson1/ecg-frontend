@@ -8,14 +8,15 @@ import readingCard from '../../../assets/images/courses/cards/readingCard.jpeg';
 import partsCard from '../../../assets/images/courses/cards/partsCard.jpg';
 
 // importing anatomy quiz questions
-import Question1 from '../anatomy/Question1';
+import Question1 from '../quiz-1-anatomy/Question1';
 
-const quizDetails = [
+const QuizDetails = [
   {
     id: 1,
     title: 'Heart Fundamentals',
     description: 'Ten questions based on the Heart Fundamentals course. Questions covering all aspects of the hearts structure, blood flow and contraction.',
-    questions: [{ component: <Question1 />, answer: '1' }, { component: <h1>My!</h1>, answer: '2' }, { component: <h1>Name!</h1>, answer: '3' }, { component: <h1>Is!</h1>, answer: '4' }],
+    questions: [{ component: <Question1 />, answer: '1', answerDesc: 'The answer was the Aorta. It carries oxygen-rich blood away from the heart, to the rest of the body.' },
+      { component: <h1>My!</h1>, answer: '2' }, { component: <h1>Name!</h1>, answer: '3' }, { component: <h1>Is!</h1>, answer: '4' }],
     path: '/quizzes/anatomy',
     difficulty: 3,
     lastUpdated: '03/02/2022',
@@ -73,4 +74,4 @@ const quizDetails = [
   },
 ];
 
-export default quizDetails;
+export default QuizDetails;

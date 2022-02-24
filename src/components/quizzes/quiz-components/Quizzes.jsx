@@ -1,9 +1,8 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { Box, Grid } from '@mui/material';
-import QuizCard from './quizCard';
-import quizDetails from './quizDetails';
+import QuizCard from './QuizCard';
+import quizDetails from './QuizDetails';
 import QuizBackgroundImage from '../../../assets/images/quizzes/quizBackground.jpg';
 import LoadingPage from '../../LoadingPage';
 import QuizService from '../../../services/quiz.service';

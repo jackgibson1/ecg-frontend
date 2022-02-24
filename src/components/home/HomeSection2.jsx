@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 import QuizIcon from '@mui/icons-material/Quiz';
 import animatedQuiz from '../../assets/images/home/quizzesAnimation.gif';
-import QuizDetails from '../quizzes/quiz-components/quizDetails';
+import QuizDetails from '../quizzes/quiz-components/QuizDetails';
 
 function HomeSection2(props) {
   const { history } = props;

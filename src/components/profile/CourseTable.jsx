@@ -6,7 +6,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import CourseService from '../../services/course.service';
 import QuizService from '../../services/quiz.service';
 import CourseDetails from '../courses/course-components/CourseDetails';
-import QuizDetails from '../quizzes/quiz-components/quizDetails';
+import QuizDetails from '../quizzes/quiz-components/QuizDetails';
 
 const courseColumns = [
   { field: 'id',

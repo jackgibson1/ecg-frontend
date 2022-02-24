@@ -10,7 +10,7 @@ import Slide from '@mui/material/Slide';
 import { useHistory } from 'react-router-dom';
 import { Grid } from '@mui/material';
 import QuizIcon from '@mui/icons-material/Quiz';
-import QuizTimeSelector from './quizTimeSelecter';
+import QuizTimeSelector from './QuizTimeSelecter';
 import QuizDifficultyRating from './QuizDifficultyRating';
 import QuizDialogImage from '../../../assets/images/quizzes/quizDialogImage1.png';
 import QuizTopDialogContent from './QuizTopDialogContent';

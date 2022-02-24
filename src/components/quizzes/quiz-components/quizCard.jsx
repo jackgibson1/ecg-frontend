@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import Badge from '@mui/material/Badge';
@@ -10,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Grid, Box } from '@mui/material';
-import QuizDialog from './quizDialog';
+import QuizDialog from './QuizDialog';
 import QuizDifficultyRating from './QuizDifficultyRating';
 
 const styles = {

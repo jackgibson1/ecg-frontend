@@ -4,7 +4,7 @@ import { Grid, Typography, Alert, Box, Button } from '@mui/material';
 import QuizIcon from '@mui/icons-material/Quiz';
 import QuizService from '../../../services/quiz.service';
 import AuthService from '../../../services/auth.service';
-import quizDetails from './quizDetails';
+import quizDetails from './QuizDetails';
 
 export default function QuizComplete(props) {
   const { history } = props;

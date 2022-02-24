@@ -1,6 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
@@ -16,7 +13,7 @@ import Profile from './components/profile/Profile';
 import AuthService from './services/auth.service';
 import { SetupInterceptors } from './services/api';
 import CourseLayout from './components/courses/course-components/CourseLayout';
-import QuizLayout from './components/quizzes/quiz-components/quizLayout';
+import QuizLayout from './components/quizzes/quiz-components/QuizLayout';
 
 const theme = createTheme({
   typography: {

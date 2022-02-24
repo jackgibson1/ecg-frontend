@@ -35,7 +35,7 @@ export default function QuizPagination(props) {
         position="static"
         activeStep={currentQuestion <= totalQuestions ? currentQuestion - 1 : totalQuestions}
         sx={{
-          maxWidth: 400, borderRadius: 3, backgroundColor: 'transparent', marginLeft: '5%',
+          borderRadius: 3, backgroundColor: 'transparent', marginLeft: '5%',
         }}
         nextButton={
         (
