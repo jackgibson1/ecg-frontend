@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import { Typography, LinearProgress, Stack } from '@mui/material';
 import Countdown from 'react-countdown';
 import Alert from '@mui/material/Alert';
-import QuizBackground from '../../../assets/images/quizzes/quizLayoutbackground.jpeg';
+import QuizBackground from '../../../assets/images/quizzes/quizLayoutBG.jpg';
 import quizDetails from './QuizDetails';
 import QuizPagination from './QuizPagination';
 import QuizQuestionsList from './QuizQuestionsList';

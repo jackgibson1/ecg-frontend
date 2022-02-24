@@ -24,7 +24,7 @@ const QuizDetails = [
       { component: <Question2 />, answer: '2', answerDesc: 'The answer was 2 - it delivers deoxygenated blood from the lower body into the heart.' },
       { component: <Question3 />, answer: '3', answerDesc: 'The answer was 3 - it is 2-leafed valve that prevents blood from flowing backwards from the left ventricle into the left atrium.' },
       { component: <Question4 />, answer: '4', answerDesc: 'The answer was 4 - it shows the blood giving up carbon dioxide and absorbing oxygen.' },
-      { component: <Question5 />, answer: '2', answerDesc: 'The answer was 4 - it shows the blood giving up carbon dioxide and absorbing oxygen.' },
+      { component: <Question5 />, answer: '4', answerDesc: 'The answer was 2 - a normal heartbeat has two sounds, a lub (sometimes called S1) and a dub (S2).' },
     ],
     path: '/quizzes/anatomy',
     difficulty: 3,

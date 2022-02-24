@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import QuizService from '../../../services/quiz.service';
 
 const styles = {
@@ -70,7 +71,7 @@ export default function QuizAnswerButtons(props) {
             <FormControlLabel sx={(submitted && answer === '3') && styles.radioButtonCorrect} value="3" control={<Radio />} label="3" disabled={submitted} />
             <FormControlLabel sx={(submitted && answer === '4') && styles.radioButtonCorrect} value="4" control={<Radio />} label="4" disabled={submitted} />
           </RadioGroup>
-          <Button sx={{ marginBottom: '10px' }} type="submit" variant="contained" disabled={submitted}>
+          <Button sx={{ color: '#EE3233', marginBottom: '2%', boxShadow: 20, backdropFilter: 'blur(20px)' }} type="submit" variant="outlined" disabled={submitted} endIcon={<CheckCircleIcon />}>
             Submit Answer
           </Button>
         </FormControl>
