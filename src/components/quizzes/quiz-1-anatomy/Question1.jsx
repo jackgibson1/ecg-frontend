@@ -18,7 +18,6 @@ function Question1() {
           <Typography style={{ marginTop: '1%', marginLeft: '5%' }} align="left" variant="h6">4. Left Atrium</Typography>
         </Grid>
       </Grid>
-
     </div>
   );
 }

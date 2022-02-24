@@ -93,10 +93,15 @@ export default function QuizLayout(props) {
 
   const renderComponent = () => {
     if (alreadyAnswered) {
-      return <Alert sx={{ marginLeft: '5%', marginRight: '5%' }} variant="filled" severity="info">Question already finished!</Alert>;
+      return <Alert sx={{ marginLeft: '5%', marginRight: '5%', marginTop: '5%' }} variant="filled" severity="info">Question already answered!</Alert>;
     }
     if (!stillTime) {
-      return <Alert sx={{ marginLeft: '5%', marginRight: '5%' }} variant="filled" severity="error">You have ran out of time!</Alert>;
+      return (
+        <>
+          <Alert sx={{ marginLeft: '5%', marginRight: '5%', marginTop: '5%' }} variant="filled" severity="error">You have ran out of time!</Alert>
+          <Typography sx={{ marginTop: '3%' }} variant="body" color="red">{quiz.questions[currentQuestion - 1].answerDesc}</Typography>
+        </>
+      );
     }
     return (
       <QuizAnswerButtons

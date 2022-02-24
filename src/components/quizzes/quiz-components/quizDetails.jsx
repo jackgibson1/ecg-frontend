@@ -9,14 +9,23 @@ import partsCard from '../../../assets/images/courses/cards/partsCard.jpg';
 
 // importing anatomy quiz questions
 import Question1 from '../quiz-1-anatomy/Question1';
+import Question2 from '../quiz-1-anatomy/Question2';
+import Question3 from '../quiz-1-anatomy/Question3';
+import Question4 from '../quiz-1-anatomy/Question4';
+import Question5 from '../quiz-1-anatomy/Question5';
 
 const QuizDetails = [
   {
     id: 1,
     title: 'Heart Fundamentals',
-    description: 'Ten questions based on the Heart Fundamentals course. Questions covering all aspects of the hearts structure, blood flow and contraction.',
-    questions: [{ component: <Question1 />, answer: '1', answerDesc: 'The answer was the Aorta. It carries oxygen-rich blood away from the heart, to the rest of the body.' },
-      { component: <h1>My!</h1>, answer: '2' }, { component: <h1>Name!</h1>, answer: '3' }, { component: <h1>Is!</h1>, answer: '4' }],
+    description: 'Five questions based on the Heart Fundamentals course. Questions covering all aspects of the hearts structure, blood flow and contraction.',
+    questions: [
+      { component: <Question1 />, answer: '1', answerDesc: 'The answer was the Aorta (1). It carries oxygen-rich blood away from the heart, to the rest of the body.' },
+      { component: <Question2 />, answer: '2', answerDesc: 'The answer was 2 - it delivers deoxygenated blood from the lower body into the heart.' },
+      { component: <Question3 />, answer: '3', answerDesc: 'The answer was 3 - it is 2-leafed valve that prevents blood from flowing backwards from the left ventricle into the left atrium.' },
+      { component: <Question4 />, answer: '4', answerDesc: 'The answer was 4 - it shows the blood giving up carbon dioxide and absorbing oxygen.' },
+      { component: <Question5 />, answer: '2', answerDesc: 'The answer was 4 - it shows the blood giving up carbon dioxide and absorbing oxygen.' },
+    ],
     path: '/quizzes/anatomy',
     difficulty: 3,
     lastUpdated: '03/02/2022',
