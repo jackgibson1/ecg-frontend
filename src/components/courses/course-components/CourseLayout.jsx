@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React, { useEffect, useState } from 'react';
 import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
@@ -9,7 +7,7 @@ import CourseContentsList from './CourseContentsList';
 import CourseProgressStepper from './CourseProgressStepper';
 import CourseCompleted from './CourseCompleted';
 import CourseService from '../../../services/course.service';
-import LoadingPage from '../../LoadingPage';
+import LoadingPage from '../../misc/LoadingPage';
 import { CourseContentsLayout, CourseSectionLayout, styles } from '../styles';
 
 export default function CourseLayout(props) {

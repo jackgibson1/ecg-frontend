@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material';
-import MainAppBar from './components/MainAppBar';
+import MainAppBar from './components/misc/MainAppBar';
 import Home from './components/home/Home';
 import Courses from './components/courses/course-components/Courses';
 import Quizzes from './components/quizzes/quiz-components/Quizzes';

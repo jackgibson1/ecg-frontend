@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Typography, Box } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
-import { styles } from '../styles';
+import { styles } from '../quiz.styles';
 
 export default function QuizDifficultyRating(props) {
   const { difficulty } = props;

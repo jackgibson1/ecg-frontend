@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Box, Grid } from '@mui/material';
 import QuizCard from './QuizCard';
 import quizDetails from './QuizDetails';
-import LoadingPage from '../../LoadingPage';
+import LoadingPage from '../../misc/LoadingPage';
 import QuizService from '../../../services/quiz.service';
-import { styles } from '../styles';
+import { styles } from '../quiz.styles';
 
 function Quizzes(props) {
   const [isLoading, setLoading] = useState(true);

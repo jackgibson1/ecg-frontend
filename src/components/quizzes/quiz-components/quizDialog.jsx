@@ -5,7 +5,7 @@ import QuizTimeSelector from './QuizTimeSelecter';
 import QuizDifficultyRating from './QuizDifficultyRating';
 import QuizDialogImage from '../../../assets/images/quizzes/quizDialogImage1.png';
 import QuizTopDialogContent from './QuizTopDialogContent';
-import { styles } from '../styles';
+import { styles } from '../quiz.styles';
 
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 

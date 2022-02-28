@@ -1,6 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable max-len */
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,7 +6,7 @@ import { withStyles } from '@mui/styles';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
-import ecgLogo from '../assets/images/ecglogo.png';
+import ecgLogo from '../../assets/images/ecglogo.png';
 
 const theme = createTheme();
 

@@ -3,26 +3,15 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-// import FormHelperText from '@mui/material/FormHelperText';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import QuizService from '../../../services/quiz.service';
-
-const styles = {
-  radioButtonCorrect: {
-    border: 2,
-    borderRadius: 2,
-    paddingRight: '4px',
-    backgroundColor: 'green',
-  },
-};
+import { styles } from '../quiz.styles';
 
 export default function QuizAnswerButtons(props) {
-  const {
-    quiz, quizStorage, currentQuestion, submitted, setSubmitted,
-  } = props;
+  const { quiz, quizStorage, currentQuestion, submitted, setSubmitted } = props;
   const { answer, answerDesc } = quiz.questions[currentQuestion - 1];
   const [selectedAnswer, setSelectedAnswer] = React.useState(-1);
   const [error, setError] = React.useState(false);
@@ -66,12 +55,12 @@ export default function QuizAnswerButtons(props) {
         <FormControl error={error}>
           <FormLabel>Select Answer</FormLabel>
           <RadioGroup row value={selectedAnswer} onChange={handleChange}>
-            <FormControlLabel sx={(submitted && answer === '1') && styles.radioButtonCorrect} value="1" control={<Radio />} label="1" disabled={submitted} />
-            <FormControlLabel sx={(submitted && answer === '2') && styles.radioButtonCorrect} value="2" control={<Radio />} label="2" disabled={submitted} />
-            <FormControlLabel sx={(submitted && answer === '3') && styles.radioButtonCorrect} value="3" control={<Radio />} label="3" disabled={submitted} />
-            <FormControlLabel sx={(submitted && answer === '4') && styles.radioButtonCorrect} value="4" control={<Radio />} label="4" disabled={submitted} />
+            <FormControlLabel sx={(submitted && answer === '1') && styles.quizAnswerButtons.correct} value="1" control={<Radio />} label="1" disabled={submitted} />
+            <FormControlLabel sx={(submitted && answer === '2') && styles.quizAnswerButtons.correct} value="2" control={<Radio />} label="2" disabled={submitted} />
+            <FormControlLabel sx={(submitted && answer === '3') && styles.quizAnswerButtons.correct} value="3" control={<Radio />} label="3" disabled={submitted} />
+            <FormControlLabel sx={(submitted && answer === '4') && styles.quizAnswerButtons.correct} value="4" control={<Radio />} label="4" disabled={submitted} />
           </RadioGroup>
-          <Button sx={{ color: '#EE3233', marginBottom: '2%', boxShadow: 20, backdropFilter: 'blur(20px)' }} type="submit" variant="outlined" disabled={submitted} endIcon={<CheckCircleIcon />}>
+          <Button sx={styles.quizAnswerButtons.submit} type="submit" variant="outlined" disabled={submitted} endIcon={<CheckCircleIcon />}>
             Submit Answer
           </Button>
         </FormControl>

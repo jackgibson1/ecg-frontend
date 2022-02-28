@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Typography, Grid, Box } from '@mui/material';
 import QuizDialog from './QuizDialog';
 import QuizDifficultyRating from './QuizDifficultyRating';
-import { styles, QuizCardBadge } from '../styles';
+import { styles, QuizCardBadge } from '../quiz.styles';
 
 export default function QuizCard(props) {
   const { quiz, cameFromCourse, bestScore, history } = props;

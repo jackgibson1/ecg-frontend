@@ -1,15 +1,12 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import MobileStepper from '@mui/material/MobileStepper';
 import Button from '@mui/material/Button';
 import NextPlanIcon from '@mui/icons-material/NextPlan';
-import CreditEarnedModal from '../../CreditEarnedModal';
+import CreditEarnedModal from '../../misc/CreditEarnedModal';
 import QuizService from '../../../services/quiz.service';
 
 export default function QuizPagination(props) {
-  const {
-    currentQuestion, setCurrentQuestion, totalQuestions, quizStorage, submitted,
-  } = props;
+  const { currentQuestion, setCurrentQuestion, totalQuestions, quizStorage, submitted } = props;
   const [openModal, setOpenModal] = useState(false);
 
   const handleNext = () => {
@@ -34,9 +31,7 @@ export default function QuizPagination(props) {
         steps={totalQuestions + 1}
         position="static"
         activeStep={currentQuestion <= totalQuestions ? currentQuestion - 1 : totalQuestions}
-        sx={{
-          borderRadius: 3, backgroundColor: 'transparent', marginLeft: '5%',
-        }}
+        sx={{ borderRadius: 3, backgroundColor: 'transparent', marginLeft: '5%' }}
         nextButton={
         (
           <Button size="small" onClick={handleNext} disabled={!submitted} variant="outlined" endIcon={<NextPlanIcon />}>

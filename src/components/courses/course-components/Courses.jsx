@@ -3,7 +3,7 @@ import { Box, Grid } from '@mui/material';
 import CourseCard from './CourseCard';
 import courseDetails from './CourseDetails';
 import CourseService from '../../../services/course.service';
-import LoadingPage from '../../LoadingPage';
+import LoadingPage from '../../misc/LoadingPage';
 import { styles } from '../styles';
 
 function Courses() {

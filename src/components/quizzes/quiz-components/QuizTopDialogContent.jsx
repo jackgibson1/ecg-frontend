@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Typography, Box } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import { styles } from '../styles';
+import { styles } from '../quiz.styles';
 
 export default function QuizTopDialogContent(props) {
   const { lastUpdated, totalQuestions } = props;

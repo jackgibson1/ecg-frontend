@@ -1,12 +1,5 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { Box, FormGroup, FormControlLabel, Switch, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
 
 export default function QuizTimeSelector(props) {
   const { timer, setTimer } = props;

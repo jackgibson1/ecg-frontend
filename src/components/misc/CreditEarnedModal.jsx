@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import CourseBackgroundImage from '../assets/images/courses/earnedCredit.gif';
+import CourseBackgroundImage from '../../assets/images/courses/earnedCredit.gif';
 
 const style = {
   position: 'absolute',

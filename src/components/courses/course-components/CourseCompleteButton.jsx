@@ -10,7 +10,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import CheckIcon from '@mui/icons-material/Check';
 import GridViewIcon from '@mui/icons-material/GridView';
 import CourseService from '../../../services/course.service';
-import CreditEarnedModal from '../../CreditEarnedModal';
+import CreditEarnedModal from '../../misc/CreditEarnedModal';
 import { styles } from '../styles';
 
 export default function CourseCompleteButton(props) {
