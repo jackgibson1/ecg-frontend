@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import FormGroup from '@mui/material/FormGroup';
@@ -10,7 +9,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function QuizTimeSelector(props) {
-  // eslint-disable-next-line react/prop-types
   const { timer, setTimer } = props;
 
   const handleSwitchChange = (event) => {

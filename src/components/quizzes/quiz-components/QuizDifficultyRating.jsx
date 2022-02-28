@@ -1,22 +1,13 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import { styles } from '../styles';
 
 export default function QuizDifficultyRating(props) {
   const { difficulty } = props;
   return (
-    <Box
-      sx={{
-        ml: 4,
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        mb: 1,
-      }}
-    >
+    <Box sx={styles.quizDifficulty.box}>
       <Rating
         name="text-feedback"
         value={difficulty}

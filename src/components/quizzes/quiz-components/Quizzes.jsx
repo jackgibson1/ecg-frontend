@@ -1,11 +1,10 @@
-/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { Box, Grid } from '@mui/material';
 import QuizCard from './QuizCard';
 import quizDetails from './QuizDetails';
-import QuizBackgroundImage from '../../../assets/images/quizzes/quizBackground.jpg';
 import LoadingPage from '../../LoadingPage';
 import QuizService from '../../../services/quiz.service';
+import { styles } from '../styles';
 
 function Quizzes(props) {
   const [isLoading, setLoading] = useState(true);
@@ -28,10 +27,7 @@ function Quizzes(props) {
     return <LoadingPage text="Loading all quizzes..." />;
   }
   return (
-    <Box sx={{
-      paddingTop: '2%', paddingLeft: '2%', paddingBottom: '2%', backgroundImage: `url(${QuizBackgroundImage})`, backgroundSize: 'cover',
-    }}
-    >
+    <Box sx={styles.quizzes.outerbox}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {quizDetails.map((quiz, index) => (
           <Grid item xs={2} sm={4} md={4} key={Math.random()} style={{ textAlign: 'center' }}>
@@ -39,6 +35,7 @@ function Quizzes(props) {
               quiz={quiz}
               cameFromCourse={cameFromCourse.cameFromCourse && quiz.id === cameFromCourse.quizId}
               bestScore={allScores[index].score}
+              history={props.history}
             />
           </Grid>
         ))}
