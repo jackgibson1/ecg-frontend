@@ -4,24 +4,24 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function FilterSelect() {
-  const [age, setAge] = React.useState('');
+export default function FilterSelect(props) {
+  const { filter, setFilter } = props;
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setFilter(event.target.value);
   };
 
   return (
     <FormControl variant="filled" sx={{ minWidth: 120 }}>
       <InputLabel>Filter</InputLabel>
       <Select
-        value={age}
-        label="Age"
+        value={filter}
+        label="filter"
         onChange={handleChange}
       >
-        <MenuItem value={10}>Most Recent</MenuItem>
-        <MenuItem value={20}>Highest Votes</MenuItem>
-        <MenuItem value={30}>Most Comments</MenuItem>
+        <MenuItem value="most-recent">Most Recent</MenuItem>
+        <MenuItem value="highest-votes">Highest Votes</MenuItem>
+        <MenuItem value="most-comments">Most Comments</MenuItem>
       </Select>
     </FormControl>
   );

@@ -8,12 +8,13 @@ import ForumService from '../../services/forum.service';
 
 function Ask(props) {
   const [posts, setPosts] = useState([]);
+  const [filter, setFilter] = useState('');
 
   useEffect(async () => {
     await ForumService.getAllPosts().then((res) => {
       setPosts(res.data);
     });
-  }, []);
+  }, [filter]);
 
   return (
     <Box sx={styles.askPage.outerBox}>
@@ -25,7 +26,7 @@ function Ask(props) {
           </Typography>
         </div>
         <div style={{ display: 'inline-block', marginLeft: '10%' }}>
-          <FilterSelect />
+          <FilterSelect filter={filter} setFilter={setFilter} />
         </div>
         <QuestionsList posts={posts} history={props.history} />
       </Box>
