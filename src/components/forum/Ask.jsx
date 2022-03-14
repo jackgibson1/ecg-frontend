@@ -1,8 +1,13 @@
 import React from 'react';
+import { Box } from '@mui/material';
+import QuestionsList from './QuestionsList';
+import { styles } from './forum.styles';
 
 function Ask() {
   return (
-    <h1>Forum Page</h1>
+    <Box sx={styles.askPage.outerBox}>
+      <QuestionsList />
+    </Box>
   );
 }
 
