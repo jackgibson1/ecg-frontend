@@ -6,13 +6,14 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Link from '@mui/material/Link';
+import moment from 'moment';
 
 export default function QuestionsListItem(props) {
   const { post, history } = props;
   return (
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
-        <Avatar alt="Admin" src="random.jpg" />
+        <Avatar alt={post.username.toUpperCase()} src="random.jpg" />
       </ListItemAvatar>
       <ListItemText>
         <Typography sx={{ color: 'blue' }} variant="h6">
@@ -34,7 +35,7 @@ export default function QuestionsListItem(props) {
             {post.username}
           </Typography>
           <Typography sx={{ display: 'inline' }} variant="body2" color="text.secondary">
-            {' '} asked 2 minutes ago.
+            {' '} asked {moment(post.date).fromNow()}.
           </Typography>
         </div>
       </ListItemText>

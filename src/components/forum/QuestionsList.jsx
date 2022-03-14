@@ -8,10 +8,11 @@ export default function QuestionsList(props) {
   return (
     <List sx={{ width: '75%', bgcolor: 'background.paper' }}>
       {posts.map((post) => (
-        <QuestionsListItem post={post} history={history} />
+        <div>
+          <QuestionsListItem post={post} history={history} />
+          <Divider variant="inset" component="li" />
+        </div>
       ))}
-
-      <Divider variant="inset" component="li" />
     </List>
   );
 }
