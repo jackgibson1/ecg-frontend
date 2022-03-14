@@ -9,10 +9,12 @@ import ForumService from '../../services/forum.service';
 function Ask(props) {
   const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [page, setPage] = useState(1);
 
   useEffect(async () => {
-    await ForumService.getAllPosts().then((res) => {
-      setPosts(res.data);
+    await ForumService.getAllPosts(page, filter).then((res) => {
+      setPosts(res.data.results);
     });
   }, [filter]);
 
