@@ -16,11 +16,9 @@ export default function QuestionsListItem(props) {
         <Avatar alt={post.username.toUpperCase()} src="random.jpg" />
       </ListItemAvatar>
       <ListItemText>
-        <Typography sx={{ color: 'blue' }} variant="h6">
-          <Link onClick={() => history.push(`ask/posts/${post.id}`)} underline="hover">
-            {post.title}
-          </Link>
-        </Typography>
+        <Link onClick={() => history.push(`ask/posts/${post.id}`)} underline="hover">
+          {post.title}
+        </Link>
         <Typography sx={{ marginBottom: '5px', marginTop: '2px', color: 'text.secondary' }} variant="body2">
           {post.description}
         </Typography>
