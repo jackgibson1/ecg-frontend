@@ -23,8 +23,8 @@ async function deletePost(postId) {
 }
 
 // Get all posts
-async function getAllPosts(page) {
-  const res = await api.get(`/forum/post/all?page=${page}`);
+async function getAllPosts(page, filter) {
+  const res = await api.get(`/forum/post/all?page=${page}&filter=${filter}`);
   return res;
 }
 

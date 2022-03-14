@@ -7,14 +7,14 @@ import FilterSelect from './FilterSelect';
 import ForumService from '../../services/forum.service';
 
 function Ask(props) {
-  const [posts, setPosts] = useState([]);
-  const [filter, setFilter] = useState('');
+  const [postsData, setPostsData] = useState({ results: [], numberOfPages: 0, numberOfResults: 0 });
+  const [filter, setFilter] = useState('most-recent');
   // eslint-disable-next-line no-unused-vars
   const [page, setPage] = useState(1);
 
   useEffect(async () => {
     await ForumService.getAllPosts(page, filter).then((res) => {
-      setPosts(res.data.results);
+      setPostsData(res.data);
     });
   }, [filter]);
 
@@ -30,7 +30,7 @@ function Ask(props) {
         <div style={{ display: 'inline-block', marginLeft: '10%' }}>
           <FilterSelect filter={filter} setFilter={setFilter} />
         </div>
-        <QuestionsList posts={posts} history={props.history} />
+        <QuestionsList posts={postsData.results} history={props.history} />
       </Box>
     </Box>
   );
