@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Pagination } from '@mui/material';
+import { Box, Typography, Pagination, Button, Divider } from '@mui/material';
 import QuestionsList from './QuestionsList';
 import { styles } from './forum.styles';
 import SearchBox from './SearchBox';
@@ -23,17 +23,19 @@ function Ask(props) {
 
   return (
     <Box sx={styles.askPage.outerBox}>
-      <SearchBox />
-      <div style={{ display: 'inline-block' }}>
-        <Typography variant="h6" style={{ marginTop: '20px' }}>
-          All Questions ({postsData.numberOfResults})
+      <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', marginTop: '5px' }}>
+        <Typography variant="h6" sx={{ border: 2, borderRadius: 1, p: 1, boxShadow: 2 }}>
+          Displaying All Questions ({postsData.numberOfResults})
         </Typography>
+        <Button variant="outlined">Ask Question</Button>
       </div>
-      <div style={{ display: 'inline-block', marginLeft: '10%' }}>
+      <Divider sx={{ borderBottomWidth: '3px', marginTop: '15px', background: 'black', borderRadius: 3 }} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', marginTop: '10px' }}>
+        <SearchBox />
         <FilterSelect filter={filter} setFilter={setFilter} />
       </div>
       <QuestionsList posts={postsData.results} history={props.history} />
-      <Pagination count={postsData.numberOfPages} page={page} onChange={handlePageChange} color="primary" />
+      <Pagination sx={{ marginLeft: 'auto', marginRight: 'auto' }} count={postsData.numberOfPages} page={page} onChange={handlePageChange} color="primary" />
     </Box>
   );
 }

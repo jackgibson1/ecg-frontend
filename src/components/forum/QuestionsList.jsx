@@ -6,7 +6,7 @@ import QuestionsListItem from './QuestionsListItem';
 export default function QuestionsList(props) {
   const { posts, history } = props;
   return (
-    <List sx={{ width: '75%', bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
       {posts.map((post) => (
         <div>
           <QuestionsListItem post={post} history={history} />

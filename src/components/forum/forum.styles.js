@@ -4,12 +4,15 @@ export const styles = {
     outerBox: {
       marginTop: 3,
       marginBottom: 3,
-      borderRadius: 2,
-      boxShadow: 4,
+      display: 'flex',
+      flexDirection: 'column',
       marginLeft: 'auto',
       marginRight: 'auto',
       width: '90%',
-      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      maxWidth: '1500px',
+
     },
   },
 };
