@@ -8,8 +8,8 @@ import api from './api';
 import authService from './auth.service';
 
 // Create post
-async function createPost(title, description) {
-  const res = await api.post('/forum/post/create', { title, description },
+async function createPost(title, description, file, fileName) {
+  const res = await api.post('/forum/post/create', { title, description, file, fileName },
     { headers: { username: authService.getCurrentUser().username } });
   return res;
 }
