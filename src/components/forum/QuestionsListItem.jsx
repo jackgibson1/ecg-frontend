@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import Box from '@mui/material/Box';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Link from '@mui/material/Link';
+import PollIcon from '@mui/icons-material/Poll';
+import CommentIcon from '@mui/icons-material/Comment';
 import moment from 'moment';
 
 export default function QuestionsListItem(props) {
@@ -22,19 +25,27 @@ export default function QuestionsListItem(props) {
         <Typography sx={{ marginBottom: '5px', marginTop: '2px', color: 'text.secondary' }} variant="body2">
           {post.description}
         </Typography>
-        <Typography sx={{ marginTop: '15px', display: 'inline', color: 'text.primary' }} variant="body2">
-          <u>4 Votes</u>
-        </Typography>
-        <Typography sx={{ marginTop: '5px', display: 'inline', marginLeft: '10px', color: 'text.primary' }} variant="body2">
-          <u>{post.totalComments} Comments</u>
-        </Typography>
-        <div style={{ marginTop: '5px', marginLeft: '20px', display: 'inline' }}>
-          <Typography sx={{ display: 'inline', color: 'text.primary' }} variant="body2">
-            {post.username}
-          </Typography>
-          <Typography sx={{ display: 'inline' }} variant="body2" color="text.secondary">
-            {' '} asked {moment(post.date).fromNow()}.
-          </Typography>
+        <div style={{ display: 'flex', justifyContent: 'left' }}>
+          <Box sx={{ display: 'flex', marginTop: 1 }}>
+            <PollIcon />
+            <Box>
+              <Typography sx={{ ml: 1 }} variant="body2">4</Typography>
+            </Box>
+          </Box>
+          <Box sx={{ display: 'flex', marginTop: 1, ml: 2 }}>
+            <CommentIcon />
+            <Box>
+              <Typography sx={{ ml: 1 }} variant="body2">{`${post.totalComments}`}</Typography>
+            </Box>
+          </Box>
+          <div style={{ marginTop: '5px', marginLeft: '20px', display: 'inline' }}>
+            <Typography sx={{ display: 'inline', color: 'text.primary' }} variant="body2">
+              {post.username}
+            </Typography>
+            <Typography sx={{ display: 'inline', color: 'text.secondary' }} variant="body2">
+              {' '} asked {moment(post.date).fromNow()}.
+            </Typography>
+          </div>
         </div>
       </ListItemText>
     </ListItem>

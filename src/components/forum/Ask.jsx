@@ -4,7 +4,7 @@ import QuestionsList from './QuestionsList';
 import { styles } from './forum.styles';
 import SearchBox from './SearchBox';
 import FilterSelect from './FilterSelect';
-import AskQuestion from './AskQuestion';
+import AskQuestionModal from './AskQuestionModal';
 import ForumService from '../../services/forum.service';
 
 function Ask(props) {
@@ -33,7 +33,7 @@ function Ask(props) {
         <Typography variant="h6" sx={{ border: 2, borderRadius: 1, p: 1, boxShadow: 2 }}>
           Displaying All Questions ({postsData.numberOfResults})
         </Typography>
-        <AskQuestion />
+        <AskQuestionModal />
       </div>
       <Divider sx={{ borderBottomWidth: '3px', marginTop: '15px', background: 'black', borderRadius: 3 }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', marginTop: '10px' }}>
