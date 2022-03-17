@@ -14,6 +14,12 @@ async function createPost(title, description, file, fileName) {
   return res;
 }
 
+// Upload post image
+async function uploadImage(formData) {
+  const res = await api.post('/forum/post/upload', formData);
+  return res;
+}
+
 // Delete post
 async function deletePost(postId) {
   const res = await api.delete(`/forum/post/delete/${postId}`, {
@@ -57,6 +63,7 @@ async function getAllComments(postId) {
 
 export default {
   createPost,
+  uploadImage,
   deletePost,
   getAllPosts,
   getPost,

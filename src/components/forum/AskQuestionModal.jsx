@@ -23,18 +23,16 @@ export default function AskQuestionModal() {
   const [title, setTitle] = React.useState('');
   const [body, setBody] = React.useState('');
   const [errors, setErrors] = React.useState({ title: false, body: false, submit: false });
-  const [file, setFile] = React.useState();
-  const [fileName, setFileName] = React.useState();
+  const [selectedFile, setSelectedFile] = React.useState();
 
   const saveFile = (e) => {
-    setFile(e.target.files[0]);
-    setFileName(e.target.files[0].name);
+    setSelectedFile(e.target.files[0]);
   };
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (title.trim().length === 0) {
       setErrors({ ...errors, title: true });
@@ -44,12 +42,22 @@ export default function AskQuestionModal() {
       setErrors({ ...errors, body: true });
       return;
     }
-    console.log(file);
 
-    ForumService.createPost(title, body, file, fileName).then((res) => {
-      if (res.data.success) handleClose();
-      else setErrors({ ...errors, submit: true });
-    });
+    const postId = await ForumService.createPost(title, body).then((res) => {
+      if (res.data.success) {
+        handleClose();
+        return res.data.postId;
+      }
+      setErrors({ ...errors, submit: true });
+      return -1;
+    }).catch(() => -1);
+
+    if (postId !== -1 && selectedFile) {
+      const formData = new FormData();
+      formData.append('postId', postId);
+      formData.append('file', selectedFile);
+      ForumService.uploadImage(formData).catch(() => setBody({ ...errors, submit: true }));
+    }
   };
 
   const onChangeFields = (e) => {
