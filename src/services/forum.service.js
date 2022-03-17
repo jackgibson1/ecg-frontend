@@ -20,6 +20,12 @@ async function uploadImage(formData) {
   return res;
 }
 
+// Get post image name
+async function getImageName(postId) {
+  const res = await api.get(`/forum/post/image/${postId}`);
+  return res;
+}
+
 // Delete post
 async function deletePost(postId) {
   const res = await api.delete(`/forum/post/delete/${postId}`, {
@@ -64,6 +70,7 @@ async function getAllComments(postId) {
 export default {
   createPost,
   uploadImage,
+  getImageName,
   deletePost,
   getAllPosts,
   getPost,
