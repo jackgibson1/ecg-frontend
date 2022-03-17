@@ -1,14 +1,17 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Form from 'react-validation/build/form';
 import { Stack, TextField, Typography, Alert } from '@mui/material';
 import Modal from '@mui/material/Modal';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
+import DeleteIcon from '@mui/icons-material/Delete';
 import ForumService from '../../services/forum.service';
 
 const style = {
   position: 'absolute',
-  top: '40%',
+  top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '60%',
@@ -26,6 +29,7 @@ export default function AskQuestionModal() {
   const [selectedFile, setSelectedFile] = React.useState();
 
   const saveFile = (e) => {
+    console.log(e.target.files[0]);
     setSelectedFile(e.target.files[0]);
   };
 
@@ -50,7 +54,10 @@ export default function AskQuestionModal() {
       }
       setErrors({ ...errors, submit: true });
       return -1;
-    }).catch(() => -1);
+    }).catch(() => {
+      setErrors({ ...errors, submit: true });
+      return -1;
+    });
 
     if (postId !== -1 && selectedFile) {
       const formData = new FormData();
@@ -95,8 +102,31 @@ export default function AskQuestionModal() {
                 onChange={onChangeFields}
                 error={errors.body}
               />
-              <input label="Attach Image" type="file" onChange={saveFile} />
-              <Button type="submit" fullWidth variant="contained">
+              {!selectedFile && (
+                <>
+                  <input
+                    accept="image/*"
+                    hidden
+                    id="raised-button-file"
+                    type="file"
+                    onChange={saveFile}
+                  />
+                  <label htmlFor="raised-button-file">
+                    <Button variant="outlined" component="span" fullWidth startIcon={<UploadFileIcon />}>
+                      Upload Image
+                    </Button>
+                  </label>
+                </>
+              )}
+              {selectedFile && (
+                <>
+                  <h4>{selectedFile.name}</h4>
+                  <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => setSelectedFile()}>
+                    Unselect Image
+                  </Button>
+                </>
+              )}
+              <Button type="submit" variant="contained">
                 Submit Question
               </Button>
             </Stack>

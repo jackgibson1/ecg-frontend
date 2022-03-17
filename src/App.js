@@ -14,6 +14,7 @@ import AuthService from './services/auth.service';
 import { SetupInterceptors } from './services/api';
 import CourseLayout from './components/courses/course-components/CourseLayout';
 import QuizLayout from './components/quizzes/quiz-components/QuizLayout';
+import PostPage from './components/forum/PostPage';
 
 const theme = createTheme({
   typography: {
@@ -55,7 +56,7 @@ function App() {
           <Route exact path="/courses" render={(props) => isLoggedIn(<Courses {...props} />, '/courses')} />
           <Route exact path="/quizzes" render={(props) => isLoggedIn(<Quizzes {...props} />, '/quizzes')} />
           <Route exact path="/ask" component={Ask} />
-          <Route path="/ask/posts/:postId" component={Login} />
+          <Route path="/ask/posts/:postId" component={PostPage} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/profile" render={(props) => isLoggedIn(<Profile {...props} />, '/profile')} />

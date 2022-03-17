@@ -13,17 +13,26 @@ import moment from 'moment';
 
 export default function QuestionsListItem(props) {
   const { post, history } = props;
+
+  const shortenedText = (text) => {
+    if (text.length > 2500) {
+      return `${text.substring(0, 160)}...'`;
+    }
+    return text;
+  };
   return (
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
         <Avatar alt={post.username.toUpperCase()} src="random.jpg" />
       </ListItemAvatar>
       <ListItemText>
-        <Link sx={{ cursor: 'pointer' }} onClick={() => history.push(`ask/posts/${post.id}`)} underline="hover">
-          {post.title}
-        </Link>
-        <Typography sx={{ marginBottom: '5px', marginTop: '2px', color: 'text.secondary' }} variant="body2">
-          {post.description}
+        <Typography sx={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <Link sx={{ cursor: 'pointer' }} onClick={() => history.push(`ask/posts/${post.id}`)} underline="hover">
+            {shortenedText(post.title)}
+          </Link>
+        </Typography>
+        <Typography sx={{ marginBottom: '5px', marginTop: '2px', color: 'text.secondary', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} variant="body2">
+          {shortenedText(post.description)}
         </Typography>
         <div style={{ display: 'flex', justifyContent: 'left' }}>
           <Box sx={{ display: 'flex', marginTop: 1 }}>
