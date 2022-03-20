@@ -2,7 +2,7 @@
 import Badge from '@mui/material/Badge';
 import { styled, Paper, Box } from '@mui/material';
 import QuizPageBGImage from '../../assets/images/quizzes/quizBackground.jpg';
-import QuizQuestionAreaBG from '../../assets/images/quizzes/quizLayoutBG.jpg';
+import QuizQuestionAreaBG from '../../assets/images/quizzes/quizLayoutBG.jpeg';
 
 export const styles = {
   /* QUIZ PAGE */
