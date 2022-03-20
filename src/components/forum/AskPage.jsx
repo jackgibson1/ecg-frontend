@@ -7,14 +7,14 @@ import FilterSelect from './FilterSelect';
 import AskQuestionModal from './AskQuestionModal';
 import ForumService from '../../services/forum.service';
 
-function Ask(props) {
-  const [postsData, setPostsData] = useState({ results: [], numberOfPages: 1, numberOfResults: 0 });
+function AskPage(props) {
+  const [questionsData, setQuestionsData] = useState({ results: [], numberOfPages: 1, numberOfResults: 0 });
   const [filter, setFilter] = useState('most-recent');
   const [page, setPage] = useState(1);
 
   useEffect(async () => {
-    await ForumService.getAllPosts(page, filter).then((res) => {
-      setPostsData(res.data);
+    await ForumService.getAllQuestions(page, filter).then((res) => {
+      setQuestionsData(res.data);
     });
   }, [filter, page]);
 
@@ -31,7 +31,7 @@ function Ask(props) {
     <Box sx={styles.askPage.outerBox}>
       <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', marginTop: '5px' }}>
         <Typography variant="h6" sx={{ border: 2, borderRadius: 1, p: 1, boxShadow: 2 }}>
-          Displaying All Questions ({postsData.numberOfResults})
+          Displaying All Questions ({questionsData.numberOfResults})
         </Typography>
         <AskQuestionModal />
       </div>
@@ -40,10 +40,10 @@ function Ask(props) {
         <SearchBox />
         <FilterSelect filter={filter} setFilter={setFilter} />
       </div>
-      <QuestionsList posts={postsData.results} history={props.history} />
-      <Pagination sx={{ marginLeft: 'auto', marginRight: 'auto' }} count={postsData.numberOfPages} page={page} onChange={handlePageChange} color="primary" />
+      <QuestionsList questions={questionsData.results} history={props.history} />
+      <Pagination sx={{ marginLeft: 'auto', marginRight: 'auto' }} count={questionsData.numberOfPages} page={page} onChange={handlePageChange} color="primary" />
     </Box>
   );
 }
 
-export default Ask;
+export default AskPage;

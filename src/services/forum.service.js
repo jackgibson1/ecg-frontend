@@ -1,54 +1,54 @@
 /*
 * Forum service for interacting with forum endpoints
-* Creating post, deleting post, get all posts, get post, create comment,
-* delete comment and get all comments for a post
+* Creating question, deleting question, get all questions, get question, create comment,
+* delete comment and get all comments for a question
 */
 
 import api from './api';
 import authService from './auth.service';
 
 // Create post
-async function createPost(title, description, file, fileName) {
+async function createQuestion(title, description, file, fileName) {
   const res = await api.post('/forum/post/create', { title, description, file, fileName },
     { headers: { username: authService.getCurrentUser().username } });
   return res;
 }
 
-// Upload post image
+// Upload question image
 async function uploadImage(formData) {
   const res = await api.post('/forum/post/upload', formData);
   return res;
 }
 
-// Get post image name
-async function getImageName(postId) {
-  const res = await api.get(`/forum/post/image/${postId}`);
+// Get question image name
+async function getImageName(questionId) {
+  const res = await api.get(`/forum/post/image/${questionId}`);
   return res;
 }
 
-// Delete post
-async function deletePost(postId) {
-  const res = await api.delete(`/forum/post/delete/${postId}`, {
+// Delete question
+async function deleteQuestion(questionId) {
+  const res = await api.delete(`/forum/post/delete/${questionId}`, {
     headers: { username: authService.getCurrentUser().username },
   });
   return res;
 }
 
-// Get all posts
-async function getAllPosts(page, filter) {
+// Get all questions
+async function getAllQuestions(page, filter) {
   const res = await api.get(`/forum/post/all?page=${page}&filter=${filter}`);
   return res;
 }
 
-// Get a single post
-async function getPost(postId) {
-  const res = await api.get(`/forum/post/${postId}`);
+// Get a single question
+async function getQuestion(questionId) {
+  const res = await api.get(`/forum/post/${questionId}`);
   return res;
 }
 
 // Create comment
-async function createComment(postId, description) {
-  const res = await api.post('/forum/comment/create', { description, postId },
+async function createComment(questionId, description) {
+  const res = await api.post('/forum/comment/create', { description, questionId },
     { headers: { username: authService.getCurrentUser().username } });
   return res;
 }
@@ -61,19 +61,19 @@ async function deleteComment(commentId) {
   return res;
 }
 
-// Get all posts for specified post
-async function getAllComments(postId) {
-  const res = await api.get(`/forum/comment/${postId}`);
+// Get all comments for specified question
+async function getAllComments(questionId) {
+  const res = await api.get(`/forum/comment/${questionId}`);
   return res;
 }
 
 export default {
-  createPost,
+  createQuestion,
   uploadImage,
   getImageName,
-  deletePost,
-  getAllPosts,
-  getPost,
+  deleteQuestion,
+  getAllQuestions,
+  getQuestion,
   createComment,
   deleteComment,
   getAllComments,

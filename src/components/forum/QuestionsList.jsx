@@ -4,12 +4,12 @@ import Divider from '@mui/material/Divider';
 import QuestionsListItem from './QuestionsListItem';
 
 export default function QuestionsList(props) {
-  const { posts, history } = props;
+  const { questions, history } = props;
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-      {posts.map((post) => (
+      {questions.map((question) => (
         <div>
-          <QuestionsListItem post={post} history={history} />
+          <QuestionsListItem question={question} history={history} />
           <Divider variant="inset" component="li" />
         </div>
       ))}

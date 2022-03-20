@@ -47,7 +47,7 @@ export default function AskQuestionModal() {
       return;
     }
 
-    const postId = await ForumService.createPost(title, body).then((res) => {
+    const questionId = await ForumService.createQuestion(title, body).then((res) => {
       if (res.data.success) {
         handleClose();
         return res.data.postId;
@@ -59,9 +59,9 @@ export default function AskQuestionModal() {
       return -1;
     });
 
-    if (postId !== -1 && selectedFile) {
+    if (questionId !== -1 && selectedFile) {
       const formData = new FormData();
-      formData.append('postId', postId);
+      formData.append('postId', questionId);
       formData.append('file', selectedFile);
       ForumService.uploadImage(formData).catch(() => setBody({ ...errors, submit: true }));
     }

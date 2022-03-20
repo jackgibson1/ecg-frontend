@@ -6,7 +6,7 @@ import MainAppBar from './components/misc/MainAppBar';
 import Home from './components/home/Home';
 import Courses from './components/courses/course-components/Courses';
 import Quizzes from './components/quizzes/quiz-components/Quizzes';
-import Ask from './components/forum/Ask';
+import AskPage from './components/forum/AskPage';
 import Login from './components/authentication/Login';
 import Register from './components/authentication/Register';
 import Profile from './components/profile/Profile';
@@ -14,7 +14,7 @@ import AuthService from './services/auth.service';
 import { SetupInterceptors } from './services/api';
 import CourseLayout from './components/courses/course-components/CourseLayout';
 import QuizLayout from './components/quizzes/quiz-components/QuizLayout';
-import PostPage from './components/forum/PostPage';
+import DisplayQuestionPage from './components/forum/DisplayQuestionPage';
 
 const theme = createTheme({
   typography: {
@@ -55,8 +55,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/courses" render={(props) => isLoggedIn(<Courses {...props} />, '/courses')} />
           <Route exact path="/quizzes" render={(props) => isLoggedIn(<Quizzes {...props} />, '/quizzes')} />
-          <Route exact path="/ask" component={Ask} />
-          <Route path="/ask/posts/:postId" component={PostPage} />
+          <Route exact path="/ask" component={AskPage} />
+          <Route path="/ask/posts/:questionId" component={DisplayQuestionPage} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/profile" render={(props) => isLoggedIn(<Profile {...props} />, '/profile')} />
