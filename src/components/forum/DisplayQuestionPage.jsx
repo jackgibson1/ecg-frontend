@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import moment from 'moment';
 import CommentArea from './CommentArea';
+import CommentsList from './CommentsList';
 import ForumService from '../../services/forum.service';
 import LoadingPage from '../misc/LoadingPage';
 
@@ -12,15 +13,21 @@ export default function DisplayQuestionPage(props) {
   const { questionId } = props.match.params;
   const [questionData, setQuestionData] = useState('');
   const [questionImgName, setQuestionImgName] = useState();
+  const [comments, setComments] = useState([]);
 
   useEffect(async () => {
     // retrieve question information
     await ForumService.getQuestion(questionId).then((res) => setQuestionData(res.data))
       .catch(() => setError(true));
     // retrieve image - if it exists
-    // once check for image is complete set loading to false (success or failure)
     await ForumService.getImageName(questionId).then((res) => {
       setQuestionImgName(res.data.imgName);
+    }).catch((err) => console.log(err));
+
+    // retrieve comments for post
+    // once check for comments is complete set loading to false (success or failure)
+    await ForumService.getAllComments(questionId).then((res) => {
+      setComments(res.data);
       setLoading(false);
     }).catch(() => {
       setLoading(false);
@@ -78,9 +85,8 @@ export default function DisplayQuestionPage(props) {
         </Box>
         )}
       </Box>
-      <div style={{ marginLeft: '15px', marginRight: '15px', marginTop: '15px' }}>
-        <CommentArea questionId={questionId} />
-      </div>
+      <CommentArea questionId={questionId} />
+      <CommentsList comments={comments} />
     </Box>
 
   );

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Form from 'react-validation/build/form';
-import { TextField, Box, Typography, Alert } from '@mui/material';
-import CommentIcon from '@mui/icons-material/Comment';
+import { TextField, Alert } from '@mui/material';
 import AuthService from '../../services/auth.service';
 import ForumService from '../../services/forum.service';
 import CommentLoadingButton from './CommentLoadingButton';
@@ -44,7 +43,7 @@ export default function CommentArea(props) {
   };
 
   return (
-    <div>
+    <div style={{ marginLeft: '15px', marginRight: '15px', marginTop: '15px' }}>
       {AuthService.isLoggedIn() ? (
         <Form onSubmit={handleSubmit}>
           <TextField
@@ -63,12 +62,6 @@ export default function CommentArea(props) {
       ) : (
         <Alert severity="info">Please sign in to reply to this question.</Alert>
       )}
-      <Box sx={{ display: 'flex', marginTop: '15px' }}>
-        <CommentIcon />
-        <Box>
-          <Typography sx={{ ml: 1 }} variant="body1">4 Total Comments:</Typography>
-        </Box>
-      </Box>
     </div>
   );
 }

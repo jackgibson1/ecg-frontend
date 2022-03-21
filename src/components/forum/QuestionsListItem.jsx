@@ -38,7 +38,7 @@ export default function QuestionsListItem(props) {
           <Box sx={{ display: 'flex', marginTop: 1 }}>
             <PollIcon />
             <Box>
-              <Typography sx={{ ml: 1 }} variant="body2">4</Typography>
+              <Typography sx={{ ml: 1 }} variant="body2">0</Typography>
             </Box>
           </Box>
           <Box sx={{ display: 'flex', marginTop: 1, ml: 2 }}>
