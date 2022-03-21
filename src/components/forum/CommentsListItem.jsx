@@ -24,7 +24,7 @@ export default function CommentsListItem(props) {
             {comment.username}
           </Typography>
           <Typography sx={{ display: 'inline', color: 'text.secondary' }} variant="body2">
-            {' '} asked {moment(comment.date).fromNow()}.
+            {' '} commented {moment(comment.date).fromNow()}.
           </Typography>
         </div>
       </ListItemText>
