@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Pagination, Divider } from '@mui/material';
+import { Box, Typography, Pagination, Divider, Alert } from '@mui/material';
 import QuestionsList from './QuestionsList';
 import { styles } from './forum.styles';
 import SearchBox from './SearchBox';
 import FilterSelect from './FilterSelect';
 import AskQuestionModal from './AskQuestionModal';
 import ForumService from '../../services/forum.service';
+import AuthService from '../../services/auth.service';
 import LoadingPage from '../misc/LoadingPage';
 
 function AskPage(props) {
@@ -37,16 +38,21 @@ function AskPage(props) {
   return (
     <Box sx={styles.askPage.outerBox}>
       <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', marginTop: '5px' }}>
-        <Typography variant="h6" sx={{ border: 2, borderRadius: 1, p: 1, boxShadow: 2 }}>
+        <Typography variant="h6" sx={{ border: 2, borderRadius: 2, p: 1, boxShadow: 2 }}>
           Displaying All Questions ({questionsData.numberOfResults})
         </Typography>
-        <AskQuestionModal history={props.history} />
+        {AuthService.isLoggedIn() ? (
+          <AskQuestionModal history={props.history} />
+        ) : (
+          <Alert sx={{ borderRadius: 2, boxShadow: 2 }} severity="info">Please sign in to ask a question!</Alert>
+        )}
+
       </div>
-      <Divider sx={{ borderBottomWidth: '3px', marginTop: '15px', background: 'black', borderRadius: 3 }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', marginTop: '10px' }}>
         <SearchBox />
         <FilterSelect filter={filter} setFilter={setFilter} />
       </div>
+      <Divider sx={{ borderBottomWidth: '3px', marginTop: '15px', background: 'black', borderRadius: 3 }} />
       <QuestionsList questions={questionsData.results} history={props.history} />
       <Pagination sx={{ marginLeft: 'auto', marginRight: 'auto' }} count={questionsData.numberOfPages} page={page} onChange={handlePageChange} color="primary" />
     </Box>

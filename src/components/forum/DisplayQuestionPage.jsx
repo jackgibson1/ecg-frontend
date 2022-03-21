@@ -15,6 +15,15 @@ export default function DisplayQuestionPage(props) {
   const [questionImgName, setQuestionImgName] = useState();
   const [comments, setComments] = useState([]);
 
+  const getComments = async () => {
+    await ForumService.getAllComments(questionId).then((res) => {
+      setComments(res.data);
+      setLoading(false);
+    }).catch(() => {
+      setLoading(false);
+    });
+  };
+
   useEffect(async () => {
     // retrieve question information
     await ForumService.getQuestion(questionId).then((res) => setQuestionData(res.data))
@@ -23,15 +32,8 @@ export default function DisplayQuestionPage(props) {
     await ForumService.getImageName(questionId).then((res) => {
       setQuestionImgName(res.data.imgName);
     }).catch((err) => console.log(err));
-
-    // retrieve comments for post
-    // once check for comments is complete set loading to false (success or failure)
-    await ForumService.getAllComments(questionId).then((res) => {
-      setComments(res.data);
-      setLoading(false);
-    }).catch(() => {
-      setLoading(false);
-    });
+    // retrive comments
+    getComments();
   }, []);
 
   if (isLoading) {
@@ -85,7 +87,7 @@ export default function DisplayQuestionPage(props) {
         </Box>
         )}
       </Box>
-      <CommentArea questionId={questionId} />
+      <CommentArea questionId={questionId} getComments={getComments} />
       <CommentsList comments={comments} />
     </Box>
 

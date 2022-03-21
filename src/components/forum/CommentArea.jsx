@@ -6,7 +6,7 @@ import ForumService from '../../services/forum.service';
 import CommentLoadingButton from './CommentLoadingButton';
 
 export default function CommentArea(props) {
-  const { questionId } = props;
+  const { questionId, getComments } = props;
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
   const [comment, setComment] = useState('');
@@ -31,6 +31,9 @@ export default function CommentArea(props) {
             setSuccess(true);
             setLoading(false);
             setComment('');
+            // call get all comments again to display updated comments
+            getComments();
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
           }, 2000);
         }
       } else setError(true);
