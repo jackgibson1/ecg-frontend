@@ -6,8 +6,10 @@ import SearchBox from './SearchBox';
 import FilterSelect from './FilterSelect';
 import AskQuestionModal from './AskQuestionModal';
 import ForumService from '../../services/forum.service';
+import LoadingPage from '../misc/LoadingPage';
 
 function AskPage(props) {
+  const [isLoading, setLoading] = useState(true);
   const [questionsData, setQuestionsData] = useState({ results: [], numberOfPages: 1, numberOfResults: 0 });
   const [filter, setFilter] = useState('most-recent');
   const [page, setPage] = useState(1);
@@ -15,6 +17,7 @@ function AskPage(props) {
   useEffect(async () => {
     await ForumService.getAllQuestions(page, filter).then((res) => {
       setQuestionsData(res.data);
+      setLoading(false);
     });
   }, [filter, page]);
 
@@ -26,6 +29,10 @@ function AskPage(props) {
     });
     setPage(value);
   };
+
+  if (isLoading) {
+    return <LoadingPage text="Loading all questions..." />;
+  }
 
   return (
     <Box sx={styles.askPage.outerBox}>

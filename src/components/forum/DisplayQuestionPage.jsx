@@ -3,19 +3,37 @@ import { Box, Typography } from '@mui/material';
 import moment from 'moment';
 import CommentArea from './CommentArea';
 import ForumService from '../../services/forum.service';
+import LoadingPage from '../misc/LoadingPage';
 
 export default function DisplayQuestionPage(props) {
   // get post id from url parameter
+  const [error, setError] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const { questionId } = props.match.params;
   const [questionData, setQuestionData] = useState('');
   const [questionImgName, setQuestionImgName] = useState();
 
   useEffect(async () => {
     // retrieve question information
-    await ForumService.getQuestion(questionId).then((res) => setQuestionData(res.data));
+    await ForumService.getQuestion(questionId).then((res) => setQuestionData(res.data))
+      .catch(() => setError(true));
     // retrieve image - if it exists
-    await ForumService.getImageName(questionId).then((res) => setQuestionImgName(res.data.imgName));
+    // once check for image is complete set loading to false (success or failure)
+    await ForumService.getImageName(questionId).then((res) => {
+      setQuestionImgName(res.data.imgName);
+      setLoading(false);
+    }).catch(() => {
+      setLoading(false);
+    });
   }, []);
+
+  if (isLoading) {
+    return <LoadingPage text="Loading question..." />;
+  }
+
+  if (error) {
+    return <h1>The provided question either does not exist or something has went wrong.</h1>;
+  }
 
   return (
     <Box sx={{
