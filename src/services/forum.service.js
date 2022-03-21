@@ -9,26 +9,26 @@ import authService from './auth.service';
 
 // Create post
 async function createQuestion(title, description, file, fileName) {
-  const res = await api.post('/forum/post/create', { title, description, file, fileName },
+  const res = await api.post('/forum/question/create', { title, description, file, fileName },
     { headers: { username: authService.getCurrentUser().username } });
   return res;
 }
 
 // Upload question image
 async function uploadImage(formData) {
-  const res = await api.post('/forum/post/upload', formData);
+  const res = await api.post('/forum/question/upload', formData);
   return res;
 }
 
 // Get question image name
 async function getImageName(questionId) {
-  const res = await api.get(`/forum/post/image/${questionId}`);
+  const res = await api.get(`/forum/question/image/${questionId}`);
   return res;
 }
 
 // Delete question
 async function deleteQuestion(questionId) {
-  const res = await api.delete(`/forum/post/delete/${questionId}`, {
+  const res = await api.delete(`/forum/question/delete/${questionId}`, {
     headers: { username: authService.getCurrentUser().username },
   });
   return res;
@@ -36,13 +36,13 @@ async function deleteQuestion(questionId) {
 
 // Get all questions
 async function getAllQuestions(page, filter) {
-  const res = await api.get(`/forum/post/all?page=${page}&filter=${filter}`);
+  const res = await api.get(`/forum/question/all?page=${page}&filter=${filter}`);
   return res;
 }
 
 // Get a single question
 async function getQuestion(questionId) {
-  const res = await api.get(`/forum/post/${questionId}`);
+  const res = await api.get(`/forum/question/${questionId}`);
   return res;
 }
 
