@@ -21,23 +21,22 @@ const style = {
   p: 4,
 };
 
-export default function AskQuestionModal() {
+export default function AskQuestionModal(props) {
+  const { history } = props;
   const [open, setOpen] = React.useState(false);
   const [title, setTitle] = React.useState('');
   const [body, setBody] = React.useState('');
   const [errors, setErrors] = React.useState({ title: false, body: false, submit: false });
   const [selectedFile, setSelectedFile] = React.useState();
 
-  const saveFile = (e) => {
-    console.log(e.target.files[0]);
-    setSelectedFile(e.target.files[0]);
-  };
-
+  // function for setting selectedFile state to value of uploaded image
+  const saveFile = (e) => setSelectedFile(e.target.files[0]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // check to ensure both title & body text fields are not empty
     if (title.trim().length === 0) {
       setErrors({ ...errors, title: true });
       return;
@@ -47,17 +46,20 @@ export default function AskQuestionModal() {
       return;
     }
 
+    // post title and body to api - this returns the newly created question id if successful
     const questionId = await ForumService.createQuestion(title, body).then((res) => {
-      if (res.data.success) {
-        return res.data.questionId;
-      }
+      if (res.data.success) return res.data.questionId;
+      // set submit error to true and return -1 if error has occured
       setErrors({ ...errors, submit: true });
       return -1;
     }).catch(() => {
+      // set submit error to true and return -1 if error has occured
       setErrors({ ...errors, submit: true });
       return -1;
     });
 
+    // check to see body and title have been submitted successfully (question id will not be -1)
+    // if so check to see if the user has uploaded an image (selectedFile will be truthy)
     if (questionId !== -1 && selectedFile) {
       const formData = new FormData();
       formData.append('questionId', questionId);
@@ -69,17 +71,22 @@ export default function AskQuestionModal() {
         setBody({ ...errors, submit: true });
         return false;
       });
-      if (imageResponse) handleClose();
+      // if image post is successful push user onto newly created question page
+      if (imageResponse) {
+        history.push(`ask/question/${questionId}`);
+        return;
+      }
+      // if not errors will be set as above
     }
+
+    // if user has not selected image and title/body submission were successful push user onto newly created question page
+    if (!selectedFile && questionId !== -1) history.push(`ask/question/${questionId}`);
   };
 
   const onChangeFields = (e) => {
     setErrors({ title: false, body: false, submit: false });
-    if (e.target.name === 'title') {
-      setTitle(e.target.value);
-    } else if (e.target.name === 'body') {
-      setBody(e.target.value);
-    }
+    if (e.target.name === 'title') setTitle(e.target.value);
+    else if (e.target.name === 'body') setBody(e.target.value);
   };
 
   return (

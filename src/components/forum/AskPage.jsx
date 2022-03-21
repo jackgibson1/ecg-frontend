@@ -33,7 +33,7 @@ function AskPage(props) {
         <Typography variant="h6" sx={{ border: 2, borderRadius: 1, p: 1, boxShadow: 2 }}>
           Displaying All Questions ({questionsData.numberOfResults})
         </Typography>
-        <AskQuestionModal />
+        <AskQuestionModal history={props.history} />
       </div>
       <Divider sx={{ borderBottomWidth: '3px', marginTop: '15px', background: 'black', borderRadius: 3 }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', marginTop: '10px' }}>

@@ -56,7 +56,7 @@ function App() {
           <Route exact path="/courses" render={(props) => isLoggedIn(<Courses {...props} />, '/courses')} />
           <Route exact path="/quizzes" render={(props) => isLoggedIn(<Quizzes {...props} />, '/quizzes')} />
           <Route exact path="/ask" component={AskPage} />
-          <Route path="/ask/posts/:questionId" component={DisplayQuestionPage} />
+          <Route path="/ask/question/:questionId" component={DisplayQuestionPage} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/profile" render={(props) => isLoggedIn(<Profile {...props} />, '/profile')} />

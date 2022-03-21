@@ -27,7 +27,7 @@ export default function QuestionsListItem(props) {
       </ListItemAvatar>
       <ListItemText>
         <Typography sx={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-          <Link sx={{ cursor: 'pointer' }} onClick={() => history.push(`ask/posts/${question.id}`)} underline="hover">
+          <Link sx={{ cursor: 'pointer' }} onClick={() => history.push(`ask/question/${question.id}`)} underline="hover">
             {shortenedText(question.title)}
           </Link>
         </Typography>
