@@ -67,6 +67,22 @@ async function getAllComments(questionId) {
   return res;
 }
 
+// Check if user has voted on question
+async function hasUserVoted(questionId) {
+  const res = await api.get(`/forum/question/has-user-voted/${questionId}`, {
+    headers: { username: authService.getCurrentUser().username },
+  });
+  return res;
+}
+
+// cast vote for quesiton
+// Create post
+async function castVote(questionId, voteType) {
+  const res = await api.post(`/forum/question/castvote/${questionId}`, { voteType },
+    { headers: { username: authService.getCurrentUser().username } });
+  return res;
+}
+
 export default {
   createQuestion,
   uploadImage,
@@ -77,4 +93,6 @@ export default {
   createComment,
   deleteComment,
   getAllComments,
+  hasUserVoted,
+  castVote,
 };
