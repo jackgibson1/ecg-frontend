@@ -76,10 +76,15 @@ async function hasUserVoted(questionId) {
 }
 
 // cast vote for quesiton
-// Create post
 async function castVote(questionId, voteType) {
   const res = await api.post(`/forum/question/castvote/${questionId}`, { voteType },
     { headers: { username: authService.getCurrentUser().username } });
+  return res;
+}
+// Get all votes for specified question
+// Get all comments for specified question
+async function getVotes(questionId) {
+  const res = await api.get(`/forum/question/allvotes/${questionId}`);
   return res;
 }
 
@@ -95,4 +100,5 @@ export default {
   getAllComments,
   hasUserVoted,
   castVote,
+  getVotes,
 };

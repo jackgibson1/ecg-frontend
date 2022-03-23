@@ -5,9 +5,10 @@ import CommentArea from './CommentArea';
 import CommentsList from './CommentsList';
 import ForumService from '../../services/forum.service';
 import LoadingPage from '../misc/LoadingPage';
+import QuestionVoting from './QuestionVoting';
 
 export default function DisplayQuestionPage(props) {
-  // get post id from url parameter
+  // get question id from url parameter
   const [error, setError] = useState(false);
   const [isLoading, setLoading] = useState(true);
   const { questionId } = props.match.params;
@@ -57,13 +58,16 @@ export default function DisplayQuestionPage(props) {
       maxWidth: '1500px',
     }}
     >
-      <div style={{ marginLeft: '20px', display: 'inline' }}>
-        <Typography sx={{ display: 'inline', color: 'text.primary' }} variant="body1">
-          {questionData.username}
-        </Typography>
-        <Typography sx={{ display: 'inline', color: 'text.secondary' }} variant="body1">
-          {' '} asked {moment(questionData.date).fromNow()}:
-        </Typography>
+      <div style={{ marginLeft: '20px', marginRight: '20px', display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
+        <div style={{ marginTop: '8px' }}>
+          <Typography sx={{ display: 'inline', color: 'text.primary' }} variant="body1">
+            {questionData.username}
+          </Typography>
+          <Typography sx={{ display: 'inline', color: 'text.secondary' }} variant="body1">
+            {' '} asked {moment(questionData.date).fromNow()}:
+          </Typography>
+        </div>
+        <QuestionVoting questionId={questionId} />
       </div>
       <Box sx={{ backgroundColor: '#E8E6E6', marginLeft: 'auto', marginRight: 'auto', width: '98%', borderRadius: 2, marginTop: '10px' }}>
         <div style={{ marginTop: '10px', marginLeft: '15px', marginRight: '15px', marginBottom: '10px', color: '#0000AA', textDecoration: 'underline' }}>
