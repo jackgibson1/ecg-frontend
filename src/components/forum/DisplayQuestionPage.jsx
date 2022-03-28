@@ -8,6 +8,7 @@ import LoadingPage from '../misc/LoadingPage';
 import QuestionVoting from './QuestionVoting';
 import DeleteQuestionDialog from './DeleteQuestionDialog';
 import AuthService from '../../services/auth.service';
+import { styles } from './forum.styles';
 
 export default function DisplayQuestionPage(props) {
   // get question id from url parameter
@@ -53,24 +54,13 @@ export default function DisplayQuestionPage(props) {
   }
 
   return (
-    <Box sx={{
-      marginTop: 2,
-      marginBottom: 3,
-      display: 'flex',
-      flexDirection: 'column',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      width: '95%',
-      justifyContent: 'center',
-      maxWidth: '1500px',
-    }}
-    >
-      <div style={{ marginLeft: '20px', marginRight: '20px', display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
+    <Box sx={styles.displayQuestion.outerBox}>
+      <div style={styles.displayQuestion.topDiv}>
         <div style={{ marginTop: '8px' }}>
-          <Typography sx={{ display: 'inline', color: 'text.primary' }} variant="body1">
+          <Typography sx={styles.displayQuestion.username} variant="body1">
             {questionData.username}
           </Typography>
-          <Typography sx={{ display: 'inline', color: 'text.secondary' }} variant="body1">
+          <Typography sx={styles.displayQuestion.asked} variant="body1">
             {' '} asked {moment(questionData.date).fromNow()}:
           </Typography>
         </div>
@@ -79,25 +69,25 @@ export default function DisplayQuestionPage(props) {
         )}
         <QuestionVoting questionId={questionId} />
       </div>
-      <Box sx={{ backgroundColor: '#E8E6E6', marginLeft: 'auto', marginRight: 'auto', width: '98%', borderRadius: 2, marginTop: '10px' }}>
-        <div style={{ marginTop: '10px', marginLeft: '15px', marginRight: '15px', marginBottom: '10px', color: '#0000AA', textDecoration: 'underline' }}>
+      <Box sx={styles.displayQuestion.titleBox}>
+        <div style={styles.displayQuestion.titleDiv}>
           <Typography variant="h5">
             {questionData.title}
           </Typography>
         </div>
       </Box>
-      <Box sx={{ backgroundColor: '#E8E6E6', marginLeft: 'auto', marginRight: 'auto', width: '98%', borderRadius: 2, marginTop: '10px' }}>
-        <div style={{ marginTop: '10px', marginLeft: '15px', marginRight: '15px', marginBottom: '15px' }}>
+      <Box sx={styles.displayQuestion.descriptionBox}>
+        <div style={styles.displayQuestion.descriptionDiv}>
           <Typography variant="body" sx={{ whiteSpace: 'pre-line' }}>
             {questionData.description}
           </Typography>
         </div>
         {questionImgName && (
-        <Box sx={{ marginLeft: '15px', marginTop: '10px' }}>
-          <Typography variant="body" sx={{ display: 'block', textDecoration: 'underline' }}>
+        <Box sx={styles.displayQuestion.imageBox}>
+          <Typography variant="body" sx={styles.displayQuestion.imageText}>
             Attached Image:
           </Typography>
-          <img style={{ maxWidth: '1200px', maxHeight: '1000px', marginTop: '10px', marginBottom: '10px', borderRadius: 10 }} src={`${process.env.REACT_APP_IMAGES_URL}/${questionImgName}`} alt="user uplaoded" />
+          <img style={styles.displayQuestion.image} src={`${process.env.REACT_APP_IMAGES_URL}/${questionImgName}`} alt="user uplaoded" />
         </Box>
         )}
       </Box>

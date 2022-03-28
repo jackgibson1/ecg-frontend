@@ -1,10 +1,8 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogTitle from '@mui/material/DialogTitle';
+import { Button, Dialog, DialogActions, DialogTitle } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ForumService from '../../services/forum.service';
+import { styles } from './forum.styles';
 
 export default function DeleteQuestionDialog(props) {
   const { history, questionId } = props;
@@ -21,16 +19,11 @@ export default function DeleteQuestionDialog(props) {
 
   return (
     <div>
-      <Button
-        sx={{ color: '#EE3233', marginBottom: '2%', marginTop: '2%', boxShadow: 5 }}
-        variant="outlined"
-        endIcon={<DeleteForeverIcon />}
-        onClick={handleClickOpen}
-      >
+      <Button sx={styles.deleteDialog.button} variant="outlined" endIcon={<DeleteForeverIcon />} onClick={handleClickOpen}>
         Delete
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle>
           Are you sure you want to delete this question?
         </DialogTitle>
         <DialogActions>

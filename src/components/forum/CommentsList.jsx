@@ -1,15 +1,14 @@
 import * as React from 'react';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import { Box, Typography } from '@mui/material';
+import { List, Divider, Box, Typography } from '@mui/material';
 import CommentIcon from '@mui/icons-material/Comment';
 import CommentsListItem from './CommentsListItem';
+import { styles } from './forum.styles';
 
 export default function CommentsList(props) {
   const { comments } = props;
   return (
-    <div style={{ marginLeft: '15px', marginRight: '15px', marginTop: '15px' }}>
-      <Box sx={{ display: 'flex', marginTop: '15px' }}>
+    <div style={styles.comments.listDiv}>
+      <Box sx={styles.comments.listBox}>
         <CommentIcon />
         <Box>
           <Typography sx={{ ml: 1 }} variant="body1">
@@ -22,9 +21,9 @@ export default function CommentsList(props) {
         </Box>
       </Box>
       {comments.length > 0 && (
-        <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+        <List sx={styles.comments.list}>
             {comments.map((comment) => (
-              <div>
+              <div key={Math.random(1000)}>
                 <CommentsListItem comment={comment} />
                 <Divider variant="inset" component="li" />
               </div>

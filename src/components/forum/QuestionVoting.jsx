@@ -5,6 +5,7 @@ import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ForumService from '../../services/forum.service';
+import { styles } from './forum.styles';
 
 export default function QuestionVoting(props) {
   const { questionId } = props;
@@ -40,7 +41,7 @@ export default function QuestionVoting(props) {
 
   return (
     <div>
-      <div style={{ display: 'flex', position: 'relative', border: '1px solid black', paddingRight: '10px', borderRadius: '10px' }}>
+      <div style={styles.voting.outerDiv}>
         <IconButton disabled={voteType} onClick={() => castVote('upvote')}>
           {voteType === 'upvote' ? (
             <ThumbUpAltIcon />

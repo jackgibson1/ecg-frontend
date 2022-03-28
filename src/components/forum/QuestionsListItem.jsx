@@ -1,57 +1,51 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import Box from '@mui/material/Box';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
-import Link from '@mui/material/Link';
+import { Box, ListItem, ListItemText, ListItemAvatar, Typography, Avatar, Link } from '@mui/material';
 import PollIcon from '@mui/icons-material/Poll';
 import CommentIcon from '@mui/icons-material/Comment';
 import moment from 'moment';
+import { styles } from './forum.styles';
 
 export default function QuestionsListItem(props) {
   const { question, history } = props;
 
   const shortenedText = (text) => {
-    if (text.length > 2500) {
-      return `${text.substring(0, 160)}...'`;
-    }
+    if (text.length > 2500) return `${text.substring(0, 160)}...'`;
     return text;
   };
+
   return (
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
         <Avatar alt={question.username.toUpperCase()} src="random.jpg" />
       </ListItemAvatar>
       <ListItemText>
-        <Typography sx={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <Typography sx={styles.questions.title}>
           <Link sx={{ cursor: 'pointer' }} onClick={() => history.push(`ask/question/${question.id}`)} underline="hover">
             {shortenedText(question.title)}
           </Link>
         </Typography>
-        <Typography sx={{ marginBottom: '5px', marginTop: '2px', color: 'text.secondary', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} variant="body2">
+        <Typography sx={styles.questions.description} variant="body2">
           {shortenedText(question.description)}
         </Typography>
-        <div style={{ display: 'flex', justifyContent: 'left' }}>
-          <Box sx={{ display: 'flex', marginTop: 1 }}>
+        <div style={styles.questions.divContainer}>
+          <Box sx={styles.questions.box}>
             <PollIcon />
             <Box>
               <Typography sx={{ ml: 1 }} variant="body2">{`${question.totalVotes}`}</Typography>
             </Box>
           </Box>
-          <Box sx={{ display: 'flex', marginTop: 1, ml: 2 }}>
+          <Box sx={styles.questions.commentBox}>
             <CommentIcon />
             <Box>
               <Typography sx={{ ml: 1 }} variant="body2">{`${question.totalComments}`}</Typography>
             </Box>
           </Box>
-          <div style={{ marginTop: '5px', marginLeft: '20px', display: 'inline' }}>
-            <Typography sx={{ display: 'inline', color: 'text.primary' }} variant="body2">
+          <div style={styles.questions.userDiv}>
+            <Typography sx={styles.questions.username} variant="body2">
               {question.username}
             </Typography>
-            <Typography sx={{ display: 'inline', color: 'text.secondary' }} variant="body2">
+            <Typography sx={styles.questions.asked} variant="body2">
               {' '} asked {moment(question.date).fromNow()}.
             </Typography>
           </div>

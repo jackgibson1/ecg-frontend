@@ -1,8 +1,7 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
+import { Box, CircularProgress, Button } from '@mui/material';
 import { green } from '@mui/material/colors';
-import Button from '@mui/material/Button';
+import { styles } from './forum.styles';
 
 export default function CommentLoadingButton(props) {
   const { loading, success, timer, handleSubmit } = props;
@@ -21,7 +20,7 @@ export default function CommentLoadingButton(props) {
   }, []);
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '5px' }}>
+    <Box sx={styles.commentLoadingButton.outerBox}>
       <Box sx={{ position: 'relative' }}>
         <Button
           variant="contained"

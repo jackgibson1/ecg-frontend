@@ -4,6 +4,7 @@ import { TextField, Alert } from '@mui/material';
 import AuthService from '../../services/auth.service';
 import ForumService from '../../services/forum.service';
 import CommentLoadingButton from './CommentLoadingButton';
+import { styles } from './forum.styles';
 
 export default function CommentArea(props) {
   const { questionId, getComments } = props;
@@ -46,7 +47,7 @@ export default function CommentArea(props) {
   };
 
   return (
-    <div style={{ marginLeft: '15px', marginRight: '15px', marginTop: '15px' }}>
+    <div style={styles.commentArea}>
       {AuthService.isLoggedIn() ? (
         <Form onSubmit={handleSubmit}>
           <TextField
@@ -61,7 +62,6 @@ export default function CommentArea(props) {
           />
           <CommentLoadingButton success={success} loading={loading} timer={timer} handleSubmit={handleSubmit} />
         </Form>
-
       ) : (
         <Alert severity="info">Please sign in to reply to this question.</Alert>
       )}

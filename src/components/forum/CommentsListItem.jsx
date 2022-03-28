@@ -1,11 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
+import { ListItem, ListItemText, ListItemAvatar, Typography, Avatar } from '@mui/material';
 import moment from 'moment';
+import { styles } from './forum.styles';
 
 export default function CommentsListItem(props) {
   const { comment } = props;
@@ -16,14 +13,14 @@ export default function CommentsListItem(props) {
         <Avatar alt={comment.username.toUpperCase()} src="random.jpg" />
       </ListItemAvatar>
       <ListItemText>
-        <Typography sx={{ marginBottom: '5px', marginTop: '2px', whiteSpace: 'pre-line' }} variant="body2">
+        <Typography sx={styles.comments.description} variant="body2">
           {comment.description}
         </Typography>
-        <div style={{ marginTop: '5px', display: 'inline' }}>
-          <Typography sx={{ display: 'inline', color: 'text.primary' }} variant="body2">
+        <div style={styles.comments.usernameDiv}>
+          <Typography sx={styles.comments.usernameText} variant="body2">
             {comment.username}
           </Typography>
-          <Typography sx={{ display: 'inline', color: 'text.secondary' }} variant="body2">
+          <Typography sx={styles.comments.commented} variant="body2">
             {' '} commented {moment(comment.date).fromNow()}.
           </Typography>
         </div>

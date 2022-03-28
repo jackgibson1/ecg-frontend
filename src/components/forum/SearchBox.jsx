@@ -1,16 +1,12 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
+import { Paper, InputBase, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { styles } from './forum.styles';
 
 export default function SearchBox() {
   return (
-    <Paper
-      component="form"
-      sx={{ p: '2px 4px', display: 'flex', width: 400, border: 1 }}
-    >
-      <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search Questions" disabled />
+    <Paper component="form" sx={styles.search.paper}>
+      <InputBase sx={styles.search.input} placeholder="Search Questions" disabled />
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>

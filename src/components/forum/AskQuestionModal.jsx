@@ -8,18 +8,7 @@ import Modal from '@mui/material/Modal';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ForumService from '../../services/forum.service';
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '60%',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+import { styles } from './forum.styles';
 
 export default function AskQuestionModal(props) {
   const { history } = props;
@@ -93,7 +82,7 @@ export default function AskQuestionModal(props) {
     <>
       <Button variant="outlined" onClick={handleOpen}>Ask Question</Button>
       <Modal open={open} onClose={handleClose}>
-        <Box sx={style}>
+        <Box sx={styles.askQuestionModal}>
           <Typography variant="h6">What would you like help with?</Typography>
           <Form onSubmit={handleSubmit}>
             <Stack spacing={2} sx={{ marginTop: '20px' }}>
