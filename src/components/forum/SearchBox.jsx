@@ -10,7 +10,7 @@ export default function SearchBox() {
       component="form"
       sx={{ p: '2px 4px', display: 'flex', width: 400, border: 1 }}
     >
-      <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search Questions" />
+      <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search Questions" disabled />
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>

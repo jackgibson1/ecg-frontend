@@ -19,7 +19,6 @@ export default function CenteredTabs() {
         <Tabs value={value} onChange={handleChange} centered>
           <Tab label="Courses Overview" value="1" />
           <Tab label="Quizzes Overview" value="2" />
-          <Tab label="Forum Interactions" value="3" />
         </Tabs>
         <TabPanel value="1">
           <CourseTable isCourseTable />

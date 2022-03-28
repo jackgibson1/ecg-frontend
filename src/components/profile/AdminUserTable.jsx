@@ -59,7 +59,6 @@ const userColumns = [
 
 export default function AdminUserTable() {
   const confirm = useConfirm();
-  // eslint-disable-next-line react/prop-types
   const [userRows, setUserRows] = useState([]);
   const [selectedUsers, setSelectedUsers] = React.useState([]);
   const [deletions, setDeletions] = React.useState(0);

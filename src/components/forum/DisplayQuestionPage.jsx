@@ -6,6 +6,8 @@ import CommentsList from './CommentsList';
 import ForumService from '../../services/forum.service';
 import LoadingPage from '../misc/LoadingPage';
 import QuestionVoting from './QuestionVoting';
+import DeleteQuestionDialog from './DeleteQuestionDialog';
+import AuthService from '../../services/auth.service';
 
 export default function DisplayQuestionPage(props) {
   // get question id from url parameter
@@ -40,6 +42,11 @@ export default function DisplayQuestionPage(props) {
   if (isLoading) {
     return <LoadingPage text="Loading question..." />;
   }
+  const canDelete = () => {
+    if (!AuthService.isLoggedIn()) return false;
+    if ((questionData.username === AuthService.getCurrentUser().username) || (AuthService.getCurrentUser().username === 'admin')) return true;
+    return false;
+  };
 
   if (error) {
     return <h1>The provided question either does not exist or something has went wrong.</h1>;
@@ -67,6 +74,9 @@ export default function DisplayQuestionPage(props) {
             {' '} asked {moment(questionData.date).fromNow()}:
           </Typography>
         </div>
+        {canDelete() && (
+          <DeleteQuestionDialog history={props.history} questionId={questionId} />
+        )}
         <QuestionVoting questionId={questionId} />
       </div>
       <Box sx={{ backgroundColor: '#E8E6E6', marginLeft: 'auto', marginRight: 'auto', width: '98%', borderRadius: 2, marginTop: '10px' }}>

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { IconButton, Typography } from '@mui/material';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
@@ -41,7 +40,7 @@ export default function QuestionVoting(props) {
 
   return (
     <div>
-      <div style={{ display: 'flex', position: 'relative' }}>
+      <div style={{ display: 'flex', position: 'relative', border: '1px solid black', paddingRight: '10px', borderRadius: '10px' }}>
         <IconButton disabled={voteType} onClick={() => castVote('upvote')}>
           {voteType === 'upvote' ? (
             <ThumbUpAltIcon />
