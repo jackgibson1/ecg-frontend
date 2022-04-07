@@ -193,6 +193,9 @@ const Register = (props) => {
           </Stack>
           )}
         </Form>
+        <Typography sx={{ marginTop: '3%' }} variant="body2" color="text.secondary" align="center">
+          By creating an account, you agree to your details being stored with us in line with GDPR regulations.
+        </Typography>
         {message && (
           <>
             <Alert sx={{ marginTop: '3%' }} severity={successful ? 'success' : 'error'}>{message}</Alert>
