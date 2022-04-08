@@ -217,5 +217,4 @@ const Register = (props) => {
     </Container>
   );
 };
-
 export default Register;
