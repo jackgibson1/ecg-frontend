@@ -58,4 +58,11 @@ deploy:
        && cd ecg-frontend 
        && echo "REACT_APP_CAPTCHA_KEY=${CAPTCHA_KEY}" >> .env
        && echo "REACT_APP_API_URL=${API_URL}" >> .env
-       && echo "REACT_APP_IMAGES_URL=${API_IMAGES_URL}" >> .env"
+       && echo "REACT_APP_IMAGES_URL=${API_IMAGES_URL}" >> .env
+       && echo $SERVER_PASSWORD | sudo -S docker stop ecg-frontend
+       && echo $SERVER_PASSWORD | sudo -S docker rm ecg-frontend 
+       && echo $SERVER_PASSWORD | sudo -S docker rmi ecg-frontend-image
+       && echo $SERVER_PASSWORD | sudo -S docker build -t ecg-frontend-image .
+       && echo $SERVER_PASSWORD | sudo -S docker run -d --name=ecg-frontend -p 10003:80 ecg-frontend-image
+       && cd ..
+       && rm -rf ecg-frontend"
