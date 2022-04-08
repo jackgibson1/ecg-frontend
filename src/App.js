@@ -23,6 +23,7 @@ const theme = createTheme({
 });
 
 function App() {
+  // state to hold current users data
   const [currentUser, setCurrentUser] = useState(undefined);
 
   const logOut = () => {
@@ -40,6 +41,7 @@ function App() {
     if (user) setCurrentUser(user);
   }, []);
 
+  // define history object for application and configure axios interceptors
   function HistoryFunctionForAxiosInterceptors() {
     const history = useHistory();
     SetupInterceptors(history, logOut);

@@ -13,6 +13,7 @@ export default function QuizDialog(props) {
   const { quiz, open, handleClickOpen, handleClose, history } = props;
   const [timer, setTimer] = React.useState({ on: false, seconds: 10 });
 
+  // define quiz object to be stored in browser localstorage
   const localStorageQuiz = {
     id: quiz.id,
     currentQuestion: 1,
@@ -21,6 +22,7 @@ export default function QuizDialog(props) {
     answers: [],
   };
 
+  // upon starting quiz, push newly created object onto localstorage
   const startOnClick = () => {
     history.push(quiz.path);
     localStorage.setItem('quiz', JSON.stringify(localStorageQuiz));

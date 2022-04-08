@@ -12,11 +12,13 @@ import { styles } from '../quiz.styles';
 
 export default function QuizAnswerButtons(props) {
   const { quiz, quizStorage, currentQuestion, submitted, setSubmitted } = props;
+  // get answer and description of current question
   const { answer, answerDesc } = quiz.questions[currentQuestion - 1];
   const [selectedAnswer, setSelectedAnswer] = React.useState(-1);
   const [error, setError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('');
 
+  // on each new question initially remove all errors, selected answer and feedback
   React.useEffect(() => {
     setError(false);
     setHelperText('');
@@ -31,6 +33,7 @@ export default function QuizAnswerButtons(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // conditionally either display feedback or push answer
     if (selectedAnswer === -1) {
       setHelperText('Please select an answer first!');
       setError(true);
@@ -46,6 +49,7 @@ export default function QuizAnswerButtons(props) {
       setSubmitted(true);
     }
 
+    // update local storage
     QuizService.updateLocalQuiz(quizStorage);
   };
 

@@ -9,6 +9,7 @@ import { styles } from '../quiz.styles';
 export default function QuizComplete(props) {
   const { history } = props;
   const quiz = QuizService.getLocalQuiz();
+  // calculate total from localstorage
   const totalCorrect = quiz.answers.filter((x) => x === true).length;
   const quizName = quizDetails.find((quizDetail) => quizDetail.id === quiz.id).title;
 

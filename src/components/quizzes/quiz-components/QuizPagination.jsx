@@ -10,9 +10,12 @@ export default function QuizPagination(props) {
   const [openModal, setOpenModal] = useState(false);
 
   const handleNext = () => {
+    // check if quiz is completed
     if (currentQuestion === totalQuestions) {
       const quiz = QuizService.getLocalQuiz();
+      // calculate total
       const totalCorrect = quiz.answers.filter((x) => x === true).length;
+      // send total to api and check if credit has been earned
       QuizService.updateQuizScore(quiz.id, totalCorrect).then((res) => {
         if (res.data.creditEarned) {
           setOpenModal(true);
@@ -21,6 +24,7 @@ export default function QuizPagination(props) {
     }
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     quizStorage.currentQuestion = currentQuestion + 1;
+    // update local storage with new changes
     localStorage.setItem('quiz', JSON.stringify(quizStorage));
   };
 

@@ -14,11 +14,9 @@ import { styles, CourseCardBadge } from '../styles';
 
 export default function CourseCard(props) {
   const {
-    // eslint-disable-next-line react/prop-types
     course, position, rating, completion,
   } = props;
 
-  // eslint-disable-next-line react/prop-types
   const percentComplete = position === 0 ? 0 : (position / course.sections.length) * 100;
 
   return (

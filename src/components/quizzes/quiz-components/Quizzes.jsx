@@ -12,11 +12,13 @@ function Quizzes(props) {
   const [cameFromCourse, setCameFromCourse] = React.useState({ cameFrom: false });
 
   React.useEffect(() => {
+    // check if user has been redirected from course
     if (typeof props.location.state !== 'undefined'
           && typeof props.location.state.cameFromCourse !== 'undefined') {
       setCameFromCourse(props.location.state);
       props.history.replace();
     }
+    // load all previous user quiz scores
     QuizService.getAllQuizScores().then((res) => {
       setAllScores(res.data);
       setLoading(false);
