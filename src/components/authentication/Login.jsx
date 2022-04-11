@@ -28,7 +28,6 @@ function NoAccount(props) {
 const Login = (props) => {
   const location = useLocation();
   const redirected = (typeof location.state !== 'undefined' && location.state.alert);
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -87,12 +86,14 @@ const Login = (props) => {
           Sign in
         </Typography>
 
-        <Form onSubmit={handleLogin}>
+        <Form onSubmit={handleLogin} data-testid="form">
           <Stack spacing={2} sx={{ marginTop: '5%' }}>
             <TextField
+              id="Username"
               required
               label="Username"
               InputProps={{
+                'data-testid': 'username',
                 startAdornment: (
                   <InputAdornment position="start">
                     <AccountCircleIcon />
@@ -106,6 +107,7 @@ const Login = (props) => {
               required
               label="Password"
               InputProps={{
+                'data-testid': 'password',
                 startAdornment: (
                   <InputAdornment position="start">
                     <LockIcon />
@@ -131,7 +133,9 @@ const Login = (props) => {
               Sign In
             </Button>
             {loading && (
-              <CircularProgress />
+              <div data-testid="loading">
+                <CircularProgress />
+              </div>
             )}
           </Stack>
         </Form>

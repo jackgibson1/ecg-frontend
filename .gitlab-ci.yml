@@ -1,6 +1,6 @@
 stages: 
  - lint
-#  - test
+ - test
  - confirm-deploy
  - deploy
 
@@ -12,13 +12,13 @@ lint:
     - npm install 
     - npm run lint 
 
-# test:
-#   stage: test
-#   tags: 
-#     - ecg-runner-server
-#   script:
-#     - npm install
-#     - npm test
+test:
+  stage: test
+  tags: 
+    - ecg-runner-server
+  script:
+    - npm install
+    - npm test
 
 confirm-deploy: 
   stage: confirm-deploy
