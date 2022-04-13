@@ -5,6 +5,7 @@ import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ForumService from '../../services/forum.service';
+import AuthService from '../../services/auth.service';
 import { styles } from './forum.styles';
 
 export default function QuestionVoting(props) {
@@ -42,21 +43,25 @@ export default function QuestionVoting(props) {
   return (
     <div>
       <div style={styles.voting.outerDiv}>
-        <IconButton disabled={voteType} onClick={() => castVote('upvote')}>
-          {voteType === 'upvote' ? (
-            <ThumbUpAltIcon />
-          ) : (
-            <ThumbUpOffAltIcon />
-          )}
-        </IconButton>
-        <IconButton disabled={voteType} onClick={() => castVote('downvote')}>
-          {voteType === 'downvote' ? (
-            <ThumbDownAltIcon />
-          ) : (
-            <ThumbDownOffAltIcon />
-          )}
-        </IconButton>
-        <Typography sx={{ marginTop: '8px' }} variant="body1">
+        {AuthService.isLoggedIn() && (
+          <div>
+            <IconButton disabled={voteType} onClick={() => castVote('upvote')}>
+              {voteType === 'upvote' ? (
+                <ThumbUpAltIcon />
+              ) : (
+                <ThumbUpOffAltIcon />
+              )}
+            </IconButton>
+            <IconButton disabled={voteType} onClick={() => castVote('downvote')}>
+              {voteType === 'downvote' ? (
+                <ThumbDownAltIcon />
+              ) : (
+                <ThumbDownOffAltIcon />
+              )}
+            </IconButton>
+          </div>
+        )}
+        <Typography sx={{ marginTop: '8px', marginLeft: '8px' }} variant="body1">
           Total Score: {totalVotes}
         </Typography>
       </div>
