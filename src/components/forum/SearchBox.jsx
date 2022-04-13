@@ -7,7 +7,7 @@ export default function SearchBox() {
   return (
     <Paper component="form" sx={styles.search.paper}>
       <InputBase sx={styles.search.input} placeholder="Search Questions" disabled />
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+      <IconButton disabled type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>
     </Paper>
