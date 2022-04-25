@@ -1,0 +1,42 @@
+QUEEN’S UNIVERSITY OF BELFAST COMPUTER SCIENCE
+
+Minute of Project Supervision Meeting
+======================================
+
+Student Name: Jack Gibson 
+Project Module Code: CG97
+Project Supervisor: Dr. Charles Gillan
+Meeting Number: 1Date of Meeting: 11/10/2021
+Progress since last meeting, and decisions arrived at during meeting:
+======================================
+- First meeting, discussed high level plan and requirements for Application. 
+- Discussed technologies, where to get information and resources. 
+- Charles suggested labelling user requirements and functions (REQ-USER-01)
+- Application should have; login/signup, logout timer, history (useHistory in React). 
+- Sections may include; beating heart to represent the movement of positive charge through the heart - show how this relates to PSQRT waves,
+                        section for various heart conditions and show the relating limb and precordial ECG leads. 
+- Have an IP address for MySQL - don't use localhost. Will make it difficult when moving it to server. Potentially docker container.
+
+
+Action Points:
+==============
+- Begin creating and developing an early stage design for the project. 
+- Have the initial problem description plan document finished by next Friday (22nd October). 
+- Begin implementing some frontend pages and simple navigation. 
+
+
+Date of next meeting:
+====================+
+- Will aim to meet every 3 weeks. 
+- 25/10/2021
+
+
+Agreed minute should be initialled by the supervisor.
+
+Supervisor's Initials:	_____________________________________________	Date: _________________
+
+
+
+Supervisor's Comments:
+=======================
+

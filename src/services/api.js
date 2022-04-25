@@ -15,6 +15,7 @@ const instance = axios.create({
 });
 
 export const SetupInterceptors = (history, logOut) => {
+  // for every request attach access token
   instance.interceptors.request.use(
     (config) => {
       const token = TokenService.getLocalAccessToken();
@@ -29,6 +30,7 @@ export const SetupInterceptors = (history, logOut) => {
     },
   );
 
+  // for every response check that token is still valid
   instance.interceptors.response.use(
     (res) => res,
     async (err) => {
@@ -36,12 +38,14 @@ export const SetupInterceptors = (history, logOut) => {
       if (originalConfig.url !== '/auth/signin' && err.response) {
       // Access Token was expired
         if (err.response.status === 401 && !originalConfig._retry) {
+          // preventation from entering loop
           originalConfig._retry = true;
           try {
             const rs = await instance.post('/auth/refreshtoken', {
               refreshToken: TokenService.getLocalRefreshToken(),
             });
             const { accessToken } = rs.data;
+            // update local access token to newly retrieved access toklen
             TokenService.updateLocalAccessToken(accessToken);
             return instance(originalConfig);
           } catch (_error) {

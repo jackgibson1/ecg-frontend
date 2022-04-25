@@ -1,0 +1,35 @@
+QUEENS UNIVERSITY OF BELFAST COMPUTER SCIENCE
+
+Minute of Project Supervision Meeting
+======================================
+
+Student Name: Jack Gibson 
+Project Module Code: CG97
+Project Supervisor: Dr. Charles Gillan
+Meeting Number: 3Date of Meeting: 23/11/2021
+Progress since last meeting, and decisions arrived at during meeting:
+======================================
+- Users can now register, login and log out using JWT. 
+- Users passwords are encrypted and stored in locally hosted MySQL Docker container. 
+- Demoed application (Christmas demonstration) to Charles; showed navigating through application and all authentication working correctly. Charles pleased with progress. 
+- Next step is to begin working on courses section.  
+
+Action Points:
+==============
+- Tidy up application. 
+- Begin implementing next big section - ECG courses. 
+
+Date of next meeting:
+====================+
+- January time (TBC).
+
+
+Agreed minute should be initialled by the supervisor.
+
+Supervisor's Initials:	_____________________________________________	Date: _________________
+
+
+
+Supervisor's Comments:
+=======================
+

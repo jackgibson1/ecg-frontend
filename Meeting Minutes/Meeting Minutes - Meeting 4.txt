@@ -1,0 +1,38 @@
+QUEENS UNIVERSITY OF BELFAST COMPUTER SCIENCE
+
+Minute of Project Supervision Meeting
+======================================
+
+Student Name: Jack Gibson 
+Project Module Code: CG97
+Project Supervisor: Dr. Charles Gillan
+Meeting Number: 4Date of Meeting: 12/01/2022
+Progress since last meeting, and decisions arrived at during meeting:
+======================================
+- Implemented courses page, course page now displays all 6 courses as cards 
+- Implemented course preview dialog, can view brief description of course along with its contents 
+- Implemented course layout presentation format, course material presented in box with sections beside. 
+- Began working on Heart Fundamentals course. 
+- Start thinking about deployment - deployed via Docker containers on Charles server.
+
+Action Points:
+==============
+- Begin creating and developing first two courses
+- Beware of copyright issues 
+- Tidy up login and register. 
+ 
+
+Date of next meeting:
+====================+
+- 03/02/2022
+
+
+Agreed minute should be initialled by the supervisor.
+
+Supervisor's Initials:	_____________________________________________	Date: _________________
+
+
+
+Supervisor's Comments:
+=======================
+

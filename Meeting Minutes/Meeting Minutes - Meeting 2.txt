@@ -1,0 +1,41 @@
+QUEENS UNIVERSITY OF BELFAST COMPUTER SCIENCE
+
+Minute of Project Supervision Meeting
+======================================
+
+Student Name: Jack Gibson 
+Project Module Code: CG97
+Project Supervisor: Dr. Charles Gillan
+Meeting Number: 2Date of Meeting: 02/11/2021
+Progress since last meeting, and decisions arrived at during meeting:
+======================================
+- Created Home Page.
+- Decided main sections; home, courses, quizzes and forum. 
+- Can now navigate through the application - also stores history. 
+- Analysed user requirements/desires from Google Form.
+
+- Now have access to past project and can SSH into server to view past students code. 
+- Decided to use JWT instead of AWS amplify, trying for challenge. 
+- Think about GDPR when storing user details. 
+- Try and think about stability of application, can many user use it currently? 
+
+Action Points:
+==============
+- Begin creating and developing authentication backend using JWT. 
+- Integrate the authentication API into frontend so that the user can register, login and sign out. 
+ 
+
+Date of next meeting:
+====================+
+- 23/11/2021
+
+
+Agreed minute should be initialled by the supervisor.
+
+Supervisor's Initials:	_____________________________________________	Date: _________________
+
+
+
+Supervisor's Comments:
+=======================
+

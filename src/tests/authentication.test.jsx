@@ -7,7 +7,7 @@ const { Router } = require('react-router-dom');
 
 afterEach(cleanup);
 
-it('renders redirect alert if redirected', () => {
+it('user should be shown a redirect alert if redirected', () => {
   const history = createMemoryHistory();
   const state = { alert: true, message: 'Been redirected!' };
   history.push('/login', state);
@@ -23,7 +23,7 @@ it('renders redirect alert if redirected', () => {
   expect(getByText(state.message).textContent).toBe('Been redirected!');
 });
 
-it('does not render redirect alert if not redirected', () => {
+it('user should not be shown as redirect alert if not redirected', () => {
   const history = createMemoryHistory();
   const state = {};
   // simulate no state being present in route
@@ -39,7 +39,7 @@ it('does not render redirect alert if not redirected', () => {
   expect(queryByText('Been redirected')).toBeNull();
 });
 
-it('inputting username text updates the state', () => {
+it('user should be able to input username', () => {
   const history = createMemoryHistory();
   const state = {};
   // simulate no state being present in route
@@ -61,7 +61,7 @@ it('inputting username text updates the state', () => {
   expect(usernameInput.value).toBe('Testuser');
 });
 
-it('inputting password text updates the state', () => {
+it('user should be able to update password', () => {
   const history = createMemoryHistory();
   const state = {};
   // simulate no state being present in route
@@ -83,7 +83,7 @@ it('inputting password text updates the state', () => {
   expect(passwordInput.value).toBe('testpass');
 });
 
-it('can sucessfully submit form when conditions correct', () => {
+it('user should be to successfully submit login when all conditions are correct', () => {
   const history = createMemoryHistory();
   const state = {};
   // simulate no state being present in route
