@@ -17,5 +17,5 @@ _**CI/CD**_
 - Deployment pipeline configured in gitlab-ci.yml file. Pipeline contains 3 main jobs; lint code, test code and deployment (deployment is configured using SSH within Gitlab runner to automate deployment to server on each commit to master branch).
 
 _**Usage & Deployment**_
-- Application is fully deployed to server [here](http://143.117.45.71:10003) 
-- Note that it is only accessible within the Queen's network.
+- Application was fully deployed.
+- Note that it is was only accessible within the QUB VPC.
